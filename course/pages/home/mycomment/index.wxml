@@ -1,0 +1,16 @@
+<!--pages/home/mycomment/index.wxml-->
+<view class="container">
+  <view class="m-mycomment" wx:if="{{commentList.length > 0}}">
+    <view class='list' wx:for="{{commentList}}" wx:key="id">
+      <view class='title'>#<text>{{item.pro_title}}</text>#</view>
+      <view class='comment-content'>{{item.content}}</view>
+      <view class='g-row-bt footer'>
+        <text>{{item.status==1?"已审核":"未审核"}}</text>
+        <text>{{item.create_time}}</text>
+      </view>
+    </view>
+  </view>
+  <view class='m-empty-box' wx:else>
+    <view class="tips">还没有发表过评论!</view>
+  </view>
+</view>

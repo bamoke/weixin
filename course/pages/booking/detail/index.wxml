@@ -1,0 +1,18 @@
+<!--pages/booking/detail/index.wxml-->
+<import src="../../../wxParse/wxParse.wxml" />
+<view class='container'>
+  <view class="m-article-detail">
+    <view class="title">{{info.title}}</view>
+    <image class="thumb" src="{{sourceUrl}}thumb/{{info.thumb}}"></image>
+    <view class="wxParse content">
+      <template is="wxParse" data="{{wxParseData:wxparse_content.nodes}}" />
+    </view>
+  </view>
+  <view class='m-lesson-list'>
+  <view class='item' bindtap='phase' data-id="1" data-bid="1">
+  <view class='title'>03期</view>
+  <view class='month'>2018-03</view>
+  <view class='btn'>现在预约</view>
+  </view>
+  </view>
+</view>

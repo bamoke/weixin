@@ -1,0 +1,32 @@
+/* pages/tests/logs/index.wxss */
+.m-tests-logs {
+  width:100%;
+}
+.m-tests-logs .item {
+  display:flex;
+  justify-content: space-between;
+  box-sizing:border-box;
+  margin-bottom:24rpx;
+  padding:24rpx;
+  background-color:#fff;
+}
+.m-tests-logs .item .score {
+  font-size:24rpx;
+  text-align: center;
+  color:#999;
+}
+.m-tests-logs .item .score .num {
+  font-size:32rpx;
+  color:#333;
+}
+.m-tests-logs .left {
+  width:70%;
+}
+.m-tests-logs .left .title {
+  margin-bottom:10rpx;
+  line-height:1.5;
+}
+.m-tests-logs .left .time {
+  font-size:24rpx;
+  color:#999;
+}

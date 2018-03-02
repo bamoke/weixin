@@ -1,0 +1,34 @@
+<!--pages/video/video.wxml-->
+<import src="../template/footer"/>
+<view class="container">
+    <view class="m-video tc">
+        <video id="js-video" src="{{src}}"   controls danmu-btn="true" enable-danmu="true" objectFit="cover"></video>
+        <text class='title'>{{title}}</text>
+        <view class='desc'>{{desc}}</view>
+        <view class="userinfo">
+            <view class='left'>
+                <image src="{{userinfo.avatar}}" class='avatar'></image>
+                <text class='username'>{{userinfo.name}}</text>
+            </view>
+            <text class='time'>发布于:{{create_time}}</text>
+        </view>
+    </view>
+
+    <view class='m-danmu'>
+        <text class='u-bar-m'>发送弹幕</text>
+        <form name='danmu'>
+            <textarea placeholder="请输入弹幕内容……" bindblur="bindInputBlur" />
+            <text class='btn' bindtap='bindButtonTap'>发送</text>
+        </form>
+        
+    </view>
+
+    <view class='m-comment' bindtap="bindSendDanmu">
+        <text class='u-bar-m'>网友评论</text>
+    </view>
+
+    <!--<template is='footer' data=''></template>-->
+</view>
+
+
+

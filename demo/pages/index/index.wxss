@@ -1,0 +1,60 @@
+/**index.wxss**/
+.userinfo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.userinfo-avatar {
+  width: 128rpx;
+  height: 128rpx;
+  margin: 20rpx;
+  border-radius: 50%;
+}
+
+.userinfo-nickname {
+  color: #aaa;
+}
+
+
+.m-banner-box {width:100%;}
+.i-banner {display:block;width:100%;height:320rpx;}
+
+.index-top-nav {
+  display: flex;
+  box-sizing:border-box;
+  margin-bottom:20rpx;
+  padding:40rpx 0;
+  width:100%;
+  height:200rpx;
+  background-color:#fff;
+}
+.index-top-nav .item {
+  flex-grow:1;
+  width:33%;
+  text-align:center;
+  color:#444;
+}
+.index-top-nav .item:before {
+  content:"";
+  display: block;
+  margin:0 auto 12rpx;
+  width:85rpx;
+  height:85rpx;
+  background-position:center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+.index-top-nav .i-hs:before {
+  background-image:url(http://ojpuy4nsw.bkt.clouddn.com/hs.png);
+}
+.index-top-nav .i-sj:before {
+  background-image:url(http://ojpuy4nsw.bkt.clouddn.com/store.png);
+}
+.index-top-nav .i-jy:before {
+  background-size: 70rpx;
+  background-image:url(http://ojpuy4nsw.bkt.clouddn.com/i-jy.png);
+}
+
+
+

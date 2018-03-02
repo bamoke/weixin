@@ -1,0 +1,28 @@
+<!--pages/home/testerror/index.wxml-->
+<view class='container'>
+  <view class='m-error-list' wx:if="{{question.length >0}}">
+    <view class='item' wx:for='{{question}}' wx:key="id" data-index='{{index}}' bindtap='showAnswer'>
+      <view class='ask'>{{item.ask}}</view>
+      <view class='m-answer-list' wx:if="{{item.answer}}">
+        <view class="answer-item" wx:for="{{item.answer}}" wx:for-item="av" wx:for-index="j" wx:key="{{av.j}}">
+          <text class='symbol'>{{symbolArr[j]}}:</text>
+          <text>{{av}}</text>
+        </view>
+      </view>
+      <view class='correct'>正确答案：
+        <text class="val">
+        <block wx:for='{{item.correct}}' wx:for-index='i' wx:for-item='v' wx:key='index'>{{symbolArr[v]}}</block>
+        </text>
+      </view>
+
+      <view class='my-selected'>我的选择：
+        <text class="val">
+        <block wx:for='{{item.selected}}' wx:for-index='i' wx:for-item='v' wx:key='index'>{{symbolArr[v]}}</block>
+        </text>
+      </view>
+    </view>
+  </view>
+    <view class='m-empty-box' wx:else>
+    <view class="tips">没有相关数据!</view>
+  </view>
+</view>

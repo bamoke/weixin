@@ -1,0 +1,5 @@
+{
+  "usingComponents": {
+    "commentform": "/component/commentform/commentform"
+  }
+}

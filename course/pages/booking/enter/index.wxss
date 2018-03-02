@@ -1,0 +1,48 @@
+/* pages/booking/enter/index.wxss */
+.bar {
+  padding: 24rpx 0;
+  font-size:32rpx;
+  width:100%;
+  text-align: center;
+}
+.m-form {
+  width:100%;
+}
+.m-form .item {
+  width:100%;
+  box-sizing:border-box;
+  padding:24rpx;
+  display: flex;
+justify-content: space-between;
+  background-color:#fff;
+  border-bottom:1px  solid #eee;
+}
+.m-form .item .title {
+  width:120rpx;
+  flex-shrink: 0;
+  flex-grow:0;
+}
+
+.m-form .item .main-input {
+  width:400rpx;
+  text-align: right;
+}
+.m-form .notes-box {
+    width:100%;
+  box-sizing:border-box;
+  padding:24rpx;
+  background-color:#fff;
+}
+.m-form .notes-box textarea {
+  box-sizing: border-box;
+  padding:12rpx;
+  width:100%;
+  height:150rpx;
+  border:1px solid #eee;
+}
+.btn-box {padding:24rpx;background: #fff;}
+.error-box {
+  padding:24rpx;
+  color:#ff5b57;
+  background-color:#fff;
+}

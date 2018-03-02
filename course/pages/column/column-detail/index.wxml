@@ -1,0 +1,79 @@
+<!--pages/column/column-detail/index.wxml-->
+<import src="../../../wxParse/wxParse.wxml" />
+<view class="container">
+  <!--  cover  -->
+  <image mode="aspectfill" src="{{sourceUrl}}/thumb/{{columnInfo.thumb}}" class="u-cover"></image>
+
+  <!--  description  -->
+  <view class="m-description">
+    <text class="title">{{columnInfo.title}}</text>
+    <text class="desc">{{columnInfo.description}}</text>
+    <view class="ft">
+      <view class="left">
+        <text>已更新{{columnInfo.article_num}}期</text>
+        <text class="fg">|</text>
+        <text>{{columnInfo.subscribers}}人订阅</text>
+      </view>
+      <view wx:if="{{columnInfo.isfree == 1}}" class="free">免费</view>
+      <view wx:else class="price">￥{{columnInfo.price}}</view>
+    </view>
+
+    <view wx:if='{{authStatus == 1}}' class='tips text-success'>您已订阅此专栏</view>
+    <view wx:else>
+      <button wx:if="{{columnInfo.isfree == 0}}" class='u-btn btn-import' data-id='{{columnInfo.id}}' bindtap='buyColumnist'>{{authStatus == 0?"立即订阅":"立即续费"}}</button>
+      <button wx:else class='u-btn btn-success' data-id='{{columnInfo.id}}' bindtap='subscriber'>免费订阅</button>
+    </view>
+    <!--  btn  -->
+
+    <!-- <view class="btn s-bg-minor">加入购物车</view> -->
+
+
+  </view>
+
+  <!--  column introduce  -->
+  <view class="m-column-wrap">
+    <view class="bar">
+      <text class="caption">专栏介绍</text>
+    </view>
+    <view class="wxParse content">
+      <template is="wxParse" data="{{wxParseData:wxparse_content.nodes}}" />
+    </view>
+  </view>
+
+  <!--  teacher infomation  -->
+  <view class="m-column-wrap">
+    <view class="bar">
+      <text class="caption">专家介绍</text>
+    </view>
+    <view class="m-teacher">
+      <image mode="aspectFill" class="avatar" src="{{sourceUrl}}/avatar/{{teacherInfo.avatar}}"></image>
+      <text class="name">{{teacherInfo.name}}</text>
+      <text class="position">{{teacherInfo.position}}</text>
+    </view>
+    <view class="content">{{teacherInfo.introduce}}</view>
+  </view>
+
+  <!--  article list  -->
+  <view class="m-column-list m-column-wrap">
+    <view class="bar">
+      <text class="caption">已发表文章</text>
+    </view>
+    <view data-url="/pages/column/article-detail/index?id={{item.id}}" class="item" wx:for="{{articleList}}" wx:key="id" bindtap='viewArticle'>
+      <image mode="scaleToFill" class="thumb" src="{{sourceUrl}}/thumb/{{item.thumb}}"></image>
+      <view class="info">
+        <view class="title">{{item.title}}</view>
+        <view class="ft">
+          <view class="total">
+            <text>阅读{{item.view_num}}</text>
+            <text>评论：{{item.comment_num}}</text>
+          </view>
+          <text class="time">{{item.time}}</text>
+        </view>
+      </view>
+    </view>
+    <navigator open-type="navigateTo" url="/pages/column/article-list/index?cid={{columnId}}" class="u-more-btn" wx:if="{{columnInfo.article_num > 5 && authStatus==1}}">查看所有文章</navigator>
+  </view>
+
+
+
+</view>

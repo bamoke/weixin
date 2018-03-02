@@ -1,0 +1,210 @@
+/* pages/course/detail/index.wxss */
+
+page {
+  height: 100%;
+}
+
+.g-page-top {
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 1;
+  width: 100%;
+  height: 440rpx;
+}
+
+.u-cover {
+  width: 100%;
+  height: 350rpx;
+}
+.u-video {
+  width:100%;
+  height:350rpx;
+}
+
+.m-nav {
+  display: -webkit-flex;
+  flex-grow: 1;
+  flex-shrink: 1;
+  width: 100%;
+  height: 90rpx;
+  line-height: 90rpx;
+  background-color: #fff;
+}
+
+.m-nav .btn {
+  flex-grow: 1;
+  box-sizing:border-box;
+  width: 33%;
+  display: block;
+  font-size: 32rpx;
+  text-align: center;
+  border-bottom: 4rpx solid #ddd;
+}
+
+.m-nav .active {
+  color: #28bfc6;
+  border-bottom-color: #28bfc6;
+}
+
+.g-content-swiper {
+  box-sizing: border-box;
+  padding-top: 440rpx;
+  width: 100%;
+  height: 100%;
+}
+
+.g-scroll-wrap {
+  height: 100%;
+  /* background-color:#fff; */
+
+}
+
+::-webkit-scrollbar {
+  width: 0;
+  padding: 0;
+  color: transparent;
+}
+
+.m-course-introduce .base-info {
+  box-sizing: border-box;
+  padding: 40rpx 20rpx;
+  width: 100%;
+  background-color: #fff;
+}
+
+.m-course-introduce .title {
+  font-size: 36rpx;
+}
+
+.m-course-introduce .total {
+  margin: 10rpx 0 20rpx;
+  color: #999;
+}
+
+.m-course-introduce .total .fg {
+  margin: 0 20rpx;
+}
+
+.m-course-introduce .price {
+  font-size: 32rpx;
+  color: #dd182c;
+}
+
+.m-teacher-info {
+  margin: 20rpx 0;
+  padding: 36rpx 20rpx;
+  box-sizing: border-box;
+  width: 100%;
+  background-color: #fff;
+}
+
+.m-teacher-info .avatar {
+  flex-shrink: 0;
+  margin-right: 20rpx;
+  width: 120rpx;
+  height: 120rpx;
+  border-radius: 50%;
+}
+
+.m-teacher-info .bd {
+  display: -webkit-flex;
+  align-items: center;
+}
+
+.m-teacher-info .bd .introduce {
+  flex-shrink: 1;
+  box-sizing: border-box;
+  width: 100%;
+}
+
+.m-teacher-info .bd .name {
+  margin-bottom: 10rpx;
+  line-height: 1;
+  font-size: 32rpx;
+}
+
+.m-teacher-info .bd .desc {
+  color: #999;
+}
+
+.m-teacher-info .bd .icon {
+  flex-grow: 0;
+  flex-shrink: 0;
+  width: 64rpx;
+}
+
+.m-content-item {
+  padding: 40rpx 20rpx;
+  background-color: #fff;
+}
+
+.m-content-item .item {
+  margin-bottom: 20rpx;
+}
+
+.m-content-item .item .bar {
+  margin-bottom: 10rpx;
+  font-size: 32rpx;
+}
+
+.m-content-item .item .content {
+  color: #666;
+}
+
+/* section  */
+
+.m-section-list {min-height: 100%;background-color:#fff;}
+.m-section-list .list {
+  display: -webkit-flex;
+  justify-content: space-between;
+  align-items: center;
+  box-sizing: border-box;
+  padding: 0 20rpx;
+  width: 100%;
+  height: 100rpx;
+  border-bottom: 2rpx solid #ddd;
+  background-color: #fff;
+}
+
+.m-section-list .list .title {
+  flex-grow: 1;
+  box-sizing:border-box;
+  padding-right:40rpx;
+  width:100%;
+  font-size: 30rpx;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+.m-section-list .list .title::before {
+  flex-shrink: 1;
+  content: "";
+  display: inline-block;
+  margin-right: 12rpx;
+  width: 40rpx;
+  height: 40rpx;
+  vertical-align: middle;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.m-section-list .list .type-1::before {
+ background-image: url('http://www.xinzhinetwork.com/Upload/weicon/pic.png');
+}
+.m-section-list .list .type-2::before {
+   background-image: url('http://www.xinzhinetwork.com/Upload/weicon/audio.png');
+}
+.m-section-list .list .type-3::before {
+  background-image: url('http://www.xinzhinetwork.com/Upload/weicon/video.png');
+}
+
+.m-section-list .list .duration {
+  flex-grow:0;
+  flex-shrink:0;
+  color: #999;
+}
+
+.m-comment {box-sizing:border-box;min-height:100%;background-color:#fff;}
+
+.u-btn {margin-top:24rpx;}

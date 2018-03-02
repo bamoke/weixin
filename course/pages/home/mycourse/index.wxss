@@ -1,0 +1,34 @@
+/* pages/home/mycourse/index.wxss */
+.s-studying {color:#28bfc6;}
+.s-complete {color:#09BB07;}
+.s-nostudy {color:#999;}
+
+.m-study-record {
+  margin-top:0;
+  padding-top:20rpx;
+  box-sizing: border-box;
+  width:100%;
+  min-height: 100%;
+  background-color:#fff;
+}
+.m-study-record .item .info {
+display: -webkit-flex;
+flex-direction: column;
+justify-content: space-between;
+height:160rpx;
+}
+.m-study-record .item .thumb {
+  width:200rpx;
+  height:120rpx;
+}
+.progress-box {
+  display: -webkit-flex;
+  align-items:center;
+  font-size:24rpx;
+  color:#999;
+}
+.progress-box .progress {
+  flex-grow:1;
+  flex-shrink:1;
+  font-size: 24rpx;
+}

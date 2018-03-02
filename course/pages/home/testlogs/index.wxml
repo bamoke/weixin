@@ -1,0 +1,19 @@
+<!--pages/tests/logs/index.wxml-->
+<view class='container' wx:if="{{showPage}}">
+  <view class='m-tests-logs' wx:if="{{logList.length > 0}}">
+    <view class='item' wx:for="{{logList}}" wx:key="id">
+      <view class='left'>
+        <view class='title'>{{item.title}}</view>
+        <view class='time'>{{item.time}}</view>
+      </view>
+      <view class='score'>
+        <view>测试成绩</view>
+        <view class=''>
+          <text class='num'>{{item.score}}</text>分</view>
+      </view>
+    </view>
+  </view>
+    <view class='m-empty-box' wx:else>
+    <view class="tips">没有相关数据!</view>
+  </view>
+</view>

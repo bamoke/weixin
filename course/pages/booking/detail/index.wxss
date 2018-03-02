@@ -1,0 +1,30 @@
+/* pages/booking/detail/index.wxss */
+.m-article-detail {
+  padding:24rpx;
+  box-sizing:border-box;
+  width:100%;
+  background-color:#fff;
+}
+.m-article-detail .title {
+  padding-bottom:24rpx;
+  font-size:32rpx;
+  text-align: center;
+}
+.m-article-detail .thumb {
+  width:100%;
+  height:320rpx;
+}
+.m-lesson-list {
+  margin-top:24rpx;
+  width:100%;
+  background-color:#fff;
+}
+.m-lesson-list .item {
+  padding:24rpx;
+  box-sizing:border-box;
+  display: flex;
+  flex-direction:row;
+  justify-content:space-between;
+  align-items: center;
+  border-bottom:1px solid #eee;
+}

@@ -1,0 +1,2 @@
+/* pages/home/mycolumn/index.wxss */
+.info .desc {font-size:24rpx;}

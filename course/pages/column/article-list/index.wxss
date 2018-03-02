@@ -1,0 +1,93 @@
+/* pages/column/article-list/index.wxss */
+
+.m-column-descinfo {
+    position: relative;
+    margin-bottom: 20rpx;
+    width: 100%;
+    background-color: #fff;
+    color:#fff;
+}
+
+.m-column-descinfo .cover {
+    width: 100%;
+    height: 360rpx;
+}
+
+.m-column-descinfo .text-box {
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 1;
+    display: -webkit-flex;
+    flex-direction: column;
+    justify-content: center;
+    box-sizing: border-box;
+    padding: 20rpx;
+    width: 100%;
+    height:360rpx;
+    background-color:rgba(0,0,0,.6);
+    text-align: center;
+}
+
+.m-column-descinfo .title {
+    font-size: 36rpx;
+}
+
+.m-column-descinfo .desc {
+  margin:0 0 40rpx;
+    font-size: 28rpx;
+}
+
+.m-column-descinfo .ft {opacity: .6;}
+.m-column-descinfo .ft text {margin-right:20rpx;}
+
+.m-article-list {
+  box-sizing:border-box;
+  width:100%;
+}
+.m-article-list .list {
+  box-sizing:border-box;
+  margin-bottom:20rpx;
+  padding:20rpx;
+  background-color:#fff;
+}
+.m-article-list .list .title {
+  font-size:32rpx;
+}
+.m-article-list .list .thumb {
+
+  width:100%;
+  height:280rpx;
+}
+.m-article-list .list .desc {
+  font-size:28rpx;
+  line-height: 1.5;
+}
+.m-article-list .list .ft {
+  margin-top:12rpx;
+  display: -webkit-flex;
+  justify-content: space-between;
+  color:#999;
+  font-size:24rpx;
+}
+.m-article-list .list .ft .fg {
+  margin:0 20rpx;
+}
+.m-article-list .video {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width:100%;
+  height:280rpx;
+  background-color:#000;
+}
+.video .play-btn {
+  flex-grow: 0;
+  width:0;
+  height:0;
+  border:24rpx solid #fff;
+  border-top-color:transparent;
+  border-right-color:transparent;
+  border-bottom-color:transparent;
+}
+

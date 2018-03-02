@@ -1,0 +1,336 @@
+/**app.wxss**/
+@import "wxParse/wxParse.wxss";
+.container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  box-sizing: border-box;
+  font-size: 26rpx;
+  line-height: 1.75;
+  background-color: #f0efef;
+}
+.g-row-bt {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+/**module**/
+
+.m-column-list {
+  box-sizing: border-box;
+  padding: 0 20rpx 40rpx;
+  width: 100%;
+  background-color: #fff;
+}
+
+.m-column-list .item {
+  display: -webkit-flex;
+  padding: 20rpx 0;
+  width: 100%;
+  box-sizing: border-box;
+  border-bottom: 2rpx solid #eee;
+}
+
+.m-column-list .item .thumb {
+  flex-shrink: 0;
+  width: 200rpx;
+  height: 120rpx;
+}
+
+.m-column-list .item .info {
+  flex-shrink: 1;
+  display: -webkit-flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-sizing: border-box;
+  padding-left: 20rpx;
+  width: 100%;
+  height: 120rpx;
+}
+
+.m-column-list .item .info .title {
+  font-size: 28rpx;
+  display: block;
+  color: #333;
+  line-height: 1.2;
+}
+
+.m-column-list .item .info .desc {
+  display: block;
+  width: 100%;
+  color: #999;
+}
+
+.m-column-list .item .bd {
+  display: block;
+  width: 80%;
+}
+
+.m-column-list .item .ft {
+  display: -webkit-flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  line-height: 1.2;
+  color: #999;
+  font-size: 24rpx;
+}
+
+.m-column-list .item .ft .total text {
+  margin-right: 20rpx;
+}
+
+.m-column-list .item .ft .price {
+  color: #e53d3a;
+  font-size: 28rpx;
+}
+
+.free {
+  /* width:60rpx;
+  height:40rpx;
+  line-height: 40rpx;
+  border-radius:10rpx; */
+  color: #3ee7a1;
+  /* background-color:#3ee7a1;
+  text-align: center; *//* font-size:22rpx; */
+}
+
+.m-comment {
+  padding: 20rpx 0 40rpx;
+  width: 100%;
+  background-color: #fff;
+}
+
+.m-comment .bar {
+  text-align: center;
+  position: relative;
+}
+
+.m-comment .bar .caption {
+  display: inline-block;
+  border-bottom: 6rpx solid #ddd;
+  font-size: 32rpx;
+  color: #666;
+}
+
+.m-comment .bar .create-btn {
+  position: absolute;
+  right: 24rpx;
+  top: 8rpx;
+  z-index: 1;
+  color: #28bfc6;
+  font-size:28rpx;
+}
+
+.m-comment .bar .create-btn:before {
+  content: "";
+  display: inline-block;
+  width: 32rpx;
+  height: 32rpx;
+  vertical-align: middle;
+  background: url('http://www.xinzhinetwork.com/Upload/weicon/brush.png') no-repeat center;
+  background-size: contain;
+}
+
+.m-commnet-list {
+  padding: 20rpx;
+}
+
+.m-commnet-list .item {
+  display: -webkit-flex;
+  box-sizing: border-box;
+  padding: 20rpx 0;
+  width: 100%;
+  border-bottom: 2rpx solid #eee;
+}
+
+.m-commnet-list .item .avatar {
+  flex-grow: 0;
+  flex-shrink: 0;
+  flex-basis: content;
+  width: 64rpx;
+  height: 64rpx;
+  border-radius: 50%;
+}
+
+.m-commnet-list .item .bd {
+  flex-grow: 0;
+  flex-shrink: 1;
+  box-sizing: border-box;
+  padding-left: 20rpx;
+  width: 100%;
+  font-size: 28rpx;
+  color:#666;
+}
+
+.m-commnet-list .item .bd .top {
+  display: -webkit-flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10rpx;
+  color: #999;
+  line-height: 1.2;
+}
+.m-commnet-list .item .bd .top .nickname {
+  flex-grow: 0;
+  width:50%;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.m-commnet-list .item .time {
+  font-size: 22rpx;
+}
+.m-commnet-list .item .bd .reply {
+  box-sizing:border-box;
+  padding:12rpx;
+  width:100%;
+  background:#f8f8f8;
+  color:#666;
+}
+.m-commnet-list .item .bd .reply .heading {color:#999;}
+
+.m-horizontal-nav {
+  display: -webkit-flex;
+  justify-content: space-around;
+  align-items: center;
+  margin-bottom: 20rpx;
+  width: 100%;
+  background-color: #fff;
+}
+
+.m-horizontal-nav .item {
+  padding: 32rpx 0;
+  width: 25%;
+  text-align: center;
+}
+
+.m-horizontal-nav .item .icon {
+  display: inline-block;
+  width: 64rpx;
+  height: 64rpx;
+  border-radius: 10%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 48rpx auto;
+}
+
+.m-horizontal-nav .item .icon-course {
+  background-image: url(http://ojpuy4nsw.bkt.clouddn.com/course-icon-course.png);
+  background-color: #c1d70c;
+}
+
+.m-horizontal-nav .item .icon-column {
+  background-image: url(http://ojpuy4nsw.bkt.clouddn.com/course-icon-column.png);
+  background-color: #ffa11d;
+}
+
+.m-horizontal-nav .item .icon-knowledge {
+  background-image: url(http://ojpuy4nsw.bkt.clouddn.com/course-icon-knowledge.png?v=1);
+  background-color: #20cc84;
+}
+
+.m-horizontal-nav .item .icon-test {
+  background-image: url(http://ojpuy4nsw.bkt.clouddn.com/course-icon-test.png);
+  background-color: #1dadff;
+}
+.m-horizontal-nav .item .icon-booking {
+  background-image: url(http://www.xinzhinetwork.com/Upload/weicon/index-icon-booking.png);
+  background-color: #09dcdf;
+}
+
+.m-test-list .item {
+  box-sizing: border-box;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 24rpx;
+  background-color: #fff;
+  border-bottom: 1px solid #eee;
+}
+
+.m-test-list .item .title {
+  flex-shrink: 1;
+  width: 70%;
+  line-height: 1.5;
+}
+
+.m-test-list .item .total {
+  flex-shrink: 0;
+  text-align: center;
+  color: #999;
+  line-height: 1.5;
+  font-size: 24rpx;
+}
+
+.m-test-list .item .total .num {
+  color: #666;
+}
+
+.m-empty-box {
+  padding: 40rpx;
+  text-align: center;
+}
+
+.m-empty-box .tips {
+  font-size: 32rpx;
+  color: #999;
+}
+
+/* skin  */
+
+.s-c-import {
+  color: #b20f00;
+}
+
+.s-bg-minor {
+  background-color: #28c0c6;
+}
+
+.s-bg-import {
+  background-color: #ff5b57;
+}
+
+.text-success {
+  color: #3ee7a1;
+}
+
+.text-danger {
+  color: #e53d3a;
+}
+
+/*  unit  */
+
+.u-more-btn {
+  margin-top: 40rpx;
+  border: 2rpx solid #eee;
+  height: 80rpx;
+  line-height: 80rpx;
+  text-align: center;
+  color: #999;
+}
+
+.btn-import {
+  color: #fff;
+  background-color: #ff5b57;
+}
+
+.btn-minor {
+  color: #fff;
+  background-color: #28c0c6;
+}
+
+/**func**/
+
+.f-ellipsis {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.f-text-strong {
+  font-weight: bold;
+}

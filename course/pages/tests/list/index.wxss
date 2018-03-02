@@ -1,0 +1,4 @@
+/* pages/tests/list/index.wxss */
+.m-test-list {
+  width:100%;
+}

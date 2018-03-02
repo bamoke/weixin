@@ -1,0 +1,35 @@
+<!--pages/column/article-list/index.wxml-->
+<view class="container">
+    <view class="m-column-descinfo">
+        <image mode="aspectFill" src="{{sourceUrl}}thumb/{{columnInfo.thumb}}" class="cover"></image>
+        <view class="text-box">
+            <view class="title">{{columnInfo.title}}</view>
+            <view class="desc">{{columnInfo.description}}</view>
+            <view class="ft">
+                <text class="">{{columnInfo.subscribers}}人订阅</text>
+                <text class="">已发表{{columnInfo.article_num}}期</text>
+            </view>
+        </view>
+    </view>
+
+    <!--  list  -->
+    <view class="m-article-list">
+        <navigator wx:for="{{articleList}}" wx:key="id" open-type="navigateTo" url="/pages/column/article-detail/index?id={{item.id}}" class="list">
+            <view class="title">{{item.title}}</view>
+            <image wx:if="{{item.type ==1}}" src="{{sourceUrl}}thumb/{{item.thumb}}" class="thumb"></image>
+            <view wx:elif="{{item.type ==2}}" class="audio">音频</view>
+            <view wx:elif="{{item.type ==3}}" class="video"><view class="play-btn">视频</view></view>
+            <view class="desc">{{item.desc}}</view>
+            <view class="ft">
+                <view class="left-info">
+                    <text>阅读：{{item.view_num}}</text>
+                    <text class="fg">|</text>
+                    <text>评论:{{item.comment_num}}</text>
+                </view>
+                <view class="right-info">
+                    <text>{{item.time}}</text>
+                </view>
+            </view>
+        </navigator>
+    </view>
+</view>

@@ -1,0 +1,40 @@
+<!--pages/order/index.wxml-->
+<view class='container' wx:if='{{showPage}}'>
+  <view class='m-order-list'>
+    <view class='item' wx:for='{{orders}}' wx:key='{{item.id}}'>
+      <view class='tp f-between'>
+        <text class='order-numb'>订单号：{{item.order_num}}</text>
+        <text class='status {{orderStatusStyle[item.status]}}'>{{orderStatusText[item.status]}}</text>
+      </view>
+
+      <view class='bd'>
+        <view class='pro-list' wx:for='{{item.prolist}}' wx:key='pro_id' wx:for-item='pro'>
+          <image mode='scaleToFill' src='{{sourceUrl}}thumb/{{pro.pro_thumb}}' class='thumb' wx:if="{{pro.pro_thumb}}"></image>
+          <view class='middle'>
+            <view class='name'>{{pro.pro_name}}</view>
+          </view>
+          <view class='right'>
+            <view class='price'>￥{{pro.pro_price}}</view>
+            <view class='status'></view>
+          </view>
+        </view>
+      </view>
+
+      <!--   -->
+      <view class='ft'>
+        <view class='total'>总计:<text class='price'>￥{{item.amount}}</text></view>
+        <view class='operator'>
+          <block wx:if='{{item.status == 1}}'>
+            <button size='mini' bindtap='cancelOrder' data-index="{{index}}">取消订单</button>
+            <button size='mini' type='warn' bindtap='rePay' data-index="{{index}}">支付</button>
+          </block>
+          <block wx:elif='{{item.status == 2}}'>
+            <button size='mini' bindtap='delOrder' data-index="{{index}}">删除订单</button>
+          </block>
+        </view>
+      </view>
+
+    </view>
+  </view>
+  <view wx:if="{{hasMore == false}}" class='u-tips-nomore'>没有更多了</view>
+</view>

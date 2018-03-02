@@ -1,0 +1,15 @@
+<!--pages/common/comment/index.wxml-->
+<view class='container'>
+<view class='u-comment-title'>{{title}}</view>
+<view class='my-commentform-container' hidden="{{formHide}}">
+    <form bindsubmit="formSubmit">
+      <textarea placeholder="140个字符内" name="content" />
+      <view class='my-commentform-footer'>
+        <button class='btn-minor' type="primary" form-type="submit"> 提交 </button>
+      </view>
+
+    </form>
+
+
+</view>
+</view>

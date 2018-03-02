@@ -1,0 +1,11 @@
+<!--pages/booking/index/index.wxml-->
+<view class='container'>
+   <view class="m-article-list">
+        <navigator wx:for="{{bookingList}}" wx:key="id" open-type="navigateTo" url="/pages/booking/detail/index?id={{item.id}}" class="list">
+            
+            <image src="{{sourceUrl}}thumb/{{item.thumb}}" class="thumb"></image>
+            <view class="title">{{item.title}}</view>
+
+        </navigator>
+    </view>
+</view>

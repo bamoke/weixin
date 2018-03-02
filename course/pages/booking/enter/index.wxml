@@ -1,0 +1,50 @@
+<!--pages/booking/enter/index.wxml-->
+<view class='container'>
+<view class='bar'>填写预约信息</view>
+  <form class="m-form" bindsubmit='formSubmit'>
+    <view class='item'>
+      <view class="title">真实姓名</view>
+      <view class="val">
+        <input type='text' class="main-input" name="realname" placeholder="请填写您的姓名" auto-focus />
+      </view>
+    </view>
+    <view class="item">
+      <view class="title">您的性别</view>
+      <view class="val">
+        <radio-group class="radio-group" name="gender">
+          <label class="radio">
+            <radio value="0" />女
+          </label>
+          <label class="radio">
+            <radio value="1" />男
+          </label>
+        </radio-group>
+      </view>
+    </view>
+    <view class='item'>
+      <view class="title">手机号码</view>
+      <view class='val'>
+        <input name="phone" type='number' class="main-input"  placeholder='请填写手机号码' value='' />
+      </view>
+    </view>
+    <view class='item'>
+      <view class="title">上课日期</view>
+      <view class='val'>
+        <picker name="day" bindchange="dayChange" value="{{dayIndex}}" range="{{dayArray}}">
+          <view class="picker">
+            {{dayArray[dayIndex]}}
+          </view>
+        </picker>
+      </view>
+    </view>
+    <view class='notes-box'>
+      <view class='val'>
+        <textarea name="notes" placeholder="备注信息，最多120字符" maxlength="120" />
+      </view>
+    </view>
+<view class="error-box" hidden='{{!errorStatus}}'>{{errorMsg}}</view>
+    <view class="btn-box">
+      <button form-type='submit' class='btn-minor'>提交</button>
+    </view>
+  </form>
+</view>

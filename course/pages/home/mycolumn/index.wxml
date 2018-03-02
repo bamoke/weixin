@@ -1,0 +1,20 @@
+<!--pages/home/mycolumn/index.wxml-->
+<view class='container'>
+  <view class="m-column-list" wx:if="{{columnList.length > 0}}">
+    <navigator open-type='navigate' url='/pages/column/article-list/index?cid={{item.id}}' class="item" wx:for="{{columnList}}" wx:key="id">
+      <image mode="scaleToFill" class="thumb" src="{{sourceUrl}}thumb/{{item.thumb}}"></image>
+      <view class="info">
+        <text class="title">{{item.title}}</text>
+        <view class='desc'>已更新
+          <text class='f-text-strong'>{{item.article_num}}</text>期</view>
+        <view class="ft">
+          <text>有效期：{{item.start_time}}<text> 至 </text>{{item.end_time}}</text>
+        </view>
+      </view>
+    </navigator>
+  </view>
+  <view class='m-empty-box' wx:else>
+    <view class="tips">还没有订阅专栏!</view>
+  </view>
+
+</view>

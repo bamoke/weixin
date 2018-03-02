@@ -1,0 +1,15 @@
+/* pages/booking/index/index.wxss */
+.m-article-list {width:100%;background-color:#fff;}
+.m-article-list .list {
+  padding:24rpx;
+  box-sizing: border-box;
+  width: 100%;
+  border-bottom:1px solid #eee;
+}
+.m-article-list .thumb {
+  width:100%;
+  height:320rpx;
+}
+.m-article-list .title {
+  font-size:32rpx;
+}

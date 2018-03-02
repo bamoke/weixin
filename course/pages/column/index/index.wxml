@@ -1,0 +1,39 @@
+<!--pages/list/index.wxml-->
+<view class="container" wx:if='{{showPage}}'>
+  <scroll-view scroll-x class="m-category" >
+    <view bindtap='changeTab' id="cate-0"  data-cid='0' class="item {{curCid == 0 ?'active':''}}">全部</view>
+
+    <view bindtap='changeTab' data-cid='{{item.id}}' wx:for="{{category}}" wx:key="id" id="cate-{{item.id}}" class="item {{curCid == item.id?'active':''}}">{{item.name}}</view>
+
+
+
+  </scroll-view>
+  <!-- list  -->
+  <view class="m-column-list">
+    <navigator open-type="navigateTo" url="/pages/column/column-detail/index?id={{item.id}}" class="item" wx:for="{{columnList}}" wx:key="{{item.id}}">
+      <image mode="scaleToFill" class="thumb" src="{{sourceUrl}}thumb/{{item.thumb}}"></image>
+      <view class="info">
+        <view class="bd">
+          <text class="title">{{item.title}}</text>
+          <text class="desc f-ellipsis">{{item.description}}</text>
+        </view>
+
+
+        <view class="ft">
+          <view class="total">
+            <text>订阅:{{item.subscribers}}</text>
+            <text>更新:{{item.article_num}}</text>
+          </view>
+          <view wx:if="{{item.isfree == 1}}" class="free">免费</view>
+          <view wx:else class="price">￥{{item.price}}</view>
+        </view>
+      </view>
+    </navigator>
+  </view>
+
+  <!-- more icon  -->
+  <!-- <view class="m-loading" hidden="{{isloaded}}">
+    <loading>加载更多</loading>
+  </view>  -->
+
+</view>

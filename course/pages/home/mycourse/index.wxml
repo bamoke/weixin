@@ -1,0 +1,22 @@
+<!--pages/home/mycourse/index.wxml-->
+<view class='container'>
+  <view class="m-column-list m-study-record" wx:if="{{courseList.length > 0}}">
+    <navigator open-type='navigate' url="/pages/course/detail/index?id={{item.id}}" class='item' wx:for="{{courseList}}" wx:key="{{item.courseId}}">
+      <image class="thumb" src="{{sourceUrl}}thumb/{{item.thumb}}"></image>
+      <view class="info">
+        <view class="title">{{item.title}}</view>
+        <!-- <view class="progress-box">
+          <progress percent="{{item.progress}}" show-info="true" class="progress" color="{{item.progress == 100?'#09BB07':'#28bfc6'}}"></progress>
+        </view>
+
+        <view class='ft'>
+          <text>最后学习时间:{{item.status == 0?'':item.last_time}}</text>
+          <text class="{{status[item.status].classname}}">{{status[item.status].info}}</text>
+        </view> -->
+      </view>
+    </navigator>
+  </view>
+    <view class='m-empty-box' wx:else>
+    <view class="tips">还没有购买课程!</view>
+  </view>
+</view>

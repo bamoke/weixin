@@ -1,0 +1,42 @@
+/* pages/teacher/index.wxss */
+page {height:100%;}
+.container {
+  justify-content: flex-start;
+}
+.m-teacher-info {
+  margin-bottom:24rpx;
+  width:100%;
+
+}
+.m-teacher-info .top {
+  box-sizing:border-box;
+  padding:40rpx 20rpx;
+  background-color:#28bfc6;
+  color:#fff;
+  text-align: center;
+}
+.m-teacher-info .avatar {
+  display: inline-block;
+  width:150rpx;
+  height:150rpx;
+  border-radius:50%;
+}
+.m-teacher-info .top .name {
+  margin:10rpx 0;
+  font-size:36rpx;
+  font-weight: bold;
+}
+.m-teacher-info .top .desc {
+  margin-bottom:20rpx;
+}
+.m-teacher-info .top .total .fg {margin:0 20rpx;}
+.m-teacher-info .introduce {
+  padding:40rpx 20rpx;
+  background-color:#fff;
+}
+
+.m-courselist-wrap .bar {
+  height:80rpx;
+  line-height: 80rpx;
+}
+.m-courselist-wrap .bar .caption {font-size:32rpx;}

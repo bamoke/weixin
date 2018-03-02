@@ -1,0 +1,18 @@
+<!--pages/article-detail/index.wxml-->
+<import src="../../../wxParse/wxParse.wxml" />
+<view class="container">
+  <view class="m-article-detail">
+
+    <view class="title">{{sectioninfo.title}}</view>
+    <view class="base-info"></view>
+    <view class='m-media-box'>
+      <audio wx:if='{{sectioninfo.type==2}}' name="" author="" src="{{sectioninfo.source}}" id="myAudio" controls loop></audio>
+      <video initial-time='1' wx:elif='{{sectioninfo.type == 3}}' src="{{sectioninfo.source}}" controls class="u-video" id="myVideo"></video>
+    </view>
+    
+    <view class="wxParse content">
+      <template is="wxParse" data="{{wxParseData:wxparse_content.nodes}}" />
+    </view>
+  </view>
+
+</view>

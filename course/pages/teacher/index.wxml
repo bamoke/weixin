@@ -1,0 +1,38 @@
+<!--pages/teacher/index.wxml-->
+<view class="container">
+    <view class="m-teacher-info">
+        <view class="top">
+            <image mode="aspectFill" src="{{sourceUrl}}avatar/{{teacherInfo.avatar}}" class="avatar"></image>
+            <view class="text-info">
+                <view class="name">{{teacherInfo.name}}</view>
+                <view class="desc">{{teacherInfo.position}}</view>
+                <view class="total">
+                    <text>课程数:{{teacherInfo.course_total}}</text>
+                    <text class="fg">|</text>
+                    <text>学员数:{{teacherInfo.student_num}}</text>
+                </view>
+            </view>
+        </view>
+        <view class="introduce">{{teacherInfo.introduce}}</view>
+    </view>
+
+    <!--  course list  -->
+    <view class="m-column-list m-courselist-wrap">
+        <view class="bar"><text class="caption">讲师课程</text></view>
+        <navigator open-type="navigateTo" url="/pages/course/detail/index?id={{item.id}}" class="item" wx:for="{{courseList}}" wx:key="id">
+            <image mode="scaleToFill" class="thumb" src="{{sourceUrl}}thumb/{{item.thumb}}"></image>
+            <view class="info">
+                <view class="title">{{item.title}}</view>
+                <view class="ft">
+                    <view class="total">
+                        <text>学员:{{item.study_num}}</text>
+                        <text>评论:{{item.comment_num}}</text>
+                    </view>
+                    <view wx:if="{{item.isfree == 1}}" class="free">免费</view>
+                    <view wx:else class="price">￥{{item.price}}</view>
+                </view>
+            </view>
+        </navigator>
+        <view class="u-more-btn" wx:if='{{hasMore}}' bindtap='loadMore'>加载更多</view>
+    </view>
+</view>

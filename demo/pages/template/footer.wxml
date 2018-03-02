@@ -1,0 +1,9 @@
+<template name="footer">
+<view class="m-footer">
+  <navigator url="../index/index" hover-class="navigator-hover" class="item"><span class="home"></span>首页</navigator>
+  <navigator url="find" class="item"><span class="fx"></span>发现</navigator>
+  <navigator url="redirect?title=redirect" open-type="redirect" class="item-m"><span class="fb"></span>发布</navigator>
+  <navigator url="msg" open-type="switchTab" class="item"><span class="kf"></span>客服</navigator>
+  <navigator url="../home/home" class="item {{ishome}}" open-type="redirect"><span class="user-home"></span>我的</navigator>
+</view>
+</template>

@@ -1,0 +1,30 @@
+<!--pages/test/index.wxml-->
+<view class="container" wx:if="{{showPage}}">
+  <view class='m-total s-bg-minor'>
+    <view class='top-info'>
+      <view>总测试次数</view>
+      <view class='num'>{{total}}</view>
+    </view>
+    <view class='bottom-info'>
+      <view class='item'>不及格：
+        <text class='num'>{{level_d}}</text>
+      </view>
+      <view class='item'>良好：
+        <text class='num'>{{level_c}}</text>
+      </view>
+      <view class='item'>优秀：
+        <text class='num'>{{level_b}}</text>
+      </view>
+      <view class='item'>满分：
+        <text class='num'>{{level_a}}</text>
+      </view>
+    </view>
+
+  </view>
+
+  <view class='m-nav'>
+    <navigator open-type='navigate' url='../testerror/index' class='item'>我的错题</navigator>
+    <navigator open-type='navigate' url='../testlogs/index' class='item'>测试记录</navigator>
+  </view>
+
+</view>

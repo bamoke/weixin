@@ -1,0 +1,43 @@
+/* pages/home/testerror/index.wxss */
+
+.m-error-list {
+  width: 100%;
+}
+
+.m-error-list .item {
+  box-sizing: border-box;
+  margin-bottom: 24rpx;
+  padding: 24rpx;
+  background-color: #fff;
+}
+
+.m-error-list .item .correct {
+  padding: 12rpx 0;
+  border-bottom: 1px solid #eee;
+  color: #3ab04b;
+}
+
+.val {
+  margin-right: 10rpx;
+  font-weight: bold;
+}
+
+.my-selected {
+  padding: 12rpx 0;
+  color: #999;
+}
+
+.my-selected .val {
+  color: #ff5b57;
+}
+
+.m-answer-list {
+  box-sizing: border-box;
+  margin-top: 12rpx;
+  padding: 24rpx;
+  width: 100%;
+  background-color: #f8f8f8;
+  border-top: 1px solid #eee;
+  border-bottom: 1px solid #eee;
+  color:#777;
+}

@@ -1,0 +1,96 @@
+/**index.wxss**/
+
+.m-banner {
+  width: 100%;
+  height: 320rpx;
+  overflow: hidden;
+}
+
+.m-banner image,.m-banner navigator {
+  width: 100%;
+  height: 100%;
+}
+
+.m-main-bar {
+  display: -webkit-flex;
+  justify-content: space-between;
+  align-items: center;
+  box-sizing: border-box;
+  padding-top:10rpx;
+  width: 100%;
+  height:90rpx;
+  font-size: 32rpx;
+  border-bottom:4rpx solid #eee;
+}
+.m-main-bar .caption {
+  display: block;
+  width: 70%;
+  text-align: left;
+font-size:32rpx;
+color:#333;
+}
+.m-main-bar .viewMore {
+font-size:24rpx;
+color:#9c9c9c;
+}
+.m-pro-recomment {
+  width:100%;
+}
+.m-pro-recomment .bd{
+  position:relative;
+  width:100%;
+  height:300rpx;
+}
+.m-pro-recomment .bd .info {
+  position:absolute;
+  left:20rpx;
+  top:30rpx;
+  z-index:1;
+  width:60%;
+}
+.m-pro-recomment .bd .title {
+  display: block;
+  font-size:30rpx;
+  color:#696969;
+}
+.m-pro-recomment .bd .desc {
+  display: block;
+  font-size: 24rpx;
+  color:#9c9c9c;
+}
+.m-pro-recomment .bd .price {
+  font-size: 36rpx;
+  color:#b20f00;
+}
+.m-pro-recomment .bd .thumb {
+  width: 100%;
+  height: 100%;
+}
+.m-pro-recomment .ft {
+  display:-webkit-flex;
+  justify-content:space-between;
+  align-items: center;
+  box-sizing:border-box;
+  padding:0 20rpx;
+  width:100%;
+  height:80rpx;
+  color:#9c9c9c;
+}
+
+.test {
+  display: -webkit-flex;
+  flex-direction: column;
+  justify-content: center;
+  width:300rpx;
+  height:600rpx;
+  background-color: #eee;
+}
+.test .cont-1 {
+  width:100%;
+  height:100rpx;
+}
+.test .cont-2 {
+  width:100%;
+  height:100rpx;
+  background-color:#b20f00;
+}

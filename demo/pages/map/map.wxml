@@ -1,0 +1,32 @@
+<!--pages/map/map.wxml-->
+<import src="../template/footer.wxml" />
+<view class='container'>
+<map id="map" longitude="{{longitude}}" latitude="{{latitude}}" scale="{{scale}}" controls="{{controls}}" bindcontroltap="controltap" markers="{{markers}}" bindmarkertap="markertap" polyline="{{polyline}}" bindregionchange="regionchange" show-location style="width: 100%; height: 600rpx"></map>
+
+<text class="u-bar">周边二手</text>
+<view  class="m-pro-list">
+  <view wx:for="{{pro_list}}" class="item" wx:for-index='i'>
+    <div class="top">
+        <view class='left'>
+            <span class="name">{{item.name}}</span>
+        </view>
+        
+      <span class="price">￥{{item.price}}</span>
+    </div>
+    <scroll-view class="scroll-img" scroll-x="true">
+    
+      <block wx:for="{{item.images}}" wx:for-item="j">
+        <image src="{{j}}" mode="aspectFill"></image>
+      </block>
+    </scroll-view>
+    <view class="user-info">
+      <view class="left">
+        <image class="avatar" src="{{item.avatar}}"></image>{{item.username}}
+      </view>
+      <view class="addr">{{item.addr}}</view>
+    </view>
+  </view>
+</view>
+
+<template is='footer' data='{{ishome:"active"}}'></template>
+</view>

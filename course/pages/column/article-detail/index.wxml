@@ -1,0 +1,34 @@
+<!--pages/article-detail/index.wxml-->
+<import src="../../../wxParse/wxParse.wxml" />
+<import src="../../template/comment/comment.wxml" />
+<view class="container">
+  <view class="m-article-detail">
+
+    <view class="title">{{article.title}}</view>
+    <view class="base-info">
+      <text>阅读:{{article.view_num}}</text>
+      <text class="fg">|</text>
+      <text>评论:{{article.comment_num}}</text>
+      <text class="fg">|</text>
+      <text>发布日期:{{article.create_time}}</text>
+    </view>
+    <view class='m-media-box'>
+      <image wx:if="{{article.type==1}}" class="thumb" src="{{sourceUrl}}thumb/{{article.thumb}}"></image>
+      <audio wx:elif='{{article.type==2}}'  name="" author="" src="{{article.source}}" id="myAudio" controls loop></audio>
+      <video initial-time='1' wx:elif='{{article.type == 3}}' src="{{article.source}}"   controls class="u-video" id="myVideo"></video>
+    </view>
+        <view class="wxParse content">
+      <template is="wxParse" data="{{wxParseData:wxparse_content.nodes}}" />
+    </view>
+  </view>
+
+
+  <!-- comment list  -->
+  <view class='m-comment' bindtap="bindSendDanmu">
+    <view class='bar'>
+      <text class="caption">精选评论</text>
+      <view class="create-btn" bindtap='createComment'>发表评论</view>
+    </view>
+    <template is="commentList" data="{{commentList}}"/>
+  </view>
+</view>
