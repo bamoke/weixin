@@ -1,7 +1,8 @@
 {
   "pages": [
-    "pages/booking/enter/index",
     "pages/booking/index/index",
+    "pages/booking/enter/index",
+    
     "pages/booking/detail/index",
     
 

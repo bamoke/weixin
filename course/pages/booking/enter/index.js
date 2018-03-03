@@ -1,6 +1,5 @@
 // pages/booking/enter/index.js
 import { siteConf } from "../../../static/js/common";
-var WxParse = require('../../../wxParse/wxParse.js');
 //获取应用实例
 var app = getApp()
 Page({
