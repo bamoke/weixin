@@ -20,9 +20,9 @@
       <view class="icon icon-column"></view>
       <view class="caption">我的专栏</view>
     </navigator>
-    <navigator open-type="navigateTo" url="" class="item">
-      <view class="icon icon-knowledge"></view>
-      <view class="caption">知识宝库</view>
+    <navigator open-type="navigateTo" url="../mybooking/index" class="item">
+      <view class="icon icon-booking"></view>
+      <view class="caption">我的预约</view>
     </navigator>
     <navigator open-type="navigate" url="../mytests/index" class="item">
       <view class="icon icon-test"></view>
@@ -41,19 +41,19 @@
         <view class='arrow'></view>
       </view>
     </navigator>
-
-  </view>
-  <view class="m-nav-list">
-    <!-- <navigator url="../map/map" class="item">
+    <navigator url="url" class="item">
       <view class='left'>
         <view class='icon i-favor'></view>
-        <text class=''>我的收藏</text>
+        <text class=''>我的赠送</text>
       </view>
       <view class='right'>
         <text class='tips'></text>
         <view class='arrow'></view>
       </view>
-    </navigator> -->
+    </navigator>
+  </view>
+
+  <view class="m-nav-list">
     <navigator url="../mycomment/index" class="item">
       <view class='left'>
         <view class='icon i-comment'></view>
@@ -64,10 +64,7 @@
         <view class='arrow'></view>
       </view>
     </navigator>
-  </view>
-
-  <!-- <view class="m-nav-list">
-    <navigator url="url" class="item">
+    <navigator url="../profile/index" class="item">
       <view class='left'>
         <view class='icon i-profile'></view>
         <text class=''>个人资料</text>
@@ -77,6 +74,8 @@
         <view class='arrow'></view>
       </view>
     </navigator>
-  </view> -->
+  </view>
+
+
 
 </view>

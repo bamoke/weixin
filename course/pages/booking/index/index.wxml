@@ -4,7 +4,11 @@
         <navigator wx:for="{{bookingList}}" wx:key="id" open-type="navigateTo" url="/pages/booking/detail/index?id={{item.id}}" class="list">
             
             <image src="{{sourceUrl}}thumb/{{item.thumb}}" class="thumb"></image>
+            <view class='g-row-bt'>
             <view class="title">{{item.title}}</view>
+            <view class='text-danger'>￥{{item.price}}</view>
+            </view>
+            
 
         </navigator>
     </view>

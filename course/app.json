@@ -1,11 +1,5 @@
 {
   "pages": [
-    "pages/booking/index/index",
-    "pages/booking/enter/index",
-    
-    "pages/booking/detail/index",
-    
-
     "pages/index/index",
     "pages/tests/index/index",
     "pages/tests/list/index",
@@ -27,7 +21,10 @@
     "pages/column/article-list/index",
     "pages/column/index/index",
     "pages/column/column-detail/index",
-    "pages/common/comment/index"
+    "pages/common/comment/index",
+    "pages/booking/index/index",
+    "pages/booking/enter/index",
+    "pages/booking/detail/index"
   ],
   "window": {
     "backgroundTextStyle": "light",

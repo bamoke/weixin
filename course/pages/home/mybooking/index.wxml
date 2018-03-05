@@ -1,2 +1,17 @@
 <!--pages/home/mybooking/index.wxml-->
-<text>pages/home/mybooking/index.wxml</text>
+<view class="container">
+  <view wx:if="{{list.length === 0}}" class="tips">还没有预约过线下课程!</view>
+  <view wx:else class='m-column-list'>
+    <view wx:for="{{list}}" wx:key="id">
+      <view class='item'>
+        <image mode="scaleToFill" class="thumb" src="{{sourceUrl}}thumb/{{item.thumb}}"></image>
+        <view class='info'>
+          <view class="title">{{item.title}}</view>
+          <view wx:if="{{item.day}}">上课时间：{{item.day}}{{item.time == null? "":item.time}}</view>
+          <navigator open-type='navigate' url='/pages/booking/enter/index?id={{item.id}}' wx:else>填写预约信息</navigator>
+        </view>
+      </view>
+      <navigator class="u-view-more" open-type='navigate' url='/pages/booking/detail/index?id={{item.bid}}'>查看课程</navigator>
+    </view>
+  </view>
+</view>

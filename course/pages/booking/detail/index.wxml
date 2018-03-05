@@ -9,9 +9,9 @@
     </view>
   </view>
   <view class='m-lesson-list'>
-  <view class='item' bindtap='phase' data-id="1" data-bid="1">
-  <view class='title'>03期</view>
-  <view class='month'>2018-03</view>
+  <view wx:for="{{phaseList}}" wx:key="id" class='item' bindtap='phase' data-id="{{item.id}}" data-bid="{{info.id}}">
+  <view class='title'>{{item.title}}</view>
+  <view class='month'>{{item.lesson_month}}</view>
   <view class='btn'>现在预约</view>
   </view>
   </view>

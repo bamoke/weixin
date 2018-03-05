@@ -1,1 +1,7 @@
 /* pages/home/mybooking/index.wxss */
+.u-view-more {
+  padding:12rpx 0;
+  border-bottom:1px solid #eee;
+  text-align: center;
+  color:#999;
+}

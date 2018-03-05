@@ -13,7 +13,7 @@ Page({
     showPage: false,
     bookingId: null,
     info: {},
-    lesson: []
+    phaseList: []
   },
   /**
    * 点击预约
@@ -21,8 +21,40 @@ Page({
   phase: function (data) {
     var id = data.target.dataset.id;
     var bid = data.target.dataset.bid;
-    wx.navigateTo({
-      url: '../enter/index?bid=' + bid + '&id=' + id,
+    var apiUrl = '/Orders/create';
+    var requestData = { type: 4, proid: id }
+    console.log(requestData);
+    // return;
+    var myPromise = app._getApiData(apiUrl, requestData);
+    myPromise.then(data => {
+      var nonceStr = data.info.nonceStr;
+      var pkg = data.info.package;
+      var timeStamp = data.info.timeStamp;
+      var paySign = data.info.sign;
+      wx.requestPayment({
+        timeStamp: timeStamp,
+        nonceStr: nonceStr,
+        package: pkg,
+        signType: 'MD5',
+        paySign: paySign,
+        success: function (res) {
+          wx.redirectTo({
+            url: '/pages/booking/enter/index?bid=' + bid + '&id=' + id,
+          })
+        },
+        fail: function (res) {
+          wx.redirectTo({
+            url: '/pages/home/orders/index',
+          })
+        }
+      })
+    }, err => {
+      wx.hideLoading();
+      wx.showModal({
+        title: '提示',
+        content: err,
+        showCancel:false
+      })
     })
   },
 
@@ -47,7 +79,8 @@ Page({
       }
       _that.setData({
         showPage: true,
-        info: data.info
+        info: data.info,
+        phaseList:data.phaseList
       })
     });
   },

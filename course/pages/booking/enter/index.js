@@ -10,11 +10,12 @@ Page({
   data: {
     sourceUrl: siteConf.sourceUrl,
     showPage: false,
-    id:1,
-    errorStatus:false,
-    errorMsg:"cuowu",
+    bid: null,
+    id: null,
+    errorStatus: false,
+    errorMsg: "cuowu",
     dayIndex: 0,
-    dayArray: ["请选择", "01", "02", "11"]
+    dayArray: ["请选择"]
   },
 
   //选择日期
@@ -26,8 +27,9 @@ Page({
 
   formSubmit: function (e) {
     var formData = e.detail.value;
+    var _that = this;
     //validate
-    if (formData.realname == ''){
+    if (formData.realname == '') {
       this._setError("请填写您的姓名")
       return;
     }
@@ -43,14 +45,42 @@ Page({
       this._setError("请选择上课日期")
       return;
     }
-    formData.id = this.data.id;
-    console.log(formData);
-    //提交表单
-  },
-  _setError:function(msg){
     this.setData({
-      errorStatus:true,
-      errorMsg:msg
+      errorStatus:false
+    })
+    formData.day = this.data.dayArray[formData.day]
+    formData.id = this.data.id;
+    formData.bid = this.data.bid;
+    console.log(formData);
+
+    //提交表单
+    var apiUrl = '/Booking/enroll'
+    var myPromise;
+    myPromise = app._getApiData(apiUrl, formData,"POST");
+    myPromise.then(data => {
+      wx.hideLoading();
+         wx.showModal({
+           title: '提交成功',
+           content: '感谢提交预约信息，稍后我们的工作人员将会与您取得联系！',
+           showCancel:false,
+           success:function(){
+             wx.switchTab({
+               url: '/pages/index/index',
+             })
+           }
+         })      
+    }, err => {
+      wx.hideLoading();
+      console.log(err)
+      _that._setError(err)
+    })
+
+  },
+  //==
+  _setError: function (msg) {
+    this.setData({
+      errorStatus: true,
+      errorMsg: msg
     })
 
   },
@@ -59,6 +89,27 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    if (options.bid) {
+      this.setData({
+        bid: options.bid,
+        id: options.id
+      })
+    }
+    var id = options.id;
+    var _that = this;
+    var apiUrl = '/Booking/phase'
+    var requestData = { id: id }
+    var myPromise;
+    myPromise = app._getApiData(apiUrl, requestData);
+    myPromise.then(data => {
+      wx.hideLoading();
+      _that.setData({
+        showPage: true,
+        dayArray: _that.data.dayArray.concat(data.info.lesson_day)
+      })
+    }, reject => {
+      console.log(reject)
+    })
 
   },
 
