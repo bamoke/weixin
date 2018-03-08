@@ -10,7 +10,9 @@ Page({
     home_bg_img: '',
     userinfo: {
       nickName: '',
-      avatarUrl: "https://pic1.zhimg.com/50/v2-593c53e1b03ee35a7ae1c11221330894_xs.jpg"
+      avatarUrl: "https://pic1.zhimg.com/50/v2-593c53e1b03ee35a7ae1c11221330894_xs.jpg",
+      balance:0,
+      mp_identification:0
     }
   },
 
@@ -34,39 +36,56 @@ _updateUserinfo:function(userInfo){
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    var _that = this;
+    var indexApiUrl = "/Home/index";
+    var curPromise = app._getApiData(indexApiUrl);
+    curPromise.then(data=>{
+      wx.hideLoading();
+      _that.setData({
+        userinfo:{
+          nickName: data.info.nickname,
+          avatarUrl: data.info.avatar,
+          balance:data.info.balance,
+          mp_identification:data.info.mp_identification
+        }
+      })
+
+    },reject=>{
+
+    }).then()
 
     // 页面初始化 options为页面跳转所带来的参数
     var _that = this;
-    if (this.data.userinfo.nickName == ''){
-      wx.login({
-        success: function (res) {
-          // success
-          wx.getUserInfo({
-            success: function (res) {
-              // success
-              _that._updateUserinfo(res.userInfo);
-              _that.setData({
-                userinfo: res.userInfo
-              })
+    // if (this.data.userinfo.nickName == ''){
+    //   wx.login({
+    //     success: function (res) {
+    //       // success
+    //       wx.getUserInfo({
+    //         success: function (res) {
+    //           // success
+    //           _that._updateUserinfo(res.userInfo);
+    //           _that.setData({
+    //             userinfo: res.userInfo
+    //           })
 
 
-            },
-            fail: function () {
-              // fail
-            },
-            complete: function () {
-              // complete
-            }
-          })
-        },
-        fail: function () {
-          // fail
-        },
-        complete: function () {
-          // complete
-        }
-      })
-    }
+    //         },
+    //         fail: function () {
+    //           // fail
+    //         },
+    //         complete: function () {
+    //           // complete
+    //         }
+    //       })
+    //     },
+    //     fail: function () {
+    //       // fail
+    //     },
+    //     complete: function () {
+    //       // complete
+    //     }
+    //   })
+    // }
   
   },
 

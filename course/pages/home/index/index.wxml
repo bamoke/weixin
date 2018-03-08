@@ -4,10 +4,13 @@
     <image wx:if="{{home_bg_img != ''}}" src="{{home_bg_img}}" class="bg" mode="aspectFill"></image>
     <view class="userinfo">
       <image src="{{userinfo.avatarUrl}}" class="avatar"></image>
-      <view class="username">{{userinfo.nickName}}</view>
+      <view class="username">
+        <text>{{userinfo.nickName}}</text>
+      </view>
+      <view wx:if="{{userinfo.mp_identification == 0}}" class="bind-mobile">手机未绑定</view>
       <view class="other">
-        <!-- <text>编辑资料</text> -->
-        <!-- <text>账户余额:￥{{balance}}</text> -->
+         <text>同步头像</text> 
+         <text>账户余额:￥{{userinfo.balance}}</text> 
       </view>
     </view>
   </view>
@@ -44,7 +47,7 @@
     <navigator url="url" class="item">
       <view class='left'>
         <view class='icon i-favor'></view>
-        <text class=''>我的赠送</text>
+        <text class=''>赠送记录</text>
       </view>
       <view class='right'>
         <text class='tips'></text>

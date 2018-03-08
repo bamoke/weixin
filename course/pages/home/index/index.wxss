@@ -29,9 +29,10 @@
     border-radius:50%;
 }
 .m-uh-top .userinfo .username {
-    padding:30rpx 0;
+    padding:24rpx 0;
     font-weight: bold;
     font-size:36rpx;
+    line-height: 1;
 }
 .m-uh-top .userinfo navigator {
     color:#666;
@@ -150,3 +151,11 @@ background-image:url(http://ojpuy4nsw.bkt.clouddn.com/i-collection.png);
   color:#999;
   vertical-align: middle;
   }
+.bind-mobile {
+  display: inline-block;
+  padding:10rpx;
+  background-color:#777;
+  color:#fff;
+  font-size:24rpx;
+  line-height: 1;
+}
