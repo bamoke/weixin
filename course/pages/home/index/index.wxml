@@ -7,7 +7,7 @@
       <view class="username">
         <text>{{userinfo.nickName}}</text>
       </view>
-      <view wx:if="{{userinfo.mp_identification == 0}}" class="bind-mobile">手机未绑定</view>
+      <navigator open-type='navigate' url='/pages/common/bind/index' wx:if="{{userinfo.mp_identification == 0}}" class="bind-mobile">手机号未绑定</navigator>
       <view class="other">
          <text>同步头像</text> 
          <text>账户余额:￥{{userinfo.balance}}</text> 

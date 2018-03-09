@@ -1,7 +1,10 @@
 {
   "pages": [
-    "pages/home/index/index",
+    "pages/common/bind/index",
     "pages/index/index",
+    "pages/home/index/index",
+    
+    
     "pages/tests/index/index",
     "pages/tests/list/index",
     "pages/tests/detail/index",

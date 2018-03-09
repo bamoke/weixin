@@ -153,6 +153,7 @@ background-image:url(http://ojpuy4nsw.bkt.clouddn.com/i-collection.png);
   }
 .bind-mobile {
   display: inline-block;
+  margin-bottom:12rpx;
   padding:10rpx;
   background-color:#777;
   color:#fff;
