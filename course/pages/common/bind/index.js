@@ -10,45 +10,64 @@ Page({
   data: {
     btnText: "获取验证码",
     btnStyle: "btn-active",
-    btnDisebled:false,
+    btnDisebled: false,
     errorStatus: false,
-    errorMsg: ""
+    errorMsg: "",
+    phone: null
   },
 
+  /**
+   * 
+   */
+  updatePhone: function (data) {
+    this.setData({
+      phone: data.detail.value
+    })
+  },
   /**
    * 获取验证码
    */
   fetchCode: function () {
-    if(this.data.btnDisebled){
+    var phoneRe = /^[1][3578]{1}[0-9]{9}/;
+    var phone = this.data.phone;
+    if (!phone) {
+      return this._setError("请输入手机号码")
+    }
+    if (!phoneRe.test(phone)) {
+      return this._setError("手机号格式不正确")
+    }
+
+    if (this.data.btnDisebled) {
       return;
     }
     var apiUrl = '/Account/mbcode';
-    var myPromise = app._getApiData(apiUrl);
+    var requestData = { "phone": "0" };
+    var myPromise = app._getApiData(apiUrl, requestData);
     var _that = this;
     var num = 60;
-    var timeText="";
+    var timeText = "";
     var timeTextSuffix = "秒后重发";
     this.setData({
       btnText: num + timeTextSuffix,
-      btnDisebled:true,
-      btnStyle:"btn-disebled"
+      btnDisebled: true,
+      btnStyle: "btn-disebled"
     })
-    var timer = setInterval(function(){
-      if (num == 1){
+    var timer = setInterval(function () {
+      if (num == 1) {
         clearInterval(timer);
         _that.setData({
           btnText: "获取验证码",
-          btnDisebled:false,
-          btnStyle:"btn-active"
+          btnDisebled: false,
+          btnStyle: "btn-active"
         })
         return;
       }
-      num --;
+      num--;
       timeText = num < 10 ? 0 + (num + timeTextSuffix) : num + timeTextSuffix;
       _that.setData({
-        btnText:timeText
+        btnText: timeText
       })
-    },1000)
+    }, 1000)
   },
 
   /**
@@ -61,30 +80,35 @@ Page({
     var apiUrl = "/Account/bind";
     var req;
     //表单验证
-    if(formData.phone == ''){
+    if (formData.phone == '') {
       return this._setError("请输入手机号码")
     }
     if (!phoneRe.test(formData.phone)) {
       return this._setError("手机号格式不正确")
     }
-    if(formData.code == ""){
+    if (formData.code == "") {
       return this._setError("请输入验证码")
     }
     this.setData({
-      errorStatus:false,
-      errorMsg:""
+      errorStatus: false,
+      errorMsg: ""
     })
 
     // 发送表单数据
-    req = app._getApiData(apiUrl,formData,"POST");
-    req.then(data=>{
+    req = app._getApiData(apiUrl, formData, "POST");
+    req.then(data => {
       wx.hideLoading();
       wx.showModal({
         title: '绑定成功',
         content: '恭喜您完成手机号绑定，并获得50元现金奖励',
-        showCancel:false
+        showCancel: false,
+        success:function(){
+          wx.switchTab({
+            url: '/pages/index/index',
+          })
+        }
       })
-    },reject=>{
+    }, reject => {
       wx.hideLoading();
       this._setError(reject)
     })

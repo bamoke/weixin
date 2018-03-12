@@ -1,9 +1,9 @@
 {
   "pages": [
-    "pages/common/bind/index",
+    
     "pages/index/index",
     "pages/home/index/index",
-    
+    "pages/common/bind/index",
     
     "pages/tests/index/index",
     "pages/tests/list/index",
