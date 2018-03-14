@@ -9,18 +9,7 @@ page {
   color:#999;
 }
 
-.m-form {
-  width: 100%;
-}
 
-.m-form .form-group {
-  display: flex;
-  justify-content: space-between;
-  padding: 12px;
-  box-sizing: border-box;
-  width: 100%;
-  background-color: #fff;
-}
 
 .m-form .form-group .code-btn {
   flex-shrink: 0;
@@ -40,17 +29,7 @@ page {
   color: #fff;
 }
 
-.input-box {
-  padding: 12rpx;
-  width: 100%;
-  background-color: #eee;
-}
 
 .btn {
   width: 100%;
-}
-.m-form .error-box {
-  padding:24rpx;
-  background-color:#fff;
-  color:#ff5b57;
 }

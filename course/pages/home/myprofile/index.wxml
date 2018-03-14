@@ -1,0 +1,63 @@
+<!--pages/home/myprofile/index.wxml-->
+<view class="container">
+  <view class="userinfo-form">
+    <view class='form-group'>
+      <view class="title">真实姓名</view>
+      <view class='val-box'>
+        <input type='text' name="realname" class='input-box' placeholder='未填写' value='{{realName}}' bindinput='updateRealname' maxlength="12"></input>
+      </view>
+    </view>
+
+    <view class='form-group'>
+      <view class="title">性别</view>
+      <radio-group class="radio-group" name="gender" bindchange="updateGender">
+        <label class="radio">
+          <radio value="0" checked='{{gender==0}}' />女
+        </label>
+        <label class="radio">
+          <radio value="1" checked='{{gender==1}}' />男
+        </label>
+      </radio-group>
+    </view>
+
+    <view class='form-group'>
+      <view class="title">生日</view>
+      <picker mode="date" value="{{birthDay}}" start="1949-01-01" end="2008-01-01" bindchange="birthdayChange">
+        <view class="picker">
+          {{birthDay?birthDay:"未填写"}}
+        </view>
+      </picker>
+    </view>
+
+    <view class='form-group'>
+      <view class="title">地区</view>
+      <picker mode="region" value="{{region}}" custom-item="{{customItem}}" bindchange="regionChange">
+        <view class="picker">
+
+          {{region.length>0?(region[0]+","+region[1]+","+region[2]):"未填写"}}
+
+        </view>
+      </picker>
+    </view>
+
+    <view class='form-group'>
+      <view class="title">学历</view>
+      <picker mode="selector" value="{{eduIndex}}" range="{{eduArray}}" bindchange="eduChange">
+        <view class="picker">
+          {{eduText}}
+        </view>
+      </picker>
+    </view>
+    <view class='form-group'>
+      <view class="title">邮箱</view>
+      <view class='val-box'>
+        <input type='text' name="email" class='input-box' placeholder='未填写' value='{{email}}' bindinput='updateEmail' maxlength="24"></input>
+      </view>
+    </view>
+    <view class="error-box" wx:hidden='{{!errorStatus}}'>{{errorMsg}}</view>
+    <view class='m-btn-box'>
+      <button bindtap='submitForm' class='u-btn btn-minor'>提交</button>
+    </view>
+
+  </view>
+</view>

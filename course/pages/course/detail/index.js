@@ -131,6 +131,22 @@ Page({
       console.log(err)
     })
   },
+
+  /**
+   * 送好友
+   */
+  sendGift:function(){
+    var courseId = this.data.courseId;
+    var type = 2;
+    this.buyconfirm.show();
+  },
+
+  /**
+   * giftBuyConfirm
+   */
+  giftBuyConfirm: function () {
+
+  },
   /**
    * 发表评论
   */
@@ -138,12 +154,6 @@ Page({
     wx.navigateTo({
       url: '../../common/comment/index?proid=' + this.data.courseId + '&type=2&title=' + this.data.introduce.title
     })
-  },
-  /**
-   * 提交评论
-   */
-  submitComment:function(){
-
   },
   /**
    * 生命周期函数--监听页面加载
@@ -174,7 +184,7 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-
+    this.buyconfirm = this.selectComponent("#buyconfirm")
   },
 
   /**

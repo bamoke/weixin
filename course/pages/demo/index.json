@@ -1,0 +1,4 @@
+{"usingComponents":{
+  "dialog": "/component/Dialog/dialog",
+  "buyconfirm":"/component/buyconfirm/buyconfirm"
+}}

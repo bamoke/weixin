@@ -67,7 +67,7 @@
         <view class='arrow'></view>
       </view>
     </navigator>
-    <navigator url="../profile/index" class="item">
+    <navigator url="../myprofile/index" class="item">
       <view class='left'>
         <view class='icon i-profile'></view>
         <text class=''>个人资料</text>

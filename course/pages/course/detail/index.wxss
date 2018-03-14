@@ -3,7 +3,7 @@
 page {
   height: 100%;
 }
-
+.g-row-bt {background-color:#fff;}
 .g-page-top {
   position: fixed;
   left: 0;
@@ -68,7 +68,7 @@ page {
 
 .m-course-introduce .base-info {
   box-sizing: border-box;
-  padding: 40rpx 20rpx;
+  padding: 24rpx;
   width: 100%;
   background-color: #fff;
 }
@@ -207,4 +207,8 @@ page {
 
 .m-comment {box-sizing:border-box;min-height:100%;background-color:#fff;}
 
-.u-btn {margin-top:24rpx;}
+.m-price-area {
+  text-align: center;
+  padding:24rpx;
+  background-color:#fff;
+}

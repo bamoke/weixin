@@ -40,34 +40,41 @@ Page({
     if (this.data.btnDisebled) {
       return;
     }
-    var apiUrl = '/Account/mbcode';
-    var requestData = { "phone": "0" };
+    var apiUrl = '/Account/mpcode';
+    var requestData = { "phone": phone };
     var myPromise = app._getApiData(apiUrl, requestData);
     var _that = this;
     var num = 60;
     var timeText = "";
     var timeTextSuffix = "秒后重发";
-    this.setData({
-      btnText: num + timeTextSuffix,
-      btnDisebled: true,
-      btnStyle: "btn-disebled"
-    })
-    var timer = setInterval(function () {
-      if (num == 1) {
-        clearInterval(timer);
-        _that.setData({
-          btnText: "获取验证码",
-          btnDisebled: false,
-          btnStyle: "btn-active"
-        })
-        return;
-      }
-      num--;
-      timeText = num < 10 ? 0 + (num + timeTextSuffix) : num + timeTextSuffix;
-      _that.setData({
-        btnText: timeText
+    myPromise.then(data=>{
+      wx.hideLoading();
+      this.setData({
+        btnText: num + timeTextSuffix,
+        btnDisebled: true,
+        btnStyle: "btn-disebled"
       })
-    }, 1000)
+      var timer = setInterval(function () {
+        if (num == 1) {
+          clearInterval(timer);
+          _that.setData({
+            btnText: "获取验证码",
+            btnDisebled: false,
+            btnStyle: "btn-active"
+          })
+          return;
+        }
+        num--;
+        timeText = num < 10 ? 0 + (num + timeTextSuffix) : num + timeTextSuffix;
+        _that.setData({
+          btnText: timeText
+        })
+      }, 1000)
+    },reject=>{
+      wx.hideLoading();
+      _that._setError(reject)
+    })
+    
   },
 
   /**
@@ -77,7 +84,7 @@ Page({
     var formData = data.detail.value;
     var phoneRe = /^[1][3578]{1}[0-9]{9}/;
     var codeRe = /[0-9]{6}/
-    var apiUrl = "/Account/bind";
+    var apiUrl = "/Account/bindphone";
     var req;
     //表单验证
     if (formData.phone == '') {
@@ -103,7 +110,7 @@ Page({
         content: '恭喜您完成手机号绑定，并获得50元现金奖励',
         showCancel: false,
         success:function(){
-          wx.switchTab({
+          wx.reLaunch({
             url: '/pages/index/index',
           })
         }

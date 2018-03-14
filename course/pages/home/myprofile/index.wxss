@@ -1,0 +1,14 @@
+/* pages/home/myprofile/index.wxss */
+.userinfo-form {
+  width:100%;
+  background-color:#fff;
+}
+.userinfo-form .form-group {
+  display: flex;
+  justify-content:space-between;
+  padding:24rpx;
+  border-bottom:1px solid #eee;
+}
+.m-btn-box {padding:24rpx;}
+.u-btn {width:100%;}
+.input-box {text-align:right;}

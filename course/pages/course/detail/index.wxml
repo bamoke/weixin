@@ -17,20 +17,25 @@
     <swiper-item>
       <scroll-view scroll-y="true" class="g-scroll-wrap">
         <view class="m-course-introduce">
-          <view class="base-info">
-            <view class="title">{{introduce.title}}</view>
-            <view class="total">
-              <text>{{introduce.buy_num}}人正在学习</text>
-              <text class="fg">|</text>
-              <text>{{introduce.period}}课时</text>
+          <view class='g-row-bt'>
+            <view class="base-info">
+              <view class="title">{{introduce.title}}</view>
+              <view class="total">
+                <text>{{introduce.buy_num}}人正在学习</text>
+                <text class="fg">|</text>
+                <text>{{introduce.period}}课时</text>
+              </view>
             </view>
+            <view class='u-gift' bindtap='sendGift' data-id="{{courseId}}">
+              <text class="icon"></text>
+              <view class="text">送好友</view>
+            </view>
+          </view>
 
+          <view class="m-price-area">
             <view wx:if="{{!hasCourse}}">
               <view class="free" wx:if="{{introduce.isfree == 1}}">免费</view>
-              <block wx:else>
-                <view class="price">￥{{introduce.price}}</view>
-                <button class='u-btn btn-import' bindtap='buyCourse'>购买</button>
-              </block>
+              <button wx:else class='u-btn btn-minor' bindtap='buyCourse'>购买￥{{introduce.price}}</button>
             </view>
             <view class='text-success' wx:else>您已经购买了此课程，可正常观看课程视频</view>
           </view>
@@ -94,12 +99,6 @@
     </swiper-item>
   </swiper>
 
-  <!-- <view class='m-buy-page' >
-    <view class='tips'>你还没有购买此课程，无法观看课程视频</view>
-    <view>课程价格：<text>￥{{introduce.price}}</text></view>
-  </view>
-  <view class='btn-box'>
-    <view class='btn cancel' bindtap='cancelBuy'>取消</view>
-    <view class='btn buy' bindtap='conformBuy'>立即购买</view>
-  </view> -->
 </view>
+<!--buyconfirm-->
+<buyconfirm id='buyconfirm' title="{{introduce.title}}" price="{{introduce.price}}" bind:confirm="giftBuyConfirm"></buyconfirm>

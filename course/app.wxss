@@ -279,6 +279,29 @@
   font-size: 32rpx;
   color: #999;
 }
+.m-form {
+  width: 100%;
+}
+
+.m-form .form-group {
+  display: flex;
+  justify-content: space-between;
+  padding: 12px;
+  box-sizing: border-box;
+  width: 100%;
+  background-color: #fff;
+}
+.m-form .input-box {
+  padding: 12rpx;
+  width: 100%;
+  background-color: #eee;
+}
+
+.m-form .error-box {
+  padding:24rpx;
+  background-color:#fff;
+  color:#ff5b57;
+}
 
 /* skin  */
 
@@ -321,6 +344,23 @@
 .btn-minor {
   color: #fff;
   background-color: #28c0c6;
+}
+.u-gift {
+  width:200rpx;
+  background: #fff;
+  color: #28c0c6;
+  text-align: center;
+}
+.u-gift .icon {
+  display: inline-block;
+  width:48rpx;
+  height:48rpx;
+  background:url("http://www.xinzhinetwork.com/Upload/weicon/gift.png") no-repeat center;
+  background-size:contain;
+}
+.u-gift .text {
+  white-space: nowrap;
+  font-size:24rpx;
 }
 
 /**func**/

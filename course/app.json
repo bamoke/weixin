@@ -1,6 +1,7 @@
 {
   "pages": [
-    
+        
+    "pages/course/index/index",
     "pages/index/index",
     "pages/home/index/index",
     "pages/common/bind/index",
@@ -13,11 +14,12 @@
     "pages/home/mytests/index",
     "pages/home/mycolumn/index",
     "pages/home/mycourse/index",
+    "pages/home/myprofile/index",
     
     "pages/home/orders/index",
     "pages/home/mycomment/index",
     "pages/home/mybooking/index",
-    "pages/course/index/index",
+    
     "pages/course/section/index",
     "pages/course/detail/index",
     "pages/teacher/index",
@@ -28,6 +30,7 @@
     "pages/common/comment/index",
     "pages/booking/index/index",
     "pages/booking/enter/index",
+    "pages/demo/index",
     "pages/booking/detail/index"
   ],
   "window": {
