@@ -18,10 +18,32 @@ Page({
     openVideo: false,//是否开始播放课程视频
     videoSource: null,//视频地址,
     hasCourse: false,//是否已购买此课程
+    showShare:true,
+    giftKey:null,//礼品包激活码
     wxparse_content: null,
     introduce: {},
     section: [],
     commentList: []
+  },
+  /**
+   * 转发
+   */
+  onShareAppMessage: function (res) {
+    if (res.from === 'button') {
+      // 来自页面内转发按钮
+      console.log(res.target)
+    }
+    return {
+      title: '送你一个课程礼品包',
+      path: '/pages/gift/index?key='+this.data.giftKey,
+      imageUrl: sourceUrl+"thumb/"+this.data.introduce.thumb,
+      success: function (res) {
+        // 转发成功
+      },
+      fail: function (res) {
+        // 转发失败
+      }
+    }
   },
   /**
    * tab
@@ -48,7 +70,7 @@ Page({
       }
       curApiUrl = '/Comment/getlist';
       curRequestData.page = this.data.commentPage;
-      curRequestData.type=2;
+      curRequestData.type = 2;
       curRequestData.proid = this.data.courseId;
     } else {
       _that.setData(updateData)
@@ -135,7 +157,7 @@ Page({
   /**
    * 送好友
    */
-  sendGift:function(){
+  sendGift: function () {
     var courseId = this.data.courseId;
     var type = 2;
     this.buyconfirm.show();
@@ -146,6 +168,21 @@ Page({
    */
   giftBuyConfirm: function () {
 
+    var apiUrl = '/Orders/buypresent';
+    var courseId = this.data.courseId;
+    var proType = 2;
+    var requestData = { proid: courseId, protype: proType }
+    var myPromise = app._getApiData(apiUrl, requestData, "POST");
+    myPromise.then(data => {
+      wx.hideLoading();
+      this.buyconfirm.hide();
+      this.setData({
+        showShare:true,
+        giftKey:data.key
+      })
+    }, reject => {
+      console.log(reject)
+    })
   },
   /**
    * 发表评论
