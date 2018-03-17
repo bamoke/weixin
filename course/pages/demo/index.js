@@ -13,11 +13,17 @@ price:"19.88"
     //获得dialog组件
     this.dialog = this.selectComponent("#dialog");
     this.buyconfirm = this.selectComponent("#buyconfirm")
+    this.sharemodal = this.selectComponent("#shareModal")
     console.log(this.buyconfirm)
+    console.log(this.buyconfirm)
+    console.log(this.sharemodal)
   },
 
   showDialog() {
     this.dialog.showDialog();
+  },
+  showShare() {
+    this.sharemodal.show();
   },
   showBuyconfirm:function(){
     this.buyconfirm.show()

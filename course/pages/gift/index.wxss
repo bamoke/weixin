@@ -1,0 +1,19 @@
+/* pages/gift/index.wxss */
+.m-gift-accept {
+  box-sizing:border-box;
+  padding:24rpx;
+  width:100%;
+  background-color:#fff;
+  font-size:28rpx;
+}
+.m-gift-accept .title {
+  text-align:center;
+  font-size:34rpx;
+}
+.m-gift-accept .content {
+  margin:24rpx 0;
+  padding:24rpx 0;
+  border-top:1px solid #eee;
+  border-bottom:1px solid #eee;
+  font-size:32rpx;
+}

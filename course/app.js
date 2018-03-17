@@ -119,17 +119,54 @@ App({
     })
   },
 
-  /**
-   * 获取数据
-   */
-  _getApiData: function (apiurl, data, method,hideLoading) {
-    if(typeof hideLoading == 'undefined'){
-      wx.showLoading({
-        title: '加载中',
-      })
-    }
 
-    //获取数据
+  /**
+    * 获取数据(无需sessionID)
+    * @param string  api url
+    * @param object  post or get method's data
+    * @param string  method name
+    */
+  _fetchApiData: function (apiurl, data, method) {
+    wx.showLoading({
+      title: '加载中',
+    })
+
+    var requestData = data ? data : {};
+    var requestMethod = method ? method : 'GET';
+    var myPromise = new Promise(function (resolve, reject) {
+      wx.request({
+        url: siteConf.apiBaseUrl + apiurl,
+        data: requestData,
+        method: requestMethod,
+        header: {
+          'content-type': 'application/x-www-form-urlencoded'
+        },
+        success: function (res) {
+          if (res && res.data.errorCode == 10000) {
+            resolve(res.data)
+          } else {
+            reject(res.data.errorMsg)
+          }
+        },
+        fail: function () {
+          reject("连接错误")
+        }
+      })
+    })
+    return myPromise;
+  },
+
+  /**
+   * 获取数据(带sessionID)
+   * @param string  api url
+   * @param object  post or get method's data
+   * @param string  method name
+   */
+  _getApiData: function (apiurl, data, method) {
+    wx.showLoading({
+      title: '加载中',
+    })
+
     var requestData = data ? data : {};
     var requestMethod = method ? method : 'GET';
     var myPromise = new Promise(function (resolve, reject) {

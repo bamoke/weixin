@@ -11,7 +11,9 @@
     
     <button type="primary" bindtap="showDialog"> ClickMe! </button>
     <button type="primary" bindtap="showBuyconfirm"> show confirm! </button>
+    <button type="primary" bindtap="showShare"> show share </button>
 
     <buyconfirm id='buyconfirm' title="{{title}}" price="{{price}}"></buyconfirm>
+    <sharemodal id='shareModal' ></sharemodal>
 </view>
 

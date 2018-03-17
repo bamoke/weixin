@@ -1,4 +1,4 @@
-// pages/course/detail/index.js
+  // pages/course/detail/index.js
 import { siteConf } from '../../../static/js/common';
 var WxParse = require('../../../wxParse/wxParse.js');
 //获取应用实例
@@ -18,33 +18,14 @@ Page({
     openVideo: false,//是否开始播放课程视频
     videoSource: null,//视频地址,
     hasCourse: false,//是否已购买此课程
-    showShare:true,
+    showShare:false,
     giftKey:null,//礼品包激活码
     wxparse_content: null,
     introduce: {},
     section: [],
     commentList: []
   },
-  /**
-   * 转发
-   */
-  onShareAppMessage: function (res) {
-    if (res.from === 'button') {
-      // 来自页面内转发按钮
-      console.log(res.target)
-    }
-    return {
-      title: '送你一个课程礼品包',
-      path: '/pages/gift/index?key='+this.data.giftKey,
-      imageUrl: sourceUrl+"thumb/"+this.data.introduce.thumb,
-      success: function (res) {
-        // 转发成功
-      },
-      fail: function (res) {
-        // 转发失败
-      }
-    }
-  },
+
   /**
    * tab
    */
@@ -176,10 +157,7 @@ Page({
     myPromise.then(data => {
       wx.hideLoading();
       this.buyconfirm.hide();
-      this.setData({
-        showShare:true,
-        giftKey:data.key
-      })
+this.sharemodal.show()
     }, reject => {
       console.log(reject)
     })
@@ -222,6 +200,7 @@ Page({
    */
   onReady: function () {
     this.buyconfirm = this.selectComponent("#buyconfirm")
+    this.sharemodal = this.selectComponent("#shareModal")
   },
 
   /**
@@ -262,7 +241,24 @@ Page({
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function () {
-
-  }
+  onShareAppMessage: function (res) {
+    var _that=this;
+    if (res.from === 'button') {
+      // 来自页面内转发按钮
+      console.log(res.target)
+    }
+    return {
+      title: '送你一个课程礼品包',
+      path: '/pages/gift/index?key=' + this.data.giftKey,
+      imageUrl: siteConf.sourceUrl + "thumb/" + this.data.introduce.thumb,
+      success: function (res) {
+        // 转发成功
+        _that.sharemodal.hide()
+      },
+      fail: function (res) {
+        // 转发失败
+        console.log("ss")
+      }
+    }
+  }, 
 })

@@ -1,5 +1,6 @@
 {
   "usingComponents": {
-    "buyconfirm": "/component/buyconfirm/buyconfirm"
+    "buyconfirm": "/component/buyconfirm/buyconfirm",
+    "sharemodal": "/component/sharemodal/sharemodal"
   }
 }

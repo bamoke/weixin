@@ -99,14 +99,9 @@
     </swiper-item>
   </swiper>
 
+
 </view>
 <!--buyconfirm-->
 <buyconfirm id='buyconfirm' title="{{introduce.title}}" price="{{introduce.price}}" bind:confirm="giftBuyConfirm"></buyconfirm>
 <!-- share btn  -->
-<view class='m-share-box' wx:hidden='{{!showShare}}'>
-  <view class="masker"></view>
-  <view class='content'>
-    <view class='tips'>请点击下面的按钮，选择您要赠送的好友！</view>
-    <button class="btn-minor" open-type='share'>发送给好友</button>
-  </view>
-</view>
+<sharemodal id="shareModal"></sharemodal>

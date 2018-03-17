@@ -1,6 +1,7 @@
 {
   "pages": [
         
+    "pages/gift/index",
     "pages/course/index/index",
     "pages/index/index",
     "pages/home/index/index",
@@ -35,7 +36,7 @@
   ],
   "window": {
     "backgroundTextStyle": "light",
-    "navigationBarTitleText": "蓝思课堂",
+    "navigationBarTitleText": "会计精英汇",
     "navigationBarBackgroundColor": "#000",
     "navigationBarTextStyle": "white"
   },
