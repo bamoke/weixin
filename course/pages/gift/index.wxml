@@ -5,6 +5,6 @@
     <view class="title">领取好友赠礼</view>
     <!-- <view class="tips">您的好友送您一个礼品包:</view> -->
     <view class='content'>价值￥{{price}}的会计精英汇{{type}}礼包</view>
-    <button class='btn-minor'>收下礼包</button>
+    <button class='btn-minor' bindtap='acceptGift'>收下礼包</button>
   </view>
 </view>
