@@ -9,18 +9,21 @@ Page({
    */
   data: {
     showPage: false,
+    sourceUrl: siteConf.sourceUrl+"thumb/",
     id:null,
-    price: "",
-    type: ""
+    proType:null,
+    content:{}
   },
 
   /**
    * 收下礼包操作
    */
   acceptGift:function(){
+    var _that = this;
     var apiUrl = '/Gift/acceptance';
     var requestData = { id: this.data.id }
     var myPromise = app._getApiData(apiUrl, requestData);
+    var jumpUrl = this.data.proType == 1?"/pages/column/column-detail/index":"/pages/course/detail/index";
     myPromise.then(data=>{
       wx.hideLoading();
       wx.showModal({
@@ -30,7 +33,7 @@ Page({
         success: function (res) {
           if (res.confirm) {
             wx.redirectTo({
-              url: data.info.url,
+              url: jumpUrl+"?id="+_that.data.content.proid,
             })
           } else if (res.cancel) {
             console.log('用户点击取消')
@@ -39,6 +42,7 @@ Page({
       })
     },reject=>{
       wx.hideLoading();
+      console.log(reject)
       wx.showModal({
         title: '领取失败',
         content: reject,
@@ -69,8 +73,8 @@ Page({
       this.setData({
         showPage:true,
         id:data.info.id,
-        price:data.info.value,
-        type:data.info.pro_type == 1?"专栏":"课程"
+        proType:data.info.proType,
+        content:data.info.content
       })
     },reject=>{
     console.log(reject)

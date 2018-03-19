@@ -1,4 +1,4 @@
-  // pages/course/detail/index.js
+// pages/course/detail/index.js
 import { siteConf } from '../../../static/js/common';
 var WxParse = require('../../../wxParse/wxParse.js');
 //获取应用实例
@@ -18,8 +18,8 @@ Page({
     openVideo: false,//是否开始播放课程视频
     videoSource: null,//视频地址,
     hasCourse: false,//是否已购买此课程
-    showShare:false,
-    giftKey:null,//礼品包激活码
+    showShare: false,
+    giftKey: null,//礼品包激活码
     wxparse_content: null,
     introduce: {},
     section: [],
@@ -148,16 +148,37 @@ Page({
    * giftBuyConfirm
    */
   giftBuyConfirm: function () {
-
+    var _that = this;
     var apiUrl = '/Orders/buypresent';
     var courseId = this.data.courseId;
     var proType = 2;
-    var requestData = { proid: courseId, protype: proType }
+    var requestData = { proid: courseId, protype: proType,type:5 }
     var myPromise = app._getApiData(apiUrl, requestData, "POST");
     myPromise.then(data => {
       wx.hideLoading();
-      this.buyconfirm.hide();
-this.sharemodal.show()
+      _that.buyconfirm.hide();
+      _that.setData({
+        giftKey:data.key
+      })
+      if (typeof data.payMent !=='undefined'){
+        wx.requestPayment({
+          timeStamp: data.payMent.timeStamp,
+          nonceStr: data.payMent.nonceStr,
+          package: data.payMent.package,
+          signType: 'MD5',
+          paySign: data.payMent.sign,
+          success: function (res) {
+            _that.sharemodal.show()
+          },
+          fail: function (res) {
+            wx.redirectTo({
+              url: '/pages/home/orders/index',
+            })
+          }
+        })
+      }else {
+        _that.sharemodal.show();
+      }
     }, reject => {
       console.log(reject)
     })
@@ -242,7 +263,7 @@ this.sharemodal.show()
    * 用户点击右上角分享
    */
   onShareAppMessage: function (res) {
-    var _that=this;
+    var _that = this;
     if (res.from === 'button') {
       // 来自页面内转发按钮
       console.log(res.target)
@@ -260,5 +281,5 @@ this.sharemodal.show()
         console.log("ss")
       }
     }
-  }, 
+  },
 })

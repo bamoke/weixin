@@ -1,9 +1,9 @@
 {
   "pages": [
-        
-    "pages/gift/index",
+        "pages/index/index",
     "pages/course/index/index",
-    "pages/index/index",
+    "pages/gift/index",
+    
     "pages/home/index/index",
     "pages/common/bind/index",
     
