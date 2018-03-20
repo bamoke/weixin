@@ -6,21 +6,27 @@
 
   <!--  description  -->
   <view class="m-description">
-    <text class="title">{{columnInfo.title}}</text>
-    <text class="desc">{{columnInfo.description}}</text>
-    <view class="ft">
-      <view class="left">
-        <text>已更新{{columnInfo.article_num}}期</text>
-        <text class="fg">|</text>
-        <text>{{columnInfo.subscribers}}人订阅</text>
+    <view class="title">{{columnInfo.title}}</view>
+    <view class="g-row-bt">
+      <view class="info">
+        <text class="desc">{{columnInfo.description}}</text>
+        <view class="ft">
+          <text>已更新{{columnInfo.article_num}}期</text>
+          <text class="fg">|</text>
+          <text>{{columnInfo.subscribers}}人订阅</text>
+        </view>
       </view>
-      <view wx:if="{{columnInfo.isfree == 1}}" class="free">免费</view>
-      <view wx:else class="price">￥{{columnInfo.price}}</view>
+      <view class='u-gift' bindtap='sendGift' data-id="{{courseId}}">
+        <text class="icon"></text>
+        <view class="text">送好友</view>
+      </view>
     </view>
+
+
 
     <view wx:if='{{authStatus == 1}}' class='tips text-success'>您已订阅此专栏</view>
     <view wx:else>
-      <button wx:if="{{columnInfo.isfree == 0}}" class='u-btn btn-import' data-id='{{columnInfo.id}}' bindtap='buyColumnist'>{{authStatus == 0?"立即订阅":"立即续费"}}</button>
+      <button wx:if="{{columnInfo.isfree == 0}}" class='u-btn btn-minor' data-id='{{columnInfo.id}}' bindtap='buyColumnist'>{{authStatus == 0?"立即订阅":"立即续费"}}￥{{columnInfo.price}}</button>
       <button wx:else class='u-btn btn-success' data-id='{{columnInfo.id}}' bindtap='subscriber'>免费订阅</button>
     </view>
     <!--  btn  -->
@@ -73,7 +79,9 @@
     </view>
     <navigator open-type="navigateTo" url="/pages/column/article-list/index?cid={{columnId}}" class="u-more-btn" wx:if="{{columnInfo.article_num > 5 && authStatus==1}}">查看所有文章</navigator>
   </view>
-
-
-
 </view>
+
+<!--buyconfirm-->
+<buyconfirm id='buyconfirm' title="{{columnInfo.title}}" price="{{columnInfo.price}}" bind:confirm="giftBuyConfirm"></buyconfirm>
+<!-- share btn  -->
+<sharemodal id="shareModal"></sharemodal>

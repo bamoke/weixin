@@ -9,8 +9,8 @@
       </view>
       <navigator open-type='navigate' url='/pages/common/bind/index' wx:if="{{userinfo.mp_identification == 0}}" class="bind-mobile">手机号未绑定</navigator>
       <view class="other">
-         <text>同步头像</text> 
-         <text>账户余额:￥{{userinfo.balance}}</text> 
+        <text>同步头像</text>
+        <text>账户余额:￥{{userinfo.balance}}</text>
       </view>
     </view>
   </view>
@@ -34,7 +34,7 @@
   </view>
 
   <view class="m-nav-list">
-    <navigator open-type='navigate' url="../orders/index" class="item">
+    <!--     <navigator open-type='navigate' url="../orders/index" class="item">
       <view class='left'>
         <view class='icon i-order'></view>
         <text class=''>我的订单</text>
@@ -43,10 +43,20 @@
         <text class='tips'></text>
         <view class='arrow'></view>
       </view>
-    </navigator>
-    <navigator url="url" class="item">
+    </navigator> -->
+    <navigator open-type='navigate' url="../balance/index" class="item">
       <view class='left'>
-        <view class='icon i-favor'></view>
+        <!-- <view class='icon i-order'></view> -->
+        <text class=''>我的余额</text>
+      </view>
+      <view class='right'>
+        <text class='tips'></text>
+        <view class='arrow'></view>
+      </view>
+    </navigator>
+    <navigator url="../present/index" class="item">
+      <view class='left'>
+        <!-- <view class='icon i-favor'></view> -->
         <text class=''>赠送记录</text>
       </view>
       <view class='right'>
@@ -59,7 +69,7 @@
   <view class="m-nav-list">
     <navigator url="../mycomment/index" class="item">
       <view class='left'>
-        <view class='icon i-comment'></view>
+        <!-- <view class='icon i-comment'></view> -->
         <text class=''>我的评论</text>
       </view>
       <view class='right'>
@@ -69,8 +79,21 @@
     </navigator>
     <navigator url="../myprofile/index" class="item">
       <view class='left'>
-        <view class='icon i-profile'></view>
+        <!-- <view class='icon i-profile'></view> -->
         <text class=''>个人资料</text>
+      </view>
+      <view class='right'>
+        <text class='tips'></text>
+        <view class='arrow'></view>
+      </view>
+    </navigator>
+  </view>
+
+    <view class="m-nav-list">
+    <navigator url="../myprofile/index" class="item">
+      <view class='left'>
+        <!-- <view class='icon i-profile'></view> -->
+        <text class=''>意见反馈</text>
       </view>
       <view class='right'>
         <text class='tips'></text>

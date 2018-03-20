@@ -1,0 +1,15 @@
+<!--pages/home/present/index.wxml-->
+<view class='container' wx:if="{{showPage}}">
+  <view class='m-mypresent' wx:if="{{list.length}}">
+    <view class='item' wx:for="{{list}}" wx:key="id">
+      <view class="left">
+        <text class="type">{{item.pro_type==1?"专栏礼包":"课程礼包"}}</text>
+        <text class='title'>{{item.content.title}}</text>
+      </view>
+      <view>
+        <text class='received' wx:if="{{item.status == 1}}">已领取</text>
+        <text class='unreceive' wx:else>未领取</text>
+      </view>
+    </view>
+  </view>
+</view>

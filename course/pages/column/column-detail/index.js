@@ -15,7 +15,7 @@ Page({
     showPage: false,
     sourceUrl: siteConf.sourceUrl,
     isOpened: false,
-    articleNum: 0,
+    giftKey:null,
     authStatus:0,//课程状态，0:未开通,1:已开通;2:已到期
     columnInfo: {},
     teacherInfo: {},
@@ -98,6 +98,58 @@ Page({
     }
 
   },
+
+  /**
+   * 送好友
+   */
+  sendGift: function () {
+    this.buyconfirm.show();
+  },
+
+  /**
+   * giftBuyConfirm
+   */
+  giftBuyConfirm: function () {
+    var _that = this;
+    var apiUrl = '/Orders/buypresent';
+    var columnId = this.data.columnInfo.id;
+    var proType = 1;
+    var requestData = { proid: columnId, protype: proType, type: 5 }
+    var myPromise = app._getApiData(apiUrl, requestData, "POST");
+    myPromise.then(data => {
+      wx.hideLoading();
+      _that.buyconfirm.hide();
+      _that.setData({
+        giftKey: data.key
+      })
+      if (typeof data.payMent !== 'undefined') {
+        wx.requestPayment({
+          timeStamp: data.payMent.timeStamp,
+          nonceStr: data.payMent.nonceStr,
+          package: data.payMent.package,
+          signType: 'MD5',
+          paySign: data.payMent.sign,
+          success: function (res) {
+            _that.sharemodal.show()
+          },
+          fail: function (res) {
+/*             wx.redirectTo({
+              url: '/pages/home/orders/index',
+            }) */
+          }
+        })
+      } else {
+        _that.sharemodal.show();
+      }
+    }, reject => {
+      wx.hideLoading();
+      wx.showModal({
+        title: '操作错误',
+        content: reject,
+      })
+    })
+  },
+
   /**
    * 生命周期函数--监听页面加载
    */
@@ -116,7 +168,6 @@ Page({
         showPage: true,
         columnInfo: data.columnist,
         articleList: data.articleList,
-        articleNum: data.articleNum,
         teacherInfo: data.teacherInfo,
         authStatus: data.hasColumnistStatus
       })
@@ -129,7 +180,8 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-
+    this.buyconfirm = this.selectComponent("#buyconfirm")
+    this.sharemodal = this.selectComponent("#shareModal")
   },
 
   /**
@@ -170,7 +222,24 @@ Page({
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function () {
-
+  onShareAppMessage: function (res) {
+    var _that = this;
+    if (res.from === 'button') {
+      // 来自页面内转发按钮
+      console.log(res.target)
+    }
+    return {
+      title: '送你一个课程礼品包',
+      path: '/pages/gift/index?key=' + this.data.giftKey,
+      imageUrl: siteConf.sourceUrl + "thumb/" + this.data.columnInfo.thumb,
+      success: function (res) {
+        // 转发成功
+        _that.sharemodal.hide()
+      },
+      fail: function (res) {
+        // 转发失败
+        console.log("ss")
+      }
+    }
   }
 })

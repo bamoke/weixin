@@ -1,0 +1,20 @@
+/* pages/home/present/index.wxss */
+.m-mypresent {
+  width:100%;
+  background-color:#fff;
+}
+.m-mypresent .item {
+  display:flex;
+  justify-content: space-between;
+  padding:24rpx;
+  box-sizing:border-box;
+  width:100%;
+  border-bottom:1px solid #eee;
+}
+.m-mypresent .type {
+  display: inline-block;
+  margin-right:12rpx;
+  color:#888;
+}
+.received {color:#28c0c6}
+.unreceive {color:#888;}

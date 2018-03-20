@@ -281,5 +281,5 @@ Page({
         console.log("ss")
       }
     }
-  },
+  }
 })

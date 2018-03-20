@@ -1,5 +1,7 @@
 {
-  "navigationBarBackgroundColor":"#28bfc6",
-  "navigationBarTextStyle":"white",
-  "navigationBarTitleText": "专栏详情"
+
+    "usingComponents": {
+      "buyconfirm": "/component/buyconfirm/buyconfirm",
+      "sharemodal": "/component/sharemodal/sharemodal"
+    }
 }

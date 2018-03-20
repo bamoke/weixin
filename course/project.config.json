@@ -31,6 +31,12 @@
 					"name": "gift",
 					"pathName": "pages/gift/index",
 					"query": "key=22119adf33ba6c0811c1e267324ff3db"
+				},
+				{
+					"id": -1,
+					"name": "column-detail",
+					"pathName": "pages/column/column-detail/index",
+					"query": "id=6"
 				}
 			]
 		}

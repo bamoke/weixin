@@ -4,11 +4,11 @@
 <view class="bc-container">
 <view class='row'><text class='title'>{{title}}</text></view>
 <view class="row">
-  <view>赠送数量</view>
+  <view>数量</view>
   <view>1</view>
 </view>
 <view class="row">
-  <view>总金额</view>
+  <view>金额</view>
   <view class='price'>￥{{price}}</view>
 </view>
 <button class="btn" bindtap='confirmEvent'>确认支付</button>
