@@ -109,16 +109,18 @@ Page({
     var requestData = { type: 2, proid: this.data.introduce.id }
     var myPromise = app._getApiData(apiUrl, requestData);
     myPromise.then(data => {
-      var nonceStr = data.info.nonceStr;
-      var pkg = data.info.package;
-      var timeStamp = data.info.timeStamp;
-      var paySign = data.info.sign;
+      if(typeof data.info ==='undefined'){
+        wx.redirectTo({
+          url: '/pages/home/mycourse/index',
+        })
+        return;
+      }
       wx.requestPayment({
-        timeStamp: timeStamp,
-        nonceStr: nonceStr,
-        package: pkg,
+        timeStamp: data.info.timeStamp,
+        nonceStr: data.info.nonceStr,
+        package: data.info.package,
         signType: 'MD5',
-        paySign: paySign,
+        paySign: data.info.sign,
         success: function (res) {
           wx.redirectTo({
             url: '/pages/home/mycourse/index',

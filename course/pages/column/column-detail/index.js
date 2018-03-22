@@ -31,18 +31,20 @@ Page({
     var requestData = {type:1,proid:proid}
     var promise = app._getApiData(apiUrl,requestData);
 
-    promise.then((backdata) => {
-      var info = backdata.info;
-      var nonceStr = info.nonceStr;
-      var pkg = info.package;
-      var timeStamp = info.timeStamp;
-      var paySign = info.sign;
+    promise.then((data) => {
+      if (typeof data.info === 'undefined') {
+        wx.redirectTo({
+          url: '/pages/home/mycolumn/index',
+        })
+        return;
+      }
+
       wx.requestPayment({
-        timeStamp: timeStamp,
-        nonceStr: nonceStr,
-        package: pkg,
+        timeStamp: data.info.timeStamp,
+        nonceStr: data.info.nonceStr,
+        package: data.info.package,
         signType: 'MD5',
-        paySign: paySign,
+        paySign: data.info.sign,
         success: function (res) {
           wx.redirectTo({
             url: '/pages/home/mycolumn/index',

@@ -1,5 +1,6 @@
 {
   "pages": [
+    "pages/survey/index",
     "pages/index/index",
     "pages/home/present/index",
     "pages/gift/index",
