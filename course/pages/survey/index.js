@@ -6,9 +6,9 @@ Page({
    * 页面的初始数据
    */
   data: {
-    showPage: true,
+    showPage: false,
     showError:false,
-    surveyId:1,
+    surveyId:null,
     title: "大学生关于服饰消费情况的调查",
     description:"在经济相对自由的学生时代，没有方向的随意消费似乎是当前大学生普遍的消费状况。只有充分进行调查了解，才能帮助建立健康的消费价值观",
     progress:0,
@@ -123,7 +123,22 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    if(typeof options.id ==='undefined') return;
+    var curId = options.id;
+    var apiUrl = "/Survey/index";
+    var requestData = { id: curId};
+    var fetchData = App._getApiData(apiUrl, requestData)
+    fetchData.then(data=>{
+      wx.hideLoading();
+      console.log(data)
+      this.setData({
+        showPage:true,
+        surveyId:curId
+      })
+    },reject=>{
+      wx.hideLoading();
+      console.log(reject)
+    }) 
   },
 
   /**

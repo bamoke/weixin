@@ -1,10 +1,10 @@
 {
   "pages": [
-    "pages/survey/index",
+    
     "pages/index/index",
     "pages/home/present/index",
     "pages/gift/index",
-    
+    "pages/survey/index",
     "pages/home/index/index",
     "pages/common/bind/index",
     

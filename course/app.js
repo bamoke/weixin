@@ -119,7 +119,7 @@ App({
     })
   },
 
-
+isLoaded:true,
   /**
     * 获取数据(无需sessionID)
     * @param string  api url
@@ -127,10 +127,14 @@ App({
     * @param string  method name
     */
   _fetchApiData: function (apiurl, data, method) {
+    var _that = this;
     wx.showLoading({
       title: '加载中',
     })
-
+    if (!this.isLoaded) {
+      return
+    }
+    this.isLoaded = false;
     var requestData = data ? data : {};
     var requestMethod = method ? method : 'GET';
     var myPromise = new Promise(function (resolve, reject) {
@@ -143,8 +147,10 @@ App({
         },
         success: function (res) {
           if (res && res.data.errorCode == 10000) {
+            _that.isLoaded = true;
             resolve(res.data)
           } else {
+            _that.isLoaded = true;
             reject(res.data.errorMsg)
           }
         },
@@ -163,10 +169,14 @@ App({
    * @param string  method name
    */
   _getApiData: function (apiurl, data, method) {
+    var _that =this;
     wx.showLoading({
       title: '加载中',
     })
-
+    if(!this.isLoaded){
+      return
+    }
+    this.isLoaded = false;
     var requestData = data ? data : {};
     var requestMethod = method ? method : 'GET';
     var myPromise = new Promise(function (resolve, reject) {
@@ -180,8 +190,10 @@ App({
         },
         success: function (res) {
           if (res && res.data.errorCode == 10000) {
+            _that.isLoaded = true;
             resolve(res.data)
           } else {
+            _that.isLoaded = true;
             reject(res.data.errorMsg)
           }
         },

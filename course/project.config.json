@@ -24,7 +24,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": -1,
+			"current": 2,
 			"list": [
 				{
 					"id": 0,
@@ -37,6 +37,12 @@
 					"name": "column-detail",
 					"pathName": "pages/column/column-detail/index",
 					"query": "id=6"
+				},
+				{
+					"id": -1,
+					"name": "survey",
+					"pathName": "pages/survey/index",
+					"query": "id=1"
 				}
 			]
 		}

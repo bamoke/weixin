@@ -11,7 +11,8 @@ Page({
     banner: [],
     recomment: {},
     column: [],
-    course: []
+    course: [],
+    survey:null
   },
   //事件处理函数
   bindViewTap: function () {
@@ -32,7 +33,8 @@ Page({
         showPage: true,
         column: data.columnist,
         course: data.courseList,
-        banner: data.banner
+        banner: data.banner,
+        survey:data.survey
       })
     }, function (err) {
       console.log(err)

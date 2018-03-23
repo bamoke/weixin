@@ -12,6 +12,8 @@
     </block>
   </swiper>
 
+
+
   <view class="m-horizontal-nav">
 
     <navigator open-type='switchTab' url="../column/index/index" class="item">
@@ -32,6 +34,9 @@
     </navigator>
   </view>
 
+    <navigator wx:if="{{survey !==null}}" class="u-survey" url="../survey/index?id={{survey.id}}" open-type='navigate'>
+      <image mode="scaleToFill" class="thumb" src="{{sourceUrl}}thumb/{{survey.thumb}}"></image>
+    </navigator>
 
   <view class="m-column-list">
     <view class="m-main-bar">
