@@ -7,88 +7,44 @@ Page({
    */
   data: {
     showPage: false,
-    showError:false,
-    surveyId:null,
+    showError: false,
+    surveyId: null,
+    give_balance: null,
     title: "大学生关于服饰消费情况的调查",
-    description:"在经济相对自由的学生时代，没有方向的随意消费似乎是当前大学生普遍的消费状况。只有充分进行调查了解，才能帮助建立健康的消费价值观",
-    progress:0,
-    selectedQuestion:[],
-    siglePrecent:51,
-    questionList: [
-      {
-        id: 1,
-        question: "请问您的性别是：",
-        type: 1,
-        selected:false,
-        showError:false,
-        selectedAnswer: "",
-        answerList: [
-          {
-            id: 1,
-            name: "男"
-          },
-          {
-            id: 2,
-            name: "女"
-          }
-        ]
-      },
-      {
-        id: 2,
-        question: "您一个月的收入（家庭所给、个人所赚、资助所得等）是：",
-        type: 2,
-        selected: false,
-        selectedAnswer:"",
-        answerList: [
-          {
-            id: 3,
-            name: "800元以下"
-          },
-          {
-            id: 4,
-            name: "800-1000元"
-          },
-          {
-            id: 5,
-            name: "1000-1200元"
-          },
-          {
-            id: 6,
-            name: "1200-1500元"
-          }
-        ]
-      }
-    ]
+    description: "在经济相对自由的学生时代，没有方向的随意消费似乎是当前大学生普遍的消费状况。只有充分进行调查了解，才能帮助建立健康的消费价值观",
+    progress: 0,
+    selectedQuestion: [],
+    questionList: []
   },
-  valueChange:function(data){
+  valueChange: function (data) {
     var curValue = data.detail.value
     var curQuestionIndex = data.target.dataset.qindex
     var questionList = this.data.questionList;
     var selectedQuestion = this.data.selectedQuestion;
     var progress;
-    questionList[curQuestionIndex].selected= true;
+    questionList[curQuestionIndex].selected = true;
 
     //设置已选择的问题
     var selectedIndex = selectedQuestion.indexOf(curQuestionIndex);
-    if (selectedIndex < 0){
+    if (selectedIndex < 0) {
       selectedQuestion.push(curQuestionIndex)
     }
 
     //选取答案
-    if(typeof curValue ==='string'){
+    if (typeof curValue === 'string') {
       questionList[curQuestionIndex].selectedAnswer = curValue;
-    }else {
-      if (curValue.length === 0 ){
+    } else {
+      if (curValue.length === 0) {
         questionList[curQuestionIndex].selected = false;
-        selectedQuestion.splice(selectedIndex,1)
+        selectedQuestion.splice(selectedIndex, 1)
 
       }
       questionList[curQuestionIndex].selectedAnswer = curValue.toString();
     }
 
     //ser progress
-    progress = selectedQuestion.length * this.data.siglePrecent;
-    
+    progress = selectedQuestion.length * Math.ceil(100 / questionList.length);
+
     //update data
     this.setData({
       questionList: questionList,
@@ -96,26 +52,46 @@ Page({
     })
 
   },
-  submit:function(){
+  submit: function () {
     var selectedQuestion = this.data.selectedQuestion;
     var questionList = this.data.questionList;
     var apiUrl = "/Survey/dopoll";
-    var requestData={};
-    var allSelectedAnswer="";
-    if (selectedQuestion.length != questionList.length){
+    var requestData = {};
+    var allSelectedAnswer = "";
+    if (selectedQuestion.length != questionList.length) {
       this.setData({
-        showError:true
+        showError: true
       })
       return;
     }
     //
     requestData.id = this.data.surveyId;
-    questionList.forEach(function(e){
+    questionList.forEach(function (e) {
       allSelectedAnswer += (e.selectedAnswer).toString() + ","
     })
     console.log(allSelectedAnswer);
-    requestData.answerid = allSelectedAnswer.slice(0,allSelectedAnswer.length-1);
-    var postData = App._getApiData(apiUrl,requestData,"POST")
+    requestData.answerid = allSelectedAnswer.slice(0, allSelectedAnswer.length - 1);
+    var postData = App._getApiData(apiUrl, requestData, "POST")
+    postData.then((data) => {
+      wx.hideLoading();
+      var tipText = "感谢您的参与！"
+      if (data.give_balance !== null) {
+        tipText += "并获得￥" + data.give_balance + "现金红包"
+      }
+      wx.showModal({
+        content: tipText,
+        showCancel: false,
+        confirmText: "返回首页",
+        success: function () {
+          wx.switchTab({
+            url: '/pages/index/index',
+          })
+        }
+      })
+    }, reject => {
+      wx.hideLoading();
+      console.log(reject);
+    })
 
   },
 
@@ -123,22 +99,37 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    if(typeof options.id ==='undefined') return;
+    if (typeof options.id === 'undefined') return;
     var curId = options.id;
     var apiUrl = "/Survey/index";
-    var requestData = { id: curId};
+    var requestData = { id: curId };
     var fetchData = App._getApiData(apiUrl, requestData)
-    fetchData.then(data=>{
+    fetchData.then(data => {
       wx.hideLoading();
       console.log(data)
       this.setData({
-        showPage:true,
-        surveyId:curId
+        showPage: true,
+        surveyId: curId,
+        give_balance: data.surveyInfo.give_balance,
+        title: data.surveyInfo.title,
+        description: data.surveyInfo.description,
+        questionList: data.questionList
+
       })
-    },reject=>{
+    }, reject => {
       wx.hideLoading();
       console.log(reject)
-    }) 
+      wx.showModal({
+        content: reject,
+        showCancel: false,
+        confirmText: "返回首页",
+        success: function () {
+          wx.switchTab({
+            url: '/pages/index/index',
+          })
+        }
+      })
+    })
   },
 
   /**
