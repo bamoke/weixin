@@ -10,8 +10,8 @@ Page({
     showError: false,
     surveyId: null,
     give_balance: null,
-    title: "大学生关于服饰消费情况的调查",
-    description: "在经济相对自由的学生时代，没有方向的随意消费似乎是当前大学生普遍的消费状况。只有充分进行调查了解，才能帮助建立健康的消费价值观",
+    title: "",
+    description: "",
     progress: 0,
     selectedQuestion: [],
     questionList: []
