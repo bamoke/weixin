@@ -141,7 +141,7 @@ Page({
       wx.hideLoading()
       this.setData({
         showPage: true,
-        region: info.region ? info.region : [],
+        region: info.region ? info.region.split(",") : [],
         eduText: info.edu ? info.edu : "未填写",
         birthDay: info.birthday,
         realName: info.realname,
@@ -150,7 +150,9 @@ Page({
       })
     }, reject => {
       wx.hideLoading()
-      console.log(reject);
+      wx.showToast({
+        title: reject,
+      });
     })
 
   },

@@ -1,162 +1,199 @@
 /* pages/home/index/index.wxss */
+
 .m-uh-top {
-    position:relative;
-    width:100%;
-    height:360rpx;
-    background-color:#28bfc6;
-    color:#fff;
+  position: relative;
+  width: 100%;
+  height: 360rpx;
+  background-color: #28bfc6;
+  color: #fff;
 }
+
 .m-uh-top .bg {
-    width:100%;
-    height:370rpx;
+  width: 100%;
+  height: 370rpx;
 }
+
 .m-uh-top .userinfo {
-    position:absolute;
-    top:0;
-    left:0;
-    z-index:1;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items:center;
-    width:100%;
-    height:100%;
-    /* background-color:rgba(255,255,255,.7); */
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  /* background-color:rgba(255,255,255,.7); */
 }
+
 .m-uh-top .userinfo .avatar {
-    width:120rpx;
-    height:120rpx;
-    border-radius:50%;
+  width: 120rpx;
+  height: 120rpx;
+  border-radius: 50%;
 }
+
 .m-uh-top .userinfo .username {
-    padding:24rpx 0;
-    font-weight: bold;
-    font-size:36rpx;
-    line-height: 1;
+  padding: 24rpx 0;
+  font-weight: bold;
+  font-size: 36rpx;
+  line-height: 1;
 }
+
 .m-uh-top .userinfo navigator {
-    color:#666;
+  color: #666;
 }
+
 .m-uh-top .userinfo .other text {
-  margin-right:20rpx;
+  margin-right: 20rpx;
 }
 
 .m-uh-nav {
-    display: -webkit-flex;
-    justify-content: space-between;
-    align-items: center;
-    box-sizing:border-box;
-    margin-bottom:20rpx;
-    width:100%;
-    height:120rpx;
-    overflow: hidden;
-    background-color:#fff;
+  display: -webkit-flex;
+  justify-content: space-between;
+  align-items: center;
+  box-sizing: border-box;
+  margin-bottom: 20rpx;
+  width: 100%;
+  height: 120rpx;
+  overflow: hidden;
+  background-color: #fff;
 }
+
 .m-uh-nav navigator {
-    width:25%;
-    text-align: center;
-    color:#666;
+  width: 25%;
+  text-align: center;
+  color: #666;
 }
+
 .m-uh-nav .icon {
-    display: block;
-    margin:0 auto 10rpx;
-    width:48rpx;
-    height:48rpx;
-    background-position:center;
-    background-repeat:no-repeat;
-    background-size:44rpx auto;
+  display: block;
+  margin: 0 auto 10rpx;
+  width: 48rpx;
+  height: 48rpx;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 44rpx auto;
 }
 
 .m-uh-nav .i-fb {
-background-image:url(http://ojpuy4nsw.bkt.clouddn.com/i-fb.png?v=1);
+  background-image: url(http://ojpuy4nsw.bkt.clouddn.com/i-fb.png?v=1);
 }
+
 .m-uh-nav .i-cs {
-background-image:url(http://ojpuy4nsw.bkt.clouddn.com/i-sell.png);
+  background-image: url(http://ojpuy4nsw.bkt.clouddn.com/i-sell.png);
 }
+
 .m-uh-nav .i-gm {
-background-image:url(http://ojpuy4nsw.bkt.clouddn.com/i-buy.png);
+  background-image: url(http://ojpuy4nsw.bkt.clouddn.com/i-buy.png);
 }
+
 .m-uh-nav .i-sc {
-background-image:url(http://ojpuy4nsw.bkt.clouddn.com/i-collection.png);
+  background-image: url(http://ojpuy4nsw.bkt.clouddn.com/i-collection.png);
 }
 
 .m-nav-list {
-  box-sizing:border-box;
-  padding:0 24rpx;
-  width:100%;
-  margin-bottom:20rpx;
-  background-color:#fff;
+  box-sizing: border-box;
+  padding: 0 24rpx;
+  width: 100%;
+  margin-bottom: 20rpx;
+  background-color: #fff;
 }
+
 .m-nav-list .item {
   display: flex;
   justify-content: space-between;
-  height:92rpx;
-  line-height:92rpx;
-  border-bottom:2rpx solid #eee;
+  height: 92rpx;
+  line-height: 92rpx;
+  border-bottom: 2rpx solid #eee;
 }
-.m-nav-list item::last-child {border:none;}
+
+.m-nav-list item::last-child {
+  border: none;
+}
+
 .m-nav-list .left {
-  position:relative;
+  position: relative;
 }
+
 .m-nav-list .left .icon {
   display: inline-block;
-  margin-right:20rpx;
-  width:48rpx;
-  height:48rpx;
+  margin-right: 20rpx;
+  width: 48rpx;
+  height: 48rpx;
   vertical-align: middle;
-  background-position:left center;
-  background-repeat:no-repeat;
-  background-size:48rpx;
+  background-position: left center;
+  background-repeat: no-repeat;
+  background-size: 48rpx;
 }
+
 .m-nav-list .left text {
   vertical-align: middle;
-  font-size:30rpx;
-  color:#333;
-  }
+  font-size: 30rpx;
+  color: #333;
+}
+
 .m-nav-list .i-profile {
-  background-image:url(http://ojpuy4nsw.bkt.clouddn.com/profile_fill.png);
+  background-image: url(http://ojpuy4nsw.bkt.clouddn.com/profile_fill.png);
 }
+
 .m-nav-list .i-quit {
-  background-image:url(http://ojpuy4nsw.bkt.clouddn.com/quit_fill.png);
+  background-image: url(http://ojpuy4nsw.bkt.clouddn.com/quit_fill.png);
 }
+
 .m-nav-list .i-comment {
-  background-image:url(http://ojpuy4nsw.bkt.clouddn.com/comment_fill.png);
+  background-image: url(http://ojpuy4nsw.bkt.clouddn.com/comment_fill.png);
 }
+
 .m-nav-list .i-video {
-  background-image:url(http://ojpuy4nsw.bkt.clouddn.com/i-video.png?v=1);
+  background-image: url(http://ojpuy4nsw.bkt.clouddn.com/i-video.png?v=1);
 }
+
 .m-nav-list .i-favor {
-  background-image:url(http://ojpuy4nsw.bkt.clouddn.com/favor_fill.png);
+  background-image: url(http://ojpuy4nsw.bkt.clouddn.com/favor_fill.png);
 }
+
 .m-nav-list .i-msg {
-  background-image:url(http://ojpuy4nsw.bkt.clouddn.com/notice_fill.png);
+  background-image: url(http://ojpuy4nsw.bkt.clouddn.com/notice_fill.png);
 }
+
 .m-nav-list .i-buycar {
-  background-image:url(http://ojpuy4nsw.bkt.clouddn.com/cart_fill.png);
+  background-image: url(http://ojpuy4nsw.bkt.clouddn.com/cart_fill.png);
 }
+
 .m-nav-list .i-order {
-  background-image:url(http://ojpuy4nsw.bkt.clouddn.com/goods_fill.png);
+  background-image: url(http://ojpuy4nsw.bkt.clouddn.com/goods_fill.png);
 }
 
 .m-nav-list .right .arrow {
   display: inline-block;
-  width:36rpx;
-  height:36rpx;
-  background:url(http://ojpuy4nsw.bkt.clouddn.com/i-arrow-right.png) no-repeat right center;
-  background-size:contain;
+  width: 36rpx;
+  height: 36rpx;
+  background: url(http://ojpuy4nsw.bkt.clouddn.com/i-arrow-right.png) no-repeat right center;
+  background-size: contain;
   vertical-align: middle;
-  opacity:.8;
+  opacity: 0.8;
 }
+
 .m-nav-list .right .tips {
-  color:#999;
+  color: #999;
   vertical-align: middle;
-  }
-.bind-mobile {
-  display: inline-block;
-  margin-bottom:12rpx;
-  padding:10rpx;
-  background-color:#777;
-  color:#fff;
-  font-size:24rpx;
+}
+
+.u-bind {
+    display: inline-block;
+  margin-bottom: 12rpx;
+  padding: 10rpx;
+background-color: #fff;
+  font-size: 24rpx;
   line-height: 1;
+}
+.unbind {
+
+  color:#999!important;
+
+}
+.hasbind {
+  /* background-color: #ff6600; */
+   color:#28bfc6; 
 }

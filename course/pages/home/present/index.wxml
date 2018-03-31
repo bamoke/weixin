@@ -12,4 +12,7 @@
       </view>
     </view>
   </view>
+  <view class='m-empty-box' wx:else>
+    <view class="tips">还没有礼包赠送记录!</view>
+  </view>
 </view>

@@ -107,7 +107,7 @@ Page({
       wx.hideLoading();
       wx.showModal({
         title: '绑定成功',
-        content: '恭喜您完成手机号绑定，并获得50元现金奖励',
+        content: '恭喜您完成手机号绑定，并获得10元现金奖励',
         showCancel: false,
         success:function(){
           wx.reLaunch({

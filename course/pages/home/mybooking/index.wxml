@@ -1,7 +1,6 @@
 <!--pages/home/mybooking/index.wxml-->
 <view class="container">
-  <view wx:if="{{list.length === 0}}" class="tips">还没有预约过线下课程!</view>
-  <view wx:else class='m-column-list'>
+  <view wx:if="{{list.length}}" class='m-column-list'>
     <view wx:for="{{list}}" wx:key="id">
       <view class='item'>
         <image mode="scaleToFill" class="thumb" src="{{sourceUrl}}thumb/{{item.thumb}}"></image>
@@ -13,5 +12,8 @@
       </view>
       <navigator class="u-view-more" open-type='navigate' url='/pages/booking/detail/index?id={{item.bid}}'>查看课程</navigator>
     </view>
+  </view>
+  <view class='m-empty-box' wx:else>
+    <view class="tips">还没有预约过线下课程!</view>
   </view>
 </view>

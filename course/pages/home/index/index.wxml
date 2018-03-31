@@ -7,11 +7,16 @@
       <view class="username">
         <text>{{userinfo.nickName}}</text>
       </view>
-      <navigator open-type='navigate' url='/pages/common/bind/index' wx:if="{{userinfo.mp_identification == 0}}" class="bind-mobile">手机号未绑定</navigator>
-      <view class="other">
+      <view class="u-bind">
+      <navigator open-type='navigate' url='/pages/common/bind/index' wx:if="{{userinfo.mp_identification == 0}}" class="unbind">
+      手机号未绑定
+      </navigator>
+      <view wx:else class="hasbind">手机号已绑定</view>
+      </view>
+<!--       <view class="other">
         <text>同步头像</text>
         <text>账户余额:￥{{userinfo.balance}}</text>
-      </view>
+      </view> -->
     </view>
   </view>
   <view class="m-horizontal-nav">
@@ -44,7 +49,7 @@
         <view class='arrow'></view>
       </view>
     </navigator> -->
-    <navigator open-type='navigate' url="../balance/index" class="item">
+    <navigator open-type='navigate' url="../mybalance/index" class="item">
       <view class='left'>
         <!-- <view class='icon i-order'></view> -->
         <text class=''>我的余额</text>
@@ -89,10 +94,10 @@
     </navigator>
   </view>
 
-    <view class="m-nav-list">
+<!--   <view class="m-nav-list">
     <navigator url="../myprofile/index" class="item">
       <view class='left'>
-        <!-- <view class='icon i-profile'></view> -->
+        <view class='icon i-profile'></view>
         <text class=''>意见反馈</text>
       </view>
       <view class='right'>
@@ -100,7 +105,7 @@
         <view class='arrow'></view>
       </view>
     </navigator>
-  </view>
+  </view> -->
 
 
 

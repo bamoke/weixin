@@ -1,8 +1,8 @@
 {
   "pages": [
-    
+
     "pages/index/index",
-    "pages/home/present/index",
+    
     "pages/gift/index",
     "pages/survey/index",
     "pages/home/index/index",
@@ -20,6 +20,9 @@
     "pages/home/orders/index",
     "pages/home/mycomment/index",
     "pages/home/mybooking/index",
+    "pages/home/mybalance/index",
+    "pages/home/present/index",
+    
     "pages/course/index/index",
     "pages/course/section/index",
     "pages/course/detail/index",

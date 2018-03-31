@@ -1,0 +1,38 @@
+/* pages/home/mybalance/index.wxss */
+.base-info {
+  width:100%;
+  margin-bottom:24rpx;
+  padding:24rpx 0;
+  background: #fff;
+  font-size:32rpx;
+  text-align:center;
+}
+.logs-box {width:100%;}
+.logs-box .item {
+  display: flex;
+  justify-content: space-between;
+  align-items:center;
+  padding:24rpx;
+  box-sizing:border-box;
+  width:100%;
+  border-bottom:1px solid #eee;
+  background-color:#fff;
+}
+.logs-box .left {
+  width:70%;
+}
+.logs-box .right {
+  flex-shrink:0;
+  width:30%;
+  text-align: right;
+  font-size:32rpx;
+  font-weight:bold;
+}
+.logs-box .desc {
+  width:100%;
+  font-size:28rpx;
+}
+.logs-box .time {
+  font-size:24rpx;
+  color:#999;
+}

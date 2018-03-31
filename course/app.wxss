@@ -292,7 +292,7 @@
   background-color: #fff;
 }
 .m-form .input-box {
-  padding: 12rpx;
+  padding: 24rpx;
   width: 100%;
   background-color: #eee;
 }

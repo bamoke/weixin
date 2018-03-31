@@ -17,7 +17,7 @@ page {
   width: 30%;
   text-align: center;
   border-radius: 10rpx;
-  padding:12rpx;
+  padding:24rpx;
 }
 
 .m-form .form-group .btn-active {

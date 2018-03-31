@@ -56,7 +56,7 @@
     </view>
     <view class="error-box" wx:hidden='{{!errorStatus}}'>{{errorMsg}}</view>
     <view class='m-btn-box'>
-      <button bindtap='submitForm' class='u-btn btn-minor'>提交</button>
+      <button bindtap='submitForm' class='u-btn btn-minor'>保存</button>
     </view>
 
   </view>
