@@ -51,9 +51,7 @@ Page({
           })
         },
         fail: function (res) {
-          wx.redirectTo({
-            url: '/pages/home/orders/index',
-          })
+          wx.hideLoading();
         }
       })
     }, (rej) => {
@@ -72,7 +70,6 @@ Page({
     var requestData = {proid: proid }
     var promise = app._getApiData(apiUrl, requestData);
     promise.then(function(data){
-      wx.hideLoading()
       _this.setData({
         authStatus:1
       })
@@ -119,7 +116,6 @@ Page({
     var requestData = { proid: columnId, protype: proType, type: 5 }
     var myPromise = app._getApiData(apiUrl, requestData, "POST");
     myPromise.then(data => {
-      wx.hideLoading();
       _that.buyconfirm.hide();
       _that.setData({
         giftKey: data.key
@@ -135,16 +131,13 @@ Page({
             _that.sharemodal.show()
           },
           fail: function (res) {
-/*             wx.redirectTo({
-              url: '/pages/home/orders/index',
-            }) */
+
           }
         })
       } else {
         _that.sharemodal.show();
       }
     }, reject => {
-      wx.hideLoading();
       wx.showModal({
         title: '操作错误',
         content: reject,

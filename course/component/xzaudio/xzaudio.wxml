@@ -1,0 +1,20 @@
+<!--component/xz-audio/xzaudio.wxml-->
+<view class='wrap'>
+  <view class='progress-bar'>
+    <view class="time">{{curTime}}</view>
+    <view class="progress">
+      <view class="active-bar"></view>
+      <view class="active-btn"></view>
+    </view>
+    <view class="time">{{timeLong}}</view>
+  </view>
+  <view class='control-box'>
+    <view class="prev"></view>
+    <view class="main-control-btn">
+      <view class='btn disable' hidden='{{canPlay}}'></view>
+      <view class="btn play-btn" hidden='{{audioStatus === 1 || !canPlay}}' bindtap='play'></view>
+      <view class="btn pause-btn" hidden='{{audioStatus === 2 || !canPlay}}' bindtap='pause'></view>
+    </view>
+    <view class="next"></view>
+  </view>
+</view>

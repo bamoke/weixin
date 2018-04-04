@@ -189,6 +189,7 @@ isLoaded:true,
           'session-id': wx.getStorageSync('sessionId')
         },
         success: function (res) {
+          wx.hideLoading();
           if (res && res.data.errorCode == 10000) {
             _that.isLoaded = true;
             resolve(res.data)

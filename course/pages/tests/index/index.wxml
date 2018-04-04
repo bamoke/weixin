@@ -5,19 +5,19 @@
   </view>
 
 
-  <view class='m-nav'>
+<!--   <view class='m-nav'>
     <block wx:for="{{navList}}" wx:key="id">
       <navigator open-type='navigate' url='../detail/index?id={{item.id}}' class='item'>{{item.title}}</navigator>
     </block>
 
-  </view>
+  </view> -->
 
   <view class='m-recommend'>
-    <view class='bar'>
+<!--     <view class='bar'>
       <text class="caption">热门推荐</text>
-    </view>
+    </view> -->
     <view class='m-test-list'>
-      <block wx:for="{{mainList}}" wx:key="id">
+      <block wx:for="{{navList}}" wx:key="id">
         <navigator class='item' open-type='navigate' url="../detail/index?id={{item.id}}">
           <text class='title'>{{item.title}}</text>
           <view class='total'>

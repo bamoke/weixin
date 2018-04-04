@@ -20,11 +20,15 @@
 			"current": -1,
 			"list": []
 		},
+		"plugin": {
+			"current": -1,
+			"list": []
+		},
 		"game": {
 			"list": []
 		},
 		"miniprogram": {
-			"current": -1,
+			"current": 1,
 			"list": [
 				{
 					"id": 0,
@@ -33,10 +37,10 @@
 					"query": "key=22119adf33ba6c0811c1e267324ff3db"
 				},
 				{
-					"id": -1,
-					"name": "column-detail",
-					"pathName": "pages/column/column-detail/index",
-					"query": "id=6"
+					"id": 1,
+					"name": "test course",
+					"pathName": "pages/course/section/index",
+					"query": "id=13&img=b8cb86d9cf38185f664e49c2724f0c8d.jpg"
 				},
 				{
 					"id": -1,

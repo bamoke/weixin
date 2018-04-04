@@ -61,7 +61,6 @@ Page({
 
     myPromise = app._getApiData(curApiUrl, curRequestData);
     myPromise.then(data => {
-      wx.hideLoading();
       if (index == 1) {
         updateData.section = data.sectionList
       } else if (index == 2) {
@@ -79,6 +78,10 @@ Page({
     var sectionType = this.data.section[index].type;
     var source = this.data.section[index].source;
     var _that = this;
+    var sectionUrl = '../section/index?id=' + sectionId;
+    if(sectionType != 3 ){
+      sectionUrl = sectionUrl + '&img=' + this.data.introduce.thumb
+    }
     if (!this.data.hasCourse && this.data.introduce.isfree == 0) {
       wx.showModal({
         title: '提示',
@@ -94,7 +97,7 @@ Page({
 
     } else {
       wx.navigateTo({
-        url: '../section/index?id=' + sectionId
+        url: sectionUrl
       })
 
     }
@@ -127,9 +130,10 @@ Page({
           })
         },
         fail: function (res) {
-          wx.redirectTo({
+          // wx.hideLoading();
+/*           wx.redirectTo({
             url: '/pages/home/orders/index',
-          })
+          }) */
         }
       })
     }, err => {
@@ -157,7 +161,6 @@ Page({
     var requestData = { proid: courseId, protype: proType,type:5 }
     var myPromise = app._getApiData(apiUrl, requestData, "POST");
     myPromise.then(data => {
-      wx.hideLoading();
       _that.buyconfirm.hide();
       _that.setData({
         giftKey:data.key
@@ -173,9 +176,7 @@ Page({
             _that.sharemodal.show()
           },
           fail: function (res) {
-            wx.redirectTo({
-              url: '/pages/home/orders/index',
-            })
+            console.log(res)
           }
         })
       }else {
@@ -203,17 +204,21 @@ Page({
     var requestData = { id: options.id }
     var myPromise = app._getApiData(apiUrl, requestData);
     myPromise.then(data => {
-      wx.hideLoading();
       //标签转换
       if (data.courseDetail.content) {
         WxParse.wxParse('wxparse_content', 'html', data.courseDetail.content, _that)
       }
 
+      //update data
       _that.setData({
         courseId: options.id,
         showPage: true,
         introduce: data.courseDetail,
         hasCourse: data.hasCourse
+      })
+      //update bar title
+      wx.setNavigationBarTitle({
+        title: data.courseDetail.title
       })
     })
   },

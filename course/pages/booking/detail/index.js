@@ -19,11 +19,11 @@ Page({
    * 点击预约
    */
   phase: function (data) {
-    var id = data.target.dataset.id;
-    var bid = data.target.dataset.bid;
+    var id = data.currentTarget.dataset.id;
+    var bid = data.currentTarget.dataset.bid;
     var apiUrl = '/Orders/create';
     var requestData = { type: 4, proid: id }
-    console.log(requestData);
+    console.log(data);
     // return;
     var myPromise = app._getApiData(apiUrl, requestData);
     myPromise.then(data => {
@@ -43,9 +43,10 @@ Page({
           })
         },
         fail: function (res) {
-          wx.redirectTo({
+          wx.hideLoading();
+/*           wx.redirectTo({
             url: '/pages/home/orders/index',
-          })
+          }) */
         }
       })
     }, err => {

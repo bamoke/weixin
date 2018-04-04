@@ -1,0 +1,79 @@
+/* component/xz-audio/xzaudio.wxss */
+.wrap {
+  padding:20rpx 24rpx;
+  box-sizing:border-box;
+  width:100%;
+  background:#fff;
+}
+.progress-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.progress {
+  flex-shrink:1;
+  width:70%;
+  height:8rpx;
+  border-radius:4rpx;
+  background:#bdbdbd;
+  position: relative;
+  overflow: visible;
+}
+.progress .active-bar {
+  position:absolute;
+  left:0;
+  top:0;
+  z-index:1;
+  height:8rpx;
+  width:20rpx;
+  border-radius:4rpx;
+  background:#28c0c6;
+}
+.progress .active-btn {
+  position:absolute;
+  left:20rpx;
+  top:-14rpx;
+  z-index:9;
+  width:20rpx;
+  height:20rpx;
+  border:8rpx solid #fff;
+  border-radius:50%;
+  background:#28c0c6;
+  box-shadow: 0 0 4rpx rgba(0,0,0,.35);
+}
+.time {color:#999;}
+
+.control-box {
+  margin:0 auto;
+  display: flex;
+  justify-content:space-between;
+  align-items: center;
+  padding:20rpx 0;
+  width:70%;
+}
+.prev,.next {
+  display:inline-block;
+  width:48rpx;
+  height:48rpx;
+  background-size:cover;
+}
+.prev {
+  background-image: url("http://112.74.42.16/Upload/weicon/audio-prev.png")
+}
+.next {
+  background-image:url("http://112.74.42.16/Upload/weicon/audio-next.png");
+}
+.main-control-btn .btn{
+  width:90rpx;
+  height:90rpx;
+  background-size:contain;
+}
+.disable {
+  background-image:url("http://112.74.42.16/Upload/weicon/audio-disable.png");
+}
+.play-btn {
+  background-image:url("http://112.74.42.16/Upload/weicon/audio-play.png");
+}
+.pause-btn {
+  background-image:url("http://112.74.42.16/Upload/weicon/audio-pause.png");
+}

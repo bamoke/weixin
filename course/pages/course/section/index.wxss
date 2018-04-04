@@ -2,7 +2,7 @@
 .m-article-detail {
   box-sizing:border-box;
   padding:20rpx 20rpx 40rpx;
-  margin-bottom:20rpx;
+  margin-top:20rpx;
   width:100%;
   background-color:#fff;
 }
@@ -32,4 +32,8 @@
 }
 .u-video {
   width:100%;height:350rpx;
+}
+.u-cover {
+  width: 100%;
+  height: 350rpx;
 }
