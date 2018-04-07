@@ -1,20 +1,26 @@
 <!--component/xz-audio/xzaudio.wxml-->
 <view class='wrap'>
-  <view class='progress-bar'>
-    <view class="time">{{curTime}}</view>
-    <view class="progress">
-      <view class="active-bar"></view>
-      <view class="active-btn"></view>
+  <view class='row'>
+    <view class="small left-unit">{{curTime}}</view>
+    <view class="middle-box progress" id="js-progress">
+      <view class="active-bar" style="width:{{curProgressNum}}px" id="js-active-bar"></view>
+      <view class="active-btn" bind:touchstart="btnTouchStart" bind:touchmove="btnTouchMove" bind:touchend="btnTouchEnd" style="left:{{curProgressNum}}px"></view>
     </view>
-    <view class="time">{{timeLong}}</view>
+    <view class="small right-unit">{{timeLong}}</view>
   </view>
-  <view class='control-box'>
-    <view class="prev"></view>
-    <view class="main-control-btn">
-      <view class='btn disable' hidden='{{canPlay}}'></view>
-      <view class="btn play-btn" hidden='{{audioStatus === 1 || !canPlay}}' bindtap='play'></view>
-      <view class="btn pause-btn" hidden='{{audioStatus === 2 || !canPlay}}' bindtap='pause'></view>
+
+
+  <view class='row'>
+    <view class="small left-unit"></view>
+    <view class='middle-box control-box'>
+      <view class="prev"></view>
+      <view class="main-control-btn">
+        <view class='btn disable' hidden='{{canPlay}}'></view>
+        <view class="btn play-btn" hidden='{{audioStatus === 1 || !canPlay}}' bindtap='play'></view>
+        <view class="btn pause-btn" hidden='{{audioStatus === 2 || !canPlay}}' bindtap='pause'></view>
+      </view>
+      <view class="next"></view>
     </view>
-    <view class="next"></view>
+    <view class="small right-unit"></view>
   </view>
 </view>
