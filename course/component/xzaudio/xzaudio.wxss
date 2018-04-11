@@ -67,6 +67,12 @@
 .next {
   background-image:url("http://112.74.42.16/Upload/weicon/audio-next.png");
 }
+.prev-active {
+  background-image: url("http://112.74.42.16/Upload/weicon/audio-prev-active.png")
+}
+.next-active {
+  background-image:url("http://112.74.42.16/Upload/weicon/audio-next-active.png");
+}
 .main-control-btn .btn{
   width:90rpx;
   height:90rpx;

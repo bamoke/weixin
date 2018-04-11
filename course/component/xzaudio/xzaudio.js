@@ -27,6 +27,14 @@ Component({
     cover:{
       type:String,
       value:""
+    },
+    next:{
+      type:null,
+      value:null
+    },
+    prev:{
+      type:null,
+      value:null
     }
 
   },
@@ -168,7 +176,6 @@ Component({
     //设置初始化数据
     // 获取progress width
     query.exec(function (res) {
-      console.log(res);
       progressWidth = res[0].width - 14
       // console.log(progressWidth)
     })
@@ -189,7 +196,6 @@ Component({
        var curPage = pages[pages.length - 1];
        var pageParam="?";
        var curUrl;
-       var audioStorageSeek = wx.getStorageSync("audioSeek");
        for (var item in curPage.options){
          pageParam += item + "=" + curPage.options[item]+"&";
        }
@@ -201,6 +207,28 @@ Component({
        })
        
     }) 
+    
+     //Canplay The callback function 
+     innerAudio.onCanplay(function (res) {
+       var audioStorageSeek = wx.getStorageSync("audioSeek");
+       setTimeout(function () {
+         var durationNum = parseInt(innerAudio.duration);
+         _that.setData({
+           timeLong: commonFunc.formatTime(innerAudio.duration)
+         })
+         ratio = progressWidth / innerAudio.duration
+         _that.setData({
+           canPlay: true,
+           audioStatus: 1,
+           timeLong: commonFunc.formatTime(durationNum)
+         })
+         // reset seek
+         if (typeof audioStorageSeek !== 'undefined') {
+           innerAudio.seek(audioStorageSeek);
+         }
+       }, 500)
+     })
+
     // playing
     innerAudio.onTimeUpdate(function (data) {
       var oldProgressNum = _that.data.curProgressNum;
@@ -214,25 +242,7 @@ Component({
       wx.setStorageSync("audioSeek", currentTime)
     })
 
-    //Canplay The callback function 
-    innerAudio.onCanplay(function (res) {
-      console.log("canplay")
-      setTimeout(function () {
-        _that.setData({
-          timeLong: commonFunc.formatTime(innerAudio.duration)
-        })
-        ratio = progressWidth / innerAudio.duration
-
-        var durationNum = parseInt(innerAudio.duration);
-        _that.setData({
-          canPlay: true,
-          audioStatus: 1,
-          timeLong: commonFunc.formatTime(durationNum)
-        })
-        console.log(durationNum)
-
-      }, 500)
-    })
+  
 
     // play end 
     innerAudio.onEnded(function () {
@@ -255,7 +265,8 @@ Component({
     //innerAudio paused
     innerAudio.onPause(function(){
       // destroy audio storage
-      // wx.removeStorageSync('audioPage')
+      wx.removeStorageSync('audioPage')
+      wx.removeStorageSync('audioSeek')
     })
 
     // innerAudio stop

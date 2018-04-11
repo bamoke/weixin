@@ -4,7 +4,7 @@
   <image wx:if="{{sectioninfo.type != 3}}" class="u-cover" mode="aspectFill" src="{{sourceUrl}}thumb/{{thumb}}"></image>
   <view class='m-media-box'>
     <view wx:if="{{sectioninfo.type==2}}">
-      <xzaudio id="xzaudio" src="{{sectioninfo.source}}" title="[欣志会计职业精英汇]{{sectioninfo.title}}" cover="{{sourceUrl}}thumb/{{thumb}}" bind:playprev="playPrev" bind:playnext="playNext"></xzaudio>
+      <xzaudio id="xzaudio" src="{{sectioninfo.source}}" title="[欣志会计职业精英汇]{{sectioninfo.title}}" cover="{{sourceUrl}}thumb/{{thumb}}" next="{{nextRecord}}" prev="{{prevRecord}}" bind:playprev="playPrev" bind:playnext="playNext"></xzaudio>
     </view>
     <video initial-time='1' wx:elif='{{sectioninfo.type == 3}}' src="{{sectioninfo.source}}" controls class="u-video" id="myVideo"></video>
   </view>
