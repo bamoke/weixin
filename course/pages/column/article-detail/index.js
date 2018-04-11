@@ -30,6 +30,7 @@ Page({
     this.inputValue = e.detail.value
   },
 
+
   /**
     * 发表评论
    */
@@ -55,28 +56,31 @@ Page({
       if (data.articleInfo.content) {
         WxParse.wxParse('wxparse_content', 'html', data.articleInfo.content, _that)
       }
+      //Update bar title
+      wx.setNavigationBarTitle({
+        title: data.articleInfo.title
+      })
+      //设置audio
+      if (data.articleInfo.type == 2) {
+        _that.setData({
+          audioSrc: data.articleInfo.source
+        })
+      }
+
+      // Update page data
       _that.setData({
         showPage: true,
         article: data.articleInfo,
-        commentList:data.commentList
+        commentList: data.commentList
       })
     });
-    
+
 
   },
   onReady: function () {
     // 页面渲染完成
     // this.videoContext = wx.createVideoContext('js-video');
-    var articleId = this.data.articleId;
-    var _that = this;
-    var apiUrl = '/Comment/getlist'
-    var requestData = { cid: articleId, type: 1, page: this.data.commentPage }
-    var myPromise = app._getApiData(apiUrl, requestData, 'GET', true);
-    myPromise.then(data => {
-      _that.setData({
-        commentList: data.list,
-      })
-    });
+
   },
   onShow: function () {
     // 页面显示

@@ -12,12 +12,21 @@ Page({
     recomment: {},
     column: [],
     course: [],
-    survey:null
+    survey:null,
+    audioPage:""//是否有音频在播放
   },
   //事件处理函数
   bindViewTap: function () {
     wx.navigateTo({
       url: '../logs/logs'
+    })
+  },
+  /**
+   * Go audio page
+   */
+  goAudioPage:function(){
+    wx.navigateTo({
+      url:this.data.audioPage
     })
   },
 
@@ -44,7 +53,13 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    // console.log('show')
+    var curAudioPage = wx.getStorageSync("audioPage");
+     if (typeof curAudioPage !== "undefined"){
+      this.setData({
+        audioPage: curAudioPage
+      })
+    }
+    console.log(this.data.audioPage) 
   }
 
 

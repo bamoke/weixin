@@ -1,5 +1,6 @@
-{"navigationBarTitleText": "",
-"usingComponents":{
-  "xzaudio":"/component/xzaudio/xzaudio"
-}
+{
+  "navigationBarTitleText": "",
+  "usingComponents": {
+    "xzaudio": "/component/xzaudio/xzaudio"
+  }
 }

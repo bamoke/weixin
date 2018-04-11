@@ -12,9 +12,31 @@ Page({
     thumb:"",
     authStatus: 0,
     sectioninfo: {},
+    prevRecord:null,
+    nextRecord:null
 
   },
+  /**
+   * Audio method
+   */
+  playPrev: function (e) {
+    var prevRecord = this.data.prevRecord;
+    if (prevRecord === null || prevRecord.type != 2) return;
+    wx.redirectTo({
+      url: 'index?id=' + prevRecord.id + "&img=" + this.data.thumb,
+    })
+  },
+  playNext:function(e){
+    var nextRecord = this.data.nextRecord;
+    if (nextRecord === null || nextRecord.type != 2) return;
+    wx.redirectTo({
+      url: 'index?id='+nextRecord.id+"&img="+this.data.thumb,
+    })
+  },
 
+  /**
+   * initialize
+   */
   onLoad: function (options) {
     // 页面初始化 options为页面跳转所带来的参数
     var id = options.id;
@@ -31,7 +53,9 @@ Page({
       _that.setData({
         showPage: true,
         sectioninfo: data.sectioninfo,
-        thumb:thumb
+        thumb:thumb,
+        prevRecord: data.prev,
+        nextRecord: data.next
       })
       //update bar title
       wx.setNavigationBarTitle({
@@ -40,14 +64,9 @@ Page({
 
       //设置audio
       if (data.sectioninfo.type == 2) {
-        _that.setData({
-          audioSrc:"http://ws.stream.qqmusic.qq.com/M500001VfvsJ21xFqb.mp3?guid=ffffffff82def4af4b12b3cd9337d5e7&uin=346897220&vkey=6292F51E1E384E061FF02C31F716658E5C81F5594D561F2E88B854E81CAAB7806D5E4F103E55D33C16F3FAC506D1AB172DE8600B37E43FAD&fromtag=46"
-        })
-
         _that.xzaudio = this.selectComponent("#xzaudio")
       }
     });
-
 
   },
   onReady: function () {

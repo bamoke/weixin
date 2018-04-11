@@ -28,7 +28,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 1,
+			"current": -1,
 			"list": [
 				{
 					"id": 0,
@@ -40,12 +40,18 @@
 					"id": 1,
 					"name": "test course",
 					"pathName": "pages/course/section/index",
-					"query": "id=13&img=b8cb86d9cf38185f664e49c2724f0c8d.jpg"
+					"query": "id=19&img=4eb95ca9f1c3215ea8f596aab2af9fb6.jpg"
 				},
 				{
 					"id": -1,
 					"name": "survey",
 					"pathName": "pages/survey/index",
+					"query": "id=1"
+				},
+				{
+					"id": -1,
+					"name": "article-detail",
+					"pathName": "pages/column/article-detail/index",
 					"query": "id=1"
 				}
 			]

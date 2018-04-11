@@ -88,5 +88,10 @@
     </navigator>
   </view>
 
-
+  <view class='m-audio-play-icon' hidden="{{audioPage==''}}" bindtap='goAudioPage'>
+    <view class='item item-type-1'></view>
+    <view class='item item-type-2'></view>
+    <view class='item item-type-1'></view>
+    <view class='item item-type-3'></view>
+  </view>
 </view>

@@ -13,8 +13,8 @@
       <text>发布日期:{{article.create_time}}</text>
     </view>
     <view class='m-media-box'>
-      <image wx:if="{{article.type==1}}" class="thumb" src="{{sourceUrl}}thumb/{{article.thumb}}"></image>
-      <audio wx:elif='{{article.type==2}}'  name="" author="" src="{{article.source}}" id="myAudio" controls loop></audio>
+      <image class="thumb" src="{{sourceUrl}}thumb/{{article.thumb?article.thumb:article.c_thumb}}"></image>
+            <xzaudio wx:if='{{article.type==2}}' id="xzaudio" src="{{audioSrc}}" title="[欣志会计职业精英汇]{{article.title}}" cover="{{sourceUrl}}thumb/{{article.thumb?article.thumb:article.c_thumb}}"></xzaudio>
       <video initial-time='1' wx:elif='{{article.type == 3}}' src="{{article.source}}"   controls class="u-video" id="myVideo"></video>
     </view>
         <view class="wxParse content">

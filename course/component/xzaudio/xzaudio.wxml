@@ -12,15 +12,16 @@
 
   <view class='row'>
     <view class="small left-unit"></view>
-    <view class='middle-box control-box'>
-      <view class="prev"></view>
+    <view class='control-box'>
+      <view class="prev" bindtap='playPrev'></view>
       <view class="main-control-btn">
         <view class='btn disable' hidden='{{canPlay}}'></view>
         <view class="btn play-btn" hidden='{{audioStatus === 1 || !canPlay}}' bindtap='play'></view>
         <view class="btn pause-btn" hidden='{{audioStatus === 2 || !canPlay}}' bindtap='pause'></view>
       </view>
-      <view class="next"></view>
+      <view class="next" bindtap='playNext'></view>
     </view>
-    <view class="small right-unit"></view>
+    <view class="small u-model {{playModel == 1?'sequence':'loop'}}" bindtap='changePlayModel'>
+    </view>
   </view>
 </view>

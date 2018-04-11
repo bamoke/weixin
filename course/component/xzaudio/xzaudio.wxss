@@ -50,6 +50,7 @@
   display: flex;
   justify-content:space-between;
   align-items: center;
+  width:70%;
   height: 90rpx;
   padding:20rpx 0;
   background: #fff;
@@ -79,4 +80,19 @@
 }
 .pause-btn {
   background-image:url("http://112.74.42.16/Upload/weicon/audio-pause.png");
+}
+
+.u-model {
+  display: inline-block;
+  width:48rpx;
+  height:48rpx;
+  background-position:center;
+  background-repeat: no-repeat;
+  background-size:contain;
+}
+.loop {
+  background-image:url("http://112.74.42.16/Upload/weicon/audio-loop.png");
+}
+.sequence {
+  background-image:url("http://112.74.42.16/Upload/weicon/audio-sequence.png");
 }

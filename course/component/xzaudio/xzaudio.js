@@ -9,10 +9,11 @@ var ratio = 0;
 var duration;
 const initialProgressNum = 0;
 var canUpdateTime = true;
+const audioTestSrc ="http://ws.stream.qqmusic.qq.com/M500001VfvsJ21xFqb.mp3?guid=ffffffff82def4af4b12b3cd9337d5e7&uin=346897220&vkey=6292F51E1E384E061FF02C31F716658E5C81F5594D561F2E88B854E81CAAB7806D5E4F103E55D33C16F3FAC506D1AB172DE8600B37E43FAD&fromtag=46";
 
 Component({
   /**
-   * 组件的属性列表
+   * 组件的属性列表 
    */
   properties: {
     src: {
@@ -34,11 +35,12 @@ Component({
    * 组件的初始数据
    */
   data: {
+    playModel:1,//1:默认,顺序播放,2:单节循环
     curTime: "00:00",
     timeLong: "00:00",
     canPlay: false,
     audioStatus: 1,//1:播放中;2:暂停中,
-    curProgressNum: initialProgressNum
+    curProgressNum: initialProgressNum//当前播放进度条
   },
 
   /**
@@ -48,6 +50,8 @@ Component({
     play: function () {
       if(innerAudio.src == ''){
         innerAudio.src = this.data.src;
+        innerAudio.title = this.data.title;
+        innerAudio.coverImgUrl = this.data.cover
       }
       innerAudio.play();
       this.setData({
@@ -60,6 +64,35 @@ Component({
         audioStatus: 2
       })
     },
+    /**
+     * play prev
+     */
+    playPrev:function(){
+      var myEventDetail = {
+        curAudio:innerAudio
+      }
+      this.triggerEvent("playprev",myEventDetail)
+    },
+    /**
+     * play next
+     */
+    playNext:function(){
+      this.triggerEvent("playnext", {curAudio: innerAudio})
+    },
+    /**
+     * Change play model
+     */
+    changePlayModel:function(){
+      var curModel = this.data.playModel
+      this.setData({
+        playModel: curModel==1?2:1
+      })
+      wx.showToast({
+        title: curModel == 1 ? "单节循环" : "顺序播放",
+        icon:"none"
+      })
+    },
+
     /**
      * Touch start
      */
@@ -122,45 +155,52 @@ Component({
     var query = wx.createSelectorQuery().in(this);
     var progressDom = query.select('#js-progress').boundingClientRect();
 
-    //audio setting
+    //Audio setting
     // innerAudio.autoplay = false;//for createInnerAudioContext
     innerAudio.src = this.data.src;
     innerAudio.title = this.data.title;
     innerAudio.coverImgUrl = this.data.cover
+    if (typeof audioStorageSeek !== 'undefined') {
+      innerAudio.seek(audioStorageSeek);
+      console.log("storage:" + audioStorageSeek)
+    } 
     
     //设置初始化数据
     // 获取progress width
     query.exec(function (res) {
       console.log(res);
       progressWidth = res[0].width - 14
-      console.log(progressWidth)
+      // console.log(progressWidth)
     })
 
 
-    setTimeout(function(){
-      _that.setData({
-        timeLong: commonFunc.formatTime(innerAudio.duration)
-      })
-      ratio = progressWidth / innerAudio.duration
 
-      var durationNum = parseInt(innerAudio.duration);
-      _that.setData({
-        canPlay: true,
-        audioStatus: 1,
-        timeLong: commonFunc.formatTime(durationNum)
-      })
-      console.log(durationNum)
 
-    },500)
-    // audio method
-    innerAudio.pause(); 
-/*     innerAudio.onPlay(() => {
-      _that.setData({
-        timeLong: commonFunc.formatTime(innerAudio.duration)
-      })
-      ratio = progressWidth / innerAudio.duration
-      console.log("s" + progressWidth)
-    }) */
+    /**
+     * Audio method
+     */
+
+    /**
+     * Event on play
+     * set storage
+     */
+     innerAudio.onPlay(() => {
+       var pages = getCurrentPages();
+       var curPage = pages[pages.length - 1];
+       var pageParam="?";
+       var curUrl;
+       var audioStorageSeek = wx.getStorageSync("audioSeek");
+       for (var item in curPage.options){
+         pageParam += item + "=" + curPage.options[item]+"&";
+       }
+       curUrl = "/"+curPage.route + pageParam.slice(0,-1);
+       //set storage
+       wx.setStorage({
+         key: "audioPage",
+         data: curUrl
+       })
+       
+    }) 
     // playing
     innerAudio.onTimeUpdate(function (data) {
       var oldProgressNum = _that.data.curProgressNum;
@@ -170,13 +210,28 @@ Component({
         curProgressNum: (parseInt(currentTime * ratio)) + initialProgressNum,
         curTime: commonFunc.formatTime(parseInt(currentTime))
       })
-      // console.log(currentTime)
+      //update audio storage
+      wx.setStorageSync("audioSeek", currentTime)
     })
 
-    //canplay
-
+    //Canplay The callback function 
     innerAudio.onCanplay(function (res) {
+      console.log("canplay")
+      setTimeout(function () {
+        _that.setData({
+          timeLong: commonFunc.formatTime(innerAudio.duration)
+        })
+        ratio = progressWidth / innerAudio.duration
 
+        var durationNum = parseInt(innerAudio.duration);
+        _that.setData({
+          canPlay: true,
+          audioStatus: 1,
+          timeLong: commonFunc.formatTime(durationNum)
+        })
+        console.log(durationNum)
+
+      }, 500)
     })
 
     // play end 
@@ -186,6 +241,36 @@ Component({
         audioStatus: 2,
         curTime: "00:00"
       })
+      _that.data.playModel === 2 && _that.play();
+      if(_that.data.playModel === 1){
+          _that.playNext();//顺序播放
+      }else {
+        _that.play();//单节循环
+      }
+      // destroy audio storage
+      wx.removeStorageSync('audioPage')
+      wx.removeStorageSync('audioSeek')
+    })
+
+    //innerAudio paused
+    innerAudio.onPause(function(){
+      // destroy audio storage
+      // wx.removeStorageSync('audioPage')
+    })
+
+    // innerAudio stop
+    innerAudio.onStop(function(){
+      wx.removeStorageSync('audioPage')
+      wx.removeStorageSync('audioSeek')
+    })
+    // innerAudio onError
+    innerAudio.onError(function(res){
+      console.log(res)
+    })
+
+    // innerAudio onWaiting
+    innerAudio.onWaiting(function(){
+      console.log("waiting")
     })
 
 
