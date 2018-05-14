@@ -1,11 +1,16 @@
 {
+  
   "pages": [
-
     "pages/index/index",
+    "pages/home/index/index",
+    "pages/download/index",
+    
+    "pages/home/mycollection/index",
+    
     
     "pages/gift/index",
     "pages/survey/index",
-    "pages/home/index/index",
+    
     "pages/common/bind/index",
     
     "pages/tests/index/index",

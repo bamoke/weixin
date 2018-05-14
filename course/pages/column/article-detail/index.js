@@ -17,6 +17,7 @@ var app = getApp()
 Page({
   data: {
     sourceUrl: siteConf.sourceUrl,
+    ossUrl: siteConf.ossUrl,
     showPage: false,
     authStatus: 0,
     articleId: null,
@@ -63,7 +64,7 @@ Page({
       //设置audio
       if (data.articleInfo.type == 2) {
         _that.setData({
-          audioSrc: data.articleInfo.source
+          audioSrc: siteConf.ossUrl + "/audio/" +encodeURI(data.articleInfo.source)
         })
       }
 

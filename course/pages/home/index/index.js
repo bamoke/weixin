@@ -7,10 +7,11 @@ Page({
    * 页面的初始数据
    */
   data: {
+    canIUse: wx.canIUse('button.open-type.getUserInfo'),
     home_bg_img: '',
     userinfo: {
       nickName: '',
-      avatarUrl: "https://pic1.zhimg.com/50/v2-593c53e1b03ee35a7ae1c11221330894_xs.jpg",
+      avatarUrl: "https://www.xinzhinetwork.com/Upload/avatar/default-avatar.png",
       balance: 0,
       mp_identification: 0
     }
@@ -19,17 +20,40 @@ Page({
   /**
    * 更新用户信息
    */
-  _updateUserinfo: function (userInfo) {
-    var apiUrl = '/Account/updateUserinfo';
-    var requestData = {
-      nickname: userInfo.nickName,
-      avatar: userInfo.avatarUrl
-    }
-    var myPromise = app._getApiData(apiUrl, requestData, 'POST')
-    myPromise.then(function () {
-      wx.hideLoading();
-
+  updateUserinfo: function (userInfo) {
+    console.log(userInfo)
+    var _that =this;
+    var userInfo = _that.data.userinfo;
+     wx.getSetting({
+      success: function (res) {
+        if (res.authSetting['scope.userInfo']) {
+          console.log("ss");
+          wx.getUserInfo({
+            success: function (res) {
+              console.log(res.userInfo)
+              var apiUrl = '/Account/updateUserinfo';
+              var requestData = {
+                nickname: res.userInfo.nickName,
+                avatar: res.userInfo.avatarUrl,
+                gender: res.userInfo.gender
+              }
+              userInfo.nickName = res.userInfo.nickName;
+              userInfo.avatarUrl = res.userInfo.avatarUrl;
+              // console.log(userInfo)
+              _that.setData({
+                userinfo: userInfo
+              });
+              var myPromise = app._getApiData(apiUrl, requestData, 'POST')
+              myPromise.then(function () {
+                wx.hideLoading();
+              }) 
+            }
+          })
+        }
+      }
     })
+
+
   },
 
   /**
@@ -44,46 +68,13 @@ Page({
       wx.hideLoading();
       _that.setData({
         userinfo: {
-          nickName: data.info.nickname ? data.info.nickname : "昵称",
+          nickName: data.info.nickname ? data.info.nickname : "未登录",
           avatarUrl: data.info.avatar ? data.info.avatar : siteConf.sourceUrl + "avatar/default-avatar.png",
           balance: data.info.balance,
-          mp_identification: data.info.mp_identification
+          mp_identification: data.info.mp_identification,
+          phone: data.info.phone
         }
       })
-      // 更新头像昵称
-      if (!data.info.nickname) {
-        wx.login({
-          success: function (res) {
-            // success
-            wx.getUserInfo({
-              success: function (res) {
-                // success
-                var userInfo = _that.data.userinfo;
-                userInfo.nickName = res.userInfo.nickName;
-                userInfo.avatarUrl = res.userInfo.avatarUrl;
-                _that._updateUserinfo(userInfo);
-                _that.setData({
-                  userinfo: userInfo
-                })
-
-
-              },
-              fail: function () {
-                // fail
-              },
-              complete: function () {
-                // complete
-              }
-            })
-          },
-          fail: function () {
-            // fail
-          },
-          complete: function () {
-            // complete
-          }
-        })
-      }
 
     }, reject => {
 

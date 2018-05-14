@@ -7,7 +7,7 @@
   <!--  description  -->
   <view class="m-description">
     <view class="title">{{columnInfo.title}}</view>
-    <view class="g-row-bt">
+    <view class="g-row-bt f-align-top">
       <view class="info">
         <text class="desc">{{columnInfo.description}}</text>
         <view class="ft">

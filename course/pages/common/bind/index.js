@@ -8,6 +8,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    acType: 1,  //1新绑定;2:更换手机号
     btnText: "获取验证码",
     btnStyle: "btn-active",
     btnDisebled: false,
@@ -28,7 +29,7 @@ Page({
    * 获取验证码
    */
   fetchCode: function () {
-    var phoneRe = /^[1][3578]{1}[0-9]{9}/;
+    var phoneRe = /^[1][3578]{1}([0-9]{9})$/;
     var phone = this.data.phone;
     if (!phone) {
       return this._setError("请输入手机号码")
@@ -82,10 +83,11 @@ Page({
    */
   submitForm: function (data) {
     var formData = data.detail.value;
-    var phoneRe = /^[1][3578]{1}[0-9]{9}/;
+    var phoneRe = /^[1][3578]{1}([0-9]{9})$/;
     var codeRe = /[0-9]{6}/
     var apiUrl = "/Account/bindphone";
     var req;
+    formData.actype = this.data.acType;
     //表单验证
     if (formData.phone == '') {
       return this._setError("请输入手机号码")
@@ -107,7 +109,7 @@ Page({
       wx.hideLoading();
       wx.showModal({
         title: '绑定成功',
-        content: '恭喜您完成手机号绑定，并获得10元现金奖励',
+        content: data.errorMsg,
         showCancel: false,
         success:function(){
           wx.reLaunch({
@@ -133,7 +135,15 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    var navigationBarTitle;
+    navigationBarTitle = options.type==1?"手机绑定":"更换手机号码";
+    this.setData({
+      acType: options.type
+    })
+    wx.setNavigationBarTitle({
+      title: navigationBarTitle
+    })
+    
   },
 
   /**

@@ -37,6 +37,7 @@
   flex-shrink: 0;
   width: 200rpx;
   height: 120rpx;
+  border-radius:6rpx;
 }
 
 .m-column-list .item .info {
@@ -363,6 +364,16 @@
   white-space: nowrap;
   font-size:24rpx;
 }
+.u-collection {
+  width:48rpx;
+  height:48rpx;
+  background-image:url(http://www.xinzhinetwork.com/Upload/weicon/collection.png);
+  background-size:contain;
+  background-repeat: no-repeat;
+}
+.collection-active {
+  background-image:url(http://www.xinzhinetwork.com/Upload/weicon/collection_fill.png);
+}
 
 /**func**/
 
@@ -375,3 +386,4 @@
 .f-text-strong {
   font-weight: bold;
 }
+.f-align-top {align-items: flex-start;}

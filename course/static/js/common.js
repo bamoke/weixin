@@ -1,7 +1,8 @@
 var siteConf = {
   staticUrl:"http://ojpuy4nsw.bkt.clouddn.com/",
   apiBaseUrl:'https://www.xinzhinetwork.com/api.php',
-  sourceUrl:'https://www.xinzhinetwork.com/Upload/'
+  sourceUrl:'https://www.xinzhinetwork.com/Upload/',
+  ossUrl:"https://wesource.oss-cn-shenzhen.aliyuncs.com"
 };
 var commonFunc = {
   formatTime:function(time){

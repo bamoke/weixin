@@ -1,0 +1,36 @@
+/* pages/download/index.wxss */
+.download-detail {
+  width:100%;
+  /* background-color:#fff; */
+}
+.download-detail .title {
+  padding:24rpx 24rpx 0;
+  font-size:32rpx;
+  text-align: center;
+  background: #fff;
+}
+.download-detail .statistic {
+  padding-bottom:24rpx;
+  color:#999;
+  text-align: center;
+  font-size:24rpx;
+  background: #fff;
+}
+.download-detail .statistic text {
+  margin-right:12rpx;
+}
+.download-detail .desc {
+  margin:24rpx;
+  padding:12rpx 24rpx;
+  color:#666;
+  background-color:#eee;
+}
+.download-detail .content {
+  margin-top:24rpx;
+  padding:24rpx 24rpx 40rpx;
+  background:#fff;
+}
+.download-box,.down-progerss {
+  padding:24rpx;
+  background:#fff;
+}

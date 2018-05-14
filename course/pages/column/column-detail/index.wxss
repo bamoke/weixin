@@ -55,6 +55,7 @@
   font-size:32rpx;
   color:#666;
   border-bottom:6rpx solid #bfbfbf;
+  white-space: nowrap;
   
 }
 .m-column-wrap .content {padding:0 20rpx 40rpx;font-size:28rpx;text-indent: 1em;color:#454545;}

@@ -6,14 +6,24 @@
       <image src="{{userinfo.avatarUrl}}" class="avatar"></image>
       <view class="username">
         <text>{{userinfo.nickName}}</text>
+        <!-- <open-data type="userAvatarUrl"></open-data> -->
+        <!-- <open-data type="userNickName"></open-data> -->
+        <button wx:if="{{canIUse}}" open-type="getUserInfo" class='update-userinfo' bindtap='updateUserinfo'>微信同步</button>
       </view>
-      <view class="u-bind">
-      <navigator open-type='navigate' url='/pages/common/bind/index' wx:if="{{userinfo.mp_identification == 0}}" class="unbind">
-      手机号未绑定
-      </navigator>
-      <view wx:else class="hasbind">手机号已绑定</view>
+
+      <view class='m-bind-box'>
+        <view wx:if="{{userinfo.mp_identification == 0}}">
+          <view>手机号未绑定</view>
+          <navigator open-type='navigate' url='/pages/common/bind/index?type=1' class="btn">
+            立即绑定
+          </navigator>
+        </view>
+        <view wx:else class="">
+          <view>{{userinfo.phone}}</view>
+          <navigator open-type='navigate' url='/pages/common/bind/index?type=2' class="btn">更换手机号</navigator>
+        </view>
       </view>
-<!--       <view class="other">
+      <!--       <view class="other">
         <text>同步头像</text>
         <text>账户余额:￥{{userinfo.balance}}</text>
       </view> -->
@@ -72,6 +82,16 @@
   </view>
 
   <view class="m-nav-list">
+    <navigator url="../mycollection/index" class="item">
+      <view class='left'>
+        <!-- <view class='icon i-profile'></view> -->
+        <text class=''>我的收藏</text>
+      </view>
+      <view class='right'>
+        <text class='tips'></text>
+        <view class='arrow'></view>
+      </view>
+    </navigator>
     <navigator url="../mycomment/index" class="item">
       <view class='left'>
         <!-- <view class='icon i-comment'></view> -->
@@ -94,7 +114,7 @@
     </navigator>
   </view>
 
-<!--   <view class="m-nav-list">
+  <!--   <view class="m-nav-list">
     <navigator url="../myprofile/index" class="item">
       <view class='left'>
         <view class='icon i-profile'></view>

@@ -20,5 +20,5 @@
 }
 .m-category .active {
   color:#fff;
-  border-bottom:6rpx solid #fff;
+  /* border-bottom:6rpx solid #fff; */
 }

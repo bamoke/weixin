@@ -79,9 +79,6 @@ Page({
     var source = this.data.section[index].source;
     var _that = this;
     var sectionUrl = '../section/index?id=' + sectionId;
-    if(sectionType != 3 ){
-      sectionUrl = sectionUrl + '&img=' + this.data.introduce.thumb
-    }
     if (!this.data.hasCourse && this.data.introduce.isfree == 0) {
       wx.showModal({
         title: '提示',

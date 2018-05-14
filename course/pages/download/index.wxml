@@ -1,0 +1,2 @@
+<!--pages/download/index.wxml-->
+<web-view src="https://www.xinzhinetwork.com/api.php/Download/index"></web-view>

@@ -2,7 +2,7 @@
 <view class='container' wx:if="{{showPage}}">
   <view class='base-info'>账户余额：<text class="text-danger">{{balance}}</text></view>
   <view class="logs-box" wx:if="{{logs.length}}">
-    <view class='item' wx:for="{{logs}}">
+    <view class='item' wx:for="{{logs}}" wx:key="id">
       <view class='left'>
         <view class='desc'>{{item.description}}</view>
         <view class="time">{{item.create_time}}</view>

@@ -34,9 +34,9 @@
     </navigator>
   </view>
 
-    <navigator wx:if="{{survey !==null}}" class="u-survey" url="../survey/index?id={{survey.id}}" open-type='navigate'>
-      <image mode="scaleToFill" class="thumb" src="{{sourceUrl}}thumb/{{survey.thumb}}"></image>
-    </navigator>
+  <navigator wx:if="{{survey !==null}}" class="u-survey" url="../survey/index?id={{survey.id}}" open-type='navigate'>
+    <image mode="scaleToFill" class="thumb" src="{{sourceUrl}}thumb/{{survey.thumb}}"></image>
+  </navigator>
 
   <view class="m-column-list">
     <view class="m-main-bar">
@@ -86,6 +86,16 @@
 
       </view>
     </navigator>
+  </view>
+  <view class="m-column-list">
+    <view class="m-main-bar">
+      <text class="caption">工具箱</text>
+    </view>
+    <view class="m-btn-list">
+      <navigator class="item" open-type='navigate' url="/pages/download/index" wx:for="{{downloadList}}" wx:key="id">
+        <text class='title'>资料下载</text>
+      </navigator>
+    </view>
   </view>
 
   <view class='m-audio-play-icon' hidden="{{audioPage==''}}" bindtap='goAudioPage'>

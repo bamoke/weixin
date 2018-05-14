@@ -3,7 +3,6 @@
 <import src="../../template/comment/comment.wxml" />
 <view class="container">
   <view class="m-article-detail">
-
     <view class="title">{{article.title}}</view>
     <view class="base-info">
       <text>阅读:{{article.view_num}}</text>
@@ -13,11 +12,13 @@
       <text>发布日期:{{article.create_time}}</text>
     </view>
     <view class='m-media-box'>
-      <image class="thumb" src="{{sourceUrl}}thumb/{{article.thumb?article.thumb:article.c_thumb}}"></image>
-            <xzaudio wx:if='{{article.type==2}}' id="xzaudio" src="{{audioSrc}}" title="[欣志会计职业精英汇]{{article.title}}" cover="{{sourceUrl}}thumb/{{article.thumb?article.thumb:article.c_thumb}}"></xzaudio>
-      <video initial-time='1' wx:elif='{{article.type == 3}}' src="{{article.source}}"   controls class="u-video" id="myVideo"></video>
+      <image wx:if="{{article.type != 3}}" class="thumb" src="{{sourceUrl}}thumb/{{article.thumb?article.thumb:article.c_thumb}}"></image>
+      <xzaudio wx:if='{{article.type==2}}' id="xzaudio" src="{{audioSrc}}" title="[欣志会计职业精英汇]{{article.title}}" cover="{{sourceUrl}}thumb/{{article.thumb?article.thumb:article.c_thumb}}"></xzaudio>
+      <video initial-time='1' wx:elif='{{article.type == 3}}' src="{{ossUrl}}'/video/'{{encodeURI(article.source)}}" controls class="u-video" id="myVideo"></video>
     </view>
-        <view class="wxParse content">
+  </view>
+  <view class="m-article-detail">
+    <view class="wxParse content">
       <template is="wxParse" data="{{wxParseData:wxparse_content.nodes}}" />
     </view>
   </view>
@@ -29,6 +30,6 @@
       <text class="caption">精选评论</text>
       <view class="create-btn" bindtap='createComment'>发表评论</view>
     </view>
-    <template is="commentList" data="{{commentList}}"/>
+    <template is="commentList" data="{{commentList}}" />
   </view>
 </view>

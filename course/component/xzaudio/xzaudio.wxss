@@ -62,16 +62,16 @@
   background-size:cover;
 }
 .prev {
-  background-image: url("http://112.74.42.16/Upload/weicon/audio-prev.png")
+  background-image: url("http://www.xinzhinetwork.com/Upload/weicon/audio-prev.png")
 }
 .next {
-  background-image:url("http://112.74.42.16/Upload/weicon/audio-next.png");
+  background-image:url("http://www.xinzhinetwork.com/Upload/weicon/audio-next.png");
 }
 .prev-active {
-  background-image: url("http://112.74.42.16/Upload/weicon/audio-prev-active.png")
+  background-image: url("http://www.xinzhinetwork.com/Upload/weicon/audio-prev-active.png")
 }
 .next-active {
-  background-image:url("http://112.74.42.16/Upload/weicon/audio-next-active.png");
+  background-image:url("http://www.xinzhinetwork.com/Upload/weicon/audio-next-active.png");
 }
 .main-control-btn .btn{
   width:90rpx;
@@ -79,13 +79,13 @@
   background-size:contain;
 }
 .disable {
-  background-image:url("http://112.74.42.16/Upload/weicon/audio-disable.png");
+  background-image:url("http://www.xinzhinetwork.com/Upload/weicon/audio-disable.png");
 }
 .play-btn {
-  background-image:url("http://112.74.42.16/Upload/weicon/audio-play.png");
+  background-image:url("http://www.xinzhinetwork.com/Upload/weicon/audio-play.png");
 }
 .pause-btn {
-  background-image:url("http://112.74.42.16/Upload/weicon/audio-pause.png");
+  background-image:url("http://www.xinzhinetwork.com/Upload/weicon/audio-pause.png");
 }
 
 .u-model {
@@ -97,8 +97,8 @@
   background-size:contain;
 }
 .loop {
-  background-image:url("http://112.74.42.16/Upload/weicon/audio-loop.png");
+  background-image:url("http://www.xinzhinetwork.com/Upload/weicon/audio-loop.png");
 }
 .sequence {
-  background-image:url("http://112.74.42.16/Upload/weicon/audio-sequence.png");
+  background-image:url("http://www.xinzhinetwork.com/Upload/weicon/audio-sequence.png");
 }

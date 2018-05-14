@@ -53,6 +53,12 @@
 					"name": "article-detail",
 					"pathName": "pages/column/article-detail/index",
 					"query": "id=1"
+				},
+				{
+					"id": -1,
+					"name": "download",
+					"pathName": "pages/download/index",
+					"query": "id=2"
 				}
 			]
 		}

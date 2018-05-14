@@ -13,6 +13,7 @@ Page({
     column: [],
     course: [],
     survey:null,
+    downLoad:[],
     audioPage:""//是否有音频在播放
   },
   //事件处理函数
@@ -43,6 +44,7 @@ Page({
         column: data.columnist,
         course: data.courseList,
         banner: data.banner,
+        downloadList:data.download,
         survey:data.survey
       })
     }, function (err) {

@@ -43,7 +43,7 @@ App({
           resolve(res)
         },
         fail: function () {
-          reject("微信登录失败")
+          reject("微信登录2失败")
         }
 
       })
@@ -113,7 +113,7 @@ App({
     })
   },
 
-isLoaded:true,
+  isLoaded: true,
   /**
     * 获取数据(无需sessionID)
     * @param string  api url
@@ -162,12 +162,15 @@ isLoaded:true,
    * @param object  post or get method's data
    * @param string  method name
    */
-  _getApiData: function (apiurl, data, method) {
-    var _that =this;
-    wx.showLoading({
-      title: '加载中',
-    })
-    if(!this.isLoaded){
+  _getApiData: function (apiurl, data, method, hideLoading) {
+    var _that = this;
+    if(typeof hideLoading ==='undefined'){
+      wx.showLoading({
+        title: '加载中',
+      })
+    }
+
+    if (!this.isLoaded) {
       return
     }
     this.isLoaded = false;
@@ -202,10 +205,10 @@ isLoaded:true,
 
   /**转换HTML;
    *   */
-   _transtionHTML:function(data){
-     var newData = null;
+  _transtionHTML: function (data) {
+    var newData = null;
     return newData;
-   }
+  }
 
 
 })

@@ -1,0 +1,34 @@
+<!--pages/home/mycollection/index.wxml-->
+<view class='container'>
+  <view class='m-tab'>
+    <view class='btn {{curType==1?"active":""}}' data-index="0" data-type="1" bindtap='changeType'>专栏</view>
+    <view class='btn {{curType==2?"active":""}}' data-index="1" data-type="2" bindtap='changeType'>课程</view>
+  </view>
+  <swiper current="{{curTab}}" duration="300" id="swiper">
+    <swiper-item class="swiper-item">
+      <view class='m-list-box' wx:if="{{columnList.length !==0}}">
+        <view class="list-item" wx:for="{{columnList}}" wx:key="pro_id">
+          <navigator url="/pages/course/section/index?id={{item.pro_id}}" open-type='navigate' class='title'>{{item.title}}</navigator>
+          <view class="del-btn" data-index="{{index}}" bindtap='cancelCollection'>取消收藏</view>
+        </view>
+      </view>
+      <view class='m-empty-box' wx:else>
+        <view class="tips">还没有收藏任何专栏!</view>
+      </view>
+      <view class='u-viewmore' hidden='{{hasMoreColumn == false}}' bindtap='loadMore'>加载更多</view>
+    </swiper-item>
+    <swiper-item>
+      <view class='m-list-box' wx:if="{{courseList.length !==0}}">
+        <view class="list-item" wx:for="{{courseList}}" wx:key="pro_id">
+          <navigator url="/pages/course/section/index?id={{item.pro_id}}" open-type='navigate' class='title'>{{item.title}}</navigator>
+          <view class="del-btn" data-index="{{index}}" bindtap='cancelCollection'>取消收藏</view>
+        </view>
+      </view>
+      <view class='m-empty-box' wx:else>
+        <view class="tips">还没有收藏任何课程!</view>
+      </view>
+      <view class='u-viewmore' hidden='{{hasMoreCourse == false}}' bindtap='loadMore'>加载更多</view>
+    </swiper-item>
+  </swiper>
+
+</view>
