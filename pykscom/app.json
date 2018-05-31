@@ -1,0 +1,46 @@
+{
+  "pages":[
+    "pages/index/index",
+    "pages/service/index/index",
+    "pages/team/index/index",
+    "pages/study/index/index",
+    "pages/home/index/index",
+    "pages/logs/logs",
+    "pages/bind/index"
+  ],
+  "window":{
+    "backgroundTextStyle":"light",
+    "navigationBarBackgroundColor": "#000",  
+    "navigationBarTitleText": "专业机构",
+    "navigationBarTextStyle":"white"
+  },
+  "tabBar": {
+    "position": "bottom",
+    "backgroundColor": "#fff",
+    "borderStyle": "black",
+    "color": "#000",
+    "selectedColor": "#000",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页"
+      },
+      {
+        "pagePath": "pages/service/index/index",
+        "text": "服务"
+      },
+      {
+        "pagePath": "pages/team/index/index",
+        "text": "团队"
+      },
+      {
+        "pagePath": "pages/study/index/index",
+        "text": "学习"
+      },
+      {
+        "pagePath": "pages/home/index/index",
+        "text": "系统"
+      }
+    ]
+  }
+}

@@ -1,0 +1,4 @@
+<!--index.wxml-->
+<view class="container">
+  <view wx:if="{{pageShow}}">加载完成</view>
+</view>

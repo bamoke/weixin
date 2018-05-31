@@ -1,0 +1,35 @@
+/* pages/common/bind/index.wxss */
+
+page {
+  background-color: #fff;
+}
+
+.tips {
+  padding: 24rpx 0;
+  color:#999;
+}
+
+
+
+.m-form .form-group .code-btn {
+  flex-shrink: 0;
+  margin-left: 5%;
+  width: 30%;
+  text-align: center;
+  border-radius: 10rpx;
+  padding:12rpx 24rpx;
+}
+
+.m-form .form-group .btn-active {
+  background-color: #28c0c6;
+  color: #fff;
+}
+.m-form .form-group .btn-disebled {
+  background-color: #bbb;
+  color: #fff;
+}
+
+
+.btn {
+  width: 100%;
+}

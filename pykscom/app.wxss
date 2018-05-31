@@ -1,0 +1,44 @@
+/**app.wxss**/
+.container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  box-sizing: border-box;
+  font-size: 26rpx;
+  line-height: 1.75;
+  background-color: #f0efef;
+} 
+.m-empty-box {
+  padding: 40rpx;
+  text-align: center;
+}
+
+.m-empty-box .tips {
+  font-size: 32rpx;
+  color: #999;
+}
+.m-form {
+  width: 100%;
+}
+
+.m-form .form-group {
+  display: flex;
+  justify-content: space-between;
+  padding: 12px;
+  box-sizing: border-box;
+  width: 100%;
+  background-color: #fff;
+}
+.m-form .input-box {
+  padding: 12rpx;
+  width: 100%;
+  background-color: #eee;
+}
+
+.m-form .error-box {
+  padding:24rpx;
+  background-color:#fff;
+  color:#ff5b57;
+}
