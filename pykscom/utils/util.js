@@ -36,7 +36,8 @@ const request = function (apiurl, data, method) {
       dataType:"json",
       header: {
         'content-type': 'application/x-www-form-urlencoded',
-        'session-id': wx.getStorageSync('sessionid')
+        'session-id': wx.getStorageSync('sessionid'),
+        'server-id': wx.getStorageSync('serverid'),
       },
       success: function (res) {
         wx.hideLoading();

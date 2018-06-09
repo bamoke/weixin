@@ -33,7 +33,7 @@ App({
     wx.login({
       success: res => {
         // console.log(res)
-        const apiUrl = this.globalData.siteConf.apiBaseUrl + "/Account/login/code/" + res.code;
+        const apiUrl =  "/Account/login/code/" + res.code;
         util.request(apiUrl)
           .then(function (data) {
             wx.setStorageSync("sessionid", data.sessionid)

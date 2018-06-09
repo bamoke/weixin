@@ -14,7 +14,8 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    console.log("onload")
+    const serverId = options.serverid ? options.serverid:"";
+    wx.setStorageSync('serverid', serverId)
     const apiUrl = '/Index/index';
     util.request(apiUrl)
       .then(data=> {
@@ -25,7 +26,7 @@ Page({
       .catch(data=> {
         console.log(data);
         var callBack,content;
-        if(data.Code == '10002'){
+        if(data.Code == '10002' || data.Code == '10001'){
           content = '点击确定重新登陆';
           callBack = function(){
             app.login();
