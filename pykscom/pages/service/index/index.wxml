@@ -1,2 +1,57 @@
 <!--pages/service/index/index.wxml-->
-<text>pages/service/index/index.wxml</text>
+<view class='container'>
+  <view class='g-row-bt g-m-wrap m-cur-company'>
+    <view class='comName'>{{curCompanyName}}</view>
+    
+    <picker bindchange="bindComChange" value="0" range="{{comList}}" range-key="comShortName">
+      <view class='switch-btn'>切换</view>
+    </picker>
+  </view>
+  <view class='m-list-group'>
+    <navigator open-type='navigate' url='../yfd/index' class='item'>
+      <view class='icon'></view>
+      <view class='name'>应付款</view>
+    </navigator>
+        <navigator open-type='navigate' url='../ysd/index' class='item'>
+      <view class='icon'></view>
+      <view class='name'>应收款</view>
+    </navigator>
+        <navigator open-type='navigate' url='../fybx/index' class='item'>
+      <view class='icon'></view>
+      <view class='name'>费用报销</view>
+    </navigator>
+        <navigator open-type='navigate' url='../grjk/index' class='item'>
+      <view class='icon'></view>
+      <view class='name'>个人借款</view>
+    </navigator>
+
+    <view class='item'>
+      <view class='icon'></view>
+      <view class='name'>业务管理</view>
+    </view>
+  </view>
+
+  <view class='m-list-group'>
+    <navigator open-type='navigate' url='../fwjs/index' class='item'>
+      <view class='icon'></view>
+      <view class='name'>服务结算查询</view>
+    </navigator>
+    <view class='item'>
+      <view class='icon'></view>
+      <view class='name'>企业税费查询</view>
+    </view>
+    <view class='item'>
+      <view class='icon'></view>
+      <view class='name'>工资查询</view>
+    </view>
+    <view class='item'>
+      <view class='icon'></view>
+      <view class='name'>社保查询</view>
+    </view>
+    <view class='item'>
+      <view class='icon'></view>
+      <view class='name'>工商进度查询</view>
+    </view>
+  </view>
+
+</view>

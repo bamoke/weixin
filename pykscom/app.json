@@ -1,17 +1,23 @@
 {
   "pages":[
-    "pages/index/index",
+    "pages/service/ysd/index",
     "pages/service/index/index",
+    "pages/service/yfd/index",
+    "pages/service/fwjs/index",
+    "pages/index/index",
+    "pages/bind/index",
+    "pages/service/fybx/index",
+    "pages/service/grjk/index",
     "pages/team/index/index",
     "pages/study/index/index",
     "pages/home/index/index",
-    "pages/logs/logs",
-    "pages/bind/index"
+    "pages/logs/logs"
+    
   ],
   "window":{
     "backgroundTextStyle":"light",
-    "navigationBarBackgroundColor": "#000",  
-    "navigationBarTitleText": "专业机构",
+    "navigationBarBackgroundColor": "#1b81d3",  
+    "navigationBarTitleText": "云财务",
     "navigationBarTextStyle":"white"
   },
   "tabBar": {

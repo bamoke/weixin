@@ -1,0 +1,55 @@
+/* pages/service/fwjs/index.wxss */
+.container {color:#787878;}
+.m-list {width:100%;}
+.m-list .item {
+  padding:24rpx;
+  box-sizing: border-box;
+  background: #fff;
+  margin-bottom:24rpx;
+  border-top:1px solid #f1f1f1;
+  border-bottom:1px solid #f1f1f1;
+}
+.m-list .item .amount {color:#232323;font-size:36rpx;}
+.m-list .item .icon {
+  width:36rpx;
+  height:36rpx;
+  border-radius:36rpx;
+  border:1px solid #787878;
+}
+.page-main {
+  position:relative;
+  padding-bottom:100rpx;
+  width:100%;
+  }
+.m-list .item .isSelected {border-color:#1b81d3;background:#1b81d3;}
+.m-foot-box {
+  position: fixed;
+  left:0;
+  bottom:0;
+  z-index:1;
+  height:100rpx;
+  background-color:#fff;
+  border-top:1px solid #f1f1f1;
+  font-size:32rpx;
+}
+.total {
+  padding:0 24rpx;
+  box-sizing: border-box;
+  width:60%;
+  
+}
+.price {
+  color:#fa4349;
+}
+.btn {
+  width:40%;
+  height:100rpx;
+  line-height:100rpx;
+  background:#f1f1f1;
+  text-align: center;
+  
+}
+.active {
+  background:#0d8ee9;
+  color:#fff;
+}

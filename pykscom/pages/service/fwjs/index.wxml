@@ -1,0 +1,23 @@
+<!--pages/service/fwjs/index.wxml-->
+<view class='container' wx:if="{{showPage}}">
+  <view class='page-main' wx:if="{{list.length > 0}}">
+    <view class='m-list'>
+      <view class='item g-row-bt' wx:for="{{list}}" wx:key="ysNo" bindtap='selectItem' data-index="{{index}}">
+        <view>
+          <view class='amount'>{{item.amount}}</view>
+          <view class='name'>{{item.name}}</view>
+        </view>
+        <view class='icon {{item.isSelected?"isSelected":""}}'></view>
+      </view>
+    </view>
+
+    <view class='g-row-bt m-foot-box'>
+      <view class="total">总计:
+        <text class="price">{{total}}</text>元</view>
+      <view class='btn {{selectedYsNo.length >0 ?"active":""}}'>支付</view>
+    </view>
+  </view>
+  <view class="m-empty-box" wx:else>
+    <view class='tips'>没有记录</view>
+  </view>
+</view>

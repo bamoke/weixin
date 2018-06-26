@@ -7,47 +7,52 @@ Page({
    * 页面的初始数据
    */
   data: {
-    showPage: false
+    pageShow: true
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    const serverId = options.serverid ? options.serverid:"";
-    wx.setStorageSync('serverid', serverId)
+    var serverId;
+    if (typeof options.serverid !== 'undefined'){
+      wx.setStorageSync('serverid', options.serverid);
+      serverId = options.serverid
+    }else {
+      serverId = wx.getStorageSync("serverid");
+    }
     const apiUrl = '/Index/index';
-    util.request(apiUrl)
-      .then(data=> {
+    util.request(apiUrl).then(data=> {
         this.setData({
-          showPage:true
+          pageShow:true
         })
-      })
-      .catch(data=> {
-        console.log(data);
+      }).catch(data=> {
         var callBack,content;
         if(data.Code == '10002' || data.Code == '10001'){
-          content = '点击确定重新登陆';
-          callBack = function(){
+          content = '点击确认登陆';
+          callBack = function () {
             app.login();
           }
+          
         }else if(data.Code == '10003'){
           content = '前去绑定我的账号';
           callBack = function(){
-            wx.redirectTo({
+            wx.navigateTo({
               url: '/pages/bind/index',
             })
           }
         }
         wx.showModal({
-          title:data.Msg,
+          title: data.Msg,
           content: content,
+          showCancel:false,
           success: function (res) {
             if (res.confirm) {
               callBack();
-            } 
+            }
           }
         })
+
       })
   },
 
@@ -55,14 +60,14 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-    console.log("ready")
+    // console.log("ready")
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    console.log("show")
+    // console.log("show")
   },
 
   /**

@@ -87,6 +87,9 @@ Page({
     var codeRe = /[0-9]{6}/
     var apiUrl = "/Account/bindaccount";
     var req;
+    //临时设置
+    formData.comtype =2;
+    formData.usertype =1;
     //表单验证
     if (formData.phone == '') {
       return this._setError("请输入手机号码")
@@ -105,9 +108,12 @@ Page({
     // 发送表单数据
     req = util.request(apiUrl, formData, "POST");
     req.then(data => {
+      wx.setStorageSync("serverid", formData.serverid);
+      wx.setStorageSync("comtype", formData.comtype);
+      wx.setStorageSync("usertype", formData.usertype);
       wx.showModal({
         title: '绑定成功',
-        content: data.errorMsg,
+        content: data.Msg,
         showCancel: false,
         success:function(){
           wx.reLaunch({
@@ -117,7 +123,7 @@ Page({
       })
     }, reject => {
       wx.hideLoading();
-      this._setError(reject.errorMsg)
+      this._setError(reject.Msg)
     })
   },
 

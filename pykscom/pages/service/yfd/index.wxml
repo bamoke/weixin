@@ -1,0 +1,4 @@
+<!--pages/service/zjgl/index.wxml-->
+<view class='container' wx:if="{{showPage}}">
+  yinfu
+</view>

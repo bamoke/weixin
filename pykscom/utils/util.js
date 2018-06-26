@@ -29,6 +29,8 @@ const request = function (apiurl, data, method) {
   var requestMethod = method ? method : 'GET';
   var myPromise = new Promise(function (resolve, reject) {
     const baseApiUrl ="http://www.pykscloud.com/organization.php";
+    var userInfo = wx.getStorageSync('userInfo') || {};
+    // console.log(userInfo)
     wx.request({
       url: baseApiUrl + apiurl,
       data: requestData,
@@ -37,11 +39,11 @@ const request = function (apiurl, data, method) {
       header: {
         'content-type': 'application/x-www-form-urlencoded',
         'session-id': wx.getStorageSync('sessionid'),
-        'server-id': wx.getStorageSync('serverid'),
+        'server-id': userInfo.serverId ? userInfo.serverId :''
       },
       success: function (res) {
         wx.hideLoading();
-        if (res && res.data.errorCode == 10000) {
+        if (res && res.data.Code == 10000) {
           isLoaded = true;
           resolve(res.data)
         } else {
