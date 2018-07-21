@@ -1,4 +1,22 @@
-<!--pages/service/zjgl/index.wxml-->
+<!--pages/service/yfk/index.wxml-->
 <view class='container' wx:if="{{showPage}}">
-  yinfu
+  <view class="m-total">
+    <view class='section'>应付款总计(元)</view>
+    <view class="amount">{{totalInfo.amount}}</view>
+    <view class="">共<text class="num">{{totalInfo.num}}笔</text>应付款未结</view>
+  </view>
+  <view class='m-list' wx:if="{{list.length > 0}}">
+    <view class='item' wx:for="{{list}}" wx:key="ysNo" bindtap='selectItem' data-index="{{index}}">
+      <view class='amount'>{{item.amount}}</view>
+      <view class='name'>{{item.name}}</view>
+      <view class='g-row-bt item-bt'>
+        <view>付款对象：{{item.ysTarget}}</view>
+        <view>{{item.time}}</view>
+      </view>
+    </view>
+  </view>
+
+  <view class="m-empty-box" wx:else>
+    <view class='tips'>没有记录</view>
+  </view>
 </view>

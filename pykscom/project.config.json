@@ -10,7 +10,7 @@
 	"compileType": "miniprogram",
 	"libVersion": "1.9.94",
 	"appid": "wx64ffce3a95fea590",
-	"projectname": "pykscom",
+	"projectname": "%E4%BA%91%E8%B4%A2%E5%8A%A1-%E4%BC%81%E4%B8%9A%E7%AB%AF",
 	"isGameTourist": false,
 	"condition": {
 		"search": {
@@ -37,6 +37,12 @@
 					"name": "带serverid",
 					"pathName": "pages/index/index",
 					"query": "serverid=18005"
+				},
+				{
+					"id": -1,
+					"name": "费用报销详情",
+					"pathName": "pages/fybx/detail/index",
+					"query": "id=BX0001"
 				}
 			]
 		}

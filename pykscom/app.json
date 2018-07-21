@@ -1,14 +1,20 @@
 {
   "pages":[
-    "pages/service/ysd/index",
+    "pages/fybx/new/index",
+    "pages/work/index/index",
+    "pages/fybx/index/index",
+    "pages/fybx/detail/index",
+    "pages/work/task/index",
+    "pages/work/kqdk/index",
+    "pages/work/qjcc/index",
     "pages/service/index/index",
+    "pages/service/ysd/index",
     "pages/service/yfd/index",
     "pages/service/fwjs/index",
     "pages/index/index",
     "pages/bind/index",
     "pages/service/fybx/index",
     "pages/service/grjk/index",
-    "pages/team/index/index",
     "pages/study/index/index",
     "pages/home/index/index",
     "pages/logs/logs"
@@ -36,8 +42,8 @@
         "text": "服务"
       },
       {
-        "pagePath": "pages/team/index/index",
-        "text": "团队"
+        "pagePath": "pages/work/index/index",
+        "text": "办公"
       },
       {
         "pagePath": "pages/study/index/index",

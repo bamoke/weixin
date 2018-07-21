@@ -7,69 +7,55 @@ Page({
    * 页面的初始数据
    */
   data: {
-    showPage: true,
+    showPage: false,
     curPage: 1,
-    list: []
+    list: [],
+    totalInfo: {}
   },
-  /**
-   * 切换类别
-   */
-  changeCate: function (e) {
-    var index = parseInt(e.detail.current);
-    var callBack = () => {
-      console.log(this)
-      this.setData({
-        curNav: index
-      })
-    }
-    this._getData(index, callBack)
-  },
-  changeIndex: function (data) {
-    var index = parseInt(data.target.dataset.index);
 
-  },
-  _getData: function (type, callBack) {
-    var apiUrl = "/Service/zjgl/type/" + type;
-    var objList = type === 0 ? this.data.ysList : this.data.yfList;
-    if (objList.length == 0) {
-      util.request(apiUrl)
-        .then(function (data) {
-          callBack();
-        })
-        .catch(function (msg) {
-          console.log(msg)
-        })
-    }
-  },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    var apiUrl = "/Service/yfk";
-    var objList = this.data.list;
-    var curCom = wx.getStorageSync("curCom");
-    var requestData = {
-      comID: curCom.id
-    };
-/*     if (objList.length == 0) {
-      util.request(apiUrl,requestData,"POST").then((data) =>{
-        this.setData({
-          showPage: true
-        })
-      }).catch(function (msg) {
-        console.log(msg)
-      })
-    } */
     var dataList = [
       {
-        
+        "ysNo": 1,
+        "ysTarget": '客户1',
+        "amount": "1220",
+        "name": "3月服务费",
+        "time": "2018-03-27"
+      },
+      {
+        "ysNo": 2,
+        "ysTarget": '客户2',
+        "amount": "220",
+        "name": "5月文具采购",
+        "time": "2018-06-10"
+      },
+      {
+        "ysNo": 3,
+        "ysTarget": '客户3',
+        "amount": "6867",
+        "name": "5月餐饮费",
+        "time": "2018-06-21"
+      },
+      {
+        "ysNo": 4,
+        "ysTarget": '客户4',
+        "amount": "365.23",
+        "name": "6月酒水费用",
+        "time": "2018-06-25"
       }
     ]
+    var totalInfo = {
+      "amount": "25,148.55",
+      "num": 8
+    }
     this.setData({
-      showPage:true,
-      list:dataList
+      showPage: true,
+      list: dataList,
+      totalInfo: totalInfo
     })
-
   },
 
   /**

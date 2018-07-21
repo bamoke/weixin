@@ -1,1 +1,2 @@
 /* pages/service/index/index.wxss */
+.m-list-group .icon {display: none;}
