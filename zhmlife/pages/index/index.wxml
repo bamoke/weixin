@@ -1,0 +1,76 @@
+<!--index.wxml-->
+<import src="../../template/nav/index.wxml" />
+<view class="container">
+  <template is="nav" data="{{nav}}" />
+  <view class="m-search-box g-wrap-main">
+    <view class="search-bar">
+      <input class="input-box" type='text' placeholder='请输入关键词' bindblur='setkeywords' value='{{kewWord}}'></input>
+      <view class="icon" bindtap='gosearch'></view>
+    </view>
+  </view>
+
+  <swiper class="m-index-banner" indicator-dots="true" autoplay="true" interval='3000'>
+    <block wx:for="{{banner}}" wx:key="{{item.id}}">
+      <swiper-item>
+        <navigator url='{{item.url}}' open-type='reLaunch' wx:if="{{item.url}}">
+          <image lazy-load='true' mode='aspectFill' class='img' src="{{sourceUrl}}banner/{{item.img}}"></image>
+        </navigator>
+        <image lazy-load='true' mode='aspectFill' class='img' wx:else src="{{sourceUrl}}/banner/{{item.img}}"></image>
+      </swiper-item>
+    </block>
+  </swiper>
+
+  <view class="g-wrap-main">
+    <view class='m-bar-default'>
+      <view class='title'>今日推荐</view>
+    </view>
+    <view class="m-pic-list">
+      <navigator open-type='navigate' url='../detail/index?id={{item.id}}' wx:for="{{recommend}}" wx:key="id" class="item big-item">
+        <image lazy-load="true" mode="aspectFill" class="img-box" src="{{sourceUrl +'thumb/'+ item.thumb}}"></image>
+        <view class='title'>{{item.title}}</view>
+        <view class='g-row-bt foot-info'>
+          <view>
+            <view class='category'>{{item.catename}}</view>
+            <view class='view'>点击：{{item.click}}</view>
+          </view>
+          <view class='time'>{{item.time}}</view>
+        </view>
+      </navigator>
+    </view>
+  </view>
+
+  <view class="g-wrap-main">
+    <view class='m-bar-default'>
+      <view class='title'>最新发布</view>
+    </view>
+    <view class="m-pic-list">
+      <view wx:for="{{newList}}" wx:key="id">
+        <navigator open-type='navigate' url='../detail/index?id={{item.id}}' class="item big-item" wx:if="{{index % 4 == 3}}">
+          <image lazy-load="true" mode="aspectFill" class="img-box" src="{{sourceUrl +'thumb/'+ item.thumb}}"></image>
+          <view class='title'>{{item.title}}</view>
+          <view class='g-row-bt foot-info'>
+            <view>
+              <view class='category'>{{item.catename}}</view>
+              <view class='view'>点击：{{item.click}}</view>
+            </view>
+            <view class='time'>{{item.time}}</view>
+          </view>
+        </navigator>
+        <navigator open-type='navigate' url='../detail/index?id={{item.id}}' class="item" wx:else>
+          <view class='lf'>
+            <view class='title'>{{item.title}}</view>
+            <view class='g-row-bt foot-info'>
+              <view>
+                <view class='category'>{{item.catename}}</view>
+                <view class='view'>点击：{{item.click}}</view>
+              </view>
+              <view class='time'>{{item.time}}</view>
+            </view>
+          </view>
+          <image lazy-load="true" mode="aspectFill" class="img-box" src="{{sourceUrl +'thumb/'+ item.thumb}}"></image>
+        </navigator>
+      </view>
+
+    </view>
+  </view>
+</view>

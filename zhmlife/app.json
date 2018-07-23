@@ -1,0 +1,15 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/list/index",
+    "pages/detail/index",
+    "pages/search/index",
+    "template/nav/index"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#4ea9f2",
+    "navigationBarTitleText": "珠港澳网",
+    "navigationBarTextStyle": "#fff"
+  }
+}

@@ -1,0 +1,40 @@
+<!--pages/search/index.wxml-->
+<view class="container" wx:if="{{showPage}}">
+  <view class="m-search-box g-wrap-main">
+    <view class="search-bar">
+      <input class="input-box" type='text' placeholder='请输入关键词' bindblur='setkeywords' value='{{keyWord}}' maxlength="40"></input>
+      <view class="icon" bindtap='gosearch'></view>
+    </view>
+  </view>
+
+  <view class="g-wrap-main">
+    <view class='m-bar-default'>
+      <view class='title'>搜索结果</view>
+    </view>
+    <view class="m-pic-list" wx:if="{{newsList.length}}">
+      <view wx:for="{{newsList}}" wx:key="id">
+        <navigator open-type='navigate' url='../detail/index?id={{item.id}}' class="item">
+          <view class='lf'>
+            <view class='title'>{{item.title}}</view>
+            <view class='g-row-bt foot-info'>
+              <view class='view'>点击：{{item.click}}</view>
+              <view class='time'>{{item.time}}</view>
+            </view>
+          </view>
+          <image lazy-load="true" mode="aspectFill" class="img-box" src="{{sourceUrl +'thumb/'+ item.thumb}}"></image>
+        </navigator>
+      </view>
+    </view>
+    <view class="m-empty-box" wx:else>
+      <view class="tips">没找到相关数据……</view>
+    </view>
+  </view>
+
+  <view class="u-more" hidden="{{!hasMore}}">
+    <view class="loading-icon" hidden="{{!moreLoading}}">加载中……</view>
+    <view class="btn" hidden="{{moreLoading}}" bindtap='loadMore'>加载更多</view>
+  </view>
+  <view class='u-nomore' hidden="{{hasMore || newsList.length == 0}}">
+    <view class="tips">没有更多了</view>
+  </view>
+</view>

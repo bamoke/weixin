@@ -1,0 +1,13 @@
+/* pages/list/index.wxss */
+
+.m-list-banner {
+  width: 100%;
+  height: 280rpx;
+}
+
+.m-list-banner .img {
+  width: 100%;
+  height: 280rpx;
+}
+
+

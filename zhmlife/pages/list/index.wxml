@@ -1,0 +1,49 @@
+<!--pages/list/index.wxml-->
+<import src="../../template/nav/index.wxml" />
+<view class='container' wx:if="{{pageShow}}">
+  <template is="nav" data="{{nav}}" />
+  <swiper class="m-list-banner" indicator-dots="true" autoplay="true" interval='3000'>
+    <block wx:for="{{banner}}" wx:key="{{item.id}}">
+      <swiper-item>
+        <navigator url='{{item.url}}' open-type='reLaunch' wx:if="{{item.url}}">
+          <image mode="aspectFill" lazy-load='true' class='img' src="{{sourceUrl}}banner/{{item.img}}"></image>
+        </navigator>
+        <image mode='aspectFill' lazy-load='true' class='img' wx:else src="{{sourceUrl}}/banner/{{item.img}}"></image>
+      </swiper-item>
+    </block>
+  </swiper>
+
+  <view class="g-wrap-main">
+    <view class="m-pic-list">
+      <view wx:for="{{newsList}}" wx:key="id">
+        <navigator open-type='navigate' url='../detail/index?id={{item.id}}' class="item big-item" wx:if="{{index % 4 == 3}}">
+          <image lazy-load="true" mode="aspectFill" class="img-box" src="{{sourceUrl +'thumb/'+ item.thumb}}"></image>
+          <view class='title'>{{item.title}}</view>
+          <view class='g-row-bt foot-info'>
+            <view class='view'>点击：{{item.click}}</view>
+            <view class='time'>{{item.time}}</view>
+          </view>
+        </navigator>
+        <navigator open-type='navigate' url='../detail/index?id={{item.id}}' class="item" wx:else>
+          <view class='lf'>
+            <view class='title'>{{item.title}}</view>
+            <view class='g-row-bt foot-info'>
+              <view class='view'>点击：{{item.click}}</view>
+              <view class='time'>{{item.time}}</view>
+            </view>
+          </view>
+          <image lazy-load="true" mode="aspectFill" class="img-box" src="{{sourceUrl +'thumb/'+ item.thumb}}"></image>
+        </navigator>
+      </view>
+
+    </view>
+  </view>
+
+  <view class="u-more" hidden="{{!hasMore}}">
+    <view class="loading-icon" hidden="{{!moreLoading}}">加载中……</view>
+    <view class="btn" hidden="{{moreLoading}}" bindtap='loadMore'>加载更多</view>
+  </view>
+  <view class='u-nomore' hidden="{{hasMore}}" >
+    <view class="tips">没有更多了</view>
+  </view>
+</view>
