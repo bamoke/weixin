@@ -21,7 +21,7 @@
         <view class="name">考勤打卡</view>
       </view>
     </navigator>
-    <navigator open-type='navigate' url='../qjcc/index' class='item'>
+    <navigator open-type='navigate' url='/pages/qjcc/index/index' class='item'>
       <view class='lf'>
         <view class='icon-wrap i-qjcc'><view class="icon"></view></view>
         <view class="name">请假出差</view>

@@ -1,2 +1,4 @@
 <!--pages/work/kqdk/index.wxml-->
-<text>pages/work/kqdk/index.wxml</text>
+<view class='container'>
+  <calendar></calendar>
+</view>

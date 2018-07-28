@@ -1,0 +1,22 @@
+/* pages/qjcc/detail/index.wxss */
+.m-detail-base .title {
+  margin-bottom:24rpx;
+  font-size:34rpx;
+}
+.m-item-list .item {
+  border-bottom:1px solid #f1f1f1;
+}
+.m-list-group .item {
+  justify-content: flex-start;
+}
+.item .section {
+  margin-right:30rpx;
+  color:#6c6c6c;
+}
+.item .val {
+  color:#3c3c3c;
+}
+
+.m-detail-content {
+  font-size:30rpx;
+}

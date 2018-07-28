@@ -1,0 +1,8 @@
+/* pages/qjcc/new/index.wxss */
+.container {font-size:30rpx;}
+.val {text-align:right;flex:1 1 auto;}
+textarea {width:100%;height:200rpx;}
+.date-time-box view {
+  display: inline-block;
+  margin-left:16rpx;
+}

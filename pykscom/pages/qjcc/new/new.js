@@ -1,4 +1,4 @@
-// pages/work/qjcc/index.js
+// pages/work/qjcc/new.js
 Page({
 
   /**

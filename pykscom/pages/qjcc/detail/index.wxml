@@ -1,0 +1,49 @@
+<!--pages/qjcc/detail/index.wxml-->
+<view class='container' wx:if="showPage">
+  <view class='m-main-box m-detail-base'>
+    <view class='title'>
+      {{info.title}}
+    </view>
+    <view class='g-row-bt s-text-light'>
+      <view class='u-status u-status-{{info.status_style}}'>{{info.status}}</view>
+      <view>{{info.applicant}}于{{info.time}}提交</view>
+    </view>
+  </view>
+
+  <view class="m-detail-content">
+    <view class="m-list-group">
+      <view class='item'>
+        <view class='section'>申请时长</view>
+        <view class='val'>2天4小时</view>
+      </view>
+      <view class='item'>
+        <view class='section'>申请类型</view>
+        <view class='val'>{{info.typeName}}</view>
+      </view>
+      <view class='item'>
+        <view class='section'>开始时间</view>
+        <view class='val'>{{info.startTime}}</view>
+      </view>
+      <view class='item'>
+        <view class='section'>结束时间</view>
+        <view class='val'>{{info.endTime}}</view>
+      </view>
+      <view class='item'>
+        <view class="u-description">
+          {{info.description}}
+        </view>
+      </view>
+    </view>
+
+  </view>
+
+
+
+
+
+  <view class="m-ft-operation-box">
+    <button class='col-4 btn-warning'>不批准</button>
+    <button class='col-4 btn btn-success'>批准</button>
+  </view>
+
+</view>

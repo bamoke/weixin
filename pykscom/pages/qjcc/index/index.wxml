@@ -1,0 +1,33 @@
+<!--pages/work/qjcc/index.wxml-->
+<view class='container' wx:if="showPage">
+  <view class="m-top-operator">
+    <navigator url='../new/index' class="item">
+      <view class="icon-wrap"><view class='icon icon-new'></view></view>
+      <view class="text">新建</view>
+    </navigator>
+    <navigator class="item">
+      <view class="icon-wrap"><view class='icon icon-draft'></view></view>
+      <view class="text">草稿</view>
+    </navigator>
+  </view>
+
+    <view class="m-list m-bxd-list" wx:if="{{list.length > 0}}">
+    <navigator url="../detail/index?id={{item.num}}" open-type='navigate' class="item" wx:for="{{list}}" wx:key="id">
+      <view class="title">
+      {{item.title}}
+      <view class='u-status u-status-{{item.status_style}}'>{{item.status}}</view>
+      </view>
+      <view class='g-row-bt'>
+        <view class="">请假类型：{{item.type_name}}</view>
+        <view class="">日期：{{item.time}}</view>
+      </view>
+
+      <view class="foot">
+        <view calss="status"></view>
+      </view>
+    </navigator>
+  </view>
+  <view class="m-empty-box" wx:else>
+    <view class='tips'>暂无数据</view>
+  </view>
+</view>
