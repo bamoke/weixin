@@ -1,6 +1,6 @@
 // pages/detail/index.js
 const app = getApp()
-var WxParse = require('../../wxParse/wxParse.js');
+import * as WxParse from '../../wxParse/wxParse.js'
 Page({
 
   /**
@@ -28,6 +28,7 @@ Page({
       if (result.info.detail.content) {
         WxParse.wxParse('wxparse_content', 'html', result.info.detail.content, _that)
       }
+      
       this.setData({
         pageShow: true,
         detail: result.info.detail,
@@ -42,7 +43,7 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function() {
-
+    // console.log(WxParse)
   },
 
   /**

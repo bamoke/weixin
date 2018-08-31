@@ -22,7 +22,7 @@
 
   <view class="g-wrap-main">
     <view class='m-bar-default'>
-      <view class='title'>今日推荐</view>
+      <view class='title'>热点推荐</view>
     </view>
     <view class="m-pic-list">
       <navigator open-type='navigate' url='../detail/index?id={{item.id}}' wx:for="{{recommend}}" wx:key="id" class="item big-item">
@@ -45,7 +45,7 @@
     </view>
     <view class="m-pic-list">
       <view wx:for="{{newList}}" wx:key="id">
-        <navigator open-type='navigate' url='../detail/index?id={{item.id}}' class="item big-item" wx:if="{{index % 4 == 3}}">
+        <navigator open-type='navigate' url='../detail/index?id={{item.id}}' class="item big-item" wx:if="{{false}}">
           <image lazy-load="true" mode="aspectFill" class="img-box" src="{{sourceUrl +'thumb/'+ item.thumb}}"></image>
           <view class='title'>{{item.title}}</view>
           <view class='g-row-bt foot-info'>

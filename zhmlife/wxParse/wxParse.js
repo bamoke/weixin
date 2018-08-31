@@ -13,7 +13,7 @@
  * utils函数引入
  **/
 import showdown from './showdown.js';
-import HtmlToJson from './html2json.js';
+import * as HtmlToJson from './html2json.js';
 /**
  * 配置及公有属性
  **/
@@ -150,10 +150,10 @@ function emojisInit(reg='',baseSrc="/wxParse/emojis/",emojis){
    HtmlToJson.emojisInit(reg,baseSrc,emojis);
 }
 
-module.exports = {
-  wxParse: wxParse,
-  wxParseTemArray:wxParseTemArray,
-  emojisInit:emojisInit
+export  {
+  wxParse,
+  wxParseTemArray,
+  emojisInit
 }
 
 

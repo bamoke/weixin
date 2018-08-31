@@ -189,4 +189,4 @@ function makeMap(str) {
 	return obj;
 }
 
-module.exports = HTMLParser;
+export default HTMLParser;

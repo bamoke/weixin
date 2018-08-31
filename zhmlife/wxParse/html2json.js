@@ -16,8 +16,8 @@ var __placeImgeUrlHttps = "https";
 var __emojisReg = '';
 var __emojisBaseSrc = '';
 var __emojis = {};
-var wxDiscode = require('./wxDiscode.js');
-var HTMLParser = require('./htmlparser.js');
+import * as wxDiscode from './wxDiscode.js';
+import HTMLParser from './htmlparser.js';
 // Empty Elements - HTML 5
 var empty = makeMap("area,base,basefont,br,col,frame,hr,img,input,link,meta,param,embed,command,keygen,source,track,wbr");
 // Block Elements - HTML 5
@@ -109,14 +109,14 @@ function html2json(html, bindName) {
                     var name = attr.name;
                     var value = attr.value;
                     if (name == 'class') {
-                        console.dir(value);
+                        // console.dir(value);
                         //  value = value.join("")
                         node.classStr = value;
                     }
                     // has multi attibutes
                     // make it array of attribute
                     if (name == 'style') {
-                        console.dir(value);
+                        // console.dir(value);
                         //  value = value.join("")
                         node.styleStr = value;
                     }
@@ -296,8 +296,5 @@ function emojisInit(reg='',baseSrc="/wxParse/emojis/",emojis){
     __emojis=emojis;
 }
 
-module.exports = {
-    html2json: html2json,
-    emojisInit:emojisInit
-};
+export { html2json , emojisInit }
 
