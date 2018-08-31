@@ -1,1 +1,20 @@
 /* pages/work/kqdk/index.wxss */
+.m-events-wrap {
+  margin-top:24rpx;
+}
+.bar {
+  width:100%;
+  padding:24rpx 0;
+  border-bottom:1px solid #f1f1f1;
+}
+.date-info {
+  font-size:32rpx;
+  /* font-weight: bold; */
+}
+button {
+  vertical-align: middle;
+}
+.signed-box icon{
+  margin-right:6rpx;
+  vertical-align: middle;
+}

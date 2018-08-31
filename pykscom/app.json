@@ -1,6 +1,8 @@
 {
   "pages":[
+    "pages/teams/add/index",
     "pages/work/kqdk/index",
+    "pages/teams/index/index",
     "pages/work/index/index",
     "pages/qjcc/index/index",
     "pages/qjcc/new/index",

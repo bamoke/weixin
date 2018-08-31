@@ -1,4 +1,18 @@
 <!--pages/work/kqdk/index.wxml-->
 <view class='container'>
-  <calendar></calendar>
+  <calendar value="{{initDate}}" bind:selecte="selectDate" style="width:100%" bind:switch-month="switchMonth"></calendar>
+
+  <view class='g-m-wrap m-events-wrap'>
+    <view class="g-row-bt bar">
+      <view class='date-info'>{{formatDate}}</view>
+      <view>
+      <button class="btn-primary" size="mini" wx:if="{{!isSigned}}" bindtap='handleSign'>立即打卡</button>
+      <view class='signed-box' wx:else>
+        <icon type="success" size="16" color="#9c9c9c"/>
+        <text class='s-text-gray'>已打卡</text>
+      </view>
+      </view>
+    </view>
+    <view class='list'></view>
+  </view>
 </view>

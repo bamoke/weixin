@@ -1,9 +1,11 @@
 <!--pages/team/index/index.wxml-->
 <view class="container">
   <view class="m-list-group m-nav-list-icon">
-      <navigator open-type='navigate' url='../task/index' class='item'>
+    <navigator open-type='navigate' url='../task/index' class='item'>
       <view class='lf'>
-        <view class='icon-wrap i-task'><view class="icon"></view></view>
+        <view class='icon-wrap i-task'>
+          <view class="icon"></view>
+        </view>
         <view class="name">任务管理</view>
       </view>
     </navigator>
@@ -11,20 +13,36 @@
   <view class='m-list-group m-nav-list-icon'>
     <navigator open-type='navigate' url='/pages/fybx/index/index' class='item'>
       <view class='lf'>
-        <view class='icon-wrap i-fybx'><view class="icon"></view></view>
+        <view class='icon-wrap i-fybx'>
+          <view class="icon"></view>
+        </view>
         <view class="name">费用报销</view>
       </view>
     </navigator>
     <navigator open-type='navigate' url='../kqdk/index' class='item'>
       <view class='lf'>
-        <view class='icon-wrap i-kqdk'><view class="icon"></view></view>
+        <view class='icon-wrap i-kqdk'>
+          <view class="icon"></view>
+        </view>
         <view class="name">考勤打卡</view>
       </view>
     </navigator>
     <navigator open-type='navigate' url='/pages/qjcc/index/index' class='item'>
       <view class='lf'>
-        <view class='icon-wrap i-qjcc'><view class="icon"></view></view>
+        <view class='icon-wrap i-qjcc'>
+          <view class="icon"></view>
+        </view>
         <view class="name">请假出差</view>
+      </view>
+    </navigator>
+  </view>
+  <view class='m-list-group m-nav-list-icon'>
+    <navigator open-type='navigate' url='/pages/teams/index/index' class='item'>
+      <view class='lf'>
+        <view class='icon-wrap i-fybx'>
+          <view class="icon"></view>
+        </view>
+        <view class="name">团队成员</view>
       </view>
     </navigator>
   </view>
