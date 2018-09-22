@@ -1,0 +1,29 @@
+/* pages/jobs/deliver/index.wxss */
+.container {height:100%;background:#fff;}
+.deliver-main-content {height:100%;}
+
+.m-resume-list .row {
+  display: flex;
+  align-items: center;
+  padding:24rpx;
+  border-bottom:1px solid #f1f1f1;
+}
+.m-resume-list .select-icon {
+  flex-shrink: 0;
+  margin-right:24rpx;
+  padding:6rpx;
+  width:36rpx;
+  height:36rpx;
+  border:4px solid #ccc;
+  border-radius:50%;
+  text-align: center;
+}
+.m-resume-list .name {font-size:30rpx;color:#232323;}
+.m-resume-list .tips {margin-left:12rpx;color:#9c9c9c;}
+.m-resume-list .selected {
+  border-color:#f90;
+}
+.btn-wrap {
+  padding:80rpx 24rpx;
+}
+

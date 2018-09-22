@@ -1,0 +1,25 @@
+/* pages/resume/upload/index.wxss */
+.container {background: #fff;}
+.tips-text {
+  padding: 40rpx 24rpx;
+  background: #fff;
+  line-height: 1.5;
+}
+.tips-text .title {margin-bottom:24rpx;font-size:30rpx;color:#232323;}
+.tips-text .step {
+  padding:12rpx 0;
+}
+.tips-text .step text {
+  display: inline-block;
+}
+.tips-text .step .num {
+  margin-right:20rpx;
+  width:36rpx;
+  height:36rpx;
+  text-align: center;
+  line-height: 36rpx;
+  background: #eee;
+  border-radius: 50%;
+  font-size:24rpx;
+  color:#9c9c9c;
+}

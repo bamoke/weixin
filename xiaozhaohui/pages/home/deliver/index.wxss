@@ -1,0 +1,28 @@
+/* pages/home/record/index.wxss */
+.g-row-bt {align-items: flex-start;}
+.m-jobs-list .item .title {margin-bottom:12rpx;}
+.m-jobs-list .item .wages {text-align: left;}
+.right-wrap {
+  flex-grow:0;
+  flex-shrink: 0;
+  width:180rpx;
+  text-align: center;
+}
+.right-wrap .stage {
+  margin-bottom:24rpx;
+  width:100%;
+  line-height: 1;
+}
+.right-wrap .stage-0 {
+  color:#f30;
+}
+.right-wrap .stage-1 {
+  color:rgb(54, 161, 233);
+}
+.right-wrap .stage-2 {
+  color:#3c0;
+}
+.right-wrap .date {
+  font-size:24rpx;
+  color:#ccc;
+}

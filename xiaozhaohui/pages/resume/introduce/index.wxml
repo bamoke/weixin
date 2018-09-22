@@ -1,0 +1,13 @@
+<!--pages/resume/introduce/index.wxml-->
+<view class='container'>
+  <form class='m-form-default' bindsubmit='submitForm'>
+    <view class="main-content g-pad-box">
+      <textarea class="textarea" maxlength="250" value="{{content}}" bindinput="bindContentChange" placeholder="自我描述,250字符以内" />
+    </view>
+    <view class='btn-box'>
+      <button form-type='submit' class='btn btn-primary'>保存</button>
+      <view class="btn delete-btn" bindtap='deleteItem' wx:if="{{acType=='edit'}}">删除此项</view>
+    </view>
+  </form>
+
+</view>

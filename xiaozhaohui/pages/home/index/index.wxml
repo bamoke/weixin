@@ -1,0 +1,37 @@
+<!--pages/home/index/index.wxml-->
+<view class='container'>
+  <view class="home-userinfo border-bottom">
+    <image src="{{userInfo.avatarUrl || '/static/images/default-avatar.png'}}" class="avatar"></image>
+    <view>
+    <button class="get-user-info-btn" wx:if="{{!hasUserInfo && canIUse}}" open-type='getUserInfo' bindgetuserinfo="getUserInfo">更新昵称 </button>
+      <view class="user-name" wx:else>{{userInfo.nickName}}</view>
+      <view class="other-info" wx:if="{{userStorage.uid}}">
+        <image class="u-myicon" src="/static/images/icon-mobile.png"></image>
+        <text>{{userStorage.phone}}</text>
+      </view>
+      <view class="tips" wx:else>
+        <navigator class="reg-link" url="/pages/user/regist/index?type=login" open-type='navigate'>您尚未登录,【点击登录】</navigator>
+      </view>
+    </view>
+  </view>
+
+  <view class="m-nav-list f-has-border">
+    <navigator open-type='navigate' url="/pages/resume/index/index" class="item">
+      <image class="left-icon u-myicon myicon-big" src="/static/images/icon-resume.png"></image>
+      <view class="title">我的简历</view>
+      <view class="icon-arrow"></view>
+    </navigator>
+    <navigator open-type='navigate' url="/pages/home/deliver/index" class="item">
+      <image class="left-icon u-myicon myicon-big" src="/static/images/icon-record.png"></image>
+      <view class="title">投递记录</view>
+      <view class="icon-arrow"></view>
+    </navigator>
+    <navigator open-type='navigate' url="/pages/home/collection/index" class="item">
+      <image class="left-icon u-myicon myicon-big" src="/static/images/icon-collection.png"></image>
+      <view class="title">职位收藏</view>
+      <view class="icon-arrow"></view>
+    </navigator>
+  </view>
+
+  <view class="home-logout-btn f-has-border" bindtap='logout'>退出帐号</view>
+</view>

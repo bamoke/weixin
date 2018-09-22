@@ -1,0 +1,103 @@
+<!--pages/resume/detail/index.wxml-->
+<view class="container" wx:if="{{showPage}}">
+  <view class="resume-main-wrap resume-base">
+    <view class="info">
+      <view class="top">
+        <view class="name">{{baseInfo.realname}}</view>
+        <view class="edit-btn" bindtap='editBase'>
+          <image class="u-myicon" src="/static/images/icon-edit.png" mode="aspectFill"></image>
+          <text class="text">编辑</text>
+        </view>
+      </view>
+      <view class="property">
+        <text>{{sexArr[baseInfo.sex]}}</text>/
+        <text>{{baseInfo.age}}岁</text>/
+        <text>{{eduArr[baseInfo.edu]}}</text>/
+        <text>{{expArr[baseInfo.experince]}}</text>
+      </view>
+      <view class="other">
+        <image class="u-myicon" mode='aspectFill' src="/static/images/icon-mobile.png"></image>
+        <text>{{baseInfo.phone}}</text>
+      </view>
+      <view class="other">
+        <image class="u-myicon" src="/static/images/icon-email.png"></image>
+        <text>{{baseInfo.email}}</text>
+      </view>
+    </view>
+    <view class="avatar"></view>
+  </view>
+
+  <view class="resume-main-wrap">
+    <view class="bar">
+      <text class="title">教育经历</text>
+    </view>
+    <view class="content">
+      <view class="empty-content" wx:if="{{edu.length == 0}}">
+        <image class="icon" src="/static/images/mt-empty.png" mode='aspectFill'></image>
+        <view>未填写</view>
+      </view>
+      <view class='edu-list main-item-list' wx:else>
+        <view class="item" wx:for="{{edu}}" wx:key="id">
+          <view class="section-title">
+            <view class="title">{{item.school}}</view>
+            <view class="edit" bindtap="editItem" data-type="edu" data-index="{{index}}">编辑</view>
+          </view>
+          <view class="other-info">
+            <view class="row">{{eduArr[item.level]}}/{{item.major}}</view>
+            <view class="row">{{item.start_time}}—{{item.end_time}}</view>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class="u-add-item-btn" bindtap='addItem' data-type="edu">
+      <image class="u-myicon" src="/static/images/add.png" mode='aspectFill'></image>
+      <text class="text">添加教育经历</text>
+    </view>
+  </view>
+
+  <view class="resume-main-wrap">
+    <view class="bar">
+      <text class="title">工作经历</text>
+    </view>
+    <view class="content">
+      <view class="empty-content" wx:if="{{work.length == 0}}">
+        <image class="icon" src="/static/images/mt-empty.png" mode='aspectFill'></image>
+        <view>未填写</view>
+      </view>
+      <view class='edu-list main-item-list' wx:else>
+        <view class="item" wx:for="{{work}}" wx:key="id">
+          <view class="section-title">
+            <view class="title">{{item.company}}</view>
+            <view class="edit" bindtap="editItem" data-type="work" data-index="{{index}}">编辑</view>
+          </view>
+          <view class="other-info">
+            <view class="row">{{item.position}}</view>
+            <view class="row">{{item.start_time}}—{{item.end_time}}</view>
+          </view>
+          <view class="sub-bar">工作职责</view>
+          <view class="work-content">{{item.content}}</view>
+        </view>
+      </view>
+    </view>
+    <view class="u-add-item-btn" bindtap='addItem' data-type="work">
+      <image class="u-myicon" src="/static/images/add.png" mode='aspectFill'></image>
+      <text class="text">添加工作经历</text>
+    </view>
+  </view>
+  <!--introduce-->
+  <view class="resume-main-wrap">
+    <view class="bar">
+      <view class="title">自我描述</view>
+      <view class="edit-btn" bindtap='editIntroduce'>编辑</view>
+    </view>
+    <view class="empty-content" wx:if="{{!introduce}}">
+      <image class="icon" src="/static/images/mt-empty.png" mode='aspectFill'></image>
+      <view>未填写</view>
+    </view>
+    <view class='mult-text' wx:else>
+        {{introduce}}
+    </view>
+  </view>
+
+
+</view>

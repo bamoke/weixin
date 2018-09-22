@@ -1,0 +1,2 @@
+/* pages/resume/base/index.wxss */
+@import "../resume.wxss";

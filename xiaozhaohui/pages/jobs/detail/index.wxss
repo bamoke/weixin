@@ -1,0 +1,111 @@
+/* pages/job/detail/index.wxss */
+.container {padding-bottom:140rpx;}
+.content-wrap .bar {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-top: 48rpx;
+}
+
+.content-wrap .bar .title {
+  margin-bottom: 12rpx;
+  text-align: center;
+  color: #232323;
+  font-size: 30rpx;
+}
+
+.line-icon {
+  width: 48rpx;
+  height: 8rpx;
+  background: #fc0;
+  border-radius: 4rpx;
+}
+
+.content {
+  min-height: 500rpx;
+}
+
+
+.m-base-info .title {
+  margin-bottom:16rpx;
+}
+.m-base-info .wage {
+  flex-grow: 0;
+  flex-shrink: 0;
+  margin-left:24rpx;
+  width:auto;
+  color:#f30;
+  font-size:34rpx;
+}
+.m-foot-operation {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 99;
+  display: flex;
+  align-items: center;
+  padding: 24rpx;
+  background-color: rgba(255, 255, 255, 0.9);
+}
+
+.m-foot-operation .btn-small .txt {
+  margin-top: 6rpx;
+}
+
+.m-foot-operation .btn-small {
+  position:relative;
+  padding: 0;
+  margin: 0;
+  width: 20%;
+  text-align: center;
+  font-size: 22rpx;
+  color: #9c9c9c;
+  border: 0;
+  background: none;
+  border-radius: 0;
+}
+
+.m-foot-operation .active {
+  color: #fc0;
+}
+
+.m-foot-operation .active .icon {
+  opacity: 1;
+}
+
+.m-foot-operation .disabled {
+  background: #eee!important;
+  color: #ccc!important;
+}
+
+.m-foot-operation .btn-large {
+  width: 60%;
+  background: #fc0;
+  text-align: center;
+  color: #000;
+  line-height: 80rpx;
+  font-size: 34rpx;
+  /* font-weight: bold; */
+  border-radius: 6rpx;
+}
+
+.m-foot-operation .icon {
+  /* display: inline-block; */
+  width: 32rpx;
+  height: 32rpx;
+  opacity: 0.5;
+}
+.shareBtn {
+  position: absolute;
+  left:0;
+  top:0;
+  opacity: 0;
+  width: 100%;
+  height: 128rpx;
+}
+.content-wrap .content {
+  line-height:1.6;
+  font-size:28rpx;
+}

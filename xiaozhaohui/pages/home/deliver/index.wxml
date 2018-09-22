@@ -1,0 +1,40 @@
+<!--pages/home/deliver/index.wxml-->
+<view class="container" wx:if="{{showPage}}">
+  <view class="m-tab">
+    <view class="tab-item {{curStage === null ? 'active':''}}" bindtap="swichTab">
+      <text class="title">全部</text>
+    </view>
+    <view class="tab-item {{curStage === index ? 'active':''}}" data-index="{{index}}" bindtap="swichTab" wx:for="{{deliverStageArr}}" wx:key="index">
+      <text class="title">{{item}}</text>
+    </view>
+  </view>
+
+  <!--list-->
+  <view class="" wx:if="{{list.length > 0}}">
+    <view class='m-jobs-list'>
+      <navigator url="/pages/jobs/detail/index?id={{item.jobid}}" class='item' wx:for="{{list}}" wx:key="id">
+        <view class="g-row-bt">
+          <view class="hd">
+            <view class='title'>{{item.jobname}}</view>
+            <view class="wages">{{wagesArr[item.wages]}}</view>
+          </view>
+          <view class="right-wrap">
+            <view class="stage stage-{{item.stage}}">{{deliverStageArr[item.stage]}}</view>
+            <view class="date">{{item.date}}</view>
+          </view>
+        </view>
+      </navigator>
+    </view>
+    <view class="m-paging-wrap">
+      <view class='row no-more' wx:if="{{!hasMore}}">没有更多了</view>
+      <view wx:else>
+        <view class="row" hidden='{{!isLoading}}'>加载中</view>
+      </view>
+    </view>
+  </view>
+  <!--empty page-->
+  <view class="m-tips-page tips-page-empty" wx:else>
+    <image class="icon" src="/static/images/mt-empty.png"></image>
+    <view class="tips">暂无投递记录</view>
+  </view>
+</view>

@@ -1,0 +1,56 @@
+<!--index.wxml-->
+<swiper class="swiper-box" indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" circular="{{circular}}" indicator-color="{{indicatorColor}}" indicator-active-color="{{indicatorActiveColor}}">
+  <block wx:for="{{swiperItems}}">
+    <swiper-item>
+      <image src="{{item.img}}" class="slide-image"/>
+    </swiper-item>
+  </block>
+</swiper>
+<view class="message-c">
+  <image src="/common/images/message.png" alt="" mode='widthFix'/>
+  <text>消息公告：公告公告公告</text>
+</view>
+<view class="ht-c"></view>
+<view class="subnav d-flex justify-content-between p-pub">
+  <view><view class="img-view bg-lan"><image src="/common/images/index-icon-01.png" alt="" mode='widthFix'/></view><view class="txt">调研</view></view>
+  <view bindtap="goheadHunt"><view class="img-view bg-chen"><image src="/common/images/index-icon-02.png" alt="" mode='widthFix'/></view><view class="txt">猎头</view></view>
+  <view><view class="img-view bg-din"><image src="/common/images/index-icon-03.png" alt="" mode='widthFix'/></view><view class="txt">法律</view></view>
+  <view><view class="img-view bg-zi"><image src="/common/images/index-icon-04.png" alt="" mode='widthFix'/></view><view class="txt">外包</view></view>
+  <view bindtap="goPartIndex"><view class="img-view bg-huang"><image src="/common/images/index-icon-05.png" alt="" mode='widthFix'/></view><view class="txt">兼职</view></view>
+</view>
+<view class="ht-c"></view>
+<view class="class-content">
+  <view class="title">热门课程</view>
+  <view class="content">
+     <view class="content-item d-flex">
+        <view class="img-c">
+          <image src="/common/images/img19.jpg" alt="" mode='widthFix'/>
+        </view>
+        <view class="text-c">
+          <view class="f17 fb mb-2">课程标题</view>
+          <view class="f17 c-b mb-2">课程简介课程简介课程简介课程简介课程简介。</view>
+          <view class="c-d f13">学习人数：4553</view>
+        </view>
+     </view>
+     <view class="content-item d-flex">
+        <view class="img-c">
+          <image src="/common/images/img19.jpg" alt="" mode='widthFix'/>
+        </view>
+        <view class="text-c">
+          <view class="f17 fb mb-2">课程标题</view>
+          <view class="f17 c-b mb-2">课程简介课程简介课程简介课程简介课程简介。</view>
+          <view class="c-d f13">学习人数：4553</view>
+        </view>
+     </view>
+     <view class="content-item d-flex">
+        <view class="img-c">
+          <image src="/common/images/img19.jpg" alt="" mode='widthFix'/>
+        </view>
+        <view class="text-c">
+          <view class="f17 fb mb-2">课程标题</view>
+          <view class="f17 c-b mb-2">课程简介课程简介课程简介课程简介课程简介。</view>
+          <view class="c-d f13">学习人数：4553</view>
+        </view>
+     </view>
+  </view>
+</view>

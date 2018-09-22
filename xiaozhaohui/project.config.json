@@ -1,0 +1,77 @@
+{
+	"description": "项目配置文件。",
+	"packOptions": {
+		"ignore": []
+	},
+	"setting": {
+		"urlCheck": true,
+		"es6": true,
+		"postcss": true,
+		"minified": true,
+		"newFeature": true
+	},
+	"compileType": "miniprogram",
+	"libVersion": "1.9.97",
+	"appid": "wx20e37dd9f2ca7886",
+	"projectname": "xiaozhaohui",
+	"isGameTourist": false,
+	"condition": {
+		"search": {
+			"current": -1,
+			"list": []
+		},
+		"conversation": {
+			"current": -1,
+			"list": []
+		},
+		"plugin": {
+			"current": -1,
+			"list": []
+		},
+		"game": {
+			"currentL": -1,
+			"list": []
+		},
+		"miniprogram": {
+			"current": 5,
+			"list": [
+				{
+					"id": -1,
+					"name": "简历详情",
+					"pathName": "pages/resume/detail/index",
+					"query": "id=1"
+				},
+				{
+					"id": -1,
+					"name": "招聘会详情",
+					"pathName": "pages/fairs/detail/index",
+					"query": "id=1"
+				},
+				{
+					"id": -1,
+					"name": "职位详情",
+					"pathName": "pages/jobs/detail/index",
+					"query": "id=1"
+				},
+				{
+					"id": -1,
+					"name": "投递记录",
+					"pathName": "pages/home/deliver/index",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "职位收藏",
+					"pathName": "pages/home/collection/index",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "职位列表",
+					"pathName": "pages/jobs/list/index",
+					"query": ""
+				}
+			]
+		}
+	}
+}

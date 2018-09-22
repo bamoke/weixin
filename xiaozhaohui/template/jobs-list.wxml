@@ -1,0 +1,20 @@
+<template name="jobs-list">
+  <view class='m-jobs-list'>
+    <navigator url="/pages/jobs/detail/index?id={{item.id}}" class='item' wx:for="{{jobsInfo.list}}" wx:key="id">
+        <image wx:if="{{jobsInfo.showCompany}}" src="{{item.logo || '/static/images/default-logo.jpg'}}" class="logo" mode='aspectFill'></image>
+      <view>
+        <view class="g-row-bt hd">
+          <view class='title'>{{item.name}}</view>
+          <view class="wages">{{item.wages}}</view>
+        </view>
+        <view class="company-name" wx:if="{{item.companyName}}">{{item.companyName}}</view>
+        <view class="requirement">
+          <text>{{item.work_addr}}</text><text class='fg'>|</text><text>{{item.edu}}</text>
+        </view>
+        <view class='m-tags wx:if="{{item.tags}}"'>
+          <text wx:for="{{item.tags}}" wx:key="index" wx:for-item="val">{{val}}</text>
+        </view>
+      </view>
+    </navigator>
+  </view>
+</template>

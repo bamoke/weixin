@@ -1,0 +1,57 @@
+/* pages/fairs/detail/index.wxss */
+
+.m-tab-content {min-height: 600rpx;}
+.m-tab-content .content-box {
+  line-height: 1.6;
+  font-size: 28rpx;
+}
+.m-base-info .desc {
+  margin-top:24rpx;
+}
+.m-base-info .row {
+  display: flex;
+  align-items: center;
+  padding: 6rpx 0;
+}
+
+.video-box {margin-bottom:24rpx;}
+.content-box {
+  padding: 24rpx;
+  min-height: 800rpx;
+  box-sizing: border-box;
+  background: #fff;
+}
+.company-list {
+  width:100%;
+  background: #fff;
+}
+.company-list .item {
+  display: flex;
+  align-items: top;
+  padding: 24rpx;
+  border-bottom:1px solid #f1f1f1;
+}
+.company-list .logo {
+  flex-shrink: 0;
+  flex-grow: 0;
+  margin-right:24rpx;
+  width:80rpx;
+  height:80rpx;
+}
+.company-list .bd {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.company-list .name {
+  margin-bottom:12rpx;
+  font-size:30rpx;
+  color:#232323;
+}
+.company-list .other {
+  color:#9c9c9c;
+  font-size:24rpx;
+}
+.company-list .other text {
+  margin-right:12rpx;
+}
