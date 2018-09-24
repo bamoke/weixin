@@ -1,0 +1,45 @@
+<!--index.wxml-->
+<view class="container" wx:if="{{showPage}}">
+  <view class="banner-img-c">
+    <image class="m-banner-small" src="{{banner}}" alt="" mode='widthFix' />
+  </view>
+<!--   <view class="m-filter">
+    <view class='item-wrap'>
+      <view class="filter-item">排序</view>
+      <view class="filter-item">筛选</view>
+    </view>
+  </view> -->
+  <view class="ht-c"></view>
+  <view class="m-jobs-list" wx:if="{{list.length}}">
+    <navigator class="item" open-type='navigateTo' url="/pages/jobs/detail/index?id={{item.id}}" wx:for="{{list}}" wx:key="id">
+      <view class="g-row-bt hd">
+        <view class="title">{{item.title}}</view>
+        <view class="wages">￥{{item.wage}}</view>
+      </view>
+      <view class="status">
+        <text class="util {{statusClassArr[item.status]}}">{{statusArr[item.status]}}</text>
+      </view>
+      <view class="desc">{{item.requirement}}</view>
+      <view class="requirement">
+        <text>地点:{{item.work_addr}}</text>
+        <text class='fg'>|</text>
+        <text>人数:{{item.person_num}}人</text>
+        <text class='fg'>|</text>
+        <text>工期:{{item.work_day}}天</text>
+      </view>
+    </navigator>
+
+
+    <!--paging-->
+    <view class="m-paging-wrap">
+      <view class='item no-more' wx:if="{{!hasMore}}">没有更多了</view>
+      <view wx:else>
+        <view class="item" hidden='{{!isLoading}}'>加载中</view>
+      </view>
+    </view>
+  </view>
+  <view class="m-tips-page tips-page-empty" wx:else>
+    <image class="icon" src="/static/images/mt-empty.png"></image>
+    <view class="tips">暂无记录</view>
+  </view>
+</view>

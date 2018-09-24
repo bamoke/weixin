@@ -1,0 +1,25 @@
+<!--pages/headhunter/recommend/index.wxml-->
+<view class="container">
+  <view class="g-pad-box">
+    <view class="progress-bar">推荐流程</view>
+    <view class="m-progress">
+      <view class="util cur">发送简历</view>
+      <view class="util">简历审核</view>
+      <view class="util">联系面试</view>
+      <view class="util">安排上岗</view>
+      <view class="util">结算完成</view>
+    </view>
+  </view>
+  <view class="ht-c"></view>
+  <view class="m-column-bar"><view class="title">推荐说明</view></view>
+  <view class="g-pad-box">
+    请将简历发送jobs@onehre.com,内容附注职位ID以及您的联系电话。稍后我们的工作人员会对简历进行审核，审核通过后我们会和您取得联系商谈后续事宜。感谢您的支持！
+  </view>
+  <view class="ht-c"></view>
+  <view class="m-column-bar"><view class="title">联系方式</view></view>
+  <view class="g-pad-box">
+    <view class="p">电话：0756-8699888 8699886</view>
+    <view class="p">邮箱：jobs@onehre.com</view>
+    <view class="p">联系人：陈小姐</view>
+  </view>
+</view>

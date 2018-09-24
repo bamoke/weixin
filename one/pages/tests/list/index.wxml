@@ -1,0 +1,19 @@
+<!--pages/tests/list/index.wxml-->
+<view class='container'>
+<view class='m-test-list'>
+  <navigator class='item' open-type='navigate' url="../detail/index">
+    <text class='title'>接口还是打会计核算</text>
+    <view class='total'>
+      <view class='num'>3837</view>
+      <text>测试人次</text>
+    </view>
+  </navigator>
+    <navigator class='item' open-type='navigate' url="../detail/index">
+    <text class='title'>是付费的大幅度接口还是打会计核算sads</text>
+    <view class='total'>
+      <view class='num'>3837</view>
+      <text>测试人次</text>
+    </view>
+  </navigator>
+</view>
+</view>

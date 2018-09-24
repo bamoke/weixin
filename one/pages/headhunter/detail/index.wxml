@@ -1,0 +1,37 @@
+<!--pages/job/detail/index.wxml-->
+<import src="/wxParse/wxParse.wxml" />
+<view class='container' wx:if="showPage">
+  <view class="m-base-info g-pad-box">
+    <view class="g-row-bt">
+      <view class='title'>{{mainInfo.title}}</view>
+
+      <view class="wage">{{wagesArr[mainInfo.wages]}}</view>
+    </view>
+    <view class="m-attr">
+      <text class='util'>{{mainInfo.work_addr}}</text>
+      <text class="fg">|</text>
+      <text class="util">{{eduArr[mainInfo.edu]}}</text>
+      <text class="fg">|</text>
+      <text class="util">{{expArr[mainInfo.exp]}}</text>
+    </view>
+    <view class="tags m-tags" wx:if="{{mainInfo.tags}}">
+      <text wx:for="{{mainInfo.tags}}" wx:key="index">{{item}}</text>
+    </view>
+  </view>
+
+  <view class="ht-c"></view>
+
+  <view class='g-pad-box content-wrap'>
+    <view class='bar'>
+      <view class='title'>职位描述</view>
+      <view class='line-icon'></view>
+    </view>
+    <view class='g-pad-box content'>
+      <template is="wxParse" data="{{wxParseData:wxparse_content.nodes}}" />
+    </view>
+  </view>
+
+  <view class="m-foot-operation">
+    <navigator open-type='navigate' url="/pages/headhunter/recommend/index" class="btn btn-block btn-primary">我要推荐</navigator>
+  </view>
+</view>

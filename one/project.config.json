@@ -4,7 +4,7 @@
 		"ignore": []
 	},
 	"setting": {
-		"urlCheck": true,
+		"urlCheck": false,
 		"es6": true,
 		"postcss": true,
 		"minified": true,
@@ -12,8 +12,8 @@
 	},
 	"compileType": "miniprogram",
 	"libVersion": "2.0.4",
-	"appid": "wx1348775c6f6d56f2",
-	"projectname": "one",
+	"appid": "wx7260e692d37ca36e",
+	"projectname": "onehre",
 	"isGameTourist": false,
 	"condition": {
 		"search": {
@@ -24,13 +24,42 @@
 			"current": -1,
 			"list": []
 		},
+		"plugin": {
+			"current": -1,
+			"list": []
+		},
 		"game": {
 			"currentL": -1,
 			"list": []
 		},
 		"miniprogram": {
-			"current": -1,
-			"list": []
+			"current": 3,
+			"list": [
+				{
+					"id": 0,
+					"name": "课程详情",
+					"pathName": "pages/course/enroll/index",
+					"query": "id=1"
+				},
+				{
+					"id": 1,
+					"name": "猎头职位",
+					"pathName": "pages/headhunter/recommend/index",
+					"query": ""
+				},
+				{
+					"id": 2,
+					"name": "兼职详情",
+					"pathName": "pages/jobs/detail/index",
+					"query": "id=1"
+				},
+				{
+					"id": 3,
+					"name": "兼职申请",
+					"pathName": "pages/jobs/accept/index",
+					"query": "jobid=1"
+				}
+			]
 		}
 	}
 }

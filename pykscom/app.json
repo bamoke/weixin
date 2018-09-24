@@ -1,5 +1,6 @@
 {
   "pages":[
+    "pages/index/index",
     "pages/teams/add/index",
     "pages/work/kqdk/index",
     "pages/teams/index/index",
@@ -16,7 +17,7 @@
     "pages/service/ysd/index",
     "pages/service/yfd/index",
     "pages/service/fwjs/index",
-    "pages/index/index",
+    
     "pages/bind/index",
     "pages/service/fybx/index", 
     "pages/service/grjk/index",

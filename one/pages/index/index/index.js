@@ -1,29 +1,27 @@
 //index.js
 //获取应用实例
 const app = getApp()
-
+import util from "../../../utils/util"
 Page({
   data: {
-    indicatorDots: true,
-    autoplay: false,
-    interval: 5000,
-    duration: 1000,
-    circular:true,
+    showPage:false,
     indicatorColor:"#C4C4C4",
     indicatorActiveColor:"#1B7ED5",
-    swiperItems:[{'img':'/common/images/banner1.png'},{'img':'/common/images/banner1.png'},{'img':'/common/images/banner1.png'}]
-  },
-  goPartIndex:function(){
-    wx.navigateTo({
-      url: '/pages/index/partindex/partindex'
-    });
-  },
-  goheadHunt:function(){
-    wx.navigateTo({
-      url: '/pages/index/headhuntindex/headhuntindex'
-    });
+    banner:[],
+    courseList:[]
   },
   onLoad: function () {
-    wx.setNavigationBarTitle({ title: '首页' });
+    const params = {
+      apiUrl: "/Index/index",
+      requestMethod: "GET"
+    }
+    const ajaxRequest = util.request(params)
+    ajaxRequest.then(res => {
+      this.setData({
+        showPage: true,
+        banner: res.data.banner,
+        courseList:res.data.courseList
+      })
+    })
   }
 })

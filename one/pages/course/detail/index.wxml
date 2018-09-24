@@ -1,0 +1,38 @@
+<!--index.wxml-->
+<view class="container" wx:if="showPage">
+  <view class="banner-img-c">
+    <image src="{{courseInfo.thumb}}" alt="" mode='widthFix' />
+  </view>
+  <view class="top-introduce">
+    <view class="mb-16 title">{{courseInfo.title}}</view>
+    <view class='other-info'>
+      <view class="u-stage{{item.type==1? ' stage-info': ' stage-success'}} ">{{item.type==1?'内训':'公开课'}}</view>
+      <view class="num">
+        <image class="studyimg" src="/common/images/studynum.png" alt="" mode='widthFix' />{{courseInfo.enroll_num}}/{{courseInfo.person_num}}
+      </view>
+    </view>
+    <view class="c-b mb-2">{{courseInfo.description}}</view>
+    <view class="p text-dark">
+      <image class="studyimg" src="/common/images/studytime.png" alt="" mode='widthFix' />{{courseInfo.time}}
+    </view>
+    <view class="p text-dark">
+      <image class="studyimg" src="/common/images/weizhi.png" alt="" mode='widthFix' />{{courseInfo.addr}}
+    </view>
+
+  </view>
+  <view class="ht-c"></view>
+  <view class="g-pad-box">
+    <view class="f17 mb-16 text-dark">讲师：{{teacherInfo.name}}</view>
+    <view class="c-b">{{teacherInfo.description}}</view>
+  </view>
+  <view class="ht-c"></view>
+  <view class="class-introduce pb-40">
+    <view class="m-column-bar">
+      <view class="title">课程介绍</view>
+    </view>
+    <view class="g-pad-box">{{courseInfo.content}}</view>
+  </view>
+  <view class="m-foot-operation">
+    <navigator open-type='navigate' url="/pages/course/enroll/index?id={{courseInfo.id}}" class="btn btn-block btn-primary">预约报名</navigator>
+  </view>
+</view>

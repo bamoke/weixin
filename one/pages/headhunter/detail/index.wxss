@@ -1,0 +1,46 @@
+/* pages/job/detail/index.wxss */
+.container {padding-bottom:140rpx;}
+.content-wrap .bar {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-top: 48rpx;
+}
+
+.content-wrap .bar .title {
+  margin-bottom: 12rpx;
+  text-align: center;
+  color: #232323;
+  font-size: 30rpx;
+}
+
+.content-wrap .bar .line-icon {
+  width: 48rpx;
+  height: 8rpx;
+  background: #3397f9;
+  border-radius: 4rpx;
+}
+
+.content {
+  min-height: 500rpx;
+}
+
+
+.m-base-info .title {
+  margin-bottom:16rpx;
+}
+.m-base-info .wage {
+  flex-grow: 0;
+  flex-shrink: 0;
+  margin-left:24rpx;
+  width:auto;
+  color:#f30;
+  font-size:34rpx;
+}
+
+
+.content-wrap .content {
+  line-height:1.6;
+  font-size:28rpx;
+}

@@ -1,0 +1,22 @@
+/* pages/headhunter/recommend/index.wxss */
+.progress-bar {
+  padding:12px 0;
+  text-align: center;
+  font-size:32rpx;
+  color:#232323;
+}
+.m-progress {
+  display: flex;
+  justify-content: space-between;
+  width:100%;
+}
+.m-progress .util {
+  padding:12rpx;
+  border:1px solid #f1f1f1;
+  font-size:24rpx;
+}
+.m-progress .cur {
+  border-color:rgba(40,150,250,.3);
+  background-color:#2a94fa;
+  color:#fff;
+}

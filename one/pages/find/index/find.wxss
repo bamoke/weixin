@@ -2,24 +2,9 @@
 swiper-item image{
 	width: 100%;
 }
-view{
-	font-size: 30rpx;
-}
 .bd-c{
 	height: 20rpx;
 	background-color: #F4F4F4;
-}
-.f17{
-	font-size: 34rpx;
-}
-.f13{
-	font-size: 26rpx;
-}
-.c-b{
-	color: #BBBBBB;
-}
-.c-d{
-	color: #D1D1D1
 }
 .loadmore{
 	position: relative;

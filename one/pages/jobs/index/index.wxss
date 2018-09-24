@@ -1,0 +1,28 @@
+/**index.wxss**/
+
+.m-jobs-list .status {
+  margin-bottom: 12rpx;
+}
+
+.m-jobs-list .status .util {
+  display: inline-block;
+  padding: 0 12rpx;
+  height: 40rpx;
+  line-height: 40rpx;
+  border-radius: 20rpx;
+  font-size: 22rpx;
+}
+
+.m-jobs-list .status .notBegin {
+  border: 1px solid #3098fb;
+  color: #3098fb;
+}
+
+.m-jobs-list .status .started {
+  border: 1px solid #78d0d1;
+  color: #78d0d1;
+}
+.m-jobs-list .status .isEnd {
+  border: 1px solid #9c9c9c;
+  color: #9c9c9c;
+}

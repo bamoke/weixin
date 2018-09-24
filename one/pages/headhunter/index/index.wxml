@@ -1,0 +1,70 @@
+<!--pages/job/list/index.wxml-->
+<view class="container" wx:if="{{showPage}}">
+  <view class="m-search-box g-wrap-main">
+    <view class="search-bar">
+      <input class="input-box" type='text' placeholder='请输入职位关键词' confirm-type="search" bindblur='setkeywords' bindconfirm="gosearch" value='{{kewWords}}'>
+      </input>
+      <view class="icon" bindtap='gosearch'></view>
+    </view>
+  </view>
+  <view class=''>
+    <view class="m-filter" wx:if="{{false}}">
+      <view class='item-wrap'>
+        <view class="filter-item" wx:for="{{filter}}" wx:key="index" bindtap='showFilterOpt' data-type="{{item.catKey}}">
+          <text class="title">{{item.name}}:</text>
+          <text class="selected">{{item.list[item.selected]}}</text>
+          <text class="icon{{showOpt && curOpenType == item.catKey ? ' active':''}}"></text>
+        </view>
+      </view>
+      <!--dynamic-->
+      <view class="dynamic-layer" hidden='{{!showOpt}}'>
+        <view class="cover-box" bindtap='closeDynamic'></view>
+        <view class="options-wrap" hidden="{{curOpenType !== item.catKey}}" wx:for="{{filter}}" wx:key="index">
+          <view class="opt-item{{i == item.selected?' active':''}}" wx:for="{{item.list}}" wx:for-index="i" wx:for-item="val" wx:key="index" data-optindex="{{i}}" bindtap='selectFilter'>
+            {{val}}
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class='ht-c'></view>
+  <!--ee-->
+  <view class="m-content border-top">
+    <view class="" wx:if="{{list.length > 0}}">
+      <view class='m-jobs-list'>
+        <navigator url="/pages/headhunter/detail/index?id={{item.id}}" class='item' wx:for="{{list}}" wx:key="id">
+
+          <view class="g-row-bt hd">
+            <view class='title'>{{item.title}}</view>
+            <view class="wages">{{wagesArr[item.wages]}}</view>
+          </view>
+          <view class="company-name">{{item.comname}}</view>
+          <view class="requirement">
+            <text>{{item.work_addr}}</text>
+            <text class='fg'>|</text>
+            <text>{{eduArr[item.edu]}}</text><text class='fg'>|</text><text>{{expArr[item.exp]}}</text>
+          </view>
+          <view class='m-tags wx:if="{{item.tags}}"'>
+            <text wx:for="{{item.tags}}" wx:key="index" wx:for-item="val">{{val}}</text>
+          </view>
+
+        </navigator>
+      </view>
+
+      <!--paging-->
+      <view class="m-paging-wrap">
+        <view class='item no-more' wx:if="{{!hasMore}}">没有更多了</view>
+        <view wx:else>
+          <view class="item" hidden='{{!isLoading}}'>加载中</view>
+        </view>
+      </view>
+    </view>
+    <!--empty page-->
+    <view class="m-tips-page tips-page-empty" wx:else>
+      <image class="icon" src="/static/images/mt-empty.png"></image>
+      <view class="tips">暂无记录</view>
+    </view>
+  </view>
+
+
+</view>

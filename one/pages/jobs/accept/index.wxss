@@ -1,0 +1,4 @@
+/* pages/resume/base/index.wxss */
+@import "../resume.wxss";
+.container {background-color:#f4f4f4;}
+.m-form-default textarea {width:100%;padding:24rpx 0;box-sizing:border-box;}

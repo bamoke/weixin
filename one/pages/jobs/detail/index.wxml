@@ -1,0 +1,35 @@
+<!--index.wxml-->
+<import src="/wxParse/wxParse.wxml" />
+<view class="container" wx:if="showPage">
+  <view class="g-pad-box">
+    <view class="top-title">
+      <view class="title">{{info.title}}</view>
+    </view>
+    <view class="top-text">
+      <view class="item">项目酬金：<text class="wage">￥{{info.wage}}</text></view>
+      <view class="item">项目状态：<text class="{{statusClassArr[info.status]}}">{{statusArr[info.status]}}</text></view>
+      <view class="item">工作地点：{{info.work_addr}}</view>
+      <view class="item">需求人数：{{info.work_person_num}}人</view>
+      <view class="item">项目工期：{{info.work_day}}天</view>
+    </view>
+  </view>
+  <view class="ht-c"></view>
+  <view class="yaoqiu-contain">
+    <view class="m-column-bar">
+      <view class="title">兼职要求</view>
+    </view>
+    <view class="g-pad-box">{{info.requirement}}</view>
+  </view>
+  <view class="ht-c"></view>
+  <view class="yaoqiu-contain">
+    <view class="m-column-bar">
+      <view class="title">项目描述</view>
+    </view>
+    <view class="g-pad-box">
+      <template is="wxParse" data="{{wxParseData:wxparse_content.nodes}}" />
+    </view>
+  </view>
+  <view class="m-foot-operation">
+    <navigator open-type='navigate' url="/pages/jobs/accept/index?jobid={{info.id}}" class="btn btn-block btn-primary">我要兼职</navigator>
+  </view>
+</view>

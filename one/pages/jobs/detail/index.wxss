@@ -1,0 +1,26 @@
+/**index.wxss**/
+.container {
+  padding-bottom:150rpx;
+}
+.top-title {
+  margin-bottom:24rpx;
+  padding-bottom:24rpx;
+  border-bottom:1px solid #f1f1f1;
+}
+.top-title .title {
+  font-size:34rpx;
+  color:#121212;
+  font-weight: bold;
+}
+.top-text .item {margin-bottom:12rpx;color:#333;}
+.notBegin {
+  color: #3098fb;
+}
+
+.started {
+  color: #78d0d1;
+}
+.isEnd {
+  color: #9c9c9c;
+}
+.wage {color:#f00;}

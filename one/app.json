@@ -1,56 +1,67 @@
 {
-  "pages":[
+  "pages": [
     "pages/index/index/index",
-    "pages/index/headhuntdetail/headhuntdetail",
-    "pages/index/headhuntsign/headhuntsign",
-    "pages/index/headhuntindex/headhuntindex",
-    "pages/index/partsign/partsign",
-    "pages/index/partdetail/partdetail",
-    "pages/index/partindex/partindex",
     "pages/find/index/find",
+
     "pages/class/index/class",
+    "pages/class/index/index",
+
     "pages/course/index/course",
-    "pages/course/coursesign/coursesign",
-    "pages/course/coursedetail/coursedetail",
+    "pages/course/enroll/index",
+    "pages/course/detail/index",
+
+    "pages/headhunter/index/index",
+    "pages/headhunter/detail/index",
+    "pages/headhunter/recommend/index",
+
+    "pages/jobs/index/index",
+    "pages/jobs/detail/index",
+    "pages/jobs/accept/index",
+
+    "pages/account/login/index",
+    "pages/account/regist/index",
+    "pages/account/forgot/index",
+
+    "pages/single/index",
     "pages/me/index/me",
     "pages/me/medtail/medtail"
   ],
-  "window":{
-    "backgroundTextStyle":"light",
+  "window": {
+    "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#2591FE",
-    "navigationBarTitleText": "首页",
-    "navigationBarTextStyle":"white"
+    "navigationBarTitleText": "ONE-HRE",
+    "navigationBarTextStyle": "white"
   },
-   "tabBar": {
-      "color": "#B9B9B9",
-      "selectedColor": "#4897DD",
-      "borderStyle":"#eee",
-      "backgroundColor":"#fff",
-      "list": [{
+  "tabBar": {
+    "color": "#B9B9B9",
+    "selectedColor": "#4897DD",
+    "borderStyle": "#eee",
+    "backgroundColor": "#fff",
+    "list": [
+      {
         "selectedIconPath": "common/images/home-active.png",
         "iconPath": "common/images/home.png",
         "pagePath": "pages/index/index/index",
         "text": "首页"
-      }, {
+      },
+      {
         "selectedIconPath": "common/images/find-active.png",
         "iconPath": "common/images/find.png",
         "pagePath": "pages/find/index/find",
-        "text": "发现"
-      }, {
+        "text": "课程"
+      },
+      {
         "selectedIconPath": "common/images/class-active.png",
         "iconPath": "common/images/class.png",
-        "pagePath": "pages/class/index/class",
+        "pagePath": "pages/class/index/index",
         "text": "班级"
-      }, {
-        "selectedIconPath": "common/images/course-active.png",
-        "iconPath": "common/images/course.png",
-        "pagePath": "pages/course/index/course",
-        "text": "课程"
-      }, {
+      },
+      {
         "selectedIconPath": "common/images/me-active.png",
         "iconPath": "common/images/me.png",
         "pagePath": "pages/me/index/me",
         "text": "我的"
-      }]
-    }
+      }
+    ]
+  }
 }

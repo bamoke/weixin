@@ -1,0 +1,30 @@
+<!--index.wxml-->
+<view class="container">
+
+  <view class="g-pad-box text-dark top-class-name">
+    课程名称课程名称课程名称
+  </view>
+  <view class="ht-c"></view>
+  <form class="m-form form-contain">
+    <view class="form-group">
+      <view class="label">您的姓名</view>
+      <view class="value-box"><input class="input-control" type="text" placeholder="请输入您的姓名" /></view>
+    </view>
+    <view class="form-group">
+      <view class="label">您的职业</view>
+      <view class="value-box"><input class="input-control" type="text" placeholder="请输入您的职业" /></view>
+    </view>
+    <view class="form-group">
+      <view class="label">您的手机号</view>
+      <view class="value-box"><input class="input-control" type="number" placeholder="请输入您的手机号" /></view>
+    </view>
+    <view class="form-group">
+      <view class="label">手机验证码</view>
+      <view class="value-box"><input class="input-control" type="number" placeholder="请输入手机验证码" /></view>
+      <view class="code-btn">点击获取</view>
+    </view>
+    <view class="g-pad-box">
+      <button formType="submit" class="btn btn-block btn-primary">提交</button>
+    </view>
+  </form>
+</view>
