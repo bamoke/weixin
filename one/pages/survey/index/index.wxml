@@ -1,0 +1,31 @@
+<!--pages/survey/index.wxml-->
+<view class='container' wx:if="{{showPage}}">
+  <progress class="progress" activeColor="#09BB07" percent="{{progress}}" />
+  <view class="survey">
+    <view class="title">{{title}}</view>
+    <view class="description">{{description}}</view>
+    <view class="m-question-list">
+      <view class='question-item' wx:for="{{questionList}}" wx:key="id">
+        <view class="question-title">
+          <text class="type">[{{item.type == 1?"单选":"多选"}}]</text> {{item.question}}
+        </view>
+        <view class="error-tips" hidden="{{showError ===false || item.selected ===true}}">请填写此项调查内容</view>
+        <view class='m-answer-list'>
+          <radio-group class="radio-group" bindchange="valueChange" wx:if="{{item.type == 1}}" data-qindex="{{index}}">
+            <label class="radio answer-item" wx:for="{{item.answerList}}" wx:for-item="a" wx:key="id">
+              <radio value="{{a.id}}" />{{a.name}}
+            </label>
+          </radio-group>
+          <checkbox-group wx:else bindchange="valueChange" data-qindex="{{index}}">
+            <label class="checkbox answer-item" wx:for="{{item.answerList}}" wx:for-item="a" wx:key="id">
+              <checkbox value="{{a.id}}" />{{a.name}}
+            </label>
+          </checkbox-group>
+        </view>
+      </view>
+    </view>
+    <view class='btn-box'>
+      <button class="btn-minor" bindtap='submit'>提交</button>
+    </view>
+  </view>
+</view>
