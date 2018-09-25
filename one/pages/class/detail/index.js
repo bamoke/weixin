@@ -7,20 +7,28 @@ Page({
   data: {
     showPage: false,
     hasMore:false,
+    id:null,
     curPage:1,
-    list: []
+    banner: "",
+    dynamicList: []
   },
 
   onLoad: function(options) {
+    const id = options.id
     const params = {
-      apiUrl: "/Class/index",
+      apiUrl: "/Class/detail",
+      requestData: {
+        id: id
+      },
       requestMethod: "GET"
     }
     const ajaxRequest = util.request(params)
     ajaxRequest.then(res => {
       this.setData({
         showPage: true,
-        list: res.data.list,
+        id:id,
+        banner: res.data.banner,
+        dynamicList: res.data.dynamicList,
         hasMore:res.data.hasMore
       })
     })
@@ -32,11 +40,12 @@ Page({
   onReachBottom: function () {
     if (!this.data.hasMore) return;
     let postData = {
+      id:this.data.id,
       p: this.data.curPage + 1
     }
     console.log(postData)
-    const requestParams = {
-      apiUrl: "/Class/index",
+    const requestParams = { 
+      apiUrl: "/Class/detail",
       requestMethod: "GET",
       requestData: postData
     }
@@ -44,7 +53,7 @@ Page({
     ajaxRequest.then(res => {
       this.setData({
         hasMore: res.data.hasMore,
-        list: this.data.list.concat(res.data.list),
+        dynamicList: this.data.dynamicList.concat(res.data.dynamicList),
         curPage: res.data.page
       })
     })

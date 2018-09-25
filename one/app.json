@@ -4,6 +4,8 @@
     "pages/find/index/find",
 
     "pages/class/index/index",
+    "pages/class/detail/index",
+    "pages/class/member/index",
 
     "pages/course/index/course",
     "pages/course/enroll/index",
@@ -17,6 +19,23 @@
     "pages/jobs/detail/index",
     "pages/jobs/accept/index",
 
+    "pages/survey/index/index",
+    "pages/survey/detail/index",
+
+    "pages/notes/index/index",
+    "pages/notes/detail/index",
+
+    "pages/work/index/index",
+    "pages/work/detail/index",
+
+    "pages/exam/index/index",
+    "pages/exam/detail/index",
+
+    "pages/discuss/index/index",
+    "pages/discuss/detail/index",
+
+    "pages/comment/index/index",
+    
     "pages/account/login/index",
     "pages/account/regist/index",
     "pages/account/forgot/index",

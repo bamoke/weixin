@@ -1,4 +1,4 @@
-// pages/survey/index/index.js
+// pages/exam/index/index.js
 Page({
 
   /**

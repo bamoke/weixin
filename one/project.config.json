@@ -33,7 +33,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 4,
+			"current": 8,
 			"list": [
 				{
 					"id": 0,
@@ -60,9 +60,34 @@
 					"query": "jobid=1"
 				},
 				{
-					"id": -1,
+					"id": 4,
 					"name": "班级主页",
-					"pathName": "pages/class/index/index"
+					"pathName": "pages/class/detail/index",
+					"query": "id=1"
+				},
+				{
+					"id": -1,
+					"name": "班级成员",
+					"pathName": "pages/class/member/index",
+					"query": "classid=1"
+				},
+				{
+					"id": -1,
+					"name": "笔记",
+					"pathName": "pages/notes/index/index",
+					"query": "classid=1"
+				},
+				{
+					"id": -1,
+					"name": "作业",
+					"pathName": "pages/work/index/index",
+					"query": "classid=1"
+				},
+				{
+					"id": -1,
+					"name": "作业详情",
+					"pathName": "pages/work/detail/index",
+					"query": "id=1"
 				}
 			]
 		}

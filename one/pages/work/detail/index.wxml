@@ -1,0 +1,67 @@
+<!--pages/work/detail/index.wxml-->
+<view class='container'>
+  <!-- 开始页面  -->
+  <view class='g-start-page {{showStartPage?"page-show":""}}'>
+    <view class="title">{{examinationInfo.title}}</view>
+    <view class='description'>{{examinationInfo.description}}</view>
+    <button class='page-main-btn s-bg-minor' bindtap='startTest'>开始答题</button>
+  </view>
+
+  <!-- 答题页面  -->
+  <view class='g-question-page'>
+    <view class='g-main-box m-page'>
+      第
+      <text class="curpage">{{curIndex + 1}}</text>题
+    </view>
+
+    <view class='g-main-box m-question-info'>
+      <view class='ask'>
+        <text class='u-type type-sigle' wx:if='{{question[curIndex].type == 1}}'>单选</text>
+        <text class='u-type type-multiple' wx:elif='{{question[curIndex].type == 2}}'>多选</text>
+        <text class='u-type type-sigle' wx:elif='{{question[curIndex].type == 3}}'>判断</text>
+        <text class='u-title'>{{question[curIndex].ask}}</text>
+      </view>
+
+      <checkbox-group class="m-answer" wx:if="{{question[curIndex].type == 2}}" bindchange="selectAnswer">
+        <label class="answer-item" wx:for="{{question[curIndex].answer}}" wx:key="index">
+          <checkbox value="{{index}}" checked='{{isChecked}}' disabled='{{question[curIndex].answeredResult != 0?true:false}}' />{{symbolArr[index]}}:{{item}}
+        </label>
+      </checkbox-group>
+
+      <radio-group class="m-answer" bindchange='selectAnswer' wx:else>
+        <label class="answer-item" wx:for="{{question[curIndex].answer}}" wx:key="index">
+          <radio value="{{index}}" checked='{{isChecked}}' disabled='{{question[curIndex].answeredResult != 0?true:false}}' />{{symbolArr[index]}}:{{item}}
+        </label>
+      </radio-group>
+
+      <view class="confirm-btn-box" wx:if='{{question[curIndex].answeredResult == 0}}'>
+        <view class='btn s-bg-import' bindtap="confirmAnswer" wx:if='{{question[curIndex].type==2}}'>确认答案</view>
+      </view>
+      <view class="m-answer-result" wx:else>
+        <view class='result correct' wx:if='{{question[curIndex].answeredResult == 1}}'>
+          <icon type="success" size='20' color="#03b81c" />
+          <text class='txt'>回答正确</text>
+        </view>
+        <view class='result error' wx:elif='{{question[curIndex].answeredResult == 2}}'>
+          <icon type='cancel' size='20' color='#ff5b57' />
+          <text class='txt'>回答错误</text>
+          <view>正确答案：{{correctName}}</view>
+        </view>
+      </view>
+    </view>
+
+    <view class='g-main-box'>
+    
+    </view>
+
+    <view class="m-bottom-btn-box">
+      <view class="bottom-btn s-bg-minor" bindtap="nextQuestion" wx:if='{{curIndex < totalNum - 1}}'>下一题</view>
+      <view wx:else>
+        <view class="bottom-btn s-bg-import" bindtap="submitTest" wx:if='{{question[curIndex].answeredResult}}'>交卷</view>
+      </view>
+
+    </view>
+  </view>
+
+
+</view>

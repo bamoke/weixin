@@ -1,0 +1,40 @@
+/**index.wxss**/
+.subnav {
+  padding:24rpx 24rpx 0;
+}
+.subnav .img-view {
+  border-radius:50%;
+}
+.subnav .row {
+  margin-bottom:24rpx;
+  width:100%;
+  display: flex;
+  justify-content: space-between;
+}
+.subnav .row .item {
+  width:20%;
+  flex-grow:0;
+  flex-shrink: 0;
+}
+.m-dynamic-list {
+  width:100%;
+}
+.m-dynamic-list > .item {
+  display: flex;
+  padding:24rpx;
+  border-bottom:1px solid #f1f1f1;
+}
+.m-dynamic-list .avatar {
+  flex-shrink: 0;
+  flex-grow:0;
+  margin-right:24rpx;
+  width:64rpx;
+  height:64rpx;
+  border-radius:50%;
+  background:#eee;
+}
+.m-dynamic-list .text-box {
+  flex-grow: 1;
+}
+.m-dynamic-list .text-box .user-name {color:#121212;}
+.m-dynamic-list .text-box .time {color:#ccc;font-size:24rpx; }

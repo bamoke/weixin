@@ -1,0 +1,26 @@
+<view class="container" wx:if="{{showPage}}">
+  <view class="m-notes-list" wx:if="{{list.length}}">
+    <view class='item' wx:for="{{list}}" wx:key="id">
+      <view class="time">{{item.create_time}}</view>
+      <view class="content">{{item.content}}</view>
+    </view>
+    <!--paging-->
+    <view class="m-paging-wrap">
+      <view class='item no-more' wx:if="{{!hasMore}}">没有更多了</view>
+      <view wx:else>
+        <view class="item" hidden='{{!isLoading}}'>加载中</view>
+      </view>
+    </view>
+  </view>
+  <!--empty page-->
+  <view class="m-tips-page tips-page-empty" wx:else>
+    <image class="icon" src="/static/images/mt-empty.png"></image>
+    <view class="tips">暂无记录</view>
+  </view>
+  
+  <!------>
+  <view class="m-foot-input">
+    <input class="input" placeholder='请输入笔记内容' type='text' maxlength='120' bindblur='setValue'></input>
+    <view class="btn btn-primary">添加</view>
+  </view>
+</view>

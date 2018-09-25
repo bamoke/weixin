@@ -1,0 +1,94 @@
+<!--index.wxml-->
+<view class="container" wx:if="{{showPage}}">
+  <view class="m-banner-small">
+    <image class="img" src="{{banner}}" alt="" mode='widthFix' />
+  </view>
+  <view class="subnav">
+    <view class="row">
+      <navigator open-type="navigate" url="/pages/class/member/index?classid={{id}}" class="item">
+        <view class="img-view bg-lan">
+          <image src="/common/images/class-icon-01.png" alt="" mode='widthFix' />
+        </view>
+        <view class="txt">成员</view>
+      </navigator>
+      <navigator open-type="navigate" url="/pages/discuss/index/index?classid={{id}}" class="item">
+        <view class="img-view bg-chen">
+          <image src="/common/images/class-icon-02.png" alt="" mode='widthFix' />
+        </view>
+        <view class="txt">讨论组</view>
+      </navigator>
+      <navigator open-type="navigate" url="/pages/notes/index/index?classid={{id}}" class="item">
+        <view class="img-view bg-huang">
+          <image src="/common/images/class-icon-04.png" alt="" mode='widthFix' />
+        </view>
+        <view class="txt">笔记</view>
+      </navigator>
+      <navigator open-type="navigate" url="/pages/work/index/index?classid={{id}}" class="item">
+        <view class="img-view bg-din">
+          <image src="/common/images/class-icon-03.png" alt="" mode='widthFix' />
+        </view>
+        <view class="txt">作业</view>
+      </navigator>
+      <navigator open-type="navigate" url="/pages/exam/index/index?classid={{id}}" class="item">
+        <view class="img-view bg-huang">
+          <image src="/common/images/class-icon-04.png" alt="" mode='widthFix' />
+        </view>
+        <view class="txt">考试</view>
+      </navigator>
+    </view>
+    <view class="row">
+      <navigator open-type="navigate" url="/pages/class/member/index?id={{id}}" class="item">
+        <view class="img-view bg-lv">
+          <image src="/common/images/class-icon-01.png" alt="" mode='widthFix' />
+        </view>
+        <view class="txt">课件</view>
+      </navigator>
+      <navigator open-type="navigate" url="/pages/comment/index/index?classid={{id}}" class="item">
+        <view class="img-view bg-lan">
+          <image src="/common/images/class-icon-02.png" alt="" mode='widthFix' />
+        </view>
+        <view class="txt">点评</view>
+      </navigator>
+      <navigator open-type="navigate" url="/pages/survey/index/index?classid={{id}}" class="item">
+        <view class="img-view bg-zi">
+          <image src="/common/images/course-icon-05.png" alt="" mode='widthFix' />
+        </view>
+        <view class="txt">问卷</view>
+      </navigator>
+      <view class="item"></view>
+      <view class="item"></view>
+    </view>
+
+  </view>
+  <view class="ht-c"></view>
+  <view class="class-content">
+    <view class="m-column-bar">
+      <view class="title">班级动态</view>
+    </view>
+    <view class="m-dynamic-list" wx:if="{{dynamicList.length}}">
+      <view class="item" wx:for="{{dynamicList}}" wx:key="id">
+        <image class="avatar" src="{{item.avatar}}" alt="" mode='widthFix' />
+        <view class="text-box">
+          <view class="g-row-bt">
+            <view class="user-name">{{item.name}}</view>
+            <view class="time">{{item.time}}</view>
+          </view>
+          <view class="content">{{item.description}}</view>
+        </view>
+      </view>
+
+      <!--paging-->
+      <view class="m-paging-wrap">
+        <view class='item no-more' wx:if="{{!hasMore}}">没有更多了</view>
+        <view wx:else>
+          <view class="item" hidden='{{!isLoading}}'>加载中</view>
+        </view>
+      </view>
+    </view>
+    <!--empty page-->
+    <view class="m-tips-page tips-page-empty" wx:else>
+      <image class="icon" src="/static/images/mt-empty.png"></image>
+      <view class="tips">暂无记录</view>
+    </view>
+  </view>
+</view>

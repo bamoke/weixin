@@ -1,0 +1,6 @@
+/* pages/work/index/index.wxss */
+.m-text-list .time {
+  margin-top:12rpx;
+  color:#ccc;
+  font-size:24rpx;
+}

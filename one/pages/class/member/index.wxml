@@ -1,0 +1,33 @@
+<!--pages/class/member/index.wxml-->
+<view class="container" wx:if="{{showPage}}">
+  <view class="m-search-box g-wrap-main">
+    <view class="search-bar">
+      <input class="input-box" type='text' placeholder='请输入用户名' confirm-type="search" bindblur='setkeywords' bindconfirm="gosearch" value='{{kewWords}}'>
+      </input>
+      <view class="icon" bindtap='gosearch'></view>
+    </view>
+  </view>
+  <view class="ht-c"></view>
+  <view class="m-member-list" wx:if="{{list.length}}">
+    <view class='item' wx:for="{{list}}" wx:key="id">
+      <image class="avatar" src="{{list.avatar || '/static/images/default-avatar.png'}}"></image>
+      <view class="text-box">
+        <view class="name">{{item.name}}</view>
+        <view class="type">{{typeArr[item.type]}}</view>
+      </view>
+    </view>
+    <!--paging-->
+    <view class="m-paging-wrap">
+      <view class='item no-more' wx:if="{{!hasMore}}">没有更多了</view>
+      <view wx:else>
+        <view class="item" hidden='{{!isLoading}}'>加载中</view>
+      </view>
+    </view>
+  </view>
+  <!--empty page-->
+  <view class="m-tips-page tips-page-empty" wx:else>
+    <image class="icon" src="/static/images/mt-empty.png"></image>
+    <view class="tips">暂无记录</view>
+  </view>
+
+</view>
