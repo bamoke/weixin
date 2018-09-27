@@ -1,0 +1,32 @@
+<!--compenents/answer/answer.wxml-->
+<view>
+  <view class='ask'>
+    <text class="nu">第【{{index+1}}】题:</text>
+    <text class='title'>{{question.ask}}</text>
+    <text class='u-type type-sigle' wx:if='{{question.type == 1}}'>单选</text>
+    <text class='u-type type-multiple' wx:elif='{{question.type == 2}}'>多选</text>
+    <text class='u-type type-sigle' wx:elif='{{question.type == 3}}'>判断</text>
+  </view>
+
+  <checkbox-group class="m-answer" bindchange="selectAnswer">
+    <label class="answer-item" wx:for="{{question.answer}}" wx:key="id" wx:for-index="i">
+      <checkbox value="{{i}}" disabled="{{isSelected?true:false}}"  />
+      <text class="symb">{{symbolArr[i]}}</text>:{{item}}
+    </label>
+  </checkbox-group>
+
+  <view class="confirm-btn-box" wx:if='{{!isSelected}}'>
+    <view class='btn s-bg-import' bindtap="confirmAnswer" wx:if='{{question.type==2}}'>确认答案</view>
+  </view>
+  <view class="m-answer-result" wx:else>
+    <view class='result correct' wx:if='{{answerResult == "correct"}}'>
+      <icon type="success" size='20' color="#03b81c" />
+      <text class='txt'>回答正确</text>
+    </view>
+    <view class='result error' wx:else>
+      <icon type='cancel' size='20' color='#ff5b57' />
+      <text class='txt'>回答错误</text>
+      <view wx:if="{{correctName}}">正确答案：{{correctName}}</view>
+    </view>
+  </view>
+</view>

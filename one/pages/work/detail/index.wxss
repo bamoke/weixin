@@ -1,1 +1,31 @@
 /* pages/work/detail/index.wxss */
+
+.m-question-nu {
+  padding: 24rpx;
+}
+.m-question-nu .util {
+  display: inline-block;
+  margin-right:12rpx;
+  width:40rpx;
+  height:40rpx;
+  line-height: 40rpx;
+  text-align: center;
+  color:#ccc;
+  border-radius:50%;
+  border:1px solid #ddd;
+}
+.m-question-nu .active {
+  background-color:#2a94fa;
+  color:#fff;
+  border-color:#2a94fa;
+}
+.m-question-nu .correct {
+  background-color:#3c0;
+  color:#fff;
+  border-color:#02dc21;
+}
+.m-question-nu .error {
+  background-color:#f30;
+  color:#fff;
+  border-color:#f30;
+}
