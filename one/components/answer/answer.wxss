@@ -1,5 +1,5 @@
 /* compenents/answer/answer.wxss */
-.ask {padding-bottom:24rpx;}
+.ask {padding:24rpx 0;}
 .ask .title {
   margin: 0 12rpx;
   font-size: 32rpx;
@@ -8,7 +8,7 @@
 .m-answer {margin-bottom:20rpx;padding-bottom:20rpx;border-bottom:1px solid #f1f1f1;}
 .m-answer .answer-item {
   display: flex;
-  padding: 10rpx 0;
+  padding: 24rpx 0;
   color: #323232;
 }
 
@@ -27,11 +27,11 @@
 }
 
 .m-answer-result .correct {
-  color: #02dc21;
+  color: #00cc66;
 }
 
 .m-answer-result .error {
-  color: #ff5b57;
+  color: #f30;
 }
 
 .m-answer-result icon {
@@ -52,16 +52,18 @@
   line-height: 80rpx;
   border-radius:40rpx;
   text-align: center;
-  background-color:#ff5b57;
+  background-color:#2a94fa;
   color:#fff;
 }
 
 .u-type {
   display: inline-block;
-  margin-right: 10rpx;
-  padding: 0 12rpx;
+  margin-left: 10rpx;
+  padding: 0 24rpx;
+  height:36rpx;
+  line-height: 36rpx;
   color: #fff;
-  border-radius: 6rpx;
+  border-radius: 18rpx;
   font-size: 24rpx;
   vertical-align: middle;
 }

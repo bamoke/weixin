@@ -33,7 +33,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 8,
+			"current": 9,
 			"list": [
 				{
 					"id": 0,
@@ -66,9 +66,9 @@
 					"query": "id=1"
 				},
 				{
-					"id": -1,
-					"name": "班级成员",
-					"pathName": "pages/class/member/index",
+					"id": 5,
+					"name": "班级调查问卷",
+					"pathName": "pages/survey/index/index",
 					"query": "classid=1"
 				},
 				{
@@ -87,6 +87,12 @@
 					"id": -1,
 					"name": "作业详情",
 					"pathName": "pages/work/detail/index",
+					"query": "id=1"
+				},
+				{
+					"id": -1,
+					"name": "班级调查问卷详情",
+					"pathName": "pages/survey/detail/index",
 					"query": "id=1"
 				}
 			]

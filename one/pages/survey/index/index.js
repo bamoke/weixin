@@ -1,18 +1,37 @@
 // pages/survey/index/index.js
+import util from "../../../utils/util"
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+  showPage:false,
+  classId:null,
+  curPage:1, 
+  hasMore:false,
+  list:[]
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    const classId = options.classid
+    const params = {
+      apiUrl: "/survey/index",
+      requestData: { class_id: classId },
+      requestMethod: "GET"
+    }
+    const ajaxRequest = util.request(params)
+    ajaxRequest.then(res => {
+      this.setData({
+        classId,
+        showPage: true,
+        list: res.data.list,
+        hasMore: res.data.hasMore
+      })
+    })
   },
 
   /**
@@ -41,26 +60,6 @@ Page({
    */
   onUnload: function () {
 
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
   }
+
 })

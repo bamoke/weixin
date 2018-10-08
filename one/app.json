@@ -27,6 +27,7 @@
 
     "pages/work/index/index",
     "pages/work/detail/index",
+    "pages/work/result/index",
 
     "pages/exam/index/index",
     "pages/exam/detail/index",

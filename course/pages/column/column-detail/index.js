@@ -1,5 +1,6 @@
 // pages/column/column-detail/index.js
 //获取应用实例
+import util from "../../../utils/util"
 var app = getApp()
 
 //加载公用
@@ -61,10 +62,13 @@ Page({
   },
 
 /**
- * 免费订阅专栏
+ * 免费订阅专栏 购买
  */
   subscriber: function (data){
     var _that = this;
+    const requestParams = {
+      apiUrl:"/Order/subscriber"
+    }
     var proid = data.target.dataset.id;
     var apiUrl = '/Columnist/subscriber';
     var requestData = {proid: proid }
@@ -109,15 +113,17 @@ Page({
    * giftBuyConfirm
    */
   giftBuyConfirm: function () {
-    var _that = this;
-    var apiUrl = '/Orders/buypresent';
-    var columnId = this.data.columnInfo.id;
-    var proType = 1;
-    var requestData = { proid: columnId, protype: proType, type: 5 }
-    var myPromise = app._getApiData(apiUrl, requestData, "POST");
+    const _that = this
+    const requestParams = {
+      apiUrl:'/Orders/buypresent',
+      requestData: { proid: this.data.curId, protype: 1, type: 5 },
+      requestMethod:"POST"
+    }
+
+    var myPromise = util.request(requestParams);
     myPromise.then(data => {
-      _that.buyconfirm.hide();
-      _that.setData({
+      this.buyconfirm.hide();
+      this.setData({
         giftKey: data.key
       })
       if (typeof data.payMent !== 'undefined') {
@@ -150,24 +156,8 @@ Page({
    */
   onLoad: function (options) {
     var id = options.id;
-    //获取数据   
-    var myPromise = app._getApiData('/Columnist/detail/id/' + id)
-    var _that = this;
-    myPromise.then(function (data) {
-      wx.hideLoading()
-      //标签转换
-      if (data.columnist.content) {
-        WxParse.wxParse('wxparse_content', 'html', data.columnist.content, _that)
-      }
-      _that.setData({
-        showPage: true,
-        columnInfo: data.columnist,
-        articleList: data.articleList,
-        teacherInfo: data.teacherInfo,
-        authStatus: data.hasColumnistStatus
-      })
-    }, function (err) {
-      console.log(err)
+    this.setData({
+      curId:id
     })
   },
 
@@ -175,6 +165,26 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
+    //获取数据   
+    const requestParams = {
+      apiUrl:'/Columnist/detail',
+      requestData:{id:this.data.curId}
+    }
+    var myPromise = util.request(requestParams)
+    myPromise.then(data=> {
+      //标签转换
+      if (data.columnist.content) {
+        WxParse.wxParse('wxparse_content', 'html', data.columnist.content, this)
+      }
+      this.setData({
+        showPage: true,
+        columnInfo: data.columnist,
+        articleList: data.articleList,
+        teacherInfo: data.teacherInfo,
+        authStatus: data.hasColumnistStatus
+      })
+    })
+
     this.buyconfirm = this.selectComponent("#buyconfirm")
     this.sharemodal = this.selectComponent("#shareModal")
   },
@@ -207,12 +217,7 @@ Page({
 
   },
 
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
 
-  },
 
   /**
    * 用户点击右上角分享

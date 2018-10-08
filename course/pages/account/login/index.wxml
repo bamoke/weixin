@@ -1,0 +1,23 @@
+<!--pages/common/bind/index.wxml-->
+<view class='container'>
+  <form class='m-form' bindsubmit='submitForm'>
+    <view class="form-wrap">
+      <view class='form-group'>
+        <input type='number' name="phone" placeholder='请输入手机号码' class="input-box" bindinput='updatePhone'></input>
+      </view>
+      <view class='form-group'>
+        <input type='password' name="password" placeholder='请输入密码' class="input-box"></input>
+      </view>
+      <view class="error-box" hidden='{{!errorStatus}}'>{{errorMsg}}</view>
+      <view class='form-group'>
+        <button form-type='submit' class='btn btn-primary'>{{btnText}}</button>
+      </view>
+    </view>
+  </form>
+  <view class='bot-info g-pad-box'>
+    <view class='g-row-bt'>
+      <navigator url="/pages/account/register/index" open-type='navigateTo'>还没有账号？点击注册</navigator>
+      <navigator url="/pages/account/reset/index" open-type='navigateTo'>忘记密码？</navigator>
+    </view>
+  </view>
+</view>

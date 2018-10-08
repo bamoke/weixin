@@ -1,5 +1,6 @@
 /**app.wxss**/
 @import "wxParse/wxParse.wxss";
+view {box-sizing: border-box;}
 .container {
   height: 100%;
   display: flex;
@@ -16,6 +17,7 @@
   justify-content: space-between;
   align-items: center;
 }
+.g-pad-box {padding:24rpx;}
 /**module**/
 
 .m-column-list {
@@ -343,7 +345,7 @@
   background-color: #ff5b57;
 }
 
-.btn-minor {
+.btn-minor,.btn-primary {
   color: #fff;
   background-color: #28c0c6;
 }

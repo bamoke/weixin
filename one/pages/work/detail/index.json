@@ -1,6 +1,6 @@
 {
   "navigationBarTitleText": "作业详情",
   "usingComponents": {
-    "BMK-Answer": "/components/answer/answer"
+    "bmk-answer": "/components/answer/answer"
   }
 }

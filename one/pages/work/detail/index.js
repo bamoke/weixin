@@ -6,18 +6,30 @@ Page({
    * 页面的初始数据
    */
   data: {
-    pageShow:false,
-    showStartPage: true,
-    showCompletePage: false,
+    workId:null,
+    showPage:false,
+    showGuide: true,
+    showQuestion: false,
+    showResult:false,
     canShowNext:false,
     totalNum:0,
     curIndex: 0,//当前问答Index
     score: 0,//总分
     baseInfo: {},//基本信息
     question: [],//问题列表
-    anserResult:[]//回答结果列表;
+    anserResult:[],//回答结果列表;
+    resultTotal:{}//结果统计
   },
 
+  /**
+   * start handle
+   */
+  startTest:function(){
+  this.setData({
+    showGuide: false,
+    showQuestion: true 
+  })
+  },
   /**
    * 确认答案
    */
@@ -33,11 +45,52 @@ Page({
   },
   // next
   nextQuestion:function(){
+    var anserResult = this.data.anserResult
+    const curIndex = this.data.curIndex
     if (!this.data.canShowNext) return
+    anserResult[curIndex+1] = 'active'
     this.setData({
-      curIndex:this.data.curIndex+1,
-      canShowNext:false
+      curIndex: curIndex+1,
+      canShowNext:false,
+      anserResult
+
     })
+  },
+  /**
+   * submit 
+   */
+  submitTest:function(){
+    if (!this.data.canShowNext) return
+    // 统计结果
+    var myTotal;
+    var correctTotal = 0;
+    this.data.anserResult.forEach(item=>{
+      if(item === 'correct'){
+        correctTotal ++
+      }
+    })
+    var score = (100 * correctTotal) / this.data.totalNum
+    myTotal = {
+      total: this.data.totalNum,
+      score,
+      correct:correctTotal,
+      error: this.data.totalNum - correctTotal
+    }
+    const workId = this.data.workId
+    const params = {
+      apiUrl: "/Work/submit",
+      requestData: { id: workId, answer: this.data.anserResult },
+      requestMethod: "POST"
+    }
+    const ajaxRequest = util.request(params)
+    ajaxRequest.then(res=>{
+      this.setData({
+        showResult:true,
+        showQuestion:false,
+        resultTotal: {myRecord:myTotal,otherRecord:res.data.otherRecord}
+      })
+    })
+
   },
 
   /**

@@ -1,5 +1,6 @@
 // pages/survey/index.js
 var App = getApp();
+import util from "../../../utils/util"
 Page({
 
   /**
@@ -8,13 +9,15 @@ Page({
   data: {
     showPage: false,
     showError: false,
-    surveyId: null,
-    give_balance: null,
-    title: "",
-    description: "",
+    curId: null,
+    baseInfo:{},
     progress: 0,
-    selectedQuestion: [],
-    questionList: []
+    selected: [],
+    question: []
+  },
+
+  selectValue:function(e){
+    console.log(e)
   },
   valueChange: function (data) {
     var curValue = data.detail.value
@@ -53,45 +56,6 @@ Page({
 
   },
   submit: function () {
-    var selectedQuestion = this.data.selectedQuestion;
-    var questionList = this.data.questionList;
-    var apiUrl = "/Survey/dopoll";
-    var requestData = {};
-    var allSelectedAnswer = "";
-    if (selectedQuestion.length != questionList.length) {
-      this.setData({
-        showError: true
-      })
-      return;
-    }
-    //
-    requestData.id = this.data.surveyId;
-    questionList.forEach(function (e) {
-      allSelectedAnswer += (e.selectedAnswer).toString() + ","
-    })
-    console.log(allSelectedAnswer);
-    requestData.answerid = allSelectedAnswer.slice(0, allSelectedAnswer.length - 1);
-    var postData = App._getApiData(apiUrl, requestData, "POST")
-    postData.then((data) => {
-      wx.hideLoading();
-      var tipText = "感谢您的参与！"
-      if (data.give_balance !== null) {
-        tipText += "并获得￥" + data.give_balance + "现金红包"
-      }
-      wx.showModal({
-        content: tipText,
-        showCancel: false,
-        confirmText: "返回首页",
-        success: function () {
-          wx.switchTab({
-            url: '/pages/index/index',
-          })
-        }
-      })
-    }, reject => {
-      wx.hideLoading();
-      console.log(reject);
-    })
 
   },
 
@@ -100,34 +64,20 @@ Page({
    */
   onLoad: function (options) {
     if (typeof options.id === 'undefined') return;
-    var curId = options.id;
-    var apiUrl = "/Survey/index";
-    var requestData = { id: curId };
-    var fetchData = App._getApiData(apiUrl, requestData)
-    fetchData.then(data => {
-      wx.hideLoading();
-      console.log(data)
+    const curId = options.id
+    const params = {
+      apiUrl: "/survey/detail",
+      requestData: { id: curId },
+      requestMethod: "GET"
+    }
+    const ajaxRequest = util.request(params)
+
+    ajaxRequest.then(res => {
       this.setData({
         showPage: true,
-        surveyId: curId,
-        give_balance: data.surveyInfo.give_balance,
-        title: data.surveyInfo.title,
-        description: data.surveyInfo.description,
-        questionList: data.questionList
-
-      })
-    }, reject => {
-      wx.hideLoading();
-      console.log(reject)
-      wx.showModal({
-        content: reject,
-        showCancel: false,
-        confirmText: "返回首页",
-        success: function () {
-          wx.switchTab({
-            url: '/pages/index/index',
-          })
-        }
+        curId: curId,
+        baseInfo:res.data.baseInfo,
+        question: res.data.question
       })
     })
   },

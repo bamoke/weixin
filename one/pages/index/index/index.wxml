@@ -49,7 +49,7 @@
     </view>
     <view class="m-img-text-list ">
       <navigator class="item " url="/pages/course/detail/index?id={{item.id}}" open-type="navigateTo" wx:for="{{courseList}}" wx:key="id ">
-        <image mode="scaleToFill" class="img " src="{{item.thumb}} "></image>
+        <image mode="scaleToFill" class="img " src="{{item.thumb||'/common/images/img19.jpg'}} "></image>
         <view class="text-box ">
           <view class="title ">{{item.title}}</view>
           <view>

@@ -1,5 +1,9 @@
 /*********公共类名**********/
-page {height:100%;}
+
+page {
+  height: 100%;
+}
+
 view {
   box-sizing: border-box;
 }
@@ -9,8 +13,8 @@ view {
   box-sizing: border-box;
   font-size: 28rpx;
   color: #6c6c6c;
-  background-color:#fff;
-  line-height:1.5;
+  background-color: #fff;
+  line-height: 1.5;
 }
 
 .d-flex {
@@ -192,8 +196,8 @@ view {
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
-  color:#121212;
-  font-size:26rpx;
+  color: #121212;
+  font-size: 26rpx;
 }
 
 .bg-lan {
@@ -279,16 +283,16 @@ view {
 }
 
 .m-img-text-list .desc {
-  padding:12rpx 0;
+  padding: 12rpx 0;
   color: #6c6c6c;
-  font-size:26rpx;
-
+  font-size: 26rpx;
 }
 
 .m-img-text-list .ft {
   color: #ccc;
   font-size: 26rpx;
 }
+
 .m-foot-operation {
   position: fixed;
   left: 0;
@@ -306,7 +310,7 @@ view {
 }
 
 .m-foot-operation .btn-small {
-  position:relative;
+  position: relative;
   padding: 0;
   margin: 0;
   width: 20%;
@@ -317,9 +321,11 @@ view {
   background: none;
   border-radius: 0;
 }
+
 .m-foot-operation .btn-block {
-  width:100%;
+  width: 100%;
 }
+
 .m-foot-operation .active {
   color: #fc0;
 }
@@ -329,8 +335,8 @@ view {
 }
 
 .m-foot-operation .disabled {
-  background: #eee!important;
-  color: #ccc!important;
+  background: #eee !important;
+  color: #ccc !important;
 }
 
 .m-foot-operation .btn-large {
@@ -350,22 +356,35 @@ view {
   height: 32rpx;
   opacity: 0.5;
 }
+
 .m-foot-operation .shareBtn {
   position: absolute;
-  left:0;
-  top:0;
+  left: 0;
+  top: 0;
   opacity: 0;
   width: 100%;
   height: 128rpx;
 }
+
 .m-form .form-group {
   display: flex;
   align-items: center;
-  padding:20rpx;
-  border-bottom:1px solid #f1f1f1;
+  padding: 20rpx;
+  border-bottom: 1px solid #f1f1f1;
 }
-.m-form .form-group .label {width:auto;flex-shrink:0;flex-grow:0;color:#121212;}
-.m-form .form-group .value-box {flex-grow:1;text-align: right;}
+
+.m-form .form-group .label {
+  width: auto;
+  flex-shrink: 0;
+  flex-grow: 0;
+  color: #121212;
+}
+
+.m-form .form-group .value-box {
+  flex-grow: 1;
+  text-align: right;
+}
+
 /***ulit**/
 
 .u-stage {
@@ -452,7 +471,7 @@ view {
 
 .m-banner-small {
   width: 100%;
-  background-color:#f4f4f4;
+  background-color: #f4f4f4;
 }
 
 .m-banner-small .img {
@@ -509,12 +528,12 @@ view {
 }
 
 .m-jobs-list .item .title {
-  padding-right:60rpx;
+  padding-right: 60rpx;
   color: #121212;
   font-size: 32rpx;
   overflow: hidden;
   text-overflow: ellipsis;
-  white-space:nowrap;
+  white-space: nowrap;
 }
 
 .m-jobs-list .item .wages {
@@ -528,8 +547,8 @@ view {
 }
 
 .m-jobs-list .item .desc {
-  margin-bottom:12rpx;
-  color:#9c9c9c;
+  margin-bottom: 12rpx;
+  color: #9c9c9c;
 }
 
 .m-jobs-list .item .requirement .fg {
@@ -627,7 +646,7 @@ view {
   width: auto;
   text-align: center;
   border: 0;
-  color:#121212;
+  color: #121212;
 }
 
 .m-filter .filter-item .title {
@@ -766,35 +785,41 @@ view {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding:24rpx;
-  border-bottom:1px solid #f1f1f1;
+  padding: 24rpx;
+  border-bottom: 1px solid #f1f1f1;
 }
+
 .m-text-list > .item .left-box {
   flex-grow: 1;
   flex-shrink: 1;
 }
+
 .m-text-list > .item .right-icon {
-  margin-left:40rpx;
+  margin-left: 40rpx;
   flex-shrink: 0;
-  flex-grow:0;
-  width:auto;
+  flex-grow: 0;
+  width: auto;
 }
+
 .m-text-list > .item .right-icon .icon-right-arrow {
-  width:32rpx;
-  height:32rpx;
-  opacity: .4;
+  width: 32rpx;
+  height: 32rpx;
+  opacity: 0.4;
 }
+
 .m-text-list > .item .title {
-  font-size:32rpx;
-  color:#121212;
+  font-size: 32rpx;
+  color: #121212;
 }
+
 /****/
+
 .tips-page-empty .tips {
   color: #9c9c9c;
 }
 
 .tips-page-success .tips {
-  color: #3c0;
+  color: #00cc66;
 }
 
 .btn {
@@ -823,8 +848,18 @@ view {
   border: 1px solid #ccc;
 }
 
+.btn-success {
+  background: #00cc66;
+  color: #fff;
+}
+
 /***/
-.p {display:block;margin-bottom:12rpx;}
+
+.p {
+  display: block;
+  margin-bottom: 12rpx;
+}
+
 .border-top {
   border-top: 1px solid #f1f1f1;
 }
@@ -848,7 +883,7 @@ view {
 }
 
 .text-success {
-  color: #3c0;
+  color: #00cc66;
 }
 
 .text-error {
@@ -858,7 +893,11 @@ view {
 .text-warning {
   color: #f90;
 }
-.text-dark {color:#121212!important}
+
+.text-dark {
+  color: #121212 !important;
+}
+
 .text-lightgrey {
   color: #cecece !important;
 }

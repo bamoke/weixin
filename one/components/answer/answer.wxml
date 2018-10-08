@@ -1,7 +1,7 @@
 <!--compenents/answer/answer.wxml-->
 <view>
   <view class='ask'>
-    <text class="nu">第【{{index+1}}】题:</text>
+    <text class="nu">第{{index+1}}题:</text>
     <text class='title'>{{question.ask}}</text>
     <text class='u-type type-sigle' wx:if='{{question.type == 1}}'>单选</text>
     <text class='u-type type-multiple' wx:elif='{{question.type == 2}}'>多选</text>
@@ -9,7 +9,7 @@
   </view>
 
   <checkbox-group class="m-answer" bindchange="selectAnswer">
-    <label class="answer-item" wx:for="{{question.answer}}" wx:key="id" wx:for-index="i">
+    <label class="answer-item" wx:for="{{question.answer}}" wx:key="*this" wx:for-index="i">
       <checkbox value="{{i}}" disabled="{{isSelected?true:false}}"  />
       <text class="symb">{{symbolArr[i]}}</text>:{{item}}
     </label>
@@ -20,11 +20,11 @@
   </view>
   <view class="m-answer-result" wx:else>
     <view class='result correct' wx:if='{{answerResult == "correct"}}'>
-      <icon type="success" size='20' color="#03b81c" />
+      <icon type="success" size='20' color="#0c6" />
       <text class='txt'>回答正确</text>
     </view>
-    <view class='result error' wx:else>
-      <icon type='cancel' size='20' color='#ff5b57' />
+    <view class='result error' wx:elif="{{answerResult == 'error'}}">
+      <icon type='cancel' size='20' color='#f30' />
       <text class='txt'>回答错误</text>
       <view wx:if="{{correctName}}">正确答案：{{correctName}}</view>
     </view>

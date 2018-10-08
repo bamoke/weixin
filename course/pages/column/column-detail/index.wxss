@@ -54,7 +54,7 @@
   display:inline-block;
   font-size:32rpx;
   color:#666;
-  border-bottom:6rpx solid #bfbfbf;
+  border-bottom:6rpx solid #28c0c6;
   white-space: nowrap;
   
 }

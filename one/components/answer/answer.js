@@ -5,7 +5,14 @@ Component({
    */
   properties: {
     question:{
-      type:Object
+      type:Object,
+      observer:function(){
+        this.setData({
+          answerResult: '',
+          isSelected: false,
+          curSelected: ''
+        })
+      }
     },
     index:{
       type:Number
@@ -17,9 +24,9 @@ Component({
    */
   data: {
     symbolArr: ['A', 'B', 'C', "D", 'E', 'F', 'G'],
-    answerResult:'',
-    isSelected:false,
-    curSeleted:''//当前选择
+    answerResult: '',
+    isSelected: false,
+    curSelected: ''
   },
 
   /**

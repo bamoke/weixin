@@ -1,2 +1,4 @@
 <!--pages/discuss/index/index.wxml-->
-<text>pages/discuss/index/index.wxml</text>
+<view class="container">
+  <view class='g-pad-box'>开发中</view>
+</view>

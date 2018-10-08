@@ -1,4 +1,5 @@
 //index.js
+import util from '../../utils/util'
 //获取应用实例
 var app = getApp()
 
@@ -35,33 +36,36 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    var myPromise = app._getApiData('/Index/index')
-    var _that = this;
-    myPromise.then(function (data) {
-      wx.hideLoading()
-      _that.setData({
-        showPage: true,
-        column: data.columnist,
-        course: data.courseList,
-        banner: data.banner,
-        downloadList:data.download,
-        survey:data.survey
-      })
-    }, function (err) {
-      console.log(err)
-    })
+    
   },
     /**
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
+    const requestParams = {
+      apiUrl:'/Index/index'
+    }
+    var myPromise = util.request(requestParams)
+    myPromise.then(data=> {
+      wx.hideLoading()
+      this.setData({
+        showPage: true,
+        column: data.columnist,
+        course: data.courseList,
+        banner: data.banner,
+        downloadList: data.download,
+        survey: data.survey
+      })
+    }, function (err) {
+      console.log(err)
+    })
+
     var curAudioPage = wx.getStorageSync("audioPage");
      if (typeof curAudioPage !== "undefined"){
       this.setData({
         audioPage: curAudioPage
       })
     }
-    console.log(this.data.audioPage) 
   }
 
 

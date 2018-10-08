@@ -7,7 +7,8 @@
     
     "pages/home/mycollection/index",
     
-    
+    "pages/account/login/index",
+    "pages/account/register/index",
     "pages/gift/index",
     "pages/survey/index",
     

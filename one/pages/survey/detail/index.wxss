@@ -5,25 +5,37 @@
   width:100%;
   background: #fff;
 }
-.survey .title {
-  font-size:34rpx;
-  text-align: center;
+.base-info {
+  padding:24rpx;
 }
-.survey .description {
+.base-info .title {
+  font-size: 34rpx;
+  font-weight: bold;
+  color:#121212;
+}
+.quetion-item {
   padding:24rpx 0;
-  color:#666;
+  border-bottom:1px solid #f1f1f1;
 }
-.answer-item {
-  display: block;
-  padding:12rpx 0;
+.quetion-item .ask {
+  margin-bottom:24rpx;
 }
-.question-title {font-size:32rpx;}
-.question-item {margin-bottom:24rpx;}
-.progress {width:100%;}
-.type {margin-right:4rpx;color:#888;font-size:26rpx;}
-.btn-box {
+.quetion-item .ask .title {
+  font-size:32rpx;
+  color:#121212;
+}
+.m-option .option-item {
+  display: flex;
   padding:24rpx 0;
-  width:100%;
+}
+.m-option .option-item .icon {
+  flex-shrink: 0;
+  flex-grow: 0;
+  margin-right:12rpx;
+  width:36rpx;
+  height:36rpx;
+  border-radius:50%;
+  border:1px solid #ddd;
 }
 .error-tips {
   padding:12rpx 24rpx;
