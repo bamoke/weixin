@@ -8,6 +8,7 @@ function getRandomColor() {
   }
   return '#' + rgb.join('')
 }
+import util from "../../../utils/util"
 import { siteConf } from "../../../static/js/common";
 var WxParse = require('../../../wxParse/wxParse.js');
 //获取应用实例
@@ -19,6 +20,8 @@ Page({
     sourceUrl: siteConf.sourceUrl,
     ossUrl: siteConf.ossUrl,
     showPage: false,
+    curId: null,//当前章节id
+    columnId: null,//专栏id
     authStatus: 0,
     articleId: null,
     commentPage: 1,//当前评论页码
@@ -42,41 +45,10 @@ Page({
   },
   onLoad: function (options) {
     // 页面初始化 options为页面跳转所带来的参数
-    var id = options.id;
-    var _that = this;
-    var apiUrl = '/Columnist/articledetail'
-    var requestData = { id: id }
-    var myPromise;
     this.setData({
-      articleId: id
+      curId: options.id,
+      columnId:options.cid
     })
-    myPromise = app._getApiData(apiUrl, requestData);
-    myPromise.then(data => {
-      wx.hideLoading();
-      //标签转换
-      if (data.articleInfo.content) {
-        WxParse.wxParse('wxparse_content', 'html', data.articleInfo.content, _that)
-      }
-      //Update bar title
-      wx.setNavigationBarTitle({
-        title: data.articleInfo.title
-      })
-      //设置audio
-      if (data.articleInfo.type == 2) {
-        _that.setData({
-          audioSrc: siteConf.ossUrl + "/audio/" +encodeURI(data.articleInfo.source)
-        })
-      }
-
-      // Update page data
-      _that.setData({
-        showPage: true,
-        article: data.articleInfo,
-        commentList: data.commentList
-      })
-    });
-
-
   },
   onReady: function () {
     // 页面渲染完成
@@ -84,7 +56,40 @@ Page({
 
   },
   onShow: function () {
-    // 页面显示
+    const requestParams = {
+      apiUrl: '/Columnist/articledetail',
+      requestData:{id:this.data.curId,cid:this.data.columnId},
+      isShowLoad:false
+    }
+    const myPromise = util.request(requestParams);
+    // 头部Bar加载动画
+    wx.showNavigationBarLoading()
+    myPromise.then(data => {
+      // hide NavigationBarLoading
+      wx.hideNavigationBarLoading()
+      
+      //标签转换
+      if (data.articleInfo.content) {
+        WxParse.wxParse('wxparse_content', 'html', data.articleInfo.content, this)
+      }
+      //Update bar title
+      wx.setNavigationBarTitle({
+        title: data.articleInfo.title
+      })
+      //设置audio
+      if (data.articleInfo.type == 2) {
+        this.setData({
+          audioSrc: siteConf.ossUrl + "/audio/" + encodeURI(data.articleInfo.source)
+        })
+      }
+
+      // Update page data
+      this.setData({
+        showPage: true,
+        article: data.articleInfo,
+        commentList: data.commentList
+      })
+    });
 
   },
   onHide: function () {

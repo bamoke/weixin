@@ -165,13 +165,20 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
+ 
+  },
+
+  /**
+   * 生命周期函数--监听页面显示
+   */
+  onShow: function () {
     //获取数据   
     const requestParams = {
-      apiUrl:'/Columnist/detail',
-      requestData:{id:this.data.curId}
+      apiUrl: '/Columnist/detail',
+      requestData: { id: this.data.curId }
     }
     var myPromise = util.request(requestParams)
-    myPromise.then(data=> {
+    myPromise.then(data => {
       //标签转换
       if (data.columnist.content) {
         WxParse.wxParse('wxparse_content', 'html', data.columnist.content, this)
@@ -187,13 +194,6 @@ Page({
 
     this.buyconfirm = this.selectComponent("#buyconfirm")
     this.sharemodal = this.selectComponent("#shareModal")
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
   },
 
   /**

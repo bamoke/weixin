@@ -64,7 +64,7 @@
     <view class="bar">
       <text class="caption">已发表文章</text>
     </view>
-    <view data-url="/pages/column/article-detail/index?id={{item.id}}" class="item" wx:for="{{articleList}}" wx:key="id" bindtap='viewArticle'>
+    <view data-url="/pages/column/article-detail/index?cid={{curId}}&id={{item.id}}" class="item" wx:for="{{articleList}}" wx:key="id" bindtap='viewArticle'>
       <image mode="scaleToFill" class="thumb" src="{{sourceUrl}}/thumb/{{item.thumb}}"></image>
       <view class="info">
         <view class="title">{{item.title}}</view>

@@ -62,15 +62,15 @@
 				},
 				{
 					"id": -1,
-					"name": "用户登录",
-					"pathName": "pages/account/login/index",
+					"name": "用户注册",
+					"pathName": "pages/account/register/index",
 					"query": ""
 				},
 				{
 					"id": -1,
-					"name": "用户注册",
-					"pathName": "pages/account/register/index",
-					"query": ""
+					"name": "专栏详情",
+					"pathName": "pages/column/column-detail/index",
+					"query": "id=1"
 				}
 			]
 		}

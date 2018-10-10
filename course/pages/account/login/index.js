@@ -31,7 +31,7 @@ Page({
    * 提交表单
    */
   submitForm: function(data) {
-
+    if (this.data.btnText !=='登录') return
     var formData = data.detail.value;
     var phoneRe = /^[1][3578]{1}([0-9]{9})$/;
     var codeRe = /[0-9]{6}/
@@ -59,7 +59,7 @@ Page({
     const req = util.request(requestParams);
     req.then(data => {
       wx.showToast({
-        title: data.msg,
+        title: '登陆成功',
       })
       const _that = this
       setTimeout(function() {
@@ -70,9 +70,7 @@ Page({
         })
       }, 500)
     }).catch(error => {
-      this.setData({
-        btnText: "登录"
-      })
+
     })
   },
 
