@@ -1,6 +1,7 @@
 // pages/common/bind/index.js
 import { siteConf } from '../../../static/js/common';
 var app = getApp();
+import util from "../../../utils/util"
 
 Page({
 
@@ -41,15 +42,16 @@ Page({
     if (this.data.btnDisebled) {
       return;
     }
-    var apiUrl = '/Account/mpcode';
-    var requestData = { "phone": phone };
-    var myPromise = app._getApiData(apiUrl, requestData);
+    const requestParams = {
+      apiUrl : '/Account/mpcode',
+      requestData : { "phone": phone }
+    }
+    var myPromise = util.request(requestParams);
     var _that = this;
     var num = 60;
     var timeText = "";
     var timeTextSuffix = "秒后重发";
     myPromise.then(data=>{
-      wx.hideLoading();
       this.setData({
         btnText: num + timeTextSuffix,
         btnDisebled: true,
@@ -72,7 +74,6 @@ Page({
         })
       }, 1000)
     },reject=>{
-      wx.hideLoading();
       _that._setError(reject)
     })
     
@@ -87,7 +88,6 @@ Page({
     var codeRe = /[0-9]{6}/
     var apiUrl = "/Account/bindphone";
     var req;
-    formData.actype = this.data.acType;
     //表单验证
     if (formData.phone == '') {
       return this._setError("请输入手机号码")
@@ -104,22 +104,25 @@ Page({
     })
 
     // 发送表单数据
-    req = app._getApiData(apiUrl, formData, "POST");
+    const requestParams = {
+      apiUrl : "/Account/bindphone",
+      requestData: formData,
+      requestMethod:"POST"
+    }
+    req = util.request(requestParams);
     req.then(data => {
-      wx.hideLoading();
       wx.showModal({
         title: '绑定成功',
-        content: data.errorMsg,
+        content: data.tips,
         showCancel: false,
         success:function(){
           wx.reLaunch({
-            url: '/pages/index/index',
+            url: '/pages/home/index/index',
           })
         }
       })
     }, reject => {
-      wx.hideLoading();
-      this._setError(reject)
+      this._setError(reject.data.msg)
     })
   },
 
@@ -135,15 +138,6 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    var navigationBarTitle;
-    navigationBarTitle = options.type==1?"手机绑定":"更换手机号码";
-    this.setData({
-      acType: options.type
-    })
-    wx.setNavigationBarTitle({
-      title: navigationBarTitle
-    })
-    
   },
 
   /**
@@ -172,26 +166,8 @@ Page({
    */
   onUnload: function () {
 
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
   }
+
+
+
 })

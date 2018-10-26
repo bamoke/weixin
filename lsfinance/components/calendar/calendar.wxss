@@ -1,0 +1,116 @@
+/* components/calendar/calendar.wxss */
+
+.calendar-wrap {
+  width: 100%;
+}
+
+.year-month-box {
+  display: flex;
+  justify-content: space-between;
+  padding: 24rpx 0;
+  width: 100%; 
+  font-size: 34rpx;
+  background: #fff;
+}
+
+.year-month-box .switch-btn {
+  width: 100rpx;
+  text-align: center;
+}
+
+.year-month-box .switch-btn::before {
+  content: "";
+  display: inline-block;
+  width: 48rpx;
+  height: 48rpx;
+  background-image: url(http://www.pykscloud.com/Uploads/wesource/main-icon.png);
+  background-repeat: no-repeat;
+  background-size: 300rpx auto;
+  background-position: -96rpx top;
+  vertical-align: middle;
+  opacity: .7;
+}
+.year-month-box .next::before {
+  transform: rotate(180deg)
+}
+
+.week-clounm {
+  display: flex;
+  justify-content: space-between;
+  padding: 12rpx 0;
+  width: 100%;
+}
+
+.week-clounm text {
+  flex: 1 0 auto;
+  display: block;
+  text-align: center;
+  font-weight: bold;
+}
+
+.day-box {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  background: #fff;
+   border-bottom: 1px solid #f1f1f1;
+}
+
+.day-box .date-item {
+  flex-shrink: 0;
+  padding: 12rpx 0;
+  width: 14.28%;
+  height: 60rpx;
+  text-align: center;
+  border-top: 1px solid #f1f1f1;
+}
+
+.day-box .date-item .date-numb {
+  display: inline-block;
+  width: 60rpx;
+  height: 60rpx;
+  line-height: 60rpx;
+  border-radius: 50%;
+}
+
+.day-box .weekend {
+  color: #9c9c9c;
+}
+
+.offset-1 {
+  margin-left: 14.285%;
+}
+
+.offset-2 {
+  margin-left: 28.57%;
+}
+
+.offset-3 {
+  margin-left: 42.857%;
+}
+
+.offset-4 {
+  margin-left: 57.14%;
+}
+
+.offset-5 {
+  margin-left: 71.425%;
+}
+
+.offset-6 {
+  margin-left: 85.71%;
+}
+
+.day-box .today {
+  background: #ccc;
+  color: #fff;
+}
+
+.day-box .event {
+  background: #ff3a31;
+  color: #fff;
+}
+.day-box .active {
+  background: #87c7fa;
+  color: #fff;
+}

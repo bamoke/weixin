@@ -1,0 +1,8 @@
+/* pages/service/zjgl/index.wxss */
+@import '../index.wxss';
+.container {color:#787878;}
+.item-bt {
+  margin-top:12rpx;
+  padding-top:12rpx;
+  border-top:1px solid #f1f1f1;
+}

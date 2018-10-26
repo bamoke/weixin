@@ -23,8 +23,6 @@ App({
     userInfo: null,
   },
 
- 
-
   /**转换HTML;
    *   */
   _transtionHTML: function (data) {

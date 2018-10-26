@@ -1,0 +1,31 @@
+<!--index.wxml-->
+<view class="container" wx:if="{{pageShow}}">
+  <view class="m-index-banner">
+    
+  </view>
+  <view class="m-index-subnav">
+    <navigator class="item">
+      <image class="item" src="/static/images/sf.png"></image>
+      税费
+    </navigator>
+    <navigator class="item">
+      工资
+    </navigator>
+    <navigator class="item">
+      社保
+    </navigator>
+    <navigator class="item">
+      工商
+    </navigator>
+  </view>
+
+  <view class="">
+    <view class="bar">公告</view>
+    <view class="m-index-news">
+      <navigator class="item" wx:for="{{news}}" wx:key="id">
+        <view class="title">{{item.title}}</view>
+        <view class="date">{{item.date}}</view>
+      </navigator>
+    </view>
+  </view>
+</view>

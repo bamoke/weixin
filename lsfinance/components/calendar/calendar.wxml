@@ -1,0 +1,30 @@
+<!--components/calendar/calendar.wxml-->
+<view class='calendar-wrap'>
+  <view class="year-month-box">
+    <view class='switch-btn prev' bindtap='switchPrevMonth'></view>
+    <view class="">
+      <text>{{year}}</text>年
+      <text>{{month+1}}</text>月</view>
+    <view class="switch-btn next" bindtap='switchNextMonth'></view>
+  </view>
+
+  <view class='week-clounm'>
+    <text>日</text>
+    <text>一</text>
+    <text>二</text>
+    <text>三</text>
+    <text>四</text>
+    <text>五</text>
+    <text>六</text>
+  </view>
+
+
+  <view class="day-box">
+    <block wx:for="{{monthDays}}" wx:key="index" wx:item="item">
+      <view class="date-item {{item.date==1?' offset-'+(offsetDay):''}}{{item.weekDay==0 || item.weekDay==6 ?' weekend':''}}" bindtap="selecte" data-date="{{item.fullDay}}" data-index="{{index}}" >
+        <text class="date-numb{{item.isToday?' today':''}}{{item.hasEvent?' event':''}}{{item.active?' active':''}}">{{item.date}}</text>
+      </view>
+    </block>
+
+  </view>
+</view>

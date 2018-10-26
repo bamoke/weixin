@@ -1,0 +1,62 @@
+{
+	"description": "项目配置文件。",
+	"setting": {
+		"urlCheck": false,
+		"es6": true,
+		"postcss": true,
+		"minified": true,
+		"newFeature": true
+	},
+	"compileType": "miniprogram",
+	"libVersion": "1.9.94",
+	"appid": "wx389c6f0e8b058566",
+	"projectname": "%E8%93%9D%E6%80%9D%E4%BA%91%E8%B4%A2%E5%8A%A1",
+	"isGameTourist": false,
+	"condition": {
+		"search": {
+			"current": -1,
+			"list": []
+		},
+		"conversation": {
+			"current": -1,
+			"list": []
+		},
+		"plugin": {
+			"current": -1,
+			"list": []
+		},
+		"game": {
+			"currentL": -1,
+			"list": []
+		},
+		"miniprogram": {
+			"current": 3,
+			"list": [
+				{
+					"id": 0,
+					"name": "带serverid",
+					"pathName": "pages/index/index",
+					"query": "serverid=18005"
+				},
+				{
+					"id": -1,
+					"name": "费用报销详情",
+					"pathName": "pages/fybx/detail/index",
+					"query": "id=BX0001"
+				},
+				{
+					"id": -1,
+					"name": "服务模块",
+					"pathName": "pages/service/index/index",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "服务模块",
+					"pathName": "pages/bind/index",
+					"query": "账号绑定"
+				}
+			]
+		}
+	}
+}

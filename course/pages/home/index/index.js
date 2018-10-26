@@ -1,6 +1,7 @@
 // pages/home/index/index.js
 import { siteConf } from '../../../static/js/common';
 var app = getApp();
+import util from "../../../utils/util"
 Page({
 
   /**
@@ -60,25 +61,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    // 页面初始化 options为页面跳转所带来的参数
-    var _that = this;
-    var indexApiUrl = "/Home/index";
-    var curPromise = app._getApiData(indexApiUrl);
-    curPromise.then(data => {
-      wx.hideLoading();
-      _that.setData({
-        userinfo: {
-          nickName: data.info.nickname ? data.info.nickname : "未登录",
-          avatarUrl: data.info.avatar ? data.info.avatar : siteConf.sourceUrl + "avatar/default-avatar.png",
-          balance: data.info.balance,
-          mp_identification: data.info.mp_identification,
-          phone: data.info.phone
-        }
-      })
 
-    }, reject => {
-
-    })
 
 
 
@@ -95,7 +78,26 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
+    // 页面初始化 options为页面跳转所带来的参数
+    var indexApiUrl = "/Home/index";
+    const requestParams = {
+      apiUrl:'/Home/index'
+    }
+    var curPromise = util.request(requestParams);
+    curPromise.then(data => {
+      this.setData({
+        userinfo: {
+          nickName: data.info.nickname ? data.info.nickname : "未登录",
+          avatarUrl: data.info.avatar ? data.info.avatar : siteConf.sourceUrl + "avatar/default-avatar.png",
+          balance: data.info.balance,
+          mp_identification: data.info.mp_identification,
+          phone: data.info.phone
+        }
+      })
 
+    }, reject => {
+
+    })
   },
 
   /**

@@ -1,0 +1,10 @@
+/* pages/team/index/index.wxss */
+
+.m-nav-list-icon .item .i-task {background-color:#1b81d3;}
+.m-nav-list-icon .item .i-task .icon {background-position:left -48rpx;}
+.m-nav-list-icon .item .i-fybx {background-color:#f7b51c;}
+.m-nav-list-icon .item .i-fybx .icon {background-position:-144rpx -48rpx;}
+.m-nav-list-icon .item .i-kqdk {background-color:#ff7362;}
+.m-nav-list-icon .item .i-kqdk .icon {background-position:-48rpx -48rpx;}
+.m-nav-list-icon .item .i-qjcc {background-color:#21a69c;} 
+.m-nav-list-icon .item .i-qjcc .icon {background-position:-96rpx -48rpx;} 

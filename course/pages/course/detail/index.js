@@ -1,6 +1,7 @@
 // pages/course/detail/index.js
 import { siteConf } from '../../../static/js/common';
 var WxParse = require('../../../wxParse/wxParse.js');
+import util from "../../../utils/util"
 //获取应用实例
 var app = getApp()
 
@@ -38,7 +39,7 @@ Page({
     if (index == 1) {
       //查看目录
       if (this.data.section.length > 0) {
-        _that.setData(updateData)
+        this.setData(updateData)
         return;
       }
       curApiUrl = '/Course/section';
@@ -46,7 +47,7 @@ Page({
     } else if (index == 2) {
       //查看评论
       if (this.data.commentList.length > 0) {
-        _that.setData(updateData)
+        this.setData(updateData)
         return;
       }
       curApiUrl = '/Comment/getlist';
@@ -54,19 +55,22 @@ Page({
       curRequestData.type = 2;
       curRequestData.proid = this.data.courseId;
     } else {
-      _that.setData(updateData)
+      this.setData(updateData)
       return;
     }
     //2.1 get data and then to update
-
-    myPromise = app._getApiData(curApiUrl, curRequestData);
+    const requestParams = {
+      apiUrl:curApiUrl,
+      requestData: curRequestData
+    }
+    myPromise = util.request(requestParams);
     myPromise.then(data => {
       if (index == 1) {
         updateData.section = data.sectionList
       } else if (index == 2) {
         updateData.commentList = data.list
       }
-      _that.setData(updateData)
+      this.setData(updateData)
     })
   },
   /**
@@ -105,22 +109,18 @@ Page({
    * 购买课程
    */
   buyCourse: function () {
-    var apiUrl = '/Orders/create';
-    var requestData = { type: 2, proid: this.data.introduce.id }
-    var myPromise = app._getApiData(apiUrl, requestData);
+    const requestParams = {
+      apiUrl:'/Orders/create',
+      requestData : { type: 2, proid: this.data.introduce.id }
+    }
+    var myPromise = util.request(requestParams);
     myPromise.then(data => {
-      if(typeof data.info ==='undefined'){
-        wx.redirectTo({
-          url: '/pages/home/mycourse/index',
-        })
-        return;
-      }
       wx.requestPayment({
-        timeStamp: data.info.timeStamp,
-        nonceStr: data.info.nonceStr,
-        package: data.info.package,
+        timeStamp: data.timeStamp,
+        nonceStr: data.nonceStr,
+        package: data.package,
         signType: 'MD5',
-        paySign: data.info.sign,
+        paySign: data.sign,
         success: function (res) {
           wx.redirectTo({
             url: '/pages/home/mycourse/index',
@@ -151,15 +151,15 @@ Page({
    * giftBuyConfirm
    */
   giftBuyConfirm: function () {
-    var _that = this;
-    var apiUrl = '/Orders/buypresent';
     var courseId = this.data.courseId;
-    var proType = 2;
-    var requestData = { proid: courseId, protype: proType,type:5 }
-    var myPromise = app._getApiData(apiUrl, requestData, "POST");
+    const requestParams = {
+      apiUrl : '/Orders/buypresent',
+      requestData : { proid: courseId, protype: 2, type: 5 }
+    }
+    var myPromise = util.request(requestParams);
     myPromise.then(data => {
-      _that.buyconfirm.hide();
-      _that.setData({
+      this.buyconfirm.hide();
+      this.setData({
         giftKey:data.key
       })
       if (typeof data.payMent !=='undefined'){
@@ -196,27 +196,8 @@ Page({
    */
   onLoad: function (options) {
     if (typeof options.id == 'undefined') return;
-    var _that = this;
-    var apiUrl = '/Course/detail'
-    var requestData = { id: options.id }
-    var myPromise = app._getApiData(apiUrl, requestData);
-    myPromise.then(data => {
-      //标签转换
-      if (data.courseDetail.content) {
-        WxParse.wxParse('wxparse_content', 'html', data.courseDetail.content, _that)
-      }
-
-      //update data
-      _that.setData({
-        courseId: options.id,
-        showPage: true,
-        introduce: data.courseDetail,
-        hasCourse: data.hasCourse
-      })
-      //update bar title
-      wx.setNavigationBarTitle({
-        title: data.courseDetail.title
-      })
+    this.setData({
+      courseId:options.id
     })
   },
 
@@ -232,7 +213,28 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
+    const requestParams = {
+      apiUrl : '/Course/detail',
+      requestData: { id: this.courseId }
+    }
+    var myPromise = util.request(requestParams);
+    myPromise.then(data => {
+      //标签转换
+      if (data.courseDetail.content) {
+        WxParse.wxParse('wxparse_content', 'html', data.courseDetail.content, this)
+      }
 
+      //update data
+      this.setData({
+        showPage: true,
+        introduce: data.courseDetail,
+        hasCourse: data.hasCourse
+      })
+      //update bar title
+      wx.setNavigationBarTitle({
+        title: data.courseDetail.title
+      })
+    })
   },
 
   /**

@@ -1,6 +1,7 @@
 // pages/list/index.js
 //import common  js
 import { siteConf } from "../../../static/js/common";
+import util from "../../../utils/util"
 //获取应用实例
 var app = getApp()
 Page({
@@ -23,17 +24,17 @@ Page({
    */
   changeTab: function (options) {
     var curCid = options.target.dataset.cid;
-    var _that = this;
-    var apiUrl = '/Columnist/columnistlist'
     var requestData = { page: 1 }
     if(curCid){
       requestData.cid = curCid;
     }
-
-    var myPromise = app._getApiData(apiUrl, requestData);
+    const requestParams = {
+      apiUrl: '/Columnist/columnistlist',
+      requestData
+    }
+    var myPromise = util.request(requestParams);
     myPromise.then(data => {
-      wx.hideLoading();
-      _that.setData({
+      this.setData({
         curCid:curCid,
         columnList: data.columnistList
       })
@@ -45,17 +46,18 @@ Page({
    */
   onLoad: function (options) {
     var curCid = 0;
-    var _that = this;
-    var apiUrl = '/Columnist/columnistlist'
     var requestData = {page:1}
     if (typeof options.cid != 'undefined') {
       curCid = options.cid;
       requestData.cid = curCid;
     }
-    var myPromise = app._getApiData(apiUrl, requestData);
+    const requestParams = {
+      apiUrl:'/Columnist/columnistlist',
+      requestData
+    }
+    var myPromise = util.request(requestParams);
     myPromise.then(data=>{
-      wx.hideLoading();
-      _that.setData({
+      this.setData({
         showPage:true,
         curCid:curCid,
         category:data.cateList,

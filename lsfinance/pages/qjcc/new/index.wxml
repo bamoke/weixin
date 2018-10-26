@@ -1,0 +1,71 @@
+<!--pages/qjcc/new/index.wxml-->
+<view class='container'>
+  <view class='m-form form-border-bt'>
+    <view class="form-group">
+      <view class="section">类型</view>
+      <view class='val'>
+        <picker range="{{typeArr}}" value="0" bindchange="typeChange">
+          <view class="picker">
+            {{formData.type}}
+          </view>
+        </picker>
+      </view>
+    </view>
+    <view class="form-group">
+      <view class="section">标题</view>
+      <view class='val'>
+        <input type='text' placeholder='请输入标题' value='{{formData.title}}' bindblur='valueChange' data-type="title" />
+      </view>
+    </view>
+    <view class="form-group">
+      <view class="section">开始时间</view>
+      <view class='val date-time-box'>
+        <view class="">
+          <picker mode="date" start="{{initStartDate}}" bindchange="valueChange" data-type="startDate">
+            <view class="picker">
+              {{formData.startDate}}
+            </view>
+          </picker>
+        </view>
+        <view class='time'>
+          <picker mode="time" value="08:00" start="08:00" end="21:00" bindchange="valueChange" data-type="startTime">
+            <view class="picker">
+              {{formData.startTime}}
+            </view>
+          </picker>
+        </view>
+
+      </view>
+    </view>
+    <view class="form-group">
+      <view class="section">结束时间</view>
+      <view class='val date-time-box'>
+        <view class="">
+          <picker mode="date" start="{{formData.startDate}}" bindchange="valueChange" data-type="endDate">
+            <view class="picker">
+              {{formData.endDate}}
+            </view>
+          </picker>
+        </view>
+        <view class='time'>
+          <picker mode="time" start="09:00" end="21:00" bindchange="valueChange" data-type="endTime">
+            <view class="picker">
+              {{formData.endTime}}
+            </view>
+          </picker>
+        </view>
+
+      </view>
+    </view>
+    <view class="form-group">
+      <textarea class="" bindblur="valueChange" data-type="description" placeholder="请输入请假事由" />
+    </view>
+    <view class='error-box' hidden='{{!errorStatus}}'>{{errorMsg}}</view>
+  </view>
+
+
+  <view class="m-ft-operation-box">
+    <button class='col-4 btn'>保存为草稿</button>
+    <button class='col-5 btn btn-primary' loading="{{isPostIng}}" bindtap='submitContent'>提交</button>
+  </view>
+</view>

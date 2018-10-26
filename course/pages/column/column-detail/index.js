@@ -15,7 +15,7 @@ Page({
   data: {
     showPage: false,
     sourceUrl: siteConf.sourceUrl,
-    isOpened: false,
+    curId:null,
     giftKey:null,
     authStatus:0,//课程状态，0:未开通,1:已开通;2:已到期
     columnInfo: {},
@@ -30,22 +30,19 @@ Page({
     var proid = data.target.dataset.id;
     var apiUrl = '/Orders/create';
     var requestData = {type:1,proid:proid}
-    var promise = app._getApiData(apiUrl,requestData);
+    const requestParams = {
+      apiUrl:"/Orders/create",
+      requestData: { type: 1, proid: this.data.curId }
+    }
+    var promise = util.request(requestParams);
 
-    promise.then((data) => {
-      if (typeof data.info === 'undefined') {
-        wx.redirectTo({
-          url: '/pages/home/mycolumn/index',
-        })
-        return;
-      }
-
+    promise.then(data=> {
       wx.requestPayment({
-        timeStamp: data.info.timeStamp,
-        nonceStr: data.info.nonceStr,
-        package: data.info.package,
+        timeStamp: data.timeStamp,
+        nonceStr: data.nonceStr,
+        package: data.package,
         signType: 'MD5',
-        paySign: data.info.sign,
+        paySign: data.sign,
         success: function (res) {
           wx.redirectTo({
             url: '/pages/home/mycolumn/index',
