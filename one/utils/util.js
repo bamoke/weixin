@@ -53,8 +53,8 @@ const request = function ({ apiUrl, requestData = {}, requestMethod="GET", isSho
 
   // send
   var myPromise = new Promise(function (resolve, reject) {
-    const baseApiUrl = "https://www.easy-mock.com/mock/5ba635918c38302a9b1a667e/example/onehre";
-    // const baseApiUrl = "http://www.onehre.com/api.php";
+    // const baseApiUrl = "https://www.easy-mock.com/mock/5ba635918c38302a9b1a667e/example/onehre";
+    const baseApiUrl = "http://www.onehre.com/api.php";
     wx.request({
       url: baseApiUrl + apiUrl,
       data: requestData,
@@ -83,7 +83,7 @@ const request = function ({ apiUrl, requestData = {}, requestMethod="GET", isSho
               success: function(res){
                 if (res.confirm) {
                   wx.navigateTo({
-                    url: '/pages/user/regist/index?type=login&back=1',
+                    url: '/pages/account/login/index',
                   })
                 } 
               }

@@ -10,11 +10,16 @@ page {
 }
 
 
-
+.m-form .form-group {
+  align-items: center;
+}
 .m-form .form-group .code-btn {
   flex-shrink: 0;
   margin-left: 5%;
   width: 30%;
+  height: 1.4rem;
+  line-height: 1.4rem;
+  min-height: 1.4rem;
   text-align: center;
   border-radius: 10rpx;
   padding:12rpx 24rpx;

@@ -1,1 +1,67 @@
-/* pages/account/login/index.wxss */
+/* pages/common/bind/index.wxss */
+
+.container {
+  background-color: #fff;
+}
+
+.tips {
+  padding: 24rpx;
+  color: #999;
+  background: #f7f7f7;
+}
+
+.m-form {
+  width: 100%;
+  background: #fff;
+}
+
+.m-form .form-group {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 24rpx;
+}
+
+.m-form .form-group .input-box {
+  flex-shrink: 1;
+  width: 100%;
+  padding: 24rpx;
+  background: #f7f7f7;
+  border-radius: 6rpx;
+  height: 80rpx;
+  line-height: 32rpx;
+  box-sizing: border-box;
+}
+
+.m-form .form-group .input-box:focus {
+  background: #ccc;
+}
+
+.m-form .form-group .code-btn {
+  flex-shrink: 0;
+  margin-left: 5%;
+  width: 30%;
+  text-align: center;
+  border-radius: 6rpx;
+  padding: 24rpx;
+  height: 80rpx;
+  line-height: 36rpx;
+}
+
+.m-form .form-group .btn-active {
+  background-color: #000;
+  color: #fff;
+}
+
+.m-form .form-group .btn-disebled {
+  background-color: #bbb;
+  color: #fff;
+}
+
+.btn {
+  width: 100%;
+}
+.error-box {
+  padding:24rpx;
+  color:#f90;
+}

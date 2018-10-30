@@ -3,9 +3,6 @@
   <view class='tips'>请输入您的手机号，获取短信验证码后完成手机绑定</view>
   <form class='m-form' bindsubmit='submitForm'>
     <view class='form-group'>
-      <input type='text' name="serverid" placeholder='请输入空间号' class="input-box"></input>
-    </view>
-    <view class='form-group'>
       <input type='number' name="phone" placeholder='请输入手机号码' class="input-box" bindinput="updatePhone"></input>
     </view>
     <view class='form-group'>
@@ -14,7 +11,7 @@
     </view>
     <view class="error-box" hidden='{{!errorStatus}}'>{{errorMsg}}</view>
     <view class='form-group'>
-      <button form-type='submit' class='btn btn-minor'>提交</button>
+      <button form-type='submit' class='btn btn-primary'>提交</button>
     </view>
   </form>
 </view>

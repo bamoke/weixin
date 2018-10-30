@@ -2,29 +2,43 @@
 <view class="container">
 
   <view class="g-pad-box text-dark top-class-name">
-    课程名称课程名称课程名称
+    {{courseName}}
   </view>
   <view class="ht-c"></view>
-  <form class="m-form form-contain">
+  <form class="m-form form-contain" bindsubmit="formSubmit">
     <view class="form-group">
       <view class="label">您的姓名</view>
-      <view class="value-box"><input class="input-control" type="text" placeholder="请输入您的姓名" /></view>
+      <view class="value-box">
+        <input class="input-control" name="realname" type="text" placeholder="请输入您的姓名" />
+      </view>
     </view>
     <view class="form-group">
-      <view class="label">您的职业</view>
-      <view class="value-box"><input class="input-control" type="text" placeholder="请输入您的职业" /></view>
+      <view class="label">所在公司</view>
+      <view class="value-box">
+        <input class="input-control" name="company" type="text" placeholder="请输入您所在公司名称" />
+      </view>
+    </view>
+    <view class="form-group">
+      <view class="label">担任职位</view>
+      <view class="value-box">
+        <input class="input-control" name="position" type="text" placeholder="请输入您的所担任的职位" />
+      </view>
     </view>
     <view class="form-group">
       <view class="label">您的手机号</view>
-      <view class="value-box"><input class="input-control" type="number" placeholder="请输入您的手机号" /></view>
+      <view class="value-box">
+        <input class="input-control" name="phone" type="number" placeholder="请输入您的手机号" />
+      </view>
     </view>
-    <view class="form-group">
+<!--     <view class="form-group">
       <view class="label">手机验证码</view>
-      <view class="value-box"><input class="input-control" type="number" placeholder="请输入手机验证码" /></view>
+      <view class="value-box">
+        <input class="input-control" type="number" placeholder="请输入手机验证码" />
+      </view>
       <view class="code-btn">点击获取</view>
-    </view>
+    </view> -->
     <view class="g-pad-box">
-      <button formType="submit" class="btn btn-block btn-primary">提交</button>
+      <button formType="submit" loading="{{submiting}}" class="btn btn-block btn-primary">提交</button>
     </view>
   </form>
 </view>

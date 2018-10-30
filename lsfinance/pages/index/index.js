@@ -8,9 +8,17 @@ Page({
    */
   data: {
     pageShow: true,
-    news:[]
+    news:[],
+    curComInfo:{},
+    comList:[]
   },
 
+  bindComChange:function(e){
+    const value = e.detail.value
+    var curComInfo = this.data.comList[value]
+    wx.setStorageSync("curComInfo", curComInfo)
+    this.setData({ curComInfo})
+  },
   /**
    * 生命周期函数--监听页面加载
    */
@@ -18,14 +26,28 @@ Page({
     const requestParams = {
       apiUrl : '/Index/index'
     }
+    
+    let curComInfo = wx.getStorageSync("curComInfo")
     util.request(requestParams).then(data=> {
+      if(!curComInfo) {
+        curComInfo = data.comList[0]
+        wx.setStorageSync('curComInfo', data.comList[0])
+      }
+
         this.setData({
+          curComInfo,
+          comList:data.comList,
           pageShow:true,
           news:[
             {
               id:1,
               "title":'2018年国庆放假通知',
               "date":'09-29'
+            },
+            {
+              id: 1,
+              "title": '2018年元旦放假通知',
+              "date": '11-29'
             }
           ]
         })

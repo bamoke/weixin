@@ -1,1 +1,8 @@
 /* pages/single/index.wxss */
+.nav-tab {
+  display: flex;
+}
+.scroll-view-item {
+/*   padding:0 40rpx;
+  display: inline-block; */
+}

@@ -59,6 +59,7 @@ view{
 }
 .banner-img-c image{
 	width:100%;
+  height:320rpx;
 }
 
 

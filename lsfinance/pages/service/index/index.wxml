@@ -1,33 +1,29 @@
 <!--pages/service/index/index.wxml-->
 <view class='container'>
-  <view class='g-row-bt g-m-wrap m-cur-company'>
-    <view class='comName'>{{curComInfo.comShortName}}</view>
-    
-    <picker bindchange="bindComChange" value="0" range="{{comList}}" range-key="comShortName">
-      <view class='switch-btn'>切换</view>
-    </picker>
-  </view>
-  <view class='m-list-group'>
-    <navigator open-type='navigate' url='../fwjs/index' class='item'>
-      <view class='icon'></view>
-      <view class='name'>服务结算查询</view>
+  <view class='service-item-group'>
+    <navigator open-type='navigate' url='../fwjs/index' class='item bg-1'>
+      <image class="icon" src="/static/images/service-js.png"></image>
+      <view>
+        <view class='name'>服务结算</view>
+        <view class="desc">包括财税代理费、代垫费用等结算</view>
+      </view>
     </navigator>
-    <view class='item'>
-      <view class='icon'></view>
-      <view class='name'>企业税费查询</view>
+    <view class='item bg-2'>
+      <image class="icon" src="/static/images/service-yfk.png"></image>
+      <view>
+        <view class='name'>预付/预存</view>
+        <view class="desc">预付代理费，防止遗忘或导致逾期</view>
+      </view>
     </view>
-    <view class='item'>
-      <view class='icon'></view>
-      <view class='name'>工资查询</view>
+    <view class='item bg-3'>
+      <image class="icon" src="/static/images/service-dj.png"></image>
+      <view>
+        <view class='name'>代付代缴</view>
+        <view class="desc">房屋租金、水电、税费、社保等费用代付代缴</view>
+      </view>
     </view>
-    <view class='item'>
-      <view class='icon'></view>
-      <view class='name'>社保查询</view>
-    </view>
-    <view class='item'>
-      <view class='icon'></view>
-      <view class='name'>工商进度查询</view>
-    </view>
+
+
   </view>
 
 </view>

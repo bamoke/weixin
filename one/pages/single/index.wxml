@@ -1,2 +1,39 @@
 <!--pages/single/index.wxml-->
-<text>pages/single/index.wxml</text>
+<view wx:if="{{showPage}}">
+  <view class="nav-tab-wrap">
+    <scroll-view scroll-x class="nav-tab" style="width:100%">
+      <view id="{{'scroll-'+id}}" class="scroll-view-item" wx:for="{{cate}}" wx:key="id">{{item.name}}</view>
+      <view id="{{'scroll-'+6}}" class="scroll-view-item">就开始大家</view>
+      <view id="{{'scroll-'+7}}" class="scroll-view-item">就开始大家</view>
+      <view id="{{'scroll-'+8}}" class="scroll-view-item">就开始大家</view>
+      <view id="{{'scroll-'+9}}" class="scroll-view-item">就开始大家</view>
+    </scroll-view>
+  </view>
+  <view class="ht-c"></view>
+  <view class="m-news-wrap" wx:if="{{list.length > 0}}">
+    <view class="m-img-text-list ">
+      <navigator class="item " url="/pages/news/detail/index?id={{item.id}}" open-type="navigateTo" wx:for="{{list}}" wx:key="id ">
+        <image mode="scaleToFill" class="img " src="{{item.thumb||'/common/images/img19.jpg'}} "></image>
+        <view class="text-box ">
+          <view class="title ">{{item.title}}</view>
+          <view class="desc ">{{item.description}}</view>
+        </view>
+      </navigator>
+    </view>
+    <!--paging-->
+    <view class="m-paging-wrap">
+      <view class='item no-more' wx:if="{{!hasMore}}">没有更多了</view>
+      <view wx:else>
+        <view class="item" hidden='{{!isLoading}}'>加载中</view>
+      </view>
+    </view>
+  </view>
+
+  <!--empty page-->
+  <view class="m-tips-page tips-page-empty" wx:else>
+    <image class="icon" src="/static/images/mt-empty.png"></image>
+    <view class="tips">暂无记录</view>
+  </view>
+
+
+</view>

@@ -385,6 +385,21 @@ view {
   text-align: right;
 }
 
+.m-paging-wrap {
+}
+
+.m-paging-wrap .item {
+  padding: 40rpx 0;
+  text-align: center;
+  font-size:28rpx;
+}
+
+.m-paging-wrap .no-more {
+  color: #ccc;
+  background: #f7f7f7;
+}
+
+
 /***ulit**/
 
 .u-stage {

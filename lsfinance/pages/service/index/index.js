@@ -43,21 +43,7 @@
     * 生命周期函数--监听页面显示
     */
    onShow: function() {
-     var comList = [];
-     const requestParams = {
-       apiUrl: '/Account/getcompany'
-     }
-     util.request(requestParams).then(data => {
-       comList = data.comList
-       let updateData = { comList: comList }
-       if (wx.getStorageSync('curComInfo')) {
-         updateData.curComInfo = wx.getStorageSync('curComInfo')
-       } else {
-         updateData.curComInfo = comList[0]
-         wx.setStorageSync("curComInfo", comList[0])
-       }
-       this.setData(updateData)
-     })
+
    },
 
    /**
@@ -88,10 +74,4 @@
 
    },
 
-   /**
-    * 用户点击右上角分享
-    */
-   onShareAppMessage: function() {
-
-   }
  })

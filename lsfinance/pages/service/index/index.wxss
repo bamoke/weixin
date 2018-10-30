@@ -1,2 +1,28 @@
 /* pages/service/index/index.wxss */
 .m-list-group .icon {display: none;}
+.service-item-group {
+  padding:24rpx;
+  width:100%;
+  background: #fff;
+  box-sizing: border-box;
+}
+.service-item-group .item {
+  display: flex;
+  align-items: center;
+  padding:24rpx;
+  margin-bottom:24rpx;
+  color:#fff;
+}
+.service-item-group .item .icon {
+  flex-shrink: 0;
+  flex-grow: 0;
+  margin-right:24px;
+  width:96rpx;
+  height:96rpx;
+}
+.service-item-group .item .name {
+  font-size:36rpx;
+}
+.bg-1 {background:#1b81d3;}
+.bg-2 {background:#2aab8f;}
+.bg-3 {background:#61a3d8;}

@@ -52,7 +52,6 @@ Page({
     var timeText = "";
     var timeTextSuffix = "秒后重发";
     myPromise.then(data=>{
-      wx.hideLoading();
       this.setData({
         btnText: num + timeTextSuffix,
         btnDisebled: true,

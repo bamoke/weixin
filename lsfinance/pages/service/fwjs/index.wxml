@@ -12,6 +12,7 @@
       <view class='item g-row-bt' wx:for="{{list}}" wx:key="ysNo" bindtap='selectItem' data-index="{{index}}">
         <view>
           <view class='amount'>{{item.mp_amount}}</view>
+          <view class='company'>{{item.mp_company}}-{{item.mp_type}}</view>
           <view class='name'>{{item.mp_name}}</view>
         </view>
         <view class='icon {{item.isSelected?"isSelected":""}}'></view>

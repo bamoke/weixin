@@ -10,7 +10,7 @@
   border-top:1px solid #f1f1f1;
   border-bottom:1px solid #f1f1f1;
 }
-.m-list .item .amount {color:#232323;font-size:36rpx;}
+.m-list .item .amount {color:#fa4349;font-size:40rpx;}
 .m-list .item .icon {
   width:36rpx;
   height:36rpx;
@@ -39,7 +39,7 @@
   width:60%;
   
 }
-.price {
+.price,.amount {
   color:#fa4349;
 }
 .btn {

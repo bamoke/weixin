@@ -1,3 +1,5 @@
+const app = getApp()
+import util from "../../utils/util"
 // pages/single/index.js
 Page({
 
@@ -5,14 +7,35 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    showPage:false,
+    cate:[],
+    curCid:null,
+    list:[],
+    curPage:1,
+    hasMore:false
   },
 
+_fetchData:function(cid){
+
+},
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    let requestParams = {
+      apiUrl: "/News/index",
+      requestMethod: "GET"
+    }
+    const ajaxRequest = util.request(requestParams)
+    ajaxRequest.then(res => {
+      this.setData({
+        showPage: true,
+        curPage: res.data.page,
+        hasMore: res.data.hasMore,
+        list: res.data.list,
+        cate:res.data.cate
+      })
+    })
   },
 
   /**
@@ -54,7 +77,27 @@ Page({
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
-
+    if (!this.data.hasMore) return;
+    const filter = this.data.filter
+    let postData = {
+      p: this.data.curPage + 1
+    }
+    if(this.data.curCid) {
+      postData.cid = this.data.curCid
+    }
+    const requestParams = {
+      apiUrl: "/News/vlist",
+      requestMethod: "GET",
+      requestData: postData
+    }
+    const ajaxRequest = util.request(requestParams)
+    ajaxRequest.then(res => {
+      this.setData({
+        hasMore: res.data.hasMore,
+        list: this.data.list.concat(res.data.list),
+        curPage: res.data.page
+      })
+    })
   },
 
   /**

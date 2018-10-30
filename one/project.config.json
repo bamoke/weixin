@@ -33,7 +33,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 9,
+			"current": 10,
 			"list": [
 				{
 					"id": 0,
@@ -94,6 +94,11 @@
 					"name": "班级调查问卷详情",
 					"pathName": "pages/survey/detail/index",
 					"query": "id=1"
+				},
+				{
+					"id": -1,
+					"name": "职涯",
+					"pathName": "pages/single/index"
 				}
 			]
 		}

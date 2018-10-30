@@ -30,7 +30,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 3,
+			"current": 4,
 			"list": [
 				{
 					"id": 0,
@@ -55,6 +55,12 @@
 					"name": "服务模块",
 					"pathName": "pages/bind/index",
 					"query": "账号绑定"
+				},
+				{
+					"id": -1,
+					"name": "帐号绑定",
+					"pathName": "pages/bind/index",
+					"query": ""
 				}
 			]
 		}
