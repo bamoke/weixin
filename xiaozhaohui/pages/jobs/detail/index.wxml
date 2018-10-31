@@ -6,7 +6,7 @@
       <view class="g-row-bt">
         <view class='title'>{{mainInfo.name}}</view>
 
-      <view class="wage">{{wagesArr[mainInfo.wages]}}</view>
+      <view class="wage">{{mainInfo.custom_wage||wagesArr[mainInfo.wages]}}</view>
       </view>
               <view class="m-attr">
           <text class='util'>{{mainInfo.work_addr}}</text>

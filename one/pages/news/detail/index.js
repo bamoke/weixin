@@ -1,64 +1,53 @@
-// pages/job/detail/index.js
-import util from '../../../utils/util'
-import * as WxParse from '../../../wxParse/wxParse.js'
-import {
-  expArr,
-  eduArr,
-  comSizeArr,
-  wagesArr
-} from '../../../utils/data'
+// pages/detail/index.js
 const app = getApp()
-let loaded = true
-let actArr = []
-let actStartTime = 0
+import * as WxParse from '../../../wxParse/wxParse.js'
+import util from "../../../utils/util"
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    showPage: false,
-    eduArr,
-    expArr,
-    wagesArr,
-    curId:null,
-    mainInfo: {}
+    pageShow: false,
+    detail: {}
   },
-  
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
-    const jobId = options.id
-
-    const params = {
-      apiUrl: "/Headhunter/detail",
+    const newsId = options.id
+    let requestParams = {
+      apiUrl: "/News/detail",
       requestMethod: "GET",
-      requestData:{id:jobId}
+      requestData:{id:newsId}
     }
-    const ajaxRequest = util.request(params)
+    const ajaxRequest = util.request(requestParams)
     ajaxRequest.then(res => {
-      WxParse.wxParse('wxparse_content', 'html', res.data.info.content, this)
+      if (res.data.info.content) {
+        WxParse.wxParse('wxparse_content', 'html', res.data.info.content, this)
+      }
       this.setData({
         showPage: true,
-        curId: jobId,
-        mainInfo: res.data.info,
+        detail: res.data.info
       })
     })
+
+   
   },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function() {
-
+    // console.log(WxParse)
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
   onShow: function() {
+
   },
 
   /**

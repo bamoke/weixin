@@ -1,0 +1,17 @@
+/* pages/single/index.wxss */
+.nav-tab {
+  height:80rpx;
+  white-space: nowrap;
+}
+.scroll-view-item {
+  padding:0 24rpx;
+  display: inline-block;
+  height: 80rpx;
+  font-size:32rpx;
+}
+.nav-tab .active .txt{
+    line-height: 76rpx;
+  color:#1b81d3;
+  border-bottom:4rpx solid #1b81d3;
+  display: inline-block;
+}

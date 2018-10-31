@@ -4,15 +4,15 @@
   <view class="m-base-info g-pad-box">
     <view class="g-row-bt">
       <view class='title'>{{mainInfo.title}}</view>
-
       <view class="wage">{{wagesArr[mainInfo.wages]}}</view>
     </view>
+    <view>{{mainInfo.comname}}</view>
     <view class="m-attr">
-      <text class='util'>{{mainInfo.work_addr}}</text>
+      <text class='util'>工作地点:{{mainInfo.work_addr}}</text>
       <text class="fg">|</text>
-      <text class="util">{{eduArr[mainInfo.edu]}}</text>
+      <text class="util">学历要求:{{eduArr[mainInfo.edu]}}</text>
       <text class="fg">|</text>
-      <text class="util">{{expArr[mainInfo.exp]}}</text>
+      <text class="util">工作经验:{{expArr[mainInfo.experience]}}</text>
     </view>
     <view class="tags m-tags" wx:if="{{mainInfo.tags}}">
       <text wx:for="{{mainInfo.tags}}" wx:key="index">{{item}}</text>
@@ -21,12 +21,12 @@
 
   <view class="ht-c"></view>
 
-  <view class='g-pad-box content-wrap'>
+  <view class='content-wrap'>
     <view class='bar'>
       <view class='title'>职位描述</view>
       <view class='line-icon'></view>
     </view>
-    <view class='g-pad-box content'>
+    <view class='g-pad-box'>
       <template is="wxParse" data="{{wxParseData:wxparse_content.nodes}}" />
     </view>
   </view>

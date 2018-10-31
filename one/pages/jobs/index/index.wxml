@@ -17,15 +17,14 @@
         <view class="wages">￥{{item.wage}}</view>
       </view>
       <view class="status">
-        <text class="util {{statusClassArr[item.status]}}">{{statusArr[item.status]}}</text>
+        <text class="util {{statusClassArr[item.stage]}}">{{statusArr[item.stage]}}</text>
       </view>
-      <view class="desc">{{item.requirement}}</view>
       <view class="requirement">
         <text>地点:{{item.work_addr}}</text>
         <text class='fg'>|</text>
-        <text>人数:{{item.person_num}}人</text>
+        <text>人数:{{item.person_num}}</text>
         <text class='fg'>|</text>
-        <text>工期:{{item.work_day}}天</text>
+        <text>工期:{{item.work_day}}</text>
       </view>
     </navigator>
 

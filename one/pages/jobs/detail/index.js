@@ -7,10 +7,10 @@ Page({
   data: {
     showPage:false,
     jobId:null,
-    statusArr: ["招聘中", "已开始", "已完成"],
-    statusClassArr: ["notBegin", "started", "isEnd"],
+    statusArr: ["招聘中", "已开始", "已完成", "已中止"],
+    statusClassArr: ["notBegin", "started", "complete", "isEnd"],
     info:{},
-    isMember:false
+    isMember:false//是否已经是项目成员
   },
   goPartsign:function(){
     wx.navigateTo({
@@ -26,7 +26,7 @@ Page({
  */
   onShow: function () {
     const requestParams = {
-      apiUrl: "/Jobs/detail",
+      apiUrl: "/Parttime/detail",
       requestData:{id:this.data.jobId},
       requestMethod: "GET"
     }
@@ -38,7 +38,7 @@ Page({
         info: res.data.mainInfo,
         isMember:res.data.isMember
       })
-      console.log(this.data)
+
     })
   },
     /**

@@ -48,8 +48,8 @@ Page({
     ajaxRequest.then(res => {
       this.setData({
         showPage: true,
-        hasMore: res.hasMore,
-        list: res.list
+        hasMore: res.data.hasMore,
+        list: res.data.list
       })
     })
   },
@@ -65,7 +65,7 @@ Page({
   gosearch: function (event){
     var keywords = event.detail.value || this.data.keywords;
     const requestParams = {
-      apiUrl: "/Jobs/vlist",
+      apiUrl: "/Headhunter/index",
       requestMethod: "GET",
       requestData: {}
     }
@@ -76,8 +76,9 @@ Page({
     const ajaxRequest = util.request(requestParams)
     ajaxRequest.then(res => {
       this.setData({
-        hasMore: res.info.hasMore,
-        list: res.info.list
+        hasMore: res.data.hasMore,
+        list: res.data.list,
+        curPage:1
       })
     })
   },

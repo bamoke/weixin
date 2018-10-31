@@ -33,7 +33,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 10,
+			"current": 2,
 			"list": [
 				{
 					"id": 0,
@@ -44,7 +44,7 @@
 				{
 					"id": 1,
 					"name": "猎头职位",
-					"pathName": "pages/headhunter/recommend/index",
+					"pathName": "pages/headhunter/index/index",
 					"query": ""
 				},
 				{
@@ -96,9 +96,10 @@
 					"query": "id=1"
 				},
 				{
-					"id": -1,
-					"name": "职涯",
-					"pathName": "pages/single/index"
+					"id": 10,
+					"name": "职涯详情",
+					"pathName": "pages/news/detail/index",
+					"query": "id=1"
 				}
 			]
 		}

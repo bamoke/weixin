@@ -39,6 +39,9 @@ Page({
     }
     const ajaxRequest = util.request(params)
     ajaxRequest.then(res => {
+      if (res.data.courseInfo.content) {
+        WxParse.wxParse('wxparse_content', 'html', res.data.courseInfo.content, this)
+      }
       this.setData({
         showPage: true,
         courseInfo: res.data.courseInfo,

@@ -21,7 +21,7 @@
       </view>
       <view class="txt ">猎头</view>
     </navigator>
-    <navigator open-type='navigate' url="/pages/single/index?id=2">
+    <navigator open-type='navigate' url="/pages/news/index/index">
       <view class="img-view bg-din ">
         <image src="/common/images/index-icon-03.png " alt=" " mode='widthFix' />
       </view>

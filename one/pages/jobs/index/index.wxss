@@ -22,6 +22,10 @@
   border: 1px solid #78d0d1;
   color: #78d0d1;
 }
+.m-jobs-list .status .complete {
+  border: 1px solid #00cc66;
+  color: #00cc66;
+}
 .m-jobs-list .status .isEnd {
   border: 1px solid #9c9c9c;
   color: #9c9c9c;

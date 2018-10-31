@@ -1,12 +1,13 @@
 <!--pages/single/index.wxml-->
 <view wx:if="{{showPage}}">
   <view class="nav-tab-wrap">
-    <scroll-view scroll-x class="nav-tab" style="width:100%">
-      <view id="{{'scroll-'+id}}" class="scroll-view-item" wx:for="{{cate}}" wx:key="id">{{item.name}}</view>
-      <view id="{{'scroll-'+6}}" class="scroll-view-item">就开始大家</view>
-      <view id="{{'scroll-'+7}}" class="scroll-view-item">就开始大家</view>
-      <view id="{{'scroll-'+8}}" class="scroll-view-item">就开始大家</view>
-      <view id="{{'scroll-'+9}}" class="scroll-view-item">就开始大家</view>
+    <scroll-view scroll-x class="nav-tab">
+      <view class="scroll-view-item {{!curCid?'active':''}}" bindtap='changeCate'>
+        <text class="txt">全部</text>
+      </view>
+      <view class="scroll-view-item {{curCid==item.id?'active':''}}" wx:for="{{cate}}" wx:key="id" data-cid="{{item.id}}" bindtap='changeCate'>
+        <text class="txt">{{item.name}}</text>
+      </view>
     </scroll-view>
   </view>
   <view class="ht-c"></view>

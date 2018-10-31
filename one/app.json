@@ -41,7 +41,8 @@
     "pages/account/regist/index",
     "pages/account/forgot/index",
 
-    "pages/single/index",
+    "pages/news/index/index",
+    "pages/news/detail/index",
     "pages/me/index/me",
     "pages/me/medtail/medtail"
   ],

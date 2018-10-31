@@ -5,8 +5,8 @@ import util from "../../../utils/util"
 Page({
   data: {
     showPage:false,
-    statusArr:["招聘中","已开始","已完成"],
-    statusClassArr:["notBegin","started","isEnd"],
+    statusArr:["招聘中","已开始","已完成","已中止"],
+    statusClassArr:["notBegin","started","complete","isEnd"],
     banner:"",
     list:[]
   },
@@ -17,7 +17,7 @@ Page({
   },
   onLoad: function () {
     const params = {
-      apiUrl: "/Jobs/index",
+      apiUrl: "/Parttime/index",
       requestMethod: "GET"
     }
     const ajaxRequest = util.request(params)
@@ -25,6 +25,7 @@ Page({
       this.setData({
         showPage: true,
         banner: res.data.banner,
+        hasMore: res.data.hasMore,
         list: res.data.list
       })
     })

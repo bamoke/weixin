@@ -44,7 +44,7 @@
           <view>
             <view class="g-row-bt hd">
               <view class='title'>{{item.name}}</view>
-              <view class="wages">{{wagesArr[item.wages]}}</view>
+              <view class="wages">{{item.custom_wage||wagesArr[item.wages]}}</view>
             </view>
             <view class="company-name">{{item.comname}}</view>
             <view class="requirement">

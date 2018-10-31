@@ -1,5 +1,5 @@
 const app = getApp()
-import util from "../../utils/util"
+import util from "../../../utils/util"
 // pages/single/index.js
 Page({
 
@@ -17,6 +17,28 @@ Page({
 
 _fetchData:function(cid){
 
+},
+changeCate:function(e){
+  let cid = e.currentTarget.dataset.cid
+  let requestParams = {
+    apiUrl: "/News/vlist",
+    requestMethod: "GET"
+  }
+  if(typeof cid !=='undefined') {
+    requestParams.requestData = {cid}
+  }else {
+    cid = null
+  }
+
+  const ajaxRequest = util.request(requestParams)
+  ajaxRequest.then(res => {
+    this.setData({
+      curPage: res.data.page,
+      hasMore: res.data.hasMore,
+      list: res.data.list,
+      curCid:cid
+    })
+  })
 },
   /**
    * 生命周期函数--监听页面加载

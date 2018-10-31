@@ -9,8 +9,8 @@
       <view class="item">项目酬金：<text class="wage">￥{{info.wage}}</text></view>
       <view class="item">项目状态：<text class="{{statusClassArr[info.status]}}">{{statusArr[info.status]}}</text></view>
       <view class="item">工作地点：{{info.work_addr}}</view>
-      <view class="item">需求人数：{{info.work_person_num}}人</view>
-      <view class="item">项目工期：{{info.work_day}}天</view>
+      <view class="item">需求人数：{{info.person_num}}</view>
+      <view class="item">项目工期：{{info.work_day}}</view>
     </view>
   </view>
   <view class="ht-c"></view>
