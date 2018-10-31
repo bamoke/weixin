@@ -10,7 +10,8 @@ Page({
     statusArr: ["招聘中", "已开始", "已完成", "已中止"],
     statusClassArr: ["notBegin", "started", "complete", "isEnd"],
     info:{},
-    isMember:false//是否已经是项目成员
+    isMember:0,//是否已经是项目成员
+    applyed:0,//已申请过
   },
   goPartsign:function(){
     wx.navigateTo({
@@ -36,7 +37,8 @@ Page({
       this.setData({
         showPage: true,
         info: res.data.mainInfo,
-        isMember:res.data.isMember
+        isMember:res.data.isMember,
+        applyed:res.data.applyed
       })
 
     })

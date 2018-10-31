@@ -8,10 +8,6 @@ Page({
    * 页面的初始数据
    */
   data: {
-    acType: 'reg',
-    btnText: "获取验证码",
-    btnStyle: "btn-active",
-    btnDisebled: false,
     errorStatus: false,
     errorMsg: "",
     phone: null,
@@ -85,17 +81,12 @@ Page({
    */
   submitForm: function(data) {
     if (this.data.onLoading) return //已经提交未返回响应
-    this.setData({
-      isSubmiting: true
-    })
-    const actype = this.data.acType
     var formData = data.detail.value;
     var phoneRe = /^[1][3578]{1}([0-9]{9})$/;
     var codeRe = /[0-9]{6}/
     var apiUrl = "/Account/login";
     var successTipsTitle;
     var req;
-    formData.actype = actype;
     //表单验证
     if (formData.phone == '') {
       return this._setError("请输入手机号码")
@@ -106,23 +97,7 @@ Page({
     if (formData.password == '') {
       return this._setError("请输入密码")
     }
-    if (actype == 'reg') {
-      apiUrl = '/Account/regist'
-      successTipsTitle = "注册成功"
-      if (formData.password2 == "") {
-        return this._setError("请确认密码")
-      }
-      if (formData.password2 !== formData.password) {
-        return this._setError("两次密码不一致")
-      }
-      if (formData.code == "") {
-        return this._setError("请输入验证码")
-      }
-    }
-    // update
-    this.setData({
-      onLoading: true
-    })
+
     // 发送表单数据
     let requestParams = {
       apiUrl,
@@ -130,38 +105,16 @@ Page({
       requestMethod: "POST"
     }
     req = util.request(requestParams);
-    req.then(data => {
+    req.then(res => {
       wx.showToast({
         title: data.msg,
       })
       const _that = this
       setTimeout(function() {
-        if (actype == 'login') {
-          wx.setStorageSync("accessToken", data.info.token)
-          wx.setStorageSync("user", data.info.user)
-          if(_that.data.isNavBack) {
-            
-            wx.navigateBack({
-              delta: parseInt(_that.data.isNavBack)
-            })
-          }else {
-            wx.reLaunch({
-              url: '/pages/home/index/index'
-            })
-          }
-
-        } else {
-          wx.showModal({
-            title: '注册成功',
-            content: "现在返回登录页面",
-            showCancel: false,
-            success: function() {
-              wx.navigateTo({
-                url: '/pages/user/regist/index?type=login',
-              })
-            }
-          })
-        }
+        wx.setStorageSync("accessToken", res.data.token)
+        wx.navigateBack({
+          delta:1
+        })
       }, 500)
     }).catch(error => {
       this.setData({

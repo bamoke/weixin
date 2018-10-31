@@ -1,0 +1,49 @@
+<!--pages/resume/edu/index.wxml-->
+<view class='container'>
+  <form class='m-form-default' bindsubmit='submitForm'>
+    <view class="field-list">
+      <view class='form-group'>
+        <view class="label">学校名称</view>
+        <view class="val">
+          <input type='text' name="school" placeholder='请输入学校名称' value="{{school}}" class="input-box"></input>
+        </view>
+      </view>
+      <view class='form-group'>
+        <view class="label">专业</view>
+        <view class="val">
+          <input type='text' name="major" placeholder='请填写' value="{{major}}" class="input-box"></input>
+        </view>
+      </view>
+      <view class='form-group'>
+        <view class="label">学历</view>
+        <view class="val">
+          <picker mode="selector" value="{{level}}" bindchange="bindEduChange" range='{{eduArr}}'>
+            <view class="picker">{{eduArr[level]}}</view>
+          </picker>
+        </view>
+      </view>
+    </view>
+    <view class="field-list">
+      <view class='form-group'>
+        <view class="label">入学年月</view>
+        <view class="val">
+          <picker mode="date" fields="month" value="2010-01" start="1960-01" bindchange="bindStartTimeChange">
+            <view class="picker">{{start_time==''?'请选择':start_time}}</view>
+          </picker>
+        </view>
+      </view>
+      <view class='form-group'>
+        <view class="label">毕业年月</view>
+        <view class="val">
+          <picker mode="date" fields="month" value="2010-01" start="1960-01" bindchange="bindEndTimeChange">
+            <view class="picker">{{end_time==''?'请选择':end_time}}</view>
+          </picker>
+        </view>
+      </view>
+    </view>
+    <view class='btn-box'>
+      <button form-type='submit' class='btn btn-primary'>保存</button>
+      <view class="btn delete-btn" bindtap='deleteItem' wx:if="{{acType=='edit'}}">删除此项</view>
+    </view>
+  </form>
+</view>

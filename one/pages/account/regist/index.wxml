@@ -1,2 +1,30 @@
-<!--pages/account/regist/index.wxml-->
-<text>pages/account/regist/index.wxml</text>
+<!--pages/common/bind/index.wxml-->
+<view class='container'>
+  <view class='tips' wx:if="{{acType == 'reg'}}">注册后的账号可在电脑端上传简历附件</view>
+  <form class='m-form' bindsubmit='submitForm'>
+    <view class="form-wrap">
+      <view class='form-group'>
+        <input type='number' name="phone" placeholder='请输入手机号码' class="input-box" bindinput='updatePhone'></input>
+      </view>
+      <view class='form-group'>
+        <input type='password' name="password" placeholder='请输入密码' class="input-box"></input>
+      </view>
+
+      <view class='form-group'>
+        <input type='password' name="password2" placeholder='确认密码' class="input-box"></input>
+      </view>
+      <view class='form-group'>
+        <input type='number' name="code" placeholder='请输入验证码' class="input-box"></input>
+        <view class='code-btn {{btnStyle}}' bindtap='fetchCode'>{{btnText}}</view>
+      </view>
+
+      <view class="error-box" hidden='{{!errorStatus}}'>{{errorMsg}}</view>
+      <view class='form-group'>
+        <button form-type='submit' class='btn btn-primary'>提交</button>
+      </view>
+    </view>
+  </form>
+  <view class='bot-info g-pad-box'>
+    <navigator url='/pages/account/login/index' open-type='navigateTo' style='text-align:center'>已有账号？立即登录</navigator>
+  </view>
+</view>

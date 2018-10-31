@@ -1,0 +1,28 @@
+<!--pages/jobs/deliver/index.wxml-->
+<view class="container" wx:if="{{showPage}}">
+  <view class="deliver-main-content" wx:if="{{!isCompleted}}">
+    <view class="m-tips-page tips-page-empty" wx:if="{{!resumeId && !resumeAttachment}}">
+      <image class="icon" src="/static/images/mt-empty.png"></image>
+      <view class="tips">还没有创建简历</view>
+      <navigator class="btn btn-primary" url="/pages/resume/detail/index">立即创建</navigator>
+    </view>
+    <view class="m-resume-list" wx:else>
+      <view class="row">
+        <view class="select-icon{{curSelected===1?' selected':''}}"></view>
+        <view>
+          <text class="name">在线简历</text>
+        </view>
+
+      </view>
+
+      <view class="btn-wrap">
+        <view class="btn btn-block btn-primary" bindtap='goDeliver'>投递</view>
+      </view>
+    </view>
+  </view>
+  <view class="m-tips-page tips-page-success" wx:else>
+    <icon type="success" size='60' color='#33cc00'></icon>
+    <view class="tips">投递成功</view>
+    <navigator class="btn btn-default" url="/pages/index/index" open-type='switchTab'>返回首页</navigator>
+  </view>
+</view>

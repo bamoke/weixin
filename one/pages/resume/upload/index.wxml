@@ -1,0 +1,19 @@
+<!--pages/resume/upload/index.wxml-->
+<view class="container">
+  <view class=""></view>
+  <view class="tips-text">
+    <view class='title'>上传简历附件，请在电脑上进行操作</view>
+    <view class="step">
+      <text class="num">1</text>
+      <text>打开网址：http://www.bamoke.com/xzh/upload.php</text>
+    </view>
+    <view class="step">
+      <text class="num">2</text>
+      <text>通过注册的手机号登录您的帐户</text>
+    </view>
+    <view class="step">
+      <text class="num">3</text>
+      <text>上传文件，建议上传PDF格式,便于HR浏览</text>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,33 @@
+<!--pages/resume/index/index.wxml-->
+<view class="container" wx:if="{{showPage}}">
+  <view class="m-tips-page tips-page-empty" wx:if="{{!resumeId && !resumeAttachment}}">
+    <image class="icon" src="/static/images/mt-empty.png"></image>
+    <view class="tips">还没有创建简历或未上传简历</view>
+    <view class="btn btn-primary" url="/pages/resume/detail/index" bindtap='createResume'>立即创建</view>
+  </view>
+  <view class='m-resume-list' wx:else>
+    <navigator url="/pages/resume/detail/index" open-type='navigateTo' class="row">
+      <view class="title">在线简历</view>
+      <view class="right-info">
+        <text>预览</text>
+<!--         <text>简历完成度:</text>
+        <text class="text-success completedProgress">{{completion}}</text>
+        <text>%</text> -->
+      </view>
+    </navigator>
+    <navigator url="/pages/resume/upload/index" open-type='navigateTo' class="row">
+      <view class="title">附件简历</view>
+      <view class='right-info'>{{resumeAttachment?'已上传':'未上传'}}</view>
+    </navigator>
+    <view class="row">
+      <view class="title">默认简历</view>
+      <view class='right-info'>
+        <picker bindchange="bindTypeChange" value="{{curType}}" range="{{typeList}}">
+          <view class="right-info">
+            {{typeList[curType]}}
+          </view>
+        </picker>
+      </view>
+    </view>
+  </view>
+</view>
