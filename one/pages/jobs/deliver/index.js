@@ -8,31 +8,32 @@ Page({
   data: {
     showPage:false,
     isCompleted:false,
-    resumeId:null,
-    resumeAttachment:'',
-    curSelected:1
+    jobId:null,
+    resume:{}
   },
 
   /**
    * Action
    */
-  selecteResume:function(e){
-    const index= e.currentTarget.dataset.index;
-    if((index==1 && !this.data.resumeId) || (index==2 && this.data.resumeAttachment == '')){
-      return
-    }
-    this.setData({
-      curSelected: parseInt(index)
-    })
-  },
 
   goDeliver:function(){
     let data = {
-      type: this.data.curSelected,
       jobid:this.data.jobId,
-      resumeid: this.data.resumeId
+      resumeid: this.data.resume.id
     }
-    console.log(data)
+    if(this.data.resume.completion < 80 ) {
+      wx.showModal({
+        content: '请完善简历后再投递,现在去完善简历?',
+        success:function(res){
+          if(res.confirm){
+            wx.redirectTo({
+              url: '/pages/resume/index/index?'
+            })
+          }
+        }
+      })
+      return
+    }
     const requestParams = {
       apiUrl:"/Deliver/doit",
       requestData: data,
@@ -50,7 +51,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    const jobId = options.jid
+    const jobId = options.jobid
     this.setData({
       jobId,
       showPage:true
@@ -74,9 +75,7 @@ Page({
     var ajaxRequest = util.request(requestParams)
     ajaxRequest.then(res=>{
       this.setData({
-        resumeId: parseInt(res.info.id),
-        resumeAttachment: res.info.attachment,
-        curSelected: parseInt(res.info.default_set)       
+        resume:res.data.info
       })
     })
   },

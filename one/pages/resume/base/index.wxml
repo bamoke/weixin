@@ -62,7 +62,7 @@
     </view>
 
     <view class='btn-box'>
-      <button form-type='submit' class='btn btn-primary'>{{handleText}}</button>
+      <button form-type='submit' loading='{{isSubmiting}}' class='btn btn-primary'>{{handleText}}</button>
     </view>
 
   </form>

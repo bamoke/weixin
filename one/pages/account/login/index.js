@@ -22,59 +22,7 @@ Page({
       phone: e.detail.value
     })
   },
-  /**
-   * 获取验证码
-   */
-  fetchCode: function() {
-    var phoneRe = /^[1][3578]{1}([0-9]{9})$/;
-    var phone = this.data.phone;
-    if (this.data.btnDisebled) {
-      return;
-    }
-    if (!phone) {
-      return this._setError("请输入手机号码")
-    }
-    if (!phoneRe.test(phone)) {
-      return this._setError("手机号格式不正确")
-    }
 
-    var requestParams = {
-      apiUrl: '/Account/mpcode',
-      requestData: {
-        "phone": phone
-      },
-      isShowLoad: false
-    }
-    var myPromise = util.request(requestParams);
-    var _that = this;
-    var num = 60;
-    var timeText = "";
-    var timeTextSuffix = "秒后重发";
-    myPromise.then(data => {
-      this.setData({
-        btnText: num + timeTextSuffix,
-        btnDisebled: true,
-        btnStyle: "btn-disebled"
-      })
-      var timer = setInterval(function() {
-        if (num == 1) {
-          clearInterval(timer);
-          _that.setData({
-            btnText: "获取验证码",
-            btnDisebled: false,
-            btnStyle: "btn-active"
-          })
-          return;
-        }
-        num--;
-        timeText = num < 10 ? 0 + (num + timeTextSuffix) : num + timeTextSuffix;
-        _that.setData({
-          btnText: timeText
-        })
-      }, 1000)
-    })
-
-  },
 
   /**
    * 提交表单
@@ -107,14 +55,14 @@ Page({
     req = util.request(requestParams);
     req.then(res => {
       wx.showToast({
-        title: data.msg,
+        title: res.msg,
       })
-      const _that = this
+      wx.setStorageSync("accessToken", res.data.token)
       setTimeout(function() {
-        wx.setStorageSync("accessToken", res.data.token)
-        wx.navigateBack({
-          delta:1
+        wx.switchTab({
+          url: '/pages/me/index/index'
         })
+        
       }, 500)
     }).catch(error => {
       this.setData({

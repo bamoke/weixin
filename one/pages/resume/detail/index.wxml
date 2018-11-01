@@ -24,7 +24,7 @@
         <text>{{baseInfo.email}}</text>
       </view>
     </view>
-    <view class="avatar"></view>
+    <!-- <view class="avatar"></view> -->
   </view>
 
   <view class="resume-main-wrap">

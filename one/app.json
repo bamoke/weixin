@@ -32,7 +32,7 @@
     "pages/account/forgot/index",
     "pages/news/index/index",
     "pages/news/detail/index",
-    "pages/me/index/me",
+    "pages/me/index/index",
     "pages/me/medtail/medtail",
 
     "pages/resume/upload/index",
@@ -76,7 +76,7 @@
       {
         "selectedIconPath": "common/images/me-active.png",
         "iconPath": "common/images/me.png",
-        "pagePath": "pages/me/index/me",
+        "pagePath": "pages/me/index/index",
         "text": "我的"
       }
     ]

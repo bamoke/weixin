@@ -12,6 +12,7 @@ Page({
    */
   data: {
     showPage: false,
+    resumeId:null,
     expArr,
     eduArr,
     sexArr,
@@ -105,21 +106,22 @@ Page({
    */
   onShow: function() {
     wx.showNavigationBarLoading()
-    const id = wx.getStorageSync("resumeId")
+    const resumeId = wx.getStorageSync("resumeId")
     const requestParams = {
-      apiUrl: "/Resume/detail/id/" + id,
+      apiUrl: "/Resume/detail",
       requestMethod: "GET",
+      requestData: { id: resumeId},
       isShowLoad:false
     }
     const ajaxRequest = util.request(requestParams)
-    ajaxRequest.then(data => {
+    ajaxRequest.then(res => {
       wx.hideNavigationBarLoading()
       this.setData({
         showPage:true,
-        baseInfo: data.info.base,
-        edu: data.info.edu,
-        work: data.info.work,
-        introduce: data.info.introduce
+        baseInfo: res.data.base,
+        edu: res.data.edu,
+        work: res.data.work,
+        introduce: res.data.introduce
       })
     })
   },

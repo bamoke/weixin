@@ -91,20 +91,27 @@ Page({
       isSubmiting: true
     })
     const request = util.request(requestParams)
-    request.then(data => {
+    request.then(res => {
+      this.setData({
+        isSubmiting: true
+      })
       wx.showToast({
         title: '保存成功',
       })
       setTimeout(function() {
         if (_that.data.acType == 'create') {
-          wx.setStorageSync("resumeId", data.info.id)
+          wx.setStorageSync("resumeId", res.data.info.id)
           wx.redirectTo({
-            url: '../index/index'
+            url: '../detail/index'
           })
         } else {
           wx.navigateBack()
         }
       }, 500)
+    },reject=>{
+      this.setData({
+        isSubmiting: true
+      })
     })
   },
   _showError: function(msg) {

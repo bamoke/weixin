@@ -1,6 +1,5 @@
 <!--pages/common/bind/index.wxml-->
 <view class='container'>
-  <view class='tips' wx:if="{{acType == 'reg'}}">注册后的账号可在电脑端上传简历附件</view>
   <form class='m-form' bindsubmit='submitForm'>
     <view class="form-wrap">
       <view class='form-group'>
@@ -20,7 +19,7 @@
 
       <view class="error-box" hidden='{{!errorStatus}}'>{{errorMsg}}</view>
       <view class='form-group'>
-        <button form-type='submit' class='btn btn-primary'>提交</button>
+        <button form-type='submit' loading='{{onLoading}}' class='btn btn-primary'>提交</button>
       </view>
     </view>
   </form>

@@ -4,6 +4,7 @@
 
 .m-resume-list .row {
   display: flex;
+  justify-content: space-between;
   align-items: center;
   padding:24rpx;
   border-bottom:1px solid #f1f1f1;
@@ -22,6 +23,9 @@
 .m-resume-list .tips {margin-left:12rpx;color:#9c9c9c;}
 .m-resume-list .selected {
   border-color:#f90;
+}
+.completion {
+  align-self: flex-end;
 }
 .btn-wrap {
   padding:80rpx 24rpx;

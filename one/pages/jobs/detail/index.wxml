@@ -6,8 +6,12 @@
       <view class="title">{{info.title}}</view>
     </view>
     <view class="top-text">
-      <view class="item">项目酬金：<text class="wage">￥{{info.wage}}</text></view>
-      <view class="item">项目状态：<text class="{{statusClassArr[info.stage]}}">{{statusArr[info.stage]}}</text></view>
+      <view class="item">项目酬金：
+        <text class="wage">￥{{info.wage}}</text>
+      </view>
+      <view class="item">项目状态：
+        <text class="{{statusClassArr[info.stage]}}">{{statusArr[info.stage]}}</text>
+      </view>
       <view class="item">工作地点：{{info.work_addr}}</view>
       <view class="item">需求人数：{{info.person_num}}</view>
       <view class="item">项目工期：{{info.work_day}}</view>
@@ -30,10 +34,16 @@
     </view>
   </view>
   <view class="m-foot-operation">
-    <navigator open-type='navigate' url="/pages/jobs/deliver/index?jobid={{info.id}}" class="btn btn-block btn-primary" wx:if="{{!isMember && !applyed}}">
-    我要兼职
-    </navigator>
-    <navigator open-type='navigate' url="" class="btn btn-block btn-success" wx:elif="{{isMember}}">进入项目</navigator>
-    <view class="btn btn-block btn-default" wx:else>已经申请过了</view>
+    <block wx:if="{{info.stage == 0}}">
+      <navigator open-type='navigate' url="/pages/jobs/deliver/index?jobid={{info.id}}" class="btn btn-block btn-primary" wx:if="{{isMember == 0 && applyed == 0}}">
+        我要兼职
+      </navigator>
+      <navigator open-type='navigate' url="" class="btn btn-block btn-success" wx:elif="{{isMember != 0}}">进入项目</navigator>
+      <view class="btn btn-block btn-default" wx:else>已经申请过了</view>
+    </block>
+    <block wx:else>
+    <navigator open-type='navigate' url="" class="btn btn-block btn-success" wx:if="{{isMember != 0}}">进入项目</navigator>
+    </block>
+
   </view>
 </view>

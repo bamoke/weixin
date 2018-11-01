@@ -1,18 +1,17 @@
 <!--pages/jobs/deliver/index.wxml-->
 <view class="container" wx:if="{{showPage}}">
   <view class="deliver-main-content" wx:if="{{!isCompleted}}">
-    <view class="m-tips-page tips-page-empty" wx:if="{{!resumeId && !resumeAttachment}}">
+    <view class="m-tips-page tips-page-empty" wx:if="{{!resume.id}}">
       <image class="icon" src="/static/images/mt-empty.png"></image>
       <view class="tips">还没有创建简历</view>
-      <navigator class="btn btn-primary" url="/pages/resume/detail/index">立即创建</navigator>
+      <navigator class="btn btn-primary" url="/pages/resume/base/index?type=create">立即创建</navigator>
     </view>
     <view class="m-resume-list" wx:else>
       <view class="row">
-        <view class="select-icon{{curSelected===1?' selected':''}}"></view>
         <view>
-          <text class="name">在线简历</text>
+          <text class="name">我的简历</text>
         </view>
-
+        <view class="completion">完成度:<text class="num">{{resume.completion}}%</text></view>
       </view>
 
       <view class="btn-wrap">
