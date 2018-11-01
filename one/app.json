@@ -1,11 +1,10 @@
 {
   "pages": [
     "pages/index/index/index",
-    "pages/find/index/find",
     "pages/class/index/index",
     "pages/class/detail/index",
     "pages/class/member/index",
-    "pages/course/index/course",
+    "pages/course/index/index",
     "pages/course/enroll/index",
     "pages/course/detail/index",
     "pages/headhunter/index/index",
@@ -64,7 +63,7 @@
       {
         "selectedIconPath": "common/images/find-active.png",
         "iconPath": "common/images/find.png",
-        "pagePath": "pages/find/index/find",
+        "pagePath": "pages/course/index/index",
         "text": "课程"
       },
       {

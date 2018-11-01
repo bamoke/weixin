@@ -7,6 +7,7 @@ Page({
    */
   data: {
     isSubmiting: false,
+    resumeId:null,
     content: ''
   },
 
@@ -29,7 +30,7 @@ Page({
       })
       return
     }
-    const resumeId = wx.getStorageSync("resumeId")
+    const resumeId = this.data.resumeId
     const requestParams = {
       apiUrl: "/Resume/save/type/introduce/id/" + resumeId,
       requestMethod: "POST",
@@ -62,7 +63,8 @@ Page({
   onLoad: function(options) {
     const info = wx.getStorageSync("getResumeData")
     this.setData({
-      content: info.introduce
+      content: info.introduce,
+      resumeId:options.rid
     })
   },
 

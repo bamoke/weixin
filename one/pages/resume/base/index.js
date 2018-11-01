@@ -100,9 +100,8 @@ Page({
       })
       setTimeout(function() {
         if (_that.data.acType == 'create') {
-          wx.setStorageSync("resumeId", res.data.info.id)
           wx.redirectTo({
-            url: '../detail/index'
+            url: '../detail/index?id=' + res.data.info.id
           })
         } else {
           wx.navigateBack()

@@ -45,6 +45,7 @@ Page({
   },
   addItem: function(e) {
     const type = e.currentTarget.dataset.type
+    const resumeId = e.currentTarget.dataset.rid
     var itemData = this.data[type]
     var pageUrl;
     if (itemData.length >= 5) {
@@ -60,12 +61,13 @@ Page({
       pageUrl = "../work/index"
     }
     wx.navigateTo({
-      url: pageUrl + "?type=create",
+      url: pageUrl + "?type=create&rid=" + resumeId,
     })
   },
   editItem: function(e) {
     const type = e.currentTarget.dataset.type
     const index = e.currentTarget.dataset.index
+    const resumeId = e.currentTarget.dataset.rid
     var itemData = this.data[type][index]
     wx.setStorageSync("getResumeData", itemData)
     var pageUrl;
@@ -75,7 +77,7 @@ Page({
       pageUrl = "../work/index"
     }
     wx.navigateTo({
-      url: pageUrl + "?type=edit",
+      url: pageUrl + "?type=edit&rid=" + resumeId,
     })
   },
   editIntroduce: function() {
@@ -84,14 +86,15 @@ Page({
       introduce
     })
     wx.navigateTo({
-      url: '../introduce/index',
+      url: '../introduce/index?rid=' + this.data.resumeId
     })
   },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
-
+    const resumeId = options.id
+    this.setData({ resumeId})
   },
 
   /**
@@ -106,7 +109,7 @@ Page({
    */
   onShow: function() {
     wx.showNavigationBarLoading()
-    const resumeId = wx.getStorageSync("resumeId")
+    const resumeId = this.data.resumeId
     const requestParams = {
       apiUrl: "/Resume/detail",
       requestMethod: "GET",

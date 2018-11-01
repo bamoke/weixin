@@ -37,6 +37,10 @@
     </view>
   </view>
   <view class="m-foot-operation">
-    <navigator wx:if="{{courseInfo.type==1}}" open-type='navigate' url="/pages/course/enroll/index?id={{courseInfo.id}}&name={{courseInfo.title}}" class="btn btn-block btn-primary">预约报名</navigator>
+  <view style="width:100%" wx:if="{{courseInfo.type==1}}">
+      <navigator wx:if="{{isEnroll==0}}" open-type='navigate' url="/pages/course/enroll/index?id={{courseInfo.id}}&name={{courseInfo.title}}" class="btn btn-block btn-primary">预约报名</navigator>
+
+  </view>
+
   </view>
 </view>

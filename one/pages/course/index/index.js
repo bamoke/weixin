@@ -5,38 +5,43 @@ import util from "../../../utils/util"
 
 Page({
   data: {
-    showPage: false,
-    hasMore:false,
+    showPage:false,
     curPage:1,
-    list: []
+    hasMore:false,
+    listDatas: []
   },
-
-  onLoad: function(options) {
-    const params = {
-      apiUrl: "/Myclass/index",
-      requestMethod: "GET"
+  onLoad: function() {
+    var requestParams = {
+      apiUrl:"/Course/index"
     }
-    const ajaxRequest = util.request(params)
-    ajaxRequest.then(res => {
+    const request = util.request(requestParams)
+    request.then(res=>{
       this.setData({
         showPage: true,
-        list: res.data.list,
-        hasMore:res.data.hasMore
+        banner:res.data.banner,
+        hasMore:res.data.hasMore,
+        listDatas:res.data.list
       })
     })
-  },
 
+  },
   /**
- * 页面上拉触底事件的处理函数
- */
+     * 页面上拉触底事件的处理函数
+     */
   onReachBottom: function () {
     if (!this.data.hasMore) return;
+    const filter = this.data.filter
     let postData = {
       p: this.data.curPage + 1
     }
+    filter.forEach(item => {
+      if (item.selected > 0) {
+        postData[item.catKey] = item.list[item.selected]
+      }
+    })
     console.log(postData)
     const requestParams = {
-      apiUrl: "/Myclass/index",
+      apiUrl: "/Course/index",
       requestMethod: "GET",
       requestData: postData
     }
@@ -44,11 +49,8 @@ Page({
     ajaxRequest.then(res => {
       this.setData({
         hasMore: res.data.hasMore,
-        list: this.data.list.concat(res.data.list),
-        curPage: res.data.page
+        listDatas: res.data.list
       })
     })
   }
-
-
 })

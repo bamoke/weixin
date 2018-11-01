@@ -11,7 +11,9 @@
         <view>
           <text class="name">我的简历</text>
         </view>
-        <view class="completion">完成度:<text class="num">{{resume.completion}}%</text></view>
+        <view class="completion">完成度:
+          <text class="num">{{resume.completion}}%</text>
+        </view>
       </view>
 
       <view class="btn-wrap">
@@ -21,7 +23,10 @@
   </view>
   <view class="m-tips-page tips-page-success" wx:else>
     <icon type="success" size='60' color='#33cc00'></icon>
-    <view class="tips">投递成功</view>
-    <navigator class="btn btn-default" url="/pages/index/index" open-type='switchTab'>返回首页</navigator>
+    <view class="tips">
+      <view class="title">投递成功</view>
+      <view class="desc">我们的工作人员会尽快对您的申请进行审核</view>
+    </view>
+    <navigator class="btn btn-success" delta="1" open-type='navigateBack'>返回</navigator>
   </view>
 </view>

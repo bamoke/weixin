@@ -40,7 +40,7 @@
         <view class="item" wx:for="{{edu}}" wx:key="id">
           <view class="section-title">
             <view class="title">{{item.school}}</view>
-            <view class="edit" bindtap="editItem" data-type="edu" data-index="{{index}}">编辑</view>
+            <view class="edit" bindtap="editItem" data-type="edu" data-rid="{{baseInfo.id}}" data-index="{{index}}">编辑</view>
           </view>
           <view class="other-info">
             <view class="row">{{eduArr[item.level]}}/{{item.major}}</view>
@@ -49,7 +49,7 @@
         </view>
       </view>
     </view>
-    <view class="u-add-item-btn" bindtap='addItem' data-type="edu">
+    <view class="u-add-item-btn" bindtap='addItem' data-type="edu" data-rid="{{baseInfo.id}}">
       <image class="u-myicon" src="/static/images/add.png" mode='aspectFill'></image>
       <text class="text">添加教育经历</text>
     </view>
@@ -68,7 +68,7 @@
         <view class="item" wx:for="{{work}}" wx:key="id">
           <view class="section-title">
             <view class="title">{{item.company}}</view>
-            <view class="edit" bindtap="editItem" data-type="work" data-index="{{index}}">编辑</view>
+            <view class="edit" bindtap="editItem" data-type="work" data-index="{{index}}" data-rid="{{baseInfo.id}}">编辑</view>
           </view>
           <view class="other-info">
             <view class="row">{{item.position}}</view>
@@ -79,7 +79,7 @@
         </view>
       </view>
     </view>
-    <view class="u-add-item-btn" bindtap='addItem' data-type="work">
+    <view class="u-add-item-btn" bindtap='addItem' data-type="work" data-rid="{{baseInfo.id}}">
       <image class="u-myicon" src="/static/images/add.png" mode='aspectFill'></image>
       <text class="text">添加工作经历</text>
     </view>

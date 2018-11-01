@@ -1,15 +1,18 @@
 // pages/resume/edu/index.js
 import util from "../../../utils/util"
-import {eduArr} from '../../../utils/data'
+import {
+  eduArr
+} from '../../../utils/data'
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    isSubmiting:false,
+    isSubmiting: false,
     eduArr,
     acType: '',
+    resumeId: null,
     id: null,
     school: '',
     major: '',
@@ -21,11 +24,11 @@ Page({
   /**
    * Action
    */
-  deleteItem: function () {
+  deleteItem: function() {
     const _that = this
     wx.showModal({
       content: '确认删除此项经历吗？',
-      success: function (res) {
+      success: function(res) {
         if (res.confirm) {
           _that._delete()
         }
@@ -33,7 +36,7 @@ Page({
     })
   },
   // delete
-  _delete: function () {
+  _delete: function() {
     let requestParams = {
       apiUrl: "/Resume/delete_item",
       requestData: {
@@ -47,7 +50,7 @@ Page({
       wx.showToast({
         title: '删除成功',
       })
-      setTimeout(function () {
+      setTimeout(function() {
         wx.navigateBack()
       }, 500)
     })
@@ -74,7 +77,7 @@ Page({
   submitForm: function(e) {
     if (this.data.isSubmiting) return;
     const formData = e.detail.value
-    const resumeId = wx.getStorageSync("resumeId")
+    const resumeId = this.data.resumeId
     var apiUrl;
     formData.level = this.data.level
     formData.start_time = this.data.start_time
@@ -97,25 +100,27 @@ Page({
       return
     }
 
-    if(this.data.acType == 'create') {
+    if (this.data.acType == 'create') {
       apiUrl = "/Resume/add_edu"
-    }else {
-      apiUrl = "/Resume/save/type/edu/id/"+this.data.id
+    } else {
+      apiUrl = "/Resume/save/type/edu/id/" + this.data.id
     }
     const requestParams = {
       apiUrl,
-      requestMethod:"POST",
-      requestData:formData
+      requestMethod: "POST",
+      requestData: formData
     }
-    this.setData({ isSubmiting: true })
+    this.setData({
+      isSubmiting: true
+    })
     const ajaxRequest = util.request(requestParams)
-    ajaxRequest.then(res=>{
+    ajaxRequest.then(res => {
       wx.showToast({
         title: '保存成功',
       })
-      setTimeout(function(){
+      setTimeout(function() {
         wx.navigateBack()
-      },500)
+      }, 500)
     })
 
   },
@@ -132,57 +137,17 @@ Page({
     const acType = options.type
     if (acType == 'create') {
       this.setData({
-        acType
+        acType,
+        resumeId:options.rid
       })
       return
     }
     const info = wx.getStorageSync("getResumeData")
     this.setData({
       acType,
+      resumeId: options.rid,
       ...info
     })
-    
-  },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function() {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function() {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function() {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function() {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function() {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function() {
 
   }
 
