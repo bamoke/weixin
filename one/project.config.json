@@ -4,7 +4,7 @@
 		"ignore": []
 	},
 	"setting": {
-		"urlCheck": false,
+		"urlCheck": true,
 		"es6": true,
 		"postcss": true,
 		"minified": true,
@@ -33,7 +33,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 16,
+			"current": 17,
 			"list": [
 				{
 					"id": 0,
@@ -136,6 +136,12 @@
 					"name": "课程点评",
 					"pathName": "pages/class/comment/index",
 					"query": "courseid=1"
+				},
+				{
+					"id": 17,
+					"name": "调研",
+					"pathName": "pages/survey/detail/index",
+					"query": "id=1"
 				}
 			]
 		}

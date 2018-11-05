@@ -1,5 +1,13 @@
 <!--pages/survey/index/index.wxml-->
 <view class="container" wx:if="{{showPage}}">
+  <view class="m-search-box g-wrap-main">
+    <view class="search-bar">
+      <input class="input-box" type='text' placeholder='搜索问卷' confirm-type="search" bindblur='setkeywords' bindconfirm="gosearch" value='{{kewWords}}'>
+      </input>
+      <view class="icon" bindtap='gosearch'></view>
+    </view>
+  </view>
+  <view class="ht-c"></view>
   <view class="m-text-list" wx:if="{{list.length}}">
     <navigator open-type='navigate' url="/pages/survey/detail/index?id={{item.id}}" class='item' wx:for="{{list}}" wx:key="id">
       <view class="ledt-box">

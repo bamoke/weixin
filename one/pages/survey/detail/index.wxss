@@ -1,44 +1,97 @@
 /* pages/survey/index.wxss */
+
 .survey {
-  padding:24rpx;
-  box-sizing:border-box;
-  width:100%;
+  padding: 24rpx;
+  box-sizing: border-box;
+  width: 100%;
   background: #fff;
 }
+
 .base-info {
-  padding:24rpx;
+  padding: 24rpx;
 }
+
 .base-info .title {
   font-size: 34rpx;
   font-weight: bold;
-  color:#121212;
+  color: #121212;
 }
+
 .quetion-item {
-  padding:24rpx 0;
-  border-bottom:1px solid #f1f1f1;
+  padding: 24rpx 0;
+  border-bottom: 1px solid #f1f1f1;
 }
+
 .quetion-item .ask {
-  margin-bottom:24rpx;
+  margin-bottom: 24rpx;
 }
+
 .quetion-item .ask .title {
-  font-size:32rpx;
-  color:#121212;
+  font-size: 32rpx;
+  color: #121212;
 }
+
+.quetion-item .ask .nu {
+  font-weight: bold;
+}
+.error-box {background-color:#fcd6d5;color:#e64340;padding:24rpx;}
+.quetion-item .ask .type-multiple {
+  margin-left: 12rpx;
+  display: inline-block;
+  font-size: 20rpx;
+  padding: 2rpx 12rpx;
+  background-color: #e64340;
+  border-radius: 12rpx;
+  color:#fff;
+}
+
 .m-option .option-item {
   display: flex;
-  padding:24rpx 0;
+  padding: 24rpx 0;
 }
+
 .m-option .option-item .icon {
   flex-shrink: 0;
   flex-grow: 0;
-  margin-right:12rpx;
-  width:36rpx;
-  height:36rpx;
-  border-radius:50%;
-  border:1px solid #ddd;
+  margin-right: 12rpx;
+  width: 36rpx;
+  height: 36rpx;
+  line-height: 36rpx;
+  border: 1px solid #ddd;
+  vertical-align: middle;
+  text-align: center;
 }
+
+.m-option .option-item .icon .gou {
+  display: none;
+  font-weight: bold;
+}
+.m-option .option-item .active {
+  color:#1b7dd5;
+  border-color:#1b7dd5;
+}
+.m-option .option-item .active .gou {
+  display: inline-block;
+}
+
+.m-option .option-item .icon-single {
+  border-radius: 50%;
+}
+
+.m-option .option-item .icon-multiple {
+  border-radius: 0;
+}
+
 .error-tips {
-  padding:12rpx 24rpx;
-  background-color:rgba(230,67,64,.2);
-  color:#e64340;
+  padding: 12rpx 24rpx;
+  background-color: rgba(230, 67, 64, 0.2);
+  color: #e64340;
+}
+
+.fill-input {
+  box-sizing: border-box;
+  width: 100%;
+  height: 160rpx;
+  padding: 12rpx;
+  background-color: #f8f8f8;
 }

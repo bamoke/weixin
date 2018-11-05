@@ -39,6 +39,8 @@
   flex-shrink: 1;
   width:100%;
   padding:0 12rpx;
+  height: 60rpx;
+  line-height: 60rpx;
   background-color:#f8f8f8;
 }
 

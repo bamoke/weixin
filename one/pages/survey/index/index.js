@@ -7,7 +7,7 @@ Page({
    */
   data: {
   showPage:false,
-  classId:null,
+  courseId:null,
   curPage:1, 
   hasMore:false,
   list:[]
@@ -17,16 +17,20 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    const classId = options.classid
+    const courseId = options.courseid || null
+    let requestData = {}
+    if(courseId) {
+      requestData.courseid = courseId
+    }
     const params = {
       apiUrl: "/survey/index",
-      requestData: { class_id: classId },
+      requestData,
       requestMethod: "GET"
     }
     const ajaxRequest = util.request(params)
     ajaxRequest.then(res => {
       this.setData({
-        classId,
+        courseId,
         showPage: true,
         list: res.data.list,
         hasMore: res.data.hasMore

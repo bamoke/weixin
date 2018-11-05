@@ -1,1 +1,10 @@
 /* pages/survey/index/index.wxss */
+.container {
+  background: #f8f8f8;
+}
+.m-text-list {padding:24rpx;}
+.m-text-list > .item {
+  margin-bottom:24rpx;
+  background: #fff;
+  border-radius:10rpx;
+}

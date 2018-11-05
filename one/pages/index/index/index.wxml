@@ -9,7 +9,7 @@
 
   <view class="ht-c "></view>
   <view class="subnav d-flex justify-content-between p-pub ">
-    <navigator open-type='navigate' url="/pages/single/index?cid=1">
+    <navigator open-type='navigate' url="/pages/survey/index/index">
       <view class="img-view bg-lan ">
         <image src="/common/images/index-icon-01.png " alt=" " mode='widthFix' />
       </view>

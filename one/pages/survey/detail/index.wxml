@@ -3,24 +3,41 @@
   <progress class="progress" activeColor="#09BB07" percent="{{progress}}" />
   <view class="base-info">
     <view class="title">{{baseInfo.title}}</view>
+    <view class="desc">{{baseInfo.description}}</view>
   </view>
   <view class="ht-c"></view>
   <view class="m-question-wrap g-pad-box">
-    <view class="quetion-item" wx:for="{{question}}" wx:key="id">
+    <view class="quetion-item" wx:for="{{questionList}}" wx:key="id">
       <view class="ask">
-        <text class="nu">{{index+1}}</text><text class="title">{{item.ask}}</text><text class="type">{{item.type}}</text>
+        <text class="nu">{{index+1}}.</text>
+        <text class="title">{{item.ask}}</text>
+        <text class="type-multiple" wx:if="{{item.type==2}}">多选</text>
       </view>
-      <view class="m-option">
-        <view class="option-item" wx:for="{{item.answer}}" wx:key="index" wx:for-index="i" wx:for-item="opt" bindtap='selectValue' data-index="{{index}}" data-opt="{{i}}">
-          <view class="icon"></view>
-          <view class="">{{opt}}</view>
+      <view class='error-box' hidden='{{item.isError != 1}}'>请完成此项调查</view>
+      <view class="m-option" wx:if="{{item.type == 1}}">
+        <view class="option-item" wx:for="{{item.answer}}" wx:key="id" wx:for-index="i" wx:for-item="opt" bindtap='selectSingle' data-questionindex="{{index}}" data-answerid="{{opt.id}}">
+          <view class="icon icon-single {{item.selected == opt.id?'active':''}}">
+            <text class="gou">√</text>
+          </view>
+          <view class="">{{opt.content}}</view>
         </view>
+      </view>
+      <view class="m-option" wx:elif="{{item.type == 2}}">
+        <view class="option-item" wx:for="{{item.answer}}" wx:key="id" wx:for-index="i" wx:for-item="opt" bindtap='selectMultiple' data-questionindex="{{index}}" data-answerindex="{{i}}" data-answerid="{{opt.id}}">
+          <view class="icon icon-multiple {{opt.selected == 1?'active':''}}">
+            <text class="gou">√</text>
+          </view>
+          <view class="">{{opt.content}}</view>
+        </view>
+      </view>
+      <view class="fill-box" data-questionindex="{{index}}" bindtap='setFillQuestion' wx:else>
+        <textarea name="" maxlength='200' class="fill-input" placeholder='' data-questionindex="{{item.index}}" bindconfirm='fillAnswer' bindblur='fillAnswer'></textarea>
       </view>
     </view>
 
   </view>
 
   <view class="g-pad-box">
-    <view class="btn btn-block btn-primary">提交</view>
+    <view class="btn btn-block btn-primary" bindtap='submit'>提交</view>
   </view>
 </view>
