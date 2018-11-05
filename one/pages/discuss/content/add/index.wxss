@@ -1,0 +1,17 @@
+/* pages/discuss/content/add/index.wxss */
+.color-list .item {
+  margin-right:20rpx;
+}
+.color-list {padding:24rpx 0;}
+.color-item {
+  display: inline-block;
+  width:48rpx;
+  height:48rpx;
+  vertical-align: middle;
+}
+.btn-box {
+  padding:60rpx 24rpx 24rpx;
+  text-align: center;
+}
+.btn-box .btn {vertical-align: middle;}
+.btn-box .btn-default {margin-right:40rpx;}

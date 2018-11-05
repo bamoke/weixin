@@ -1,1 +1,2 @@
 /* pages/discuss/index/index.wxss */
+@import "/pages/class/index/index.wxss";

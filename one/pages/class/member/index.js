@@ -6,33 +6,35 @@ Page({
    * 页面的初始数据
    */
   data: {
-    typeArr:["成员","班长","副班长","组长"],
-    classId:null,
+    typeArr:["","成员","组长","副班长","班长"],
+    courseId:null,
     showPage:false,
     hasMore:false,
     curPage:1,
     list:[],
-    keywords:''
+    keywords:'',
+    onLoading:false
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    const classId = options.classid
+    const courseId = options.courseid
     const params = {
-      apiUrl: "/Class/member",
-      requestData:{class_id:classId},
+      apiUrl: "/Myclass/member",
+      requestData: { courseid: courseId},
       requestMethod: "GET"
     }
     const ajaxRequest = util.request(params)
     ajaxRequest.then(res => {
       this.setData({
-        classId,
+        courseId,
         showPage: true,
         list: res.data.list,
         hasMore: res.data.hasMore
       })
+      console.log(this.data)
     })
   },
 
@@ -44,13 +46,13 @@ Page({
   },
   gosearch:function(){
     let postData = {
-      class_id: this.data.classId
+      courseid: this.data.courseId
     }
     if (this.data.keywords) {
       postData.keywords = this.data.keywords
     }
     const params = {
-      apiUrl: "/Class/member",
+      apiUrl: "/Myclass/member",
       requestData: postData,
       requestMethod: "GET"
     }
@@ -68,15 +70,17 @@ Page({
    */
   onReachBottom: function () {
     if (!this.data.hasMore) return;
+    if(!this.data.onLoading) return
     let postData = {
       p: this.data.curPage + 1,
-      class_id: this.data.classId
+      courseid: this.data.courseId
     }
     if (this.data.keywords){
       postData.keywords = this.data.keywords
     }
+    this.setData({onLoading:true})
     const requestParams = {
-      apiUrl: "/Class/member",
+      apiUrl: "/Myclass/member",
       requestMethod: "GET",
       requestData: postData
     }
@@ -85,7 +89,8 @@ Page({
       this.setData({
         hasMore: res.data.hasMore,
         list: this.data.list.concat(res.data.list),
-        curPage: res.data.page
+        curPage: res.data.page,
+        onLoading:false
       })
     })
   }

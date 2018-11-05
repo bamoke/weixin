@@ -12,7 +12,7 @@
   justify-content: space-between;
 }
 .subnav .row .item {
-  width:20%;
+  width:25%;
   flex-grow:0;
   flex-shrink: 0;
 }
@@ -38,3 +38,30 @@
 }
 .m-dynamic-list .text-box .user-name {color:#121212;}
 .m-dynamic-list .text-box .time {color:#ccc;font-size:24rpx; }
+.class-banner {
+  position: relative;
+  height:280rpx;
+  background:#000;
+}
+.class-banner .img {
+  width:100%;
+  height:280rpx;
+  opacity: .3;
+}
+.class-banner .class-name {
+  position:absolute;
+  left:0;
+  top:30%;
+  z-index: 1;
+  padding:0 24rpx;
+  width:100%;
+  text-align: center;
+  color:#fff;
+
+}
+.class-banner .class-name .name {
+  display: inline-block;
+  font-size:34rpx;
+  padding:24rpx;
+  border:1px solid #fff;
+}

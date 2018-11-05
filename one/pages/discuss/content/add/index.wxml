@@ -1,0 +1,18 @@
+<!--pages/discuss/content/add/index.wxml-->
+<view class="container">
+  <view class="g-pad-box">
+    <textarea bindconfirm="changeContent" bindblur='changeContent' maxlength="200" placeholder="请输入您的观点，200字符以内" value="{{content}}"></textarea>
+  </view>
+  <view class="ht-c"></view>
+  <view class="g-pad-box">
+    <view class="">卡片颜色：<text class="color-item" style="background:#{{colorArr[colorSelected]}}"></text></view>
+    <view class="color-list" bindtap="selectColor">
+      <text class="item color-item" style="background:#{{item}}" wx:for="{{colorArr}}" wx:key="index" data-index="{{index}}"></text>
+    </view>
+  </view>
+  <view class="ht-c"></view>
+  <view class="btn-box">
+    <!-- <navigator open-type='navigateBack' delta="1" class="btn btn-default" style="width:30%">取消</navigator> -->
+    <button class="btn btn-primary btn-block" bindtap='saveContent'>提交</button>
+  </view>
+</view>

@@ -20,7 +20,7 @@
   
   <!------>
   <view class="m-foot-input">
-    <input class="input" placeholder='请输入笔记内容' type='text' maxlength='120' bindblur='setValue'></input>
-    <view class="btn btn-primary">添加</view>
+    <input class="input" value='{{newNotes}}' placeholder='请输入笔记内容' type='text' maxlength='120' bindblur='setValue'></input>
+    <view class="btn btn-primary" bindtap='addNote'>添加</view>
   </view>
 </view>

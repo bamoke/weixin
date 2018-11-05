@@ -1,18 +1,43 @@
 // pages/discuss/detail/index.js
+const app = getApp()
+import util from "../../../utils/util"
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    showPage:false,
+    curId:null,
+    discussInfo:{},
+    memberInfo:{},
+    nodes:[]
   },
+
+  /**
+   * methods
+   */
+  addNode:function(){
+    if(this.data.nodes.length > 9) {
+      wx.showToast({
+        title: '最多添加10个分栏',
+        image:"/static/images/icon-error.png"
+      })
+      return
+    }
+    wx.navigateTo({
+      url: '/pages/discuss/node/add/index?discussid='+this.data.curId,
+    })
+  },
+
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    this.setData({
+      curId:options.id
+    })
   },
 
   /**
@@ -26,41 +51,38 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
+    const params = {
+      apiUrl: "/Discuss/detail",
+      requestData: {
+        id: this.data.curId
+      },
+      requestMethod: "GET"
+    }
+    const ajaxRequest = util.request(params)
+    ajaxRequest.then(res => {
+      this.setData({
+        showPage: true,
+        discussInfo: res.data.discuss,
+        nodes: res.data.nodes,
+        memberInfo: res.data.memberInfo
+      })
+    }, reject => {
+      if (reject.code == 14001) {
+        wx.showModal({
+          content: reject.msg,
+          confirmText: "返回",
+          showCancel: false,
+          success: function (res) {
+            if (res.confirm) {
+              wx.switchTab({
+                url: '/pages/class/index/index',
+              })
+            }
+          }
+        })
+      }
+    })
   }
+
+  
 })

@@ -1,2 +1,44 @@
 <!--pages/discuss/detail/index.wxml-->
-<text>pages/discuss/detail/index.wxml</text>
+<view class="container">
+  <view class="top-info">
+    <view class="name-box">
+      <view class="name">{{discussInfo.title}}</view>
+      <text class="stage">{{discussInfo.stage==1?'进行中':'已结束'}}</text>
+    </view>
+    <view class="add-node-btn" bindtap='addNode' wx:if="{{memberInfo.type==2 && discussInfo.stage==1}}">
+      <image class="icon" src="/static/images/add-white.png"></image>
+      <view class="txt">添加讨论分栏</view>
+    </view>
+  </view>
+  <view class="ht-c"></view>
+  <view class="m-nodes-wrap" wx:if="{{nodes.length > 0}}">
+    <view class="node-item" wx:for="{{nodes}}" wx:key="id">
+      <view class="node-bar g-pad-box g-row-bt">
+        <view class="node-name">{{item.title}}</view>
+        <navigator open-type='navigate' url="../node/index/index?discussid={{curId}}">更多</navigator>
+      </view>
+      <view class="g-pad-box content-wrap" wx:if="{{item.contentList.length > 0}}">
+        <navigator open-type='navigate' url="../content/detail/index?id={{cont.id}}" class="node-content-item" wx:for="{{item.contentList}}" wx:key="id" wx:for-item="cont" style="background:#{{cont.color}}">
+          <view class="content">{{cont.content}}</view>
+          <view class="member-name">by:{{cont.membername}}</view>
+        </navigator>
+        <navigator wx:if="{{discussInfo.stage==1}}" open-type='navigate' url="../content/add/index?nodeid={{item.id}}" class="add-content-box">
+          <image class="icon" src="/static/images/add.png"></image>
+          <view class="txt">添加卡片</view>
+        </navigator>
+      </view>
+      <view class="g-pad-box empty-content" wx:else>
+        <view class="tips">该分栏节点还没有添加内容</view>
+        <navigator wx:if="{{discussInfo.stage==1}}" open-type='navigate' url="../content/add/index?nodeid={{item.id}}" class="btn btn-success">我来添加</navigator>
+      </view>
+      <view class="ht-c"></view>
+    </view>
+
+  </view>
+
+  <!--empty page-->
+  <view class="m-tips-page tips-page-empty" wx:else>
+    <image class="icon" src="/static/images/mt-empty.png"></image>
+    <view class="tips">还没有讨论内容</view>
+  </view>
+</view>

@@ -1,0 +1,34 @@
+<!--pages/discuss/content/detail/index.wxml-->
+<view class="container" wx:if="{{showPage}}">
+  <view class="g-pad-box m-discuss-content-box">
+    <view class="discuss-content">{{mainInfo.content}}</view>
+    <view class="name">{{mainInfo.member_name}}</view>
+    <view class="time">发表于：{{mainInfo.create_time}}</view>
+  </view>
+  <view class="ht-c"></view>
+  <view class="m-comment-wrap">
+    <view class="m-column-bar ">
+      <view class="title ">评论</view>
+    </view>
+    <view class="m-comment-list" wx:if="{{comment.length>0}}">
+      <view class="item" wx:for="{{comment}}" wx:key="id">
+        <view class="top-info">
+          <view class="name">{{item.membername}}</view>
+          <view class="time">{{item.create_time}}</view>
+        </view>
+        <view class="content">{{item.content}}</view>
+      </view>
+    </view>
+    <view class="m-tips-page tips-page-empty" wx:else>
+      <image class="icon" src="/static/images/mt-empty.png"></image>
+      <view class="tips">还没有评论</view>
+    </view>
+  </view>
+
+  <view class="m-foot-operation">
+    <view class="m-comment-form">
+      <input class="input" placeholder='请输入评论内容…' maxlength='100' bindblur='changeComment'></input>
+      <button class="release-btn" bindtap='saveComment'>发布</button>
+    </view>
+  </view>
+</view>

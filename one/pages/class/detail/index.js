@@ -7,30 +7,47 @@ Page({
   data: {
     showPage: false,
     hasMore:false,
-    id:null,
+    courseId:null,
     curPage:1,
     banner: "",
     dynamicList: []
   },
 
   onLoad: function(options) {
-    const id = options.id
+    const courseId = options.courseid
     const params = {
-      apiUrl: "/Class/detail",
+      apiUrl: "/Myclass/detail",
       requestData: {
-        id: id
+        courseid: courseId
       },
       requestMethod: "GET"
     }
+    this.setData({
+      courseId
+    })
     const ajaxRequest = util.request(params)
     ajaxRequest.then(res => {
       this.setData({
         showPage: true,
-        id:id,
-        banner: res.data.banner,
-        dynamicList: res.data.dynamicList,
+        courseName:res.data.title,
+        dynamicList: res.data.list,
         hasMore:res.data.hasMore
       })
+    },reject=>{
+      if (reject.code == 14001) {
+        wx.showModal({
+          content: reject.msg,
+          confirmText:"返回",
+          showCancel:false,
+          success:function(res){
+            if(res.confirm){
+              wx.switchTab({
+                url: '/pages/course/index/index',
+              })
+            }
+          }
+        })
+      }
     })
   },
 
@@ -40,12 +57,12 @@ Page({
   onReachBottom: function () {
     if (!this.data.hasMore) return;
     let postData = {
-      id:this.data.id,
+      courseid:this.data.courseId,
       p: this.data.curPage + 1
     }
     console.log(postData)
     const requestParams = { 
-      apiUrl: "/Class/detail",
+      apiUrl: "/Myclass/vlist",
       requestMethod: "GET",
       requestData: postData
     }
@@ -53,7 +70,7 @@ Page({
     ajaxRequest.then(res => {
       this.setData({
         hasMore: res.data.hasMore,
-        dynamicList: this.data.dynamicList.concat(res.data.dynamicList),
+        dynamicList: this.data.dynamicList.concat(res.data.list),
         curPage: res.data.page
       })
     })

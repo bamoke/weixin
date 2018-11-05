@@ -88,6 +88,8 @@ const request = function ({ apiUrl, requestData = {}, requestMethod="GET", isSho
                 } 
               }
             })
+          } else if (res.data.code == 14001 || res.data.code == 14002) {
+
           }else {
             wx.showToast({
               title: res.data.msg,

@@ -1,24 +1,29 @@
 <!--index.wxml-->
 <view class="container" wx:if="{{showPage}}">
   <view class="">
-    <view class="m-class-list">
-      <navigator open-type='navigate' url="/pages/class/detail/index?id={{item.id}}" class="item" wx:for="{{list}}" wx:key="id">
+    <view class="m-class-list" wx:if="{{list.length}}">
+      <navigator open-type='navigate' url="/pages/class/detail/index?courseid={{item.course_id}}" class="item" wx:for="{{list}}" wx:key="id">
         <view class="left-box">
-          <view class='name'>{{item.name}}</view>
-          <view class="other-info">
+          <view class='name'>{{item.course_name}}</view>
+          <!--           <view class="other-info">
             <view class="util">
               <image class='u-icon' src="/static/images/user-group-black.png"></image>{{item.member_num}}
             </view>
             <view class="util">
-              <image class='u-icon' src="/static/images/icon-time.png"></image>{{item.create_time}}
+              <image class='u-icon' src="/static/images/icon-time.png"></image>{{item.date}}
             </view>
-          </view>
+          </view> -->
         </view>
         <view class="right-icon">
           <image class='u-icon right-arrow' src="/static/images/arrow-black.png"></image>
         </view>
 
       </navigator>
+    </view>
+    <!--empty page-->
+    <view class="m-tips-page tips-page-empty" wx:else>
+      <image class="icon" src="/static/images/mt-empty.png"></image>
+      <view class="tips">还未加入过任何班级</view>
     </view>
   </view>
 

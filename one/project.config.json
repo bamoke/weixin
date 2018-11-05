@@ -33,7 +33,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 12,
+			"current": 16,
 			"list": [
 				{
 					"id": 0,
@@ -63,7 +63,7 @@
 					"id": 4,
 					"name": "班级主页",
 					"pathName": "pages/class/detail/index",
-					"query": "id=1"
+					"query": "courseid=1"
 				},
 				{
 					"id": 5,
@@ -112,6 +112,30 @@
 					"name": "简历详情",
 					"pathName": "pages/resume/detail/index",
 					"query": "id=1"
+				},
+				{
+					"id": 13,
+					"name": "讨论详情",
+					"pathName": "pages/discuss/detail/index",
+					"query": "id=1"
+				},
+				{
+					"id": 14,
+					"name": "发布观点",
+					"pathName": "pages/discuss/content/add/index",
+					"query": "nodeid=1"
+				},
+				{
+					"id": -1,
+					"name": "观点详情",
+					"pathName": "pages/discuss/content/detail/index",
+					"query": "id=1"
+				},
+				{
+					"id": -1,
+					"name": "课程点评",
+					"pathName": "pages/class/comment/index",
+					"query": "courseid=1"
 				}
 			]
 		}

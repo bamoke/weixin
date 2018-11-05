@@ -28,36 +28,6 @@
     </view>
   </view>
 
-  <view class="g-result-page" wx:if="{{showResult}}">
-    <view class="result-my-record">
-      <view class="score">{{resultTotal.myRecord.score||100}}</view>
-      <view class="m-total-bar">
-        <view class="util">总计:
-          <text class="nu">{{resultTotal.myRecord.total||0}}</text>题</view>
-        <view class="util">正确:
-          <text class="nu text-success">{{resultTotal.myRecord.correct||0}}</text>题</view>
-        <view class="util">错误:
-          <text class="nu text-warning">{{resultTotal.myRecord.error||0}}</text>题</view>
-      </view>
-    </view>
 
-    <view class="ht-c"></view>
-    <view class="m-score-ranking">
-      <view class="bar">分数榜</view>
-      <view class="g-pad-box">
-        <view class="item" wx:for="{{resultTotal.otherRecord}}" wx:key="id">
-          <view class="left-box">
-            <image class="avatar" src="{{list.avatar || '/static/images/default-avatar.png'}}"></image>
-            <text class="name">{{item.name}}</text>
-          </view>
-          <view class="score">{{item.score}}</view>
-        </view>
-      </view>
-    </view>
-    <view class="ht-c"></view>
-    <view class='g-pad-box'>
-      <navigator class="btn btn-block btn-primary" open-type='navigateBack' delta="2">返回班级</navigator>
-    </view>
-  </view>
 
 </view>

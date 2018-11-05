@@ -1,13 +1,12 @@
 /* pages/notes/index/index.wxss */
 
 .container {
-  padding-bottom:120rpx;
   background-color: #f4f4f4;
   color: #4c4c4c;
 }
 
 .m-notes-list {
-  padding: 24rpx 48rpx;
+  padding: 24rpx 48rpx 120rpx;
 }
 
 .m-notes-list > .item {

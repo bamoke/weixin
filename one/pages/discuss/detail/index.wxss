@@ -1,1 +1,78 @@
 /* pages/discuss/detail/index.wxss */
+@import "../discuss.wxss";
+.top-info {
+  display: flex;
+  justify-content: space-between;
+  padding:24rpx;
+  background:#2591FE;
+  color:#fff;
+}
+.top-info .add-node-btn {
+  flex:0,0,auto;
+  text-align: center;
+  font-size:24rpx;
+}
+.top-info .icon {
+  width:64rpx;
+  height:64rpx;
+}
+.top-info .name {
+  margin-bottom:12rpx;
+  font-size:34rpx;
+}
+.top-info .stage {
+  display: inline-block;
+  height:40rpx;
+  line-height: 40rpx;
+  padding:0 24rpx;
+  border:1px solid #fff;
+  border-radius:20rpx;
+  font-size:22rpx;
+}
+.empty-content  {
+  text-align: center;
+}
+.empty-content .tips {padding:24rpx;color:#9c9c9c;}
+.node-bar {border-bottom:1px solid #f1f1f1;}
+.node-bar .node-name {
+  font-size:32rpx;
+  color:#232323;
+}
+
+.content-wrap {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+.node-content-item {
+  margin-bottom:24rpx;
+  width:40%;
+  padding:0 24rpx;
+  color:#fff;
+  font-size:24rpx;
+  border:1px solid transparent;
+}
+.node-content-item .content {
+  padding:24rpx 0;
+  height: 160rpx;
+  overflow: hidden;
+}
+.node-content-item .member-name {
+  height:60rpx;
+  line-height: 60rpx;
+  border-top:1px solid #fff;
+  font-size:22rpx;
+}
+.add-content-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content:center;
+  padding:0 24rpx;
+  width:40%;
+  height:220rpx;
+  text-align: center;
+  border:1px solid #ff9900;
+  color:#ff9900;
+}
+.add-content-box .icon {width:48rpx;height:48rpx;}

@@ -1,0 +1,62 @@
+/* pages/class/comment/index.wxss */
+.m-course-name {
+  padding:24rpx;
+  color:#232323;
+  font-size:34rpx;
+}
+.grade-wrap {
+  padding:24rpx 24rpx 40rpx;
+}
+.bar {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-top: 48rpx;
+  margin-bottom: 24rpx;
+}
+.bar .caption {
+  margin-bottom:8rpx;
+  color:#232323;
+  font-size:32rpx;
+}
+.bar .icon {
+  display: inline-block;
+  height:8rpx;
+  line-height: 12rpx;
+  width:60rpx;
+  background-color:#ccc;
+  border-radius:4rpx;
+  overflow: hidden;
+}
+.icon-star {
+  width:48rpx;
+  height:48rpx;
+}
+.m-grade-box {
+  position: relative;
+  display: inline-block;
+  width:240rpx;
+}
+.m-grade-box .grade {
+  position: absolute;
+  left:0;
+  top:0;
+  display: inline-block;
+  z-index: 1;
+  text-align: left;
+}
+.m-grade-box .bg {text-align: left;}
+.m-grade-box .bg .icon-star {
+  -webkit-filter: grayscale(100%);
+  opacity: .5;
+}
+.comment-content {
+  box-sizing: border-box;
+  margin-bottom:80rpx;
+  padding:12rpx;
+  width:100%;
+  background-color:#f8f8f8;
+}
+.m-grade-result .content {margin-bottom:12rpx;padding:24rpx;background-color:#f8f8f8;color:#232323;}
+.m-grade-result .time {color:#9c9c9c;font-size:24rpx;}

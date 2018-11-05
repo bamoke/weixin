@@ -1,6 +1,6 @@
 <view class="container" wx:if="{{showPage}}">
   <view class="m-text-list" wx:if="{{list.length}}">
-    <navigator open-type='navigate' url="/pages/work/detail/index?id={{item.id}}" class='item' wx:for="{{list}}" wx:key="id">
+    <view data-testid="{{item.id}}" class='item' bindtap='toTest' wx:for="{{list}}" wx:key="id">
       <view class="ledt-box">
         <view class="title">{{item.title}}</view>
         <view class="time">
@@ -10,7 +10,7 @@
       <view class="right-icon">
         <image class='u-icon icon-right-arrow' src="/static/images/arrow-black.png"></image>
       </view>
-    </navigator>
+    </view>
     <!--paging-->
     <view class="m-paging-wrap">
       <view class='item no-more' wx:if="{{!hasMore}}">没有更多了</view>

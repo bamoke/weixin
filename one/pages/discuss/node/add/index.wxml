@@ -1,0 +1,10 @@
+<!--pages/discuss/node/add/index.wxml-->
+<view class="container">
+  <view class="g-pad-box">
+    <input bindblur='change' placeholder='请输入节点名称'></input>
+  </view>
+  <view class="ht-c"></view>
+  <view class="g-pad-box">
+    <button class="btn btn-block btn-primary" bindtap='saveNode'>确定</button>
+  </view>
+</view>

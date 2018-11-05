@@ -11,7 +11,7 @@ Page({
     list: []
   },
 
-  onLoad: function(options) {
+  onShow: function(options) {
     const params = {
       apiUrl: "/Myclass/index",
       requestMethod: "GET"
@@ -23,6 +23,8 @@ Page({
         list: res.data.list,
         hasMore:res.data.hasMore
       })
+    }).catch(reject=>{
+      console.log("s")
     })
   },
 

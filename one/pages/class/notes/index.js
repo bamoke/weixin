@@ -7,45 +7,63 @@ Page({
    */
   data: {
     showPage:true,
-    classId:null,
+    courseId:null,
     curPage:1,
     hasMore:false,
-    list:[]
+    list:[],
+    newNotes:''//当前填写的
   },
-
+  /**
+   * methods
+   */
+  setValue:function(e){
+    this.setData({
+      newNotes:e.detail.value
+    })
+  },
+  addNote:function(){
+    if (this.data.newNotes == '') {
+      wx.showToast({
+        title: '内容不能为空',
+        image:'/static/images/icon-error.png'
+      })
+      return
+    }
+    const courseId = this.data.courseId
+    const params = {
+      apiUrl: "/Myclass/addnote",
+      requestData: { courseid: courseId, content: this.data.newNotes },
+      requestMethod: "POST"
+    }
+    const ajaxRequest = util.request(params)
+    ajaxRequest.then(res => {
+      let newList = this.data.list
+      newList.push(res.data.info)
+      this.setData({
+        newNotes:"",
+        list: newList
+      })
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    const classId = options.classid
+    const courseId = options.courseid
     const params = {
-      apiUrl: "/Notes/index",
-      requestData: { class_id: classId },
+      apiUrl: "/Myclass/notes",
+      requestData: { courseid: courseId },
       requestMethod: "GET"
     }
     const ajaxRequest = util.request(params)
     ajaxRequest.then(res => {
       this.setData({
-        classId,
+        courseId,
         showPage: true,
         list: res.data.list,
         hasMore: res.data.hasMore
       })
     })
-  },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
   },
 
 
@@ -56,10 +74,10 @@ Page({
     if (!this.data.hasMore) return;
     let postData = {
       p: this.data.curPage + 1,
-      class_id: this.data.classId
+      courseid: this.data.courseId
     }
     const requestParams = {
-      apiUrl: "/Notes/index",
+      apiUrl: "/Myclass/notes",
       requestMethod: "GET",
       requestData: postData
     }

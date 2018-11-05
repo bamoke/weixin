@@ -1,4 +1,4 @@
-// pages/notes/detail/index.js
+// pages/discuss/node/index/index.js
 Page({
 
   /**
