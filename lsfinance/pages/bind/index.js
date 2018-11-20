@@ -14,7 +14,10 @@ Page({
     btnDisebled: false,
     errorStatus: false,
     errorMsg: "",
-    phone: null
+    phone: null,
+    typeIndex:0,
+    userType:0,
+    typeArray:["请选择","企业主","管理人员"]
   },
 
   /**
@@ -24,6 +27,10 @@ Page({
     this.setData({
       phone: data.detail.value
     })
+  },
+  bindTypeChange:function(e){
+    const value= e.detail.value
+    this.setData({ userType: value})
   },
   /**
    * 获取验证码
@@ -89,9 +96,12 @@ Page({
     var apiUrl = "/Account/bindaccount";
     var req;
     //临时设置
-    formData.comtype =2;
-    formData.usertype =1;
+    formData.comtype =2;//1:财务服务机构;2:被代理的企业
+    formData.usertype =parseInt(this.data.userType);
     //表单验证
+    if (formData.usertype == 0){
+      return this._setError("请选择用户类型")
+    }
     if (formData.phone == '') {
       return this._setError("请输入手机号码")
     }
@@ -141,9 +151,6 @@ Page({
   onLoad: function (options) {
     var navigationBarTitle;
     navigationBarTitle = "账号绑定";
-    this.setData({
-      acType: options.type
-    })
     wx.setNavigationBarTitle({
       title: navigationBarTitle
     })

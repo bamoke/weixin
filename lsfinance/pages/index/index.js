@@ -23,35 +23,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    const requestParams = {
-      apiUrl : '/Index/index'
-    }
-    
-    let curComInfo = wx.getStorageSync("curComInfo")
-    util.request(requestParams).then(data=> {
-      if(!curComInfo) {
-        curComInfo = data.comList[0]
-        wx.setStorageSync('curComInfo', data.comList[0])
-      }
-
-        this.setData({
-          curComInfo,
-          comList:data.comList,
-          pageShow:true,
-          news:[
-            {
-              id:1,
-              "title":'2018年国庆放假通知',
-              "date":'09-29'
-            },
-            {
-              id: 1,
-              "title": '2018年元旦放假通知',
-              "date": '11-29'
-            }
-          ]
-        })
-      })
+ 
   },
 
   /**
@@ -65,7 +37,36 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    // console.log("show")
+    const requestParams = {
+      apiUrl: '/Index/index'
+    }
+
+    let curComInfo = wx.getStorageSync("curComInfo")
+    util.request(requestParams).then(data => {
+      if (!curComInfo) {
+        curComInfo = data.comList[0]
+        wx.setStorageSync('curComInfo', data.comList[0])
+      }
+      wx.setStorageSync("myCom", data.comList)
+
+      this.setData({
+        curComInfo,
+        comList: data.comList,
+        pageShow: true,
+        news: [
+          {
+            id: 1,
+            "title": '2018年国庆放假通知',
+            "date": '09-29'
+          },
+          {
+            id: 1,
+            "title": '2018年元旦放假通知',
+            "date": '11-29'
+          }
+        ]
+      })
+    })
   },
 
   /**

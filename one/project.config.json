@@ -33,12 +33,12 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 20,
+			"current": 4,
 			"list": [
 				{
 					"id": 0,
 					"name": "课程详情",
-					"pathName": "pages/course/enroll/index",
+					"pathName": "pages/course/detail/index",
 					"query": "id=1"
 				},
 				{
@@ -63,7 +63,7 @@
 					"id": 4,
 					"name": "班级主页",
 					"pathName": "pages/class/detail/index",
-					"query": "courseid=1"
+					"query": "courseid=2"
 				},
 				{
 					"id": 5,
@@ -78,10 +78,10 @@
 					"query": "classid=1"
 				},
 				{
-					"id": -1,
+					"id": 7,
 					"name": "作业",
 					"pathName": "pages/work/index/index",
-					"query": "classid=1"
+					"query": "courseid=2"
 				},
 				{
 					"id": -1,
@@ -160,6 +160,12 @@
 					"name": "项目进度",
 					"pathName": "pages/myparttime/progress/index",
 					"query": "parttimeid=2"
+				},
+				{
+					"id": -1,
+					"name": "外包",
+					"pathName": "pages/contract/index/index",
+					"query": ""
 				}
 			]
 		}

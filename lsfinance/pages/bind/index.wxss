@@ -13,20 +13,28 @@ page {
 .m-form .form-group {
   align-items: center;
 }
+.m-form .input-box {
+  height:76rpx;
+  box-sizing: border-box;
+}
+.radio-group {width:100%;}
+.radio-group .radio {display:inline-block;width:50%;}
+.select-label {flex-shrink: 0;width:auto;}
+.select-opt {flex-shrink:1;width:100%;text-align: right;}
 .m-form .form-group .code-btn {
   flex-shrink: 0;
   margin-left: 5%;
   width: 30%;
-  height: 1.4rem;
-  line-height: 1.4rem;
-  min-height: 1.4rem;
+  height: 76rpx;
+  line-height: 76rpx;
   text-align: center;
   border-radius: 10rpx;
-  padding:12rpx 24rpx;
+
 }
 
 .m-form .form-group .btn-active {
-  background-color: #28c0c6;
+  background-color: #232323;
+  /* background-color: #28c0c6; */
   color: #fff;
 }
 .m-form .form-group .btn-disebled {

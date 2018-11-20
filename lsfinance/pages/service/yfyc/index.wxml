@@ -1,0 +1,50 @@
+<!--pages/service/yfyc/index.wxml-->
+<view class="container" wx:if="showPage">
+  <view class="m-total yfyc-top">
+    <view class='section'>预存余额(元)</view>
+    <view class="amount">{{amountTotal}}</view>
+  </view>
+  <view class="m-tab">
+    <view class="tab" bindtap='switchTab'>
+      <view class="item {{curTabKey=='recharge'?'active':''}}" data-key="recharge">我要预存</view>
+      <view class="item {{curTabKey=='logs'?'active':''}}" data-key="logs">预存记录</view>
+    </view>
+    <view class="tab-content g-m-wrap">
+      <view class="item" hidden='{{curTabKey!=="recharge"}}'>
+        <form class='m-form' bindsubmit='submitForm'>
+          <view class="form-group">
+            <input name="amount" class="input" type="number" placeholder='请输入预存金额'></input>
+          </view>
+          <view class="form-group">
+            <input name="description" class="input" placeholder="请填写用途说明"></input>
+          </view>
+          <view class="error-box" hidden='{{!errorStatus}}'>{{errorMsg}}</view>
+          <view class='form-group'>
+            <button form-type='submit' class='btn btn-block btn-primary'>提交</button>
+          </view>
+        </form>
+      </view>
+
+      <!--logs-->
+      <view class="item" hidden='{{curTabKey!=="logs"}}'>
+        <view class='m-list' wx:if="{{logsList.length > 0}}">
+          <view class='item' wx:for="{{logsList}}" wx:key="id">
+            <view class="g-row-bt">
+              <view class='amount'>{{item.amount}}</view>
+              <view class="status {{item.status=='已审核'?'s-text-success':''}}">{{item.status}}</view>
+            </view>
+            <view class='desc'>{{item.desc}}</view>
+            <view class='g-row-bt item-bt'>
+              <view>{{item.comname}}</view>
+              <view>{{item.create_time}}</view>
+            </view>
+          </view>
+        </view>
+
+        <view class="m-empty-box" wx:else>
+          <view class='tips'>没有记录</view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

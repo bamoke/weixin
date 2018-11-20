@@ -1,0 +1,19 @@
+<import src="../../../wxParse/wxParse.wxml" />
+<view class="container" wx:if="{{showPage}}">
+  <view class='m-detail-wrap'>
+    <view class='title'>{{detail.title}}</view>
+    <view class='total'>
+      <view class='view'>点击：{{detail.view_num}}</view>
+      <view class='time'>发布日期：{{detail.date}}</view>
+    </view>
+
+    <view class="m-video-box" wx:if="{{detail.video}}">
+      <video src="{{detail.video}}"></video>
+    </view>
+    <view class="content">
+       <template is="wxParse" data="{{wxParseData:wxparse_content.nodes}}" />
+    </view>
+  </view>
+
+
+</view>

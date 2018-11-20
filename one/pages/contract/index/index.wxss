@@ -1,0 +1,10 @@
+/* pages/contract/index/index.wxss */
+.container {background:#f7f7f7;}
+.m-contract-list {
+  padding:24rpx;
+  width:100%;
+}
+.m-contract-list > .item {margin-bottom:24rpx;}
+.m-contract-list .text-box {padding:24rpx;background:#fff;}
+.m-contract-list .title {font-size:34rpx;color:#232323;}
+.m-contract-list .thumb {display:block;width:100%;height:320rpx;border-top-left-radius: 8rpx;border-top-right-radius: 8rpx;}

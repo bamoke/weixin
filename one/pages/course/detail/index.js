@@ -9,7 +9,8 @@ Page({
    */
   data: {
     showPage: false,
-    isEnroll:0,//是否已经预约过
+    isEnroll:0,//是否已经预约过,
+    isMember:0,//是否是此课程成员
     courseId: null,//课程ID
   },
 
@@ -46,6 +47,7 @@ Page({
       this.setData({
         showPage: true,
         isEnroll: res.data.isEnroll,
+        isMember: res.data.isMember,
         courseInfo: res.data.courseInfo,
         teacherInfo: res.data.teacherInfo
       })

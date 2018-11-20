@@ -1,1 +1,118 @@
 /* pages/home/index/index.wxss */
+
+.f-has-border {
+  border-top: 1px solid #f1f1f1;
+  border-bottom: 1px solid #f1f1f1;
+}
+.container {font-size:30rpx;}
+.get-user-info-btn {
+  display: inline-block;
+  margin:0;
+  margin-bottom:24rpx;
+  padding:16rpx 24rpx;
+  background: #fff;
+  line-height:1;
+  border:none;
+  font-size:30rpx;
+  outline: none;
+  color:#6c6c6c;
+}
+.home-userinfo {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  padding:24rpx 40rpx;
+  margin-bottom: 24rpx;
+  background: #fff;
+}
+
+.home-userinfo .avatar {
+  flex-grow: 0;
+  flex-shrink: 0;
+  margin-right:20rpx;
+  width: 128rpx;
+  height: 128rpx;
+  border-radius: 50%;
+}
+.home-userinfo .user-name {
+  margin-bottom:24rpx;
+  font-size:34rpx;
+  color:#232323;
+}
+.home-userinfo .tips {
+  font-size:26rpx;
+  color:#9c9c9c;
+}
+.m-nav-list {
+  box-sizing: border-box;
+  padding: 0 24rpx;
+  width: 100%;
+  margin-bottom: 20rpx;
+  background-color: #fff;
+}
+
+.m-nav-list .item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 110rpx;
+  border-bottom: 1px solid #f1f1f1;
+  color: #232323;
+}
+
+.m-nav-list .item:last-child {
+  border:none;
+}
+.m-nav-list .item .left-icon {
+  flex-grow: 0;
+  flex-shrink: 0;
+  margin-right:12rpx;
+  opacity: .2!important;
+}
+
+
+.m-nav-list .left text {
+  vertical-align: middle;
+  font-size: 30rpx;
+  color: #333;
+}
+
+.m-nav-list .right .arrow {
+  display: inline-block;
+  width: 36rpx;
+  height: 36rpx;
+  background: url(http://ojpuy4nsw.bkt.clouddn.com/i-arrow-right.png) no-repeat right center;
+  background-size: contain;
+  vertical-align: middle;
+  opacity: 0.8;
+}
+
+.m-nav-list .right .tips {
+  color: #999;
+  vertical-align: middle;
+}
+
+.home-logout-btn {
+  width: 100%;
+  height: 120rpx;
+  line-height: 120rpx;
+  text-align: center;
+  color: #9c9c9c;
+  background: #fff;
+}
+.icon-arrow {
+  width:24rpx;
+  height:24rpx;
+}
+.other-info {
+  display: flex;
+  align-items: center;
+}
+.other-info .u-myicon {
+  width:24rpx;
+  height:24rpx;
+  opacity: .3;
+}
+.reg-link {
+  display: inline-block;
+}

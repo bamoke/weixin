@@ -10,9 +10,34 @@ Page({
   courseId:null,
   curPage:1, 
   hasMore:false,
-  list:[]
+  list:[],
+  keywords:''
   },
-
+  setkeywords:function(e){
+    this.setData({
+      keywords:e.detail.value
+    })
+  },
+  gosearch(event){
+    var keywords = this.data.keywords;
+    const requestParams = {
+      apiUrl: "/Survey/index",
+      requestMethod: "GET",
+      requestData:{}
+    }
+    if (keywords.trim()) {
+      requestParams.requestData.keywords = keywords
+    }
+    const ajaxRequest = util.request(requestParams)
+    ajaxRequest.then(res => {
+      this.setData({
+        hasMore: res.data.hasMore,
+        list: res.data.list,
+        keywords: keywords,
+        curPage: 1
+      })
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */
@@ -23,7 +48,7 @@ Page({
       requestData.courseid = courseId
     }
     const params = {
-      apiUrl: "/survey/index",
+      apiUrl: "/Survey/index",
       requestData,
       requestMethod: "GET"
     }

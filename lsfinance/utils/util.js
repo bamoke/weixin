@@ -15,13 +15,13 @@ const formatNumber = n => {
 }
 
 //微信登陆
-const wxLogin = function(){
+const wxLogin = function(callback){
   wx.login({
     success: res => {
       wx.request({
         url: "https://www.pykscloud.com/organization.php/Account/login/code/" + res.code,
         success: function (result) {
-          console.log(result)
+          // console.log(result)
           if (result.data.code == 200) {
             let data = result.data.data
             wx.setStorageSync("accessToken", data.accessToken);
@@ -31,6 +31,9 @@ const wxLogin = function(){
                 "manageType": data.userInfo.manage_type,
                 "userType": data.userInfo.user_type
               })
+            }
+            if(typeof callback !== 'undefined'){
+              callback()
             }
           } else {
             wx.showToast({
@@ -83,7 +86,8 @@ const request = function({
     })
   }
   isLoaded = false;
-
+  const routePage = getCurrentPages();
+  // console.log(routePage)
   // send
   var myPromise = new Promise(function(resolve, reject) {
     const baseApiUrl = "https://www.pykscloud.com/organization.php";
@@ -120,17 +124,38 @@ const request = function({
                 }
               }
             })
-          } else if (res.data.code == 11002) {
+          } else if (res.data.code == 11002 ) {
             wx.showModal({
               content: res.data.msg,
               showCancel: false,
               success: function (res) {
                 if (res.confirm) {
-                  wxLogin()
+                  let routeParams = ''
+                  let curPage = routePage[routePage.length - 1]
+                  if (Object.keys(curPage.options).length) {
+                    for (var opt in curPage.options) {
+                      routeParams += opt + '=' + curPage.options[opt] + '&'
+                    }
+
+                    routeParams = "?" + routeParams.slice(0, routeParams.length - 1)
+                  }
+                  wxLogin(function(){
+                    if (routePage.length>1) {
+                      wx.navigateBack({
+                        delta:1
+                      })
+                    }else {
+                      wx.reLaunch({
+                        url: '/' + curPage.route + routeParams
+                      })
+                    }
+                  })
                 }
               }
             })
-          } else {
+          } else if (res.data.code == 11001){
+
+          }else {
             wx.showToast({
               title: res.data.msg,
               image: "/static/images/icon-error.png"

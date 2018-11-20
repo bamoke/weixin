@@ -51,7 +51,9 @@
     "pages/resume/base/index",
     "pages/resume/introduce/index",
     "pages/resume/work/index",
-    "pages/resume/edu/index"
+    "pages/resume/edu/index",
+    "pages/contract/index/index",
+    "pages/contract/detail/index"
   ],
   "window": {
     "backgroundTextStyle": "light",

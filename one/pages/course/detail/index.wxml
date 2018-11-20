@@ -33,14 +33,20 @@
       <view class="title">课程介绍</view>
     </view>
     <view class="g-pad-box">
-        <template is="wxParse" data="{{wxParseData:wxparse_content.nodes}}" />
+      <template is="wxParse" data="{{wxParseData:wxparse_content.nodes}}" />
     </view>
   </view>
   <view class="m-foot-operation">
-  <view style="width:100%" wx:if="{{courseInfo.type==1}}">
-      <navigator wx:if="{{isEnroll==0}}" open-type='navigate' url="/pages/course/enroll/index?id={{courseInfo.id}}&name={{courseInfo.title}}" class="btn btn-block btn-primary">预约报名</navigator>
+    <view style="width:100%">
+      <navigator wx:if="{{isMember != 0}}" open-type='navigate' url="/pages/class/detail/index?courseid={{courseId}}" class="btn btn-block btn-success">进入班级</navigator>
+      <view wx:else>
+        <view wx:if="{{courseInfo.type==1}}">
+          <navigator wx:if="{{isEnroll==0}}" open-type='navigate' url="/pages/course/enroll/index?id={{courseId}}&name={{courseInfo.title}}" class="btn btn-block btn-primary">预约报名</navigator>
+          <view class="btn btn-block btn-default">已经预约过了</view>
+        </view>
+      </view>
 
-  </view>
+    </view>
 
   </view>
 </view>

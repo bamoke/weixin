@@ -13,7 +13,7 @@
       <image mode="scaleToFill" class="img" src="{{item.thumb}}"></image>
       <view class="text-box">
       <view class="title">{{item.title}}</view>
-      <view><text class="u-stage{{item.type==1?' stage-info':' stage-success'}}">{{item.type==1?'内训':'公开课'}}</text></view>
+      <view><text class="u-stage{{item.type==1?' stage-info':' stage-success'}}">{{item.type==1?'公开课':'内训课'}}</text></view>
       <view class="desc">{{item.description}}</view>
 
       </view>

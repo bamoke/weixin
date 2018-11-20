@@ -62,7 +62,7 @@ Page({
     }
     console.log(postData)
     const requestParams = { 
-      apiUrl: "/Myclass/vlist",
+      apiUrl: "/Myclass/dynamic",
       requestMethod: "GET",
       requestData: postData
     }

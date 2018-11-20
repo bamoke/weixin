@@ -12,7 +12,7 @@
         <view class="img-view bg-lan">
           <image src="/common/images/class-icon-01.png" alt="" mode='widthFix' />
         </view>
-        <view class="txt">成员</view>
+        <view class="txt">学员</view>
       </navigator>
 
       <navigator open-type="navigate" url="/pages/class/notes/index?courseid={{courseId}}" class="item">
@@ -25,13 +25,13 @@
         <view class="img-view bg-din">
           <image src="/common/images/class-icon-03.png" alt="" mode='widthFix' />
         </view>
-        <view class="txt">作业</view>
+        <view class="txt">测试</view>
       </navigator>
-      <navigator open-type="navigate" url="/pages/exam/index/index?courseid={{courseId}}" class="item">
-        <view class="img-view bg-huang">
-          <image src="/common/images/class-icon-04.png" alt="" mode='widthFix' />
+      <navigator open-type="navigate" url="/pages/class/discuss/index?courseid={{courseId}}" class="item">
+        <view class="img-view bg-chen">
+          <image src="/common/images/class-icon-02.png" alt="" mode='widthFix' />
         </view>
-        <view class="txt">考试</view>
+        <view class="txt">讨论组</view>
       </navigator>
     </view>
     <view class="row">
@@ -41,12 +41,7 @@
         </view>
         <view class="txt">课件</view>
       </navigator> -->
-      <navigator open-type="navigate" url="/pages/class/discuss/index?courseid={{courseId}}" class="item">
-        <view class="img-view bg-chen">
-          <image src="/common/images/class-icon-02.png" alt="" mode='widthFix' />
-        </view>
-        <view class="txt">讨论组</view>
-      </navigator>
+
       <navigator open-type="navigate" url="/pages/class/comment/index?courseid={{courseId}}" class="item">
         <view class="img-view bg-lan">
           <image src="/common/images/class-icon-02.png" alt="" mode='widthFix' />
@@ -59,6 +54,7 @@
         </view>
         <view class="txt">问卷</view>
       </navigator>
+      <view class="item"></view>
       <view class="item"></view>
       <view class="item"></view>
     </view>

@@ -1,0 +1,24 @@
+<!--pages/contract/index/index.wxml-->
+<view class='container' wx:if="{{showPage}}">
+  <view class="m-contract-list" wx:if="{{list.length}}">
+    <navigator open-type='navigate' url="/pages/contract/detail/index?id={{item.id}}" class="item" wx:for="{{list}}" wx:key="id">
+      <image mode='aspectFill' src="{{item.thumb}}" class="thumb"></image>
+      <view class="text-box">
+        <view class="title">{{item.title}}</view>
+        <view class="desc">{{item.description}}</view>
+      </view>
+    </navigator>
+    <!--paging-->
+    <view class="m-paging-wrap">
+      <view class='item no-more' wx:if="{{!hasMore}}">没有更多了</view>
+      <view wx:else>
+        <view class="item" hidden='{{!isLoading}}'>加载中</view>
+      </view>
+    </view>
+  </view>
+  <!--empty page-->
+  <view class="m-tips-page tips-page-empty" wx:else>
+    <image class="icon" src="/static/images/mt-empty.png"></image>
+    <view class="tips">暂无记录</view>
+  </view>
+</view>

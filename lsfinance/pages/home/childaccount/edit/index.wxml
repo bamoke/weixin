@@ -1,0 +1,21 @@
+<!--pages/home/childaccount/edit/index.wxml-->
+<view class='container' wx:if="{{showPage}}">
+
+  <view class='m-main-box'>
+  <text class='text-bold'>{{info.realname}}</text>
+  </view>
+  <view class="m-main-box">
+    <view class="bar">关联的企业:</view>
+    <checkbox-group class="" bindchange="selectCom">
+      <label class="com-list" wx:for="{{comList}}" wx:key="comId">
+        <checkbox value="{{item.comId}}" checked='{{item.checked}}' />{{item.comName}}
+      </label>
+    </checkbox-group>
+  </view>
+  <view class='m-main-box'>
+    <button style="margin-bottom:40rpx;" class='btn btn-block btn-primary' loading='{{isSubmiting}}' bindtap='save'>保存</button>
+    <button class='btn btn-block btn-default' loading='{{isSubmiting}}' bindtap='del'>删除</button>
+  </view>
+
+
+</view>

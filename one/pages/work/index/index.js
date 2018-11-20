@@ -13,7 +13,7 @@ Page({
   },
 
   toTest: function(e) {
-    const testId = e.target.dataset.testid
+    const testId = e.currentTarget.dataset.testid
     const params = {
       apiUrl: "/Homework/checkcomplete",
       requestData: {
@@ -37,8 +37,14 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function(options) {
+  onLoad: function (options){
     const courseId = options.courseid
+    this.setData({
+      courseId
+    })
+  },
+  onShow: function(options) {
+    const courseId = this.data.courseId
     const params = {
       apiUrl: "/Homework/index",
       requestData: {
@@ -49,7 +55,6 @@ Page({
     const ajaxRequest = util.request(params)
     ajaxRequest.then(res => {
       this.setData({
-        courseId,
         showPage: true,
         list: res.data.list,
         hasMore: res.data.hasMore

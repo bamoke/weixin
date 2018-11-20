@@ -8,13 +8,13 @@
         <view class="desc">包括财税代理费、代垫费用等结算</view>
       </view>
     </navigator>
-    <view class='item bg-2'>
+    <navigator open-type='navigate' url='../yfyc/index' class='item bg-2'>
       <image class="icon" src="/static/images/service-yfk.png"></image>
       <view>
         <view class='name'>预付/预存</view>
         <view class="desc">预付代理费，防止遗忘或导致逾期</view>
       </view>
-    </view>
+    </navigator>
     <view class='item bg-3'>
       <image class="icon" src="/static/images/service-dj.png"></image>
       <view>
