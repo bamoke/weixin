@@ -1,26 +1,138 @@
-//index.js
-//获取应用实例
+// pages/home/index/index.js
 const app = getApp()
-
+import util from "../../../utils/util"
 Page({
+
+  /**
+   * 页面的初始数据
+   */
   data: {
-    listDatas:[
-      {'img':"../images/img19.jpg",'title':'刘思高','content':'在讨论组中提交了新的观点','time':'刚刚'},
-      {'img':"../images/img19.jpg",'title':'刘思高','content':'完成了本日作业，获得98分','time':'20分钟前'},
-      {'img':"../images/img19.jpg",'title':'刘思高','content':'完成了本日作业，获得97分','time':'3小时前'},
-      {'img':"../images/img19.jpg",'title':'刘思高','content':'加入了新讨论组','time':'1天前'},
-      {'img':"../images/img19.jpg",'title':'刘思高','content':'在讨论组中提交了新的观点','time':'1天前'},
-      {'img':"../images/img19.jpg",'title':'刘思高','content':'在讨论组中提交了新的观点','time':'1天前'},
-      {'img':"../images/img19.jpg",'title':'刘思高','content':'在讨论组中提交了新的观点','time':'1天前'},
-      {'img':"../images/img19.jpg",'title':'刘思高','content':'在讨论组中提交了新的观点','time':'1天前'},
-    ]
+    userStorage:{},
+    userInfo: {},
+    hasUserInfo: false,
+    canIUse: wx.canIUse('button.open-type.getUserInfo')
   },
-  goMedtail:function(){
-    wx.navigateTo({
-      url: '/pages/me/medtail/medtail'
+  /**
+   * Action
+   */
+  toMyResume:function(){
+    const requestParams = {
+      apiUrl: "/Resume/getresumeid",
+      requestMethod: "GET",
+      isShowLoad:false
+    }
+    const ajaxRequest = util.request(requestParams)
+    ajaxRequest.then(res => {
+      if(res.data.resumeid){
+        wx.navigateTo({
+          url: '/pages/resume/detail/index?id='+res.data.resumeid
+        })
+      }else {
+        wx.showModal({
+          content: '您还没有创建简历，现在创建简历？',
+          success:function(res){
+            if(res.confirm){
+              wx.navigateTo({
+                url: '/pages/resume/base/index',
+              })
+            }
+          }
+        })
+      }
     })
   },
-  onLoad: function () {
-    wx.setNavigationBarTitle({ title: '我的' })
+  getUserInfo: function (e) {
+    if (typeof e.detail.userInfo === 'undefined') return;
+    app.globalData.userInfo = e.detail.userInfo
+    this.setData({
+      userInfo: e.detail.userInfo,
+      hasUserInfo: true
+    })
+  },
+  logout:function(){
+    wx.clearStorageSync();
+    wx.reLaunch({
+      url: 'index'
+    })
+  },
+  /**
+   * 生命周期函数--监听页面加载
+   */
+  onLoad: function (options) {
+
+    // User info
+    if (app.globalData.userInfo) {
+      this.setData({
+        userInfo: app.globalData.userInfo,
+        hasUserInfo: true
+      })
+    } else if (this.data.canIUse) {
+      // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
+      // 所以此处加入 callback 以防止这种情况
+      app.userInfoReadyCallback = res => {
+        this.setData({
+          userInfo: res.userInfo,
+          hasUserInfo: true
+        })
+      }
+    } else {
+      // 在没有 open-type=getUserInfo 版本的兼容处理
+      wx.getUserInfo({
+        success: res => {
+          app.globalData.userInfo = res.userInfo
+          this.setData({
+            userInfo: res.userInfo,
+            hasUserInfo: true
+          })
+        }
+      })
+    }
+  },
+
+  /**
+   * 生命周期函数--监听页面初次渲染完成
+   */
+  onReady: function () {
+  
+  },
+
+  /**
+   * 生命周期函数--监听页面显示
+   */
+  onShow: function () {
+    // account info
+    const userStorage = wx.getStorageSync("user")
+    if (userStorage) {
+      this.setData({ userStorage })
+    }
+  },
+
+  /**
+   * 生命周期函数--监听页面隐藏
+   */
+  onHide: function () {
+  
+  },
+
+  /**
+   * 生命周期函数--监听页面卸载
+   */
+  onUnload: function () {
+  
+  },
+
+  /**
+   * 页面相关事件处理函数--监听用户下拉动作
+   */
+  onPullDownRefresh: function () {
+  
+  },
+
+  /**
+   * 页面上拉触底事件的处理函数
+   */
+  onReachBottom: function () {
+  
   }
+
 })

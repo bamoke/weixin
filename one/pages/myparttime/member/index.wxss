@@ -1,0 +1,15 @@
+/* pages/class/member/index.wxss */
+.m-member-list>.item {
+  display: flex;
+  padding:24rpx;
+  border-bottom:1px solid #f1f1f1;
+}
+.m-member-list .item .avatar {
+  flex-grow: 0;
+  flex-shrink: 0;
+  margin-right:24rpx;
+  width: 96rpx;
+  height:96rpx;
+}
+.m-member-list .item .name {color:#121212;font-size:32rpx;}
+.m-member-list .item .type {font-size:24rpx;color:#9c9c9c;}

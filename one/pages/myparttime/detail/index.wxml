@@ -1,0 +1,44 @@
+<!--pages/myparttime/detail/index.wxml-->
+<view class="container">
+  <view class="class-banner">
+    <view class="class-name">
+      <text class="name">{{parttimeInfo.title}}</text>
+      <view style="margin-top:12rpx;">{{StageArr[parttimeInfo.stage]}}</view>
+    </view>
+    <image class="img" src="/common/images/banner-bj.jpg" alt="" mode="apeceFix" />
+  </view>
+  <view class="ht-c"></view>
+
+
+  <view class="m-text-list">
+    <navigator open-type='navigate' url="/pages/myparttime/member/index?parttimeid={{parttimeInfo.id}}" class="item">
+      <view class="left-box">
+        <image class="left-icon u-myicon myicon-big" src="/static/images/icon-resume.png"></image>
+        <text class="title">项目成员</text>
+      </view>
+      <view class="right-icon">
+        <image class="icon-right-arrow" src="/static/images/arrow-black.png"></image>
+      </view>
+    </navigator>
+    <navigator open-type='navigate' url="/pages/myparttime/progress/index?parttimeid={{parttimeInfo.id}}" class="item">
+      <view class="left-box">
+        <image class="left-icon u-myicon myicon-big" src="/static/images/icon-record.png"></image>
+        <text class="title">项目进度</text>
+      </view>
+      <view class="right-icon">
+        <image class="icon-right-arrow" src="/static/images/arrow-black.png"></image>
+      </view>
+    </navigator>
+    <navigator open-type='navigate' url="/pages/myparttime/discuss/index?parttimeid={{parttimeInfo.id}}" class="item">
+      <view class="left-box">
+        <image class="left-icon u-myicon myicon-big" src="/static/images/icon-collection.png"></image>
+        <text class="title">项目讨论</text>
+      </view>
+      <view class="right-icon">
+        <image class="icon-right-arrow" src="/static/images/arrow-black.png"></image>
+      </view>
+    </navigator>
+
+
+  </view>
+</view>

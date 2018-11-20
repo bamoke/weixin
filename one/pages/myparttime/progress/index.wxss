@@ -1,0 +1,79 @@
+/* pages/myparttime/progress/index.wxss */
+.progress-nodes {
+  padding: 24rpx 48rpx 120rpx;
+}
+
+.progress-nodes > .item {
+  position: relative;
+  padding-left: 24rpx;
+  padding-bottom: 48rpx;
+  border-left: 1px dotted #ccc;
+}
+
+.progress-nodes .item::before {
+  content: "";
+  position: absolute;
+  top: 10rpx;
+  left: -12rpx;
+  display: inline-block;
+  width: 24rpx;
+  height: 24rpx;
+  border-radius: 50%;
+  background: #ddd;
+}
+.progress-nodes > .item .stage {margin-left:12rpx;font-size:22rpx;}
+.progress-nodes .status-1 .stage{
+  color:#1b7dd5;
+}
+.progress-nodes .status-2 .stage {
+  color:#1bd5ca;
+}
+.progress-nodes .status-3 .stage{
+  color:#1bd535;
+}
+.progress-nodes .status-4 .stage {
+  color:#d5311b;
+}
+
+.progress-nodes .status-1::before {
+  background:#1b7dd5;
+}
+.progress-nodes .status-2::before {
+  background:#1bd5ca;
+}
+.progress-nodes .status-3::before {
+  background:#1bd535;
+}
+.progress-nodes .status-4::before {
+  background:#d5311b;
+}
+
+.progress-nodes .item .node-name {
+  color: #232323;
+  font-size: 32rpx;
+  margin-bottom:12rpx;
+}
+
+.progress-nodes .item .content {
+  margin-top:12rpx;
+  padding: 24rpx;
+  border: 1px solid #f1f1f1;
+  border-radius: 12rpx;
+  background-color: #fff;
+  color:#999;
+  font-size:24rpx;
+}
+.operation-btn {
+  flex-grow: 0;
+  flex-shrink: 0;
+  flex-basis: auto;
+}
+.operation-btn view {
+  margin-left:24rpx;
+  width:120rpx;
+  height:48rpx;
+  line-height: 48rpx;
+  text-align: center;
+  font-size:24rpx;
+  border:1px solid #f1f1f1;
+}

@@ -6,6 +6,8 @@
     "pages/class/member/index",
     "pages/class/notes/index",
     "pages/class/comment/index",
+    "pages/class/discuss/index",
+
     "pages/course/index/index",
     "pages/course/enroll/index",
     "pages/course/detail/index",
@@ -23,7 +25,7 @@
     "pages/work/result/index",
     "pages/exam/index/index",
     "pages/exam/detail/index",
-    "pages/discuss/index/index",
+
     "pages/discuss/detail/index",
     "pages/discuss/node/index/index",
     "pages/discuss/node/add/index",
@@ -38,8 +40,13 @@
     "pages/me/index/index",
     "pages/me/medtail/medtail",
 
+    "pages/myparttime/index/index",
+    "pages/myparttime/detail/index",
+    "pages/myparttime/member/index",
+    "pages/myparttime/progress/index",
+    "pages/myparttime/discuss/index",
+
     "pages/resume/upload/index",
-    "pages/resume/index/index",
     "pages/resume/detail/index",
     "pages/resume/base/index",
     "pages/resume/introduce/index",

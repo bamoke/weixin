@@ -30,8 +30,8 @@
           <view class="">{{opt.content}}</view>
         </view>
       </view>
-      <view class="fill-box" data-questionindex="{{index}}" bindtap='setFillQuestion' wx:else>
-        <textarea name="" maxlength='200' class="fill-input" placeholder='' data-questionindex="{{item.index}}" bindconfirm='fillAnswer' bindblur='fillAnswer'></textarea>
+      <view class="fill-box" wx:else>
+        <textarea name="" maxlength='200' class="fill-input" placeholder='' data-questionindex="{{index}}" bindconfirm='fillAnswer' bindblur='fillAnswer'></textarea>
       </view>
     </view>
 

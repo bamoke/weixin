@@ -1,0 +1,29 @@
+<!--pages/myparttime/progress/index.wxml-->
+<view class="container" wx:if="{{showPage}}">
+  <view class="progress-nodes" wx:if="{{progressNodes.length}}">
+    <view class='item status-{{item.status}}' wx:for="{{progressNodes}}" wx:key="id">
+      <view class="g-row-bt">
+        <view>
+          <text class="node-name">{{item.title}}</text>
+          <text class="stage">[{{stageNameArr[item.status]}}]</text>
+        </view>
+        <view class="operation-btn" wx:if="{{memberInfo.type == 2}}">
+          <view wx:if="{{item.status == 0}}" data-itemindex="{{index}}" bindtap='changeStage'>开始进度</view>
+          <view wx:elif="{{item.status == 1}}" data-itemindex="{{index}}" bindtap='changeStage'>提交审核</view>
+          <view wx:elif="{{item.status == 2}}" data-itemindex="{{index}}" bindtap='changeComplete'>审核完成</view>
+          <view wx:elif="{{item.status == 3}}" data-itemindex="{{index}}" bindtap='changeReverse'>反审进度</view>
+        </view>
+        <view class="operation-btn" data-itemindex="{{index}}" bindtap='changeStage' wx:else>
+            <view wx:if="{{item.status==0}}">开始进度</view>
+            <view wx:elif="{{item.status==1}}">提交审核</view>
+          </view>
+      </view>
+      <view class="content ">{{item.description}}</view>
+    </view>
+  </view>
+  <!--empty page-->
+  <view class="m-tips-page tips-page-empty " wx:else>
+    <image class="icon " src="/static/images/mt-empty.png "></image>
+    <view class="tips ">暂无记录</view>
+  </view>
+</view>

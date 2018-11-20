@@ -65,15 +65,9 @@ Page({
 
   },
 
-  setFillQuestion: function(e) {
-    const curQuestionIndex = e.currentTarget.dataset.questionindex
-    this.setData({
-      curFillQuestionIndex: curQuestionIndex
-    })
-  },
   fillAnswer: function(e) {
     const value = e.detail.value
-    const curQuestionIndex = this.data.curFillQuestionIndex
+    const curQuestionIndex = e.currentTarget.dataset.questionindex
     const questionList = this.data.questionList
     questionList[curQuestionIndex].selected = value
     if(value != '') {
@@ -96,6 +90,7 @@ Page({
       }
       allSelected.push({ id: el.id, type: el.type, content: el.selected })
     })
+   
     if(hasError == 1) {
       wx.showToast({
         title: '还有题目没完成',
@@ -104,7 +99,7 @@ Page({
       this.setData({ questionList})
       return
     }
-    console.log(allSelected)
+   
     let requestParams = {
       apiUrl:'/Survey/save',
       requestMethod:"POST",

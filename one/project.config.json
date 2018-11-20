@@ -33,7 +33,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 17,
+			"current": 20,
 			"list": [
 				{
 					"id": 0,
@@ -142,6 +142,24 @@
 					"name": "调研",
 					"pathName": "pages/survey/detail/index",
 					"query": "id=1"
+				},
+				{
+					"id": -1,
+					"name": "home",
+					"pathName": "pages/me/index/index",
+					"query": ""
+				},
+				{
+					"id": 19,
+					"name": "我的兼职项目",
+					"pathName": "pages/myparttime/detail/index",
+					"query": "parttimeid=2"
+				},
+				{
+					"id": -1,
+					"name": "项目进度",
+					"pathName": "pages/myparttime/progress/index",
+					"query": "parttimeid=2"
 				}
 			]
 		}

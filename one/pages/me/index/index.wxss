@@ -1,97 +1,116 @@
-/**index.wxss**/
-swiper-item image{
-	width: 100%;
+/* pages/home/index/index.wxss */
+
+.f-has-border {
+  border-top: 1px solid #f1f1f1;
+  border-bottom: 1px solid #f1f1f1;
 }
-view{
-	font-size: 30rpx;
+.container {font-size:30rpx;}
+.get-user-info-btn {
+  display: inline-block;
+  margin:0;
+  margin-bottom:24rpx;
+  padding:16rpx 24rpx;
+  background: #fff;
+  line-height:1;
+  border:none;
+  font-size:30rpx;
+  outline: none;
+  color:#6c6c6c;
 }
-.bd-c{
-	height: 20rpx;
-	background-color: #F4F4F4;
+.home-userinfo {
+  display: flex;
+  align-items: center;
+  padding:24rpx 40rpx;
+  margin-bottom: 24rpx;
+  background: #fff;
 }
-.f17{
-	font-size: 34rpx;
+
+.home-userinfo .avatar {
+  flex-grow: 0;
+  flex-shrink: 0;
+  margin-right:20rpx;
+  width: 128rpx;
+  height: 128rpx;
+  border-radius: 50%;
 }
-.f13{
-	font-size: 26rpx;
+.home-userinfo .user-name {
+  margin-bottom:24rpx;
+  font-size:34rpx;
+  color:#232323;
 }
-.c-b{
-	color: #BBBBBB;
+.home-userinfo .tips {
+  font-size:26rpx;
+  color:#9c9c9c;
 }
-.c-d{
-	color: #D1D1D1
+.m-nav-list {
+  box-sizing: border-box;
+  padding: 0 24rpx;
+  width: 100%;
+  margin-bottom: 20rpx;
+  background-color: #fff;
 }
-.content{
-	padding:30rpx 20rpx;
+
+.m-nav-list .item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 110rpx;
+  border-bottom: 1px solid #f1f1f1;
+  color: #232323;
 }
-.content-item{
-	position:relative;
-	padding: 20rpx 0;
-	border-bottom: 1px solid #eee;
+
+.m-nav-list .item:last-child {
+  border:none;
 }
-.loadmore{
-	position: relative;
-	margin: 0 auto;
-	width: 180rpx;
-	text-align: center;
-	padding: 20rpx 0;
+.m-nav-list .item .left-icon {
+  flex-grow: 0;
+  flex-shrink: 0;
+  margin-right:12rpx;
+  opacity: .2!important;
 }
-.img-c{
-  height:100%;
-  width:160rpx;
-  
+
+
+.m-nav-list .left text {
+  vertical-align: middle;
+  font-size: 30rpx;
+  color: #333;
 }
-.list-item image{
-	width:44rpx;
-	margin-right: 16rpx;
+
+.m-nav-list .right .arrow {
+  display: inline-block;
+  width: 36rpx;
+  height: 36rpx;
+  background: url(http://ojpuy4nsw.bkt.clouddn.com/i-arrow-right.png) no-repeat right center;
+  background-size: contain;
+  vertical-align: middle;
+  opacity: 0.8;
 }
-.mb-2{
-	margin-bottom: 20rpx;
+
+.m-nav-list .right .tips {
+  color: #999;
+  vertical-align: middle;
 }
-.ht-c{
-	height:40rpx;
-}
-page{
-	background-color:#F4F4F4;
-}
-view{
-	background-color:#fff;
-}
-.rjt{
-	width:20rpx;
-	height:20rpx;
-	border:1px solid #ccc;
-	-webkit-transform: rotate(45deg);
-	-ms-transform: rotate(45deg);
-	-o-transform: rotate(45deg);
-	transform: rotate(45deg);
-	border-bottom:none;
-	border-left:none;
-}
-.list-item{
-	padding:20rpx;
-	border-bottom:1px solid #ccc;
-}
-.banner-img-c image {
- width:100%;
-}
-.me-top-c{
-	background-color:#2A93FE;
-	text-align:center;
-	padding:40rpx 0;
-}
-.userinfo-avatar{
-  overflow:hidden;
-  display: block;
-  width: 120rpx;
+
+.home-logout-btn {
   height: 120rpx;
-  margin: 0 auto;
-  border-radius:10rpx;
-  margin-bottom:10rpx;
+  line-height: 120rpx;
+  text-align: center;
+  color: #9c9c9c;
+  background: #fff;
 }
-.avatext{
-	text-align:center;
-	color:white;
-	font-size:40rpx;
-	
+.icon-arrow {
+  width:24rpx;
+  height:24rpx;
+}
+.other-info {
+  display: flex;
+  align-items: center;
+}
+.other-info .u-myicon {
+  width:24rpx;
+  height:24rpx;
+  opacity: .3;
+}
+.reg-link {
+  display: inline-block;
 }

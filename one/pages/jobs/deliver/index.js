@@ -36,7 +36,7 @@ Page({
       resumeid: this.data.resume.id
     }
     const requestParams = {
-      apiUrl: "/ParttimeApply/index",
+      apiUrl: "/ParttimeMy/deliver",
       requestData: data,
       requestMethod: "GET"
     }

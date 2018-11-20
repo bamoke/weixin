@@ -1,0 +1,28 @@
+/* pages/myparttime/detail/index.wxss */
+.class-banner {
+  position: relative;
+  height:280rpx;
+  background:#000;
+}
+.class-banner .img {
+  width:100%;
+  height:280rpx;
+  opacity: .3;
+}
+.class-banner .class-name {
+  position:absolute;
+  left:0;
+  top:30%;
+  z-index: 1;
+  padding:0 24rpx;
+  width:100%;
+  text-align: center;
+  color:#fff;
+
+}
+.class-banner .class-name .name {
+  display: inline-block;
+  font-size:34rpx;
+  padding:24rpx;
+  border:1px solid #fff;
+}

@@ -8,7 +8,6 @@ Page({
    * 页面的初始数据
    */
   data: {
-    acType: 'reg',
     btnText: "获取验证码",
     btnStyle: "btn-active",
     btnDisebled: false,
@@ -90,7 +89,6 @@ Page({
     var codeRe = /[0-9]{6}/
     const apiUrl = '/Account/regist'
     const successTipsTitle = "注册成功"
-    var req;
 
     //表单验证
     if (formData.phone == '') {
@@ -121,13 +119,11 @@ Page({
       requestData: formData,
       requestMethod: "POST"
     }
-    req = util.request(requestParams);
-    req.then(data => {
+    
+    const req = util.request(requestParams);
+    req.then(res => {
       this.setData({
         onLoading: false
-      })
-      wx.showToast({
-        title: data.msg,
       })
       const _that = this
       setTimeout(function() {

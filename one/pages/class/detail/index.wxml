@@ -41,7 +41,7 @@
         </view>
         <view class="txt">课件</view>
       </navigator> -->
-      <navigator open-type="navigate" url="/pages/discuss/index/index?courseid={{courseId}}" class="item">
+      <navigator open-type="navigate" url="/pages/class/discuss/index?courseid={{courseId}}" class="item">
         <view class="img-view bg-chen">
           <image src="/common/images/class-icon-02.png" alt="" mode='widthFix' />
         </view>

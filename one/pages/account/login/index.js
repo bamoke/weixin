@@ -11,7 +11,8 @@ Page({
     errorStatus: false,
     errorMsg: "",
     phone: null,
-    onLoading: false
+    onLoading: false,
+    backUrl:null
   },
 
   /**
@@ -57,7 +58,8 @@ Page({
       wx.showToast({
         title: res.msg,
       })
-      wx.setStorageSync("accessToken", res.data.token)
+      wx.setStorageSync("accessToken", res.data.token) 
+      wx.setStorageSync("user", res.data.user) 
       setTimeout(function() {
         wx.switchTab({
           url: '/pages/me/index/index'
@@ -84,65 +86,12 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
-    const type = typeof options.type !== 'undefined' ? options.type : 'login'
-    const navigationBarTitle = type == 'reg' ? '注册' : '登录'
-    const isNavBack = typeof options.back !== 'undefined' ? options.back : null
-    wx.setNavigationBarTitle({
-      title: navigationBarTitle
-    })
+    const backUrl = options.back || null
     this.setData({
-      acType: type,
-      isNavBack
+      backUrl
     })
-
-  },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function() {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function() {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function() {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function() {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function() {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function() {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function() {
 
   }
+
+
 })

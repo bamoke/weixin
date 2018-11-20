@@ -27,12 +27,12 @@
       </view>
       <view class="txt ">职涯</view>
     </navigator>
-    <navigator open-type='navigate' url="/pages/single/index?id=3">
+<!--     <navigator open-type='navigate' url="/pages/single/index?id=3">
       <view class="img-view bg-zi ">
         <image src="/common/images/index-icon-04.png " alt=" " mode='widthFix' />
       </view>
       <view class="txt ">外包</view>
-    </navigator>
+    </navigator> -->
     <navigator open-type='navigate' url="/pages/jobs/index/index">
       <view class="img-view bg-huang ">
         <image src="/common/images/index-icon-05.png " alt=" " mode='widthFix' />

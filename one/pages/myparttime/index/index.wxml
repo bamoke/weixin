@@ -1,0 +1,30 @@
+<!--pages/parttime/index/index.wxml-->
+<view class="container" wx:if="{{showPage}}">
+
+  <!--list-->
+  <view class="" wx:if="{{list.length > 0}}">
+    <view class='m-jobs-list'>
+      <navigator url="/pages/myparttime/detail/index?parttimeid={{item.pt_id}}" class='item' wx:for="{{list}}" wx:key="id">
+        <view class="g-row-bt">
+          <view class="hd">
+            <view class='title'>{{item.title}}</view>
+          </view>
+          <view class="right-wrap">
+            <view class="stage stage-{{item.stage}}">{{StageArr[item.stage]}}</view>
+          </view>
+        </view>
+      </navigator>
+    </view>
+    <view class="m-paging-wrap">
+      <view class='item no-more' wx:if="{{!hasMore}}">没有更多了</view>
+      <view wx:else>
+        <view class="item row" hidden='{{!isLoading}}'>加载中</view>
+      </view>
+    </view>
+  </view>
+  <!--empty page-->
+  <view class="m-tips-page tips-page-empty" wx:else>
+    <image class="icon" src="/static/images/mt-empty.png"></image>
+    <view class="tips">暂无记录</view>
+  </view>
+</view>
