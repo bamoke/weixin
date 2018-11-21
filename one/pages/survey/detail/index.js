@@ -55,7 +55,7 @@ Page({
     } else {
       answerArr.push(answerId)
     }
-    if(answerArr.length >0){
+    if (answerArr.length > 0) {
       questionList[questionIndex].isError = 0
     }
     questionList[questionIndex].selected = answerArr.join(",")
@@ -70,7 +70,7 @@ Page({
     const curQuestionIndex = e.currentTarget.dataset.questionindex
     const questionList = this.data.questionList
     questionList[curQuestionIndex].selected = value
-    if(value != '') {
+    if (value != '') {
       questionList[curQuestionIndex].isError = 0
     }
     this.setData({
@@ -83,39 +83,61 @@ Page({
     const questionList = this.data.questionList
     let hasError = 0
     let allSelected = []
-    questionList.forEach(function(el,index,arr){
-      if(el.selected == ''){
+    questionList.forEach(function(el, index, arr) {
+      if (el.selected == '') {
         arr[index].isError = 1
         hasError = 1
       }
-      allSelected.push({ id: el.id, type: el.type, content: el.selected })
+      allSelected.push({
+        id: el.id,
+        type: el.type,
+        content: el.selected
+      })
     })
-   
-    if(hasError == 1) {
+
+    if (hasError == 1) {
       wx.showToast({
         title: '还有题目没完成',
-        image:'/static/images/icon-error.png'
+        image: '/static/images/icon-error.png'
       })
-      this.setData({ questionList})
+      this.setData({
+        questionList
+      })
       return
     }
-   
-    let requestParams = {
-      apiUrl:'/Survey/save',
-      requestMethod:"POST",
-      requestData: { data: JSON.stringify(allSelected),surveyid:this.data.curId}
-    }
-    const ajaxRequest = util.request(requestParams)
 
+    let requestParams = {
+      apiUrl: '/Survey/save',
+      requestMethod: "POST",
+      requestData: {
+        data: JSON.stringify(allSelected),
+        surveyid: this.data.curId
+      }
+    }
+    const surveyInfo = this.data.baseInfo
+    const ajaxRequest = util.request(requestParams)
     ajaxRequest.then(res => {
+      let backFunc, tipsContent ="感谢您的参与"
+      if(surveyInfo.type== 1){
+        backFunc = function(res){
+          wx.switchTab({
+            url: '/pages/index/index/index',
+          })
+        }
+      }else {
+        backFunc = function(){
+          wx.navigateBack({
+            delta: 2
+          })
+        }
+
+      }
       wx.showModal({
-        content: '感谢您的参与，现在返回首页',
-        showCancel:false,
-        success:function(res){
-          if(res.confirm){
-            wx.switchTab({
-              url: '/pages/index/index/index',
-            })
+        content: tipsContent,
+        showCancel: false,
+        success: function(res) {
+          if (res.confirm) {
+            backFunc()
           }
         }
       })

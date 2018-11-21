@@ -15,14 +15,14 @@
     <view class="node-item" wx:for="{{nodes}}" wx:key="id">
       <view class="node-bar g-pad-box g-row-bt">
         <view class="node-name">{{item.title}}</view>
-        <navigator open-type='navigate' url="../node/index/index?discussid={{curId}}">更多</navigator>
+        <navigator open-type='navigate' url="../content/more/index?discussid={{discussId}}&nodeid={{item.id}}">更多</navigator>
       </view>
       <view class="g-pad-box content-wrap" wx:if="{{item.contentList.length > 0}}">
-        <navigator open-type='navigate' url="../content/detail/index?id={{cont.id}}" class="node-content-item" wx:for="{{item.contentList}}" wx:key="id" wx:for-item="cont" style="background:#{{cont.color}}">
+        <navigator open-type='navigate' url="../content/detail/index?discussid={{discussId}}&id={{cont.id}}" class="node-content-item" wx:for="{{item.contentList}}" wx:key="id" wx:for-item="cont" style="background:#{{cont.color}}">
           <view class="content">{{cont.content}}</view>
           <view class="member-name">by:{{cont.membername}}</view>
         </navigator>
-        <navigator wx:if="{{discussInfo.stage==1}}" open-type='navigate' url="../content/add/index?nodeid={{item.id}}" class="add-content-box">
+        <navigator wx:if="{{discussInfo.stage==1}}" open-type='navigate' url="../content/add/index?discussid={{discussId}}&nodeid={{item.id}}" class="add-content-box">
           <image class="icon" src="/static/images/add.png"></image>
           <view class="txt">添加卡片</view>
         </navigator>

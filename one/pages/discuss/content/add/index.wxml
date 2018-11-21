@@ -1,7 +1,7 @@
 <!--pages/discuss/content/add/index.wxml-->
 <view class="container">
   <view class="g-pad-box">
-    <textarea bindconfirm="changeContent" bindblur='changeContent' maxlength="200" placeholder="请输入您的观点，200字符以内" value="{{content}}"></textarea>
+    <textarea style="width:100%;" bindconfirm="changeContent" bindblur='changeContent' maxlength="200" placeholder="请输入您的观点，200字符以内" value="{{content}}"></textarea>
   </view>
   <view class="ht-c"></view>
   <view class="g-pad-box">

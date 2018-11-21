@@ -25,6 +25,9 @@ Page({
       requestMethod: "GET",
       requestData:{}
     }
+    if (this.data.courseId) {
+      requestParams.requestData.courseid = this.data.courseId
+    }
     if (keywords.trim()) {
       requestParams.requestData.keywords = keywords
     }

@@ -8,6 +8,7 @@ Page({
    */
   data: {
     showPage:false,
+    discussId:null,
     contentId:null,
     mainInfo:{},
     comments:[],
@@ -25,6 +26,7 @@ Page({
     const params = {
       apiUrl: "/Discuss/savecomment",
       requestData: {
+        discussid: this.data.discussId,
         contentid: this.data.contentId,
         content: this.data.commentContent
       },
@@ -45,10 +47,12 @@ Page({
    */
   onLoad: function (options) {
     const contentId = options.id
+    const discussId = options.discussid
     const params = {
       apiUrl: "/Discuss/content",
       requestData: {
-        contentid: contentId,
+        discussid:discussId,
+        contentid: contentId
       }
     }
     const ajaxRequest = util.request(params)
@@ -56,6 +60,7 @@ Page({
       this.setData({
         showPage:true,
         contentId,
+        discussId,
         mainInfo: res.data.content,
         comment: res.data.comment,
         hasMore:res.data.hasMore

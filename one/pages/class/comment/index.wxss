@@ -7,6 +7,10 @@
 .grade-wrap {
   padding:24rpx 24rpx 40rpx;
 }
+.grade-row {
+  display: flex;
+  align-items: center;
+}
 .bar {
   display: flex;
   flex-direction: column;
@@ -33,6 +37,12 @@
   width:48rpx;
   height:48rpx;
 }
+.grade-row {padding:12rpx 0;}
+.grade-row .icon-star {
+  width:48rpx;
+  height:48rpx;
+}
+.grade-row .caption {margin-right:20rpx;color:#232323;}
 .m-grade-box {
   position: relative;
   display: inline-block;

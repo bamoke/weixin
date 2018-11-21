@@ -8,7 +8,7 @@ Page({
    */
   data: {
     showPage:false,
-    curId:null,
+    discussId:null,
     discussInfo:{},
     memberInfo:{},
     nodes:[]
@@ -26,7 +26,7 @@ Page({
       return
     }
     wx.navigateTo({
-      url: '/pages/discuss/node/add/index?discussid='+this.data.curId,
+      url: '/pages/discuss/node/add/index?discussid='+this.data.discussId,
     })
   },
 
@@ -36,7 +36,7 @@ Page({
    */
   onLoad: function (options) {
     this.setData({
-      curId:options.id
+      discussId:options.id
     })
   },
 
@@ -54,7 +54,7 @@ Page({
     const params = {
       apiUrl: "/Discuss/detail",
       requestData: {
-        id: this.data.curId
+        id: this.data.discussId
       },
       requestMethod: "GET"
     }
@@ -74,8 +74,8 @@ Page({
           showCancel: false,
           success: function (res) {
             if (res.confirm) {
-              wx.switchTab({
-                url: '/pages/class/index/index',
+              wx.navigateBack({
+                delta:1
               })
             }
           }

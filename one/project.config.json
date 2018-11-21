@@ -33,7 +33,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 4,
+			"current": 20,
 			"list": [
 				{
 					"id": 0,
@@ -116,8 +116,8 @@
 				{
 					"id": 13,
 					"name": "讨论详情",
-					"pathName": "pages/discuss/detail/index",
-					"query": "id=1"
+					"pathName": "pages/discuss/content/more/index",
+					"query": "nodeid=1"
 				},
 				{
 					"id": 14,
@@ -132,10 +132,10 @@
 					"query": "id=1"
 				},
 				{
-					"id": -1,
+					"id": 16,
 					"name": "课程点评",
 					"pathName": "pages/class/comment/index",
-					"query": "courseid=1"
+					"query": "courseid=2"
 				},
 				{
 					"id": 17,
@@ -156,7 +156,7 @@
 					"query": "parttimeid=2"
 				},
 				{
-					"id": -1,
+					"id": 20,
 					"name": "项目进度",
 					"pathName": "pages/myparttime/progress/index",
 					"query": "parttimeid=2"

@@ -4,7 +4,7 @@
   <view class="ht-c"></view>
   <view class="grade-wrap">
     <view class="bar">
-      <view class="caption">评分</view>
+      <view class="caption">综合评分</view>
       <view class="icon"></view>
     </view>
     <view class="text-center">
@@ -20,8 +20,33 @@
 
   </view>
   <view class="ht-c"></view>
+  <view class="g-pad-box">
+    <view class="grade-row">
+      <view class="caption">课程内容:</view>
+      <view class="m-grade-box" bindtap='changeCourseGrade'>
+        <view class="grade">
+          <image class="icon-star" src="/static/images/icon-collection-active.png" wx:for="{{courseGrade}}" wx:key="index" data-nu="{{index}}"></image>
+        </view>
+        <view class="bg">
+          <image class="icon-star" src="/static/images/icon-collection-active.png" wx:for="{{5}}" wx:key="index" data-nu="{{index+1}}"></image>
+        </view>
+      </view>
+    </view>
+    <view class="grade-row">
+      <view class="caption">讲师评分:</view>
+      <view class="m-grade-box" bindtap='changeTeacherGrade'>
+        <view class="grade">
+          <image class="icon-star" src="/static/images/icon-collection-active.png" wx:for="{{teacherGrade}}" wx:key="index" data-nu="{{index}}"></image>
+        </view>
+        <view class="bg">
+          <image class="icon-star" src="/static/images/icon-collection-active.png" wx:for="{{5}}" wx:key="index" data-nu="{{index+1}}"></image>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class="ht-c"></view>
   <view class="g-pad-box" wx:if="{{!gradeId}}">
-    <textarea class="comment-content" maxlength='200' placeholder='请输入评价内容…' bindconfirm='changeComment' bindblur='changeComment'></textarea>
+    <textarea class="comment-content" maxlength='200' placeholder='请输入评价内容…' value="{{comment}}" bindconfirm='changeComment' bindblur='changeComment'></textarea>
     <button class="btn btn-block btn-primary" bindtap='saveGrade'>提交</button>
   </view>
   <view class="g-pad-box m-grade-result" wx:else>
@@ -30,7 +55,7 @@
       <view class="time">发表于：{{date}}</view>
     </view>
     <view class="content">{{comment || '未填写'}}</view>
-    
+
   </view>
 
 </view>

@@ -10,7 +10,6 @@
         <view class="right-icon">
           <image class='u-icon right-arrow' src="/static/images/arrow-black.png"></image>
         </view>
-
       </navigator>
     </view>
     <!--empty page-->

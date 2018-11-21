@@ -1,0 +1,3 @@
+/* pages/discuss/content/more/index.wxss */
+@import "../../detail/index.wxss";
+.node-title {font-size:34rpx;color:#232323;}

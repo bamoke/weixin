@@ -34,18 +34,16 @@ Page({
   onShow: function () {
     const parttimeId = this.data.parttimeId
     const params = {
-      apiUrl: "/Discuss/index",
+      apiUrl: "/ParttimeMy/discuss",
       requestMethod: "GET",
-      requestData: { obj_id: parttimeId, type: 2 }
+      requestData: { parttimeid: parttimeId }
     }
     const ajaxRequest = util.request(params)
     ajaxRequest.then(res => {
       this.setData({
         showPage: true,
-        list: res.data.list
+        list: res.data.discuss
       })
-    }).catch(reject => {
-      console.log("s")
     })
   }
 

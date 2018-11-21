@@ -11,7 +11,9 @@ Page({
     courseId: null,
     courseInfo: {},
     comment: "",
-    grade: 5,
+    grade:5,
+    courseGrade:5,
+    teacherGrade:5,
   },
   changeGrade: function(e) {
     if (this.data.gradeId !== null) return
@@ -19,6 +21,22 @@ Page({
     const grade = e.target.dataset.nu
     this.setData({
       grade
+    })
+  },
+  changeCourseGrade: function (e) {
+    if (this.data.gradeId !== null) return
+    if (typeof e.target.dataset.nu === 'undefined') return
+    const grade = e.target.dataset.nu
+    this.setData({
+      courseGrade:grade
+    })
+  },
+  changeTeacherGrade: function (e) {
+    if (this.data.gradeId !== null) return
+    if (typeof e.target.dataset.nu === 'undefined') return
+    const grade = e.target.dataset.nu
+    this.setData({
+      teacherGrade:grade
     })
   },
   changeComment: function(e) {
@@ -32,10 +50,13 @@ Page({
       requestData: {
         courseid: this.data.courseId,
         grade: this.data.grade,
+        course_grade: this.data.courseGrade,
+        teacher_grade: this.data.teacherGrade,
         comment: this.data.comment
       },
       requestMethod: "POST"
     }
+    
     const ajaxRequest = util.request(params)
     ajaxRequest.then(res => {
       wx.showModal({
@@ -68,6 +89,8 @@ Page({
       if (res.data.gradeInfo !== null) {
         updateData.gradeId = res.data.gradeInfo.id
         updateData.grade = parseInt(res.data.gradeInfo.grade)
+        updateData.courseGrade = parseInt(res.data.gradeInfo.course_grade)
+        updateData.teacherGrade = parseInt(res.data.gradeInfo.teacher_grade)
         updateData.comment = res.data.gradeInfo.comment,
         updateData.date = res.data.gradeInfo.create_time
       }
@@ -77,7 +100,6 @@ Page({
         courseInfo:res.data.courseInfo,
         ...updateData
       })
-      console.log(this.data)
     })
   },
 

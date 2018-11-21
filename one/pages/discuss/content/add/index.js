@@ -7,6 +7,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    discussId:null,
     nodeId:null,
     content:'',
     colorSelected:0,
@@ -36,6 +37,7 @@ Page({
     const params = {
       apiUrl: "/Discuss/savecont",
       requestData: {
+        discussid: this.data.discussId,
         nodeid:this.data.nodeId,
         content: this.data.content,
         color: this.data.colorArr[this.data.colorSelected]
@@ -61,6 +63,7 @@ Page({
    */
   onLoad: function (options) {
     this.setData({
+      discussId: options.discussid,
       nodeId:options.nodeid
     })
 

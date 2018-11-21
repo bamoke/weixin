@@ -1,6 +1,7 @@
 /* pages/myparttime/progress/index.wxss */
+.progress-title {font-size:34rpx;color:#232323;}
 .progress-nodes {
-  padding: 24rpx 48rpx 120rpx;
+  padding: 24rpx 24rpx 120rpx 48rpx;
 }
 
 .progress-nodes > .item {
@@ -76,4 +77,11 @@
   text-align: center;
   font-size:24rpx;
   border:1px solid #f1f1f1;
+}
+.btn-small {
+  padding:0 24rpx;
+  width:auto;
+  font-size:24rpx;
+  height: 64rpx;
+  line-height: 64rpx;
 }
