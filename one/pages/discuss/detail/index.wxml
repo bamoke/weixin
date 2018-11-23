@@ -29,7 +29,7 @@
       </view>
       <view class="g-pad-box empty-content" wx:else>
         <view class="tips">该分栏节点还没有添加内容</view>
-        <navigator wx:if="{{discussInfo.stage==1}}" open-type='navigate' url="../content/add/index?nodeid={{item.id}}" class="btn btn-success">我来添加</navigator>
+        <navigator wx:if="{{discussInfo.stage==1}}" open-type='navigate' url="../content/add/index?discussid={{discussId}}&nodeid={{item.id}}" class="btn btn-success">我来添加</navigator>
       </view>
       <view class="ht-c"></view>
     </view>

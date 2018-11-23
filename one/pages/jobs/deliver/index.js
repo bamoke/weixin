@@ -18,7 +18,7 @@ Page({
 
   goDeliver: function() {
     const _that = this
-    if (this.data.resume.completion < 80) {
+    if (this.data.resume.completion < 0) {
       wx.showModal({
         content: '请完善简历后再投递,现在去完善简历?',
         success: function(res) {

@@ -34,16 +34,16 @@
     </view>
   </view>
   <view class="m-foot-operation">
-    <block wx:if="{{info.stage == 0}}">
-      <navigator open-type='navigate' url="/pages/jobs/deliver/index?jobid={{info.id}}" class="btn btn-block btn-primary" wx:if="{{isMember == 0 && applyed == 0}}">
-        我要兼职
-      </navigator>
-      <navigator open-type='navigate' url="" class="btn btn-block btn-success" wx:elif="{{isMember != 0}}">进入项目</navigator>
-      <view class="btn btn-block btn-default" wx:else>已经申请过了</view>
-    </block>
-    <block wx:else>
-    <navigator open-type='navigate' url="" class="btn btn-block btn-success" wx:if="{{isMember != 0}}">进入项目</navigator>
-    </block>
+    <navigator open-type='navigate' url="/pages/myparttime/detail/index?parttimeid={{info.id}}" class="btn btn-block btn-success" wx:if="{{isMember != 0}}">进入项目</navigator>
+    <view style="width:100%" class="" wx:else>
+      <view class="btn btn-block btn-default" wx:if="{{applyed != 0}}">已经申请过了</view>
+      <view style="width:100%" wx:else>
+        <navigator open-type='navigate' url="/pages/jobs/deliver/index?jobid={{info.id}}" class="btn btn-block btn-primary" wx:if="{{isMember == 0 && applyed == 0}}">
+          我要兼职
+        </navigator>
+      </view>
+    </view>
+
 
   </view>
 </view>

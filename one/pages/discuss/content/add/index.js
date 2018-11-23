@@ -7,29 +7,29 @@ Page({
    * 页面的初始数据
    */
   data: {
-    discussId:null,
-    nodeId:null,
-    content:'',
-    colorSelected:0,
-    colorArr: ["bbb", "99cbf2", "7ed1d1", "7ed19b", "f5a693", "d1c27e", "d18c7e","a97ed1"]
+    discussId: null,
+    nodeId: null,
+    content: '',
+    colorSelected: 0,
+    colorArr: ["bbb", "99cbf2", "7ed1d1", "7ed19b", "f5a693", "d1c27e", "d18c7e", "a97ed1"]
   },
 
-  selectColor:function(e){
+  selectColor: function(e) {
     if (typeof e.target.dataset.index == 'undefined') return
     this.setData({
-      colorSelected:e.target.dataset.index
+      colorSelected: e.target.dataset.index
     })
   },
-  changeContent:function(e){
+  changeContent: function(e) {
     this.setData({
-      content:e.detail.value
+      content: e.detail.value
     })
   },
-  saveContent:function(){
-    if(this.data.content == '') {
+  saveContent: function() {
+    if (this.data.content == '') {
       wx.showToast({
         title: '内容不能为空',
-        image:"/static/images/icon-error.png"
+        image: "/static/images/icon-error.png"
       })
       return
     }
@@ -38,7 +38,7 @@ Page({
       apiUrl: "/Discuss/savecont",
       requestData: {
         discussid: this.data.discussId,
-        nodeid:this.data.nodeId,
+        nodeid: this.data.nodeId,
         content: this.data.content,
         color: this.data.colorArr[this.data.colorSelected]
       },
@@ -50,7 +50,7 @@ Page({
         title: res.msg,
         icon: "success"
       })
-      setTimeout(function () {
+      setTimeout(function() {
         wx.navigateBack({
           delta: 1
         })
@@ -61,10 +61,10 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
+  onLoad: function(options) {
     this.setData({
       discussId: options.discussid,
-      nodeId:options.nodeid
+      nodeId: options.nodeid
     })
 
   }

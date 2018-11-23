@@ -55,15 +55,18 @@ const request = function ({ apiUrl, requestData = {}, requestMethod="GET", isSho
   var myPromise = new Promise(function (resolve, reject) {
     // const baseApiUrl = "https://www.easy-mock.com/mock/5ba635918c38302a9b1a667e/example/onehre";
     const baseApiUrl = "https://www.onehre.com/api.php";
+    let requestHeader = {
+      'content-type': 'application/x-www-form-urlencoded'
+    }
+    if (wx.getStorageSync('accessToken')) {
+      requestHeader['x-access-token'] = wx.getStorageSync('accessToken')
+    }
     wx.request({
       url: baseApiUrl + apiUrl,
       data: requestData,
       method: requestMethod,
       dataType: "json",
-      header: {
-        'content-type': 'application/x-www-form-urlencoded',
-        'x-access-token': wx.getStorageSync('accessToken')
-      },
+      header: requestHeader,
       success: function (res) {
         isLoaded = true;
         if(isShowLoad) {

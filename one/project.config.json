@@ -33,7 +33,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 20,
+			"current": 18,
 			"list": [
 				{
 					"id": 0,
@@ -144,9 +144,9 @@
 					"query": "id=1"
 				},
 				{
-					"id": -1,
-					"name": "home",
-					"pathName": "pages/me/index/index",
+					"id": 18,
+					"name": "预约记录",
+					"pathName": "pages/me/booking/index",
 					"query": ""
 				},
 				{

@@ -14,7 +14,7 @@
       </view>
     </view>
   </view>
-<view class="ht-c"></view>
+  <view class="ht-c"></view>
   <view class="m-text-list">
     <view bindtap='toMyResume' class="item">
       <view>
@@ -30,11 +30,13 @@
       </view>
       <view class="icon-arrow"></view>
     </navigator>
-    <!--     <navigator open-type='navigate' url="/pages/home/collection/index" class="item">
-      <image class="left-icon u-myicon myicon-big" src="/static/images/icon-collection.png"></image>
-      <view class="title">预约记录</view>
+    <navigator open-type='navigate' url="/pages/me/booking/index" class="item">
+      <view>
+        <image class="left-icon u-myicon myicon-big" src="/static/images/icon-collection.png"></image>
+        <text class="title">预约记录</text>
+      </view>
       <view class="icon-arrow"></view>
-    </navigator> -->
+    </navigator>
   </view>
   <view class="ht-c"></view>
   <view class="home-logout-btn f-has-border" bindtap='logout'>退出帐号</view>

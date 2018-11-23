@@ -1,0 +1,27 @@
+/* pages/home/record/index.wxss */
+
+.m-tab .tab-item {
+  flex-grow: 1;
+}
+.m-log-list .item {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding:24rpx;
+}
+.m-log-list .item .title {
+  margin-bottom:12rpx;
+  color:#232323;
+  font-size:30rpx;
+}
+.m-log-list .item .stage {
+  flex-grow:0;
+  flex-shrink: 0;
+  width:120rpx;
+  text-align: right;
+}
+
+.date {
+  font-size:24rpx;
+  color:#ccc;
+}

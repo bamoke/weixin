@@ -42,7 +42,7 @@
       <view wx:else>
         <view wx:if="{{courseInfo.type==1}}">
           <navigator wx:if="{{isEnroll==0}}" open-type='navigate' url="/pages/course/enroll/index?id={{courseId}}&name={{courseInfo.title}}" class="btn btn-block btn-primary">预约报名</navigator>
-          <view class="btn btn-block btn-default">已经预约过了</view>
+          <view class="btn btn-block btn-default" wx:else>已经预约过了</view>
         </view>
       </view>
 

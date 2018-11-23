@@ -1,0 +1,35 @@
+<!--pages/home/booking/index.wxml-->
+<view class="container" wx:if="{{showPage}}">
+  <view class="m-tab">
+    <view class="tab-item {{curStage === null ? 'active':''}}" bindtap="swichTab">
+      <text class="title">全部</text>
+    </view>
+    <view class="tab-item {{curStage === index ? 'active':''}}" data-index="{{index}}" bindtap="swichTab" wx:for="{{stageNameArr}}" wx:key="index">
+      <text class="title">{{item.name}}</text>
+    </view>
+  </view>
+  <view class="ht-c"></view>
+  <!--list-->
+  <view class="" wx:if="{{list.length > 0}}">
+    <view class='m-log-list'>
+      <navigator url="/pages/course/detail/index?id={{item.course_id}}" class='item' wx:for="{{list}}" wx:key="id">
+        <view>
+          <view class='title'>{{item.coursename}}</view>
+          <view class="date">预约时间：{{item.create_time}}</view>
+        </view>
+        <view class="stage {{stageNameArr[item.status].className}}">{{stageNameArr[item.status].name}}</view>
+      </navigator>
+    </view>
+    <view class="m-paging-wrap">
+      <view class='item no-more' wx:if="{{!hasMore}}">没有更多了</view>
+      <view wx:else>
+        <view class="item" hidden='{{!isLoading}}'>加载中</view>
+      </view>
+    </view>
+  </view>
+  <!--empty page-->
+  <view class="m-tips-page tips-page-empty" wx:else>
+    <image class="icon" src="/static/images/mt-empty.png"></image>
+    <view class="tips">暂无记录</view>
+  </view>
+</view>

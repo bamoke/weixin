@@ -39,7 +39,7 @@
     "pages/news/index/index",
     "pages/news/detail/index",
     "pages/me/index/index",
-    "pages/me/medtail/medtail",
+    "pages/me/booking/index",
 
     "pages/myparttime/index/index",
     "pages/myparttime/detail/index",

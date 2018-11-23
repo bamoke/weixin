@@ -520,7 +520,7 @@ view {
 .m-tab .active .title {
   font-weight: bold;
   color: #232323;
-  border-bottom-color: #f90;
+  border-bottom-color: #2a94fa;
 }
 
 .m-base-info .title {
@@ -898,6 +898,9 @@ view {
   height: 48rpx;
 }
 
+.text-info {
+  color: #2a94fa;
+}
 .text-success {
   color: #00cc66;
 }
