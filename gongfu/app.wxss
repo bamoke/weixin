@@ -1,0 +1,277 @@
+/**app.wxss**/
+
+page {
+  height: 100%;
+  background: #f7f7f7;
+}
+
+view {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.container {
+  min-height: 100%;
+  box-sizing: border-box;
+  font-size: 26rpx;
+  line-height: 1.2;
+  background: #f7f7f7;
+  color: #6c6c6c;
+  overflow: hidden;
+}
+
+.g-row-bt {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.g-column-bt {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/****/
+
+.m-tab {
+  display: flex;
+  padding-top: 24rpx;
+  width: 100%;
+  background-color: #fff;
+  border-top: 1px solid #f1f1f1;
+}
+
+.m-tab .tab-item {
+  display: block;
+  font-size: 30rpx;
+  height: 64rpx;
+  text-align: center;
+  border-bottom: 4rpx solid #ddd;
+}
+
+.m-tab .title {
+  display: inline-block;
+  line-height: 60rpx;
+  box-sizing: border-box;
+  border-bottom: 4rpx solid transparent;
+}
+
+.m-tab .active .title {
+  font-weight: bold;
+  color: #232323;
+  border-bottom-color: #f90;
+}
+
+.m-tips-page {
+  padding-top: 120rpx;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+}
+
+.m-tips-page .icon {
+  width: 180rpx;
+  height: 180rpx;
+  opacity: 0.1;
+}
+
+.m-tips-page .tips {
+  margin: 20rpx 0 80rpx;
+  font-size: 34rpx;
+}
+
+.g-card {
+  border-bottom: 1px solid #f1f1f1;
+  box-sizing: border-box;
+  background: #fff;
+}
+
+.g-card > .header {
+  padding: 24rpx 24rpx 12rpx;
+  border-bottom: 2px solid #f1f1f1;
+}
+
+.g-card > .header > .title {
+  display: table-cell;
+  height: 34rpx;
+  font-size: 32rpx;
+  color: #000;
+  vertical-align: center;
+}
+
+.g-card > .header > .title::before {
+  display: inline-block;
+  margin-right: 12rpx;
+  content: "";
+  width: 8rpx;
+  height: 28rpx;
+  line-height: 1;
+  background: #000;
+  border-radius: 4rpx;
+  vertical-align: middle;
+}
+
+/****/
+
+.m-imgtext-default .item {
+  box-sizing: border-box;
+  display: flex;
+  justify-content: flex-start;
+  align-items: top;
+  border-bottom: 1px solid #f1f1f1;
+  padding: 24rpx;
+}
+
+.m-imgtext-default .item .thumb {
+  flex-shrink: 0;
+  flex-grow: 0;
+  margin-right: 24rpx;
+  width: 220rpx;
+  height: 140rpx;
+  border-radius: 8rpx;
+}
+
+.m-imgtext-default .item .title {
+  margin-bottom: 20rpx;
+  font-size: 32rpx;
+  color: #232323;
+  word-break: break-all;
+}
+
+.m-imgtext-default .text-box {
+  flex-shrink: 1;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 10%;
+}
+
+.m-imgtext-default .text-box .bd text {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.m-imgtext-default .item .addr {
+  margin-bottom: 8rpx;
+}
+
+.m-imgtext-default .item .ft {
+  display: flex;
+  width:100%;
+  justify-content: space-between;
+}
+.m-imgtext-default .item .ft .right-box {
+  flex-grow: 0;
+  flex-shrink: 1;
+  width: auto;
+}
+.m-imgtext-default .item .price {
+  color:#f30;
+  /* font-size:34rpx; */
+}
+
+.m-imgtext-small {
+  display: flex;
+  flex-wrap: wrap;
+}
+.m-imgtext-small .item {
+  flex-grow:0;
+  flex-shrink: 0;
+  box-sizing:border-box;
+  padding:24rpx;
+  width:50%;
+}
+.m-imgtext-small .item .thumb {
+  width:100%;
+  height:200rpx;
+}
+.m-imgtext-small .item .title {line-height:1.5;color:#000;}
+/****/
+
+.u-ht {
+  height: 24rpx;
+  background: #f1f1f1;
+}
+
+.btn {
+  display: inline-block;
+  width: 70%;
+  height: 90rpx;
+  line-height: 90rpx;
+  font-size: 34rpx;
+  border-radius: 6rpx;
+  text-align: center;
+}
+
+.btn-block {
+  display: block;
+  width: 100%;
+}
+
+.btn-primary {
+  background: #000;
+  color: #fff;
+}
+
+.btn-default {
+  background: #f7f7f7;
+  color: #6c6c6c;
+  border: 1px solid #ccc;
+}
+
+.u-myicon {
+  display: inline-block;
+  margin-right: 6rpx;
+  width: 32rpx;
+  height: 32rpx;
+  vertical-align: middle;
+  opacity: 0.5;
+}
+
+.myicon-big {
+  width: 48rpx;
+  height: 48rpx;
+}
+
+.text-success {
+  color: #11c17d;
+}
+
+.text-error {
+  color: #f30;
+}
+
+.text-warning {
+  color: #f90;
+}
+
+.text-lightgrey {
+  color: #cecece !important;
+}
+
+.stage {
+  display: inline-block;
+  font-size: 24rpx;
+  padding: 6rpx 12rpx;
+  vertical-align: middle;
+  line-height: 1;
+  border-radius: 4rpx;
+  white-space: nowrap;
+}
+
+.stage-success {
+  background: #11c17d;
+  color: #fff;
+}
+
+.stage-info {
+  background: #0066ff;
+  color: #fff;
+}
+.stage-black {
+  background: #000;
+  color: #fff;
+}

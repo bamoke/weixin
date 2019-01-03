@@ -1,0 +1,56 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/home/index",
+    "pages/home/collection/index",
+    "pages/home/feedback/index",
+    "pages/mycard/list/index",
+    "pages/mycard/create/index",
+    "pages/mycard/bind/index",
+    "pages/mycard/edit/index",
+    "pages/mycard/detail/index",
+    "pages/card/list/index",
+    "pages/card/detail/index",
+    "pages/exchange/list/index",
+    "pages/exchange/detail/index"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#1b81d3",
+    "navigationBarTitleText": "金英港湾",
+    "navigationBarTextStyle": "white"
+  },
+  "tabBar": {
+    "position": "bottom",
+    "backgroundColor": "#fff",
+    "borderStyle": "black",
+    "color": "#000",
+    "selectedColor": "#1b81d3",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "static/images/tab-index.png",
+        "selectedIconPath": "static/images/tab-index-active.png"
+      },
+      {
+        "pagePath": "pages/mycard/list/index",
+        "text": "名片夹",
+        "iconPath": "static/images/tab-card.png",
+        "selectedIconPath": "static/images/tab-card-active.png"
+      },
+      {
+        "pagePath": "pages/card/list/index",
+        "text": "发现",
+        "iconPath": "static/images/tab-find.png",
+        "selectedIconPath": "static/images/tab-find-active.png"
+      },
+      {
+        "pagePath": "pages/home/index",
+        "text": "我的",
+        "iconPath": "static/images/tab-sys.png",
+        "selectedIconPath": "static/images/tab-sys-active.png"
+      }
+    ]
+  }
+}

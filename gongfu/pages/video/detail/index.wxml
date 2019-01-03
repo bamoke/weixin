@@ -1,0 +1,9 @@
+<!--pages/video/detail/index.wxml-->
+<view class="container" wx:if="showPage">
+  <view></view>
+  <view class="title">{{detail.title}}</view>
+  <view class="other">
+    <view>浏览:{{detail.click}}</view>
+    <view>{{detail.time}}</view>
+  </view>
+</view>

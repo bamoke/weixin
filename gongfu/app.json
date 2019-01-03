@@ -1,0 +1,51 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/course/list/index",
+    "pages/course/detail/index",
+    "pages/column/list/index",
+    "pages/column/detail/index",
+    "pages/video/list/index",
+    "pages/video/detail/index",
+    "pages/home/index/index"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#000",
+    "navigationBarTitleText": "长辰功夫",
+    "navigationBarTextStyle": "white"
+  },
+  "tabBar": {
+    "position": "bottom",
+    "backgroundColor": "#000",
+    "borderStyle": "black",
+    "color": "#999",
+    "selectedColor": "#fff",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "static/images/tab-index.png",
+        "selectedIconPath": "static/images/tab-index-active.png"
+      },
+      {
+        "pagePath": "pages/column/list/index",
+        "text": "专栏",
+        "iconPath": "static/images/tab-card.png",
+        "selectedIconPath": "static/images/tab-card-active.png"
+      },
+      {
+        "pagePath": "pages/course/list/index",
+        "text": "课程",
+        "iconPath": "static/images/tab-find.png",
+        "selectedIconPath": "static/images/tab-find-active.png"
+      },
+      {
+        "pagePath": "pages/home/index/index",
+        "text": "我的",
+        "iconPath": "static/images/tab-sys.png",
+        "selectedIconPath": "static/images/tab-sys-active.png"
+      }
+    ]
+  }
+}

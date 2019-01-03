@@ -1,0 +1,115 @@
+{
+	"description": "项目配置文件",
+	"packOptions": {
+		"ignore": []
+	},
+	"setting": {
+		"urlCheck": true,
+		"es6": true,
+		"postcss": true,
+		"minified": true,
+		"newFeature": true
+	},
+	"compileType": "miniprogram",
+	"libVersion": "2.4.1",
+	"appid": "wxaa14c7aa5e3fd67a",
+	"projectname": "%E5%90%8D%E7%89%87",
+	"debugOptions": {
+		"hidedInDevtools": []
+	},
+	"isGameTourist": false,
+	"condition": {
+		"search": {
+			"current": -1,
+			"list": []
+		},
+		"conversation": {
+			"current": -1,
+			"list": []
+		},
+		"plugin": {
+			"current": -1,
+			"list": []
+		},
+		"game": {
+			"currentL": -1,
+			"list": []
+		},
+		"miniprogram": {
+			"current": 11,
+			"list": [
+				{
+					"id": -1,
+					"name": "创建名片",
+					"pathName": "pages/mycard/create/index",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "名片库",
+					"pathName": "pages/card/list/index",
+					"query": ""
+				},
+				{
+					"id": 2,
+					"name": "名片详情",
+					"pathName": "pages/card/detail/index",
+					"query": "id=2"
+				},
+				{
+					"id": -1,
+					"name": "修改名片",
+					"pathName": "pages/mycard/edit/index",
+					"query": "id=1"
+				},
+				{
+					"id": -1,
+					"name": "名片列表",
+					"pathName": "pages/card/list/index",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "home",
+					"pathName": "pages/home/index",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "我的名片夹",
+					"pathName": "pages/mycard/list/index",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "交换申请",
+					"pathName": "pages/exchange/list/index",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "我的名片夹详情",
+					"pathName": "pages/mycard/detail/index",
+					"query": "id=2"
+				},
+				{
+					"id": -1,
+					"name": "建议与反馈",
+					"pathName": "pages/home/feedback/index",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "好友名片详情",
+					"pathName": "pages/mycard/detail/index",
+					"query": "id=2"
+				},
+				{
+					"id": -1,
+					"name": "绑定",
+					"pathName": "pages/mycard/bind/index"
+				}
+			]
+		}
+	}
+}

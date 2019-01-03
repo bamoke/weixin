@@ -1,0 +1,5 @@
+<!--pages/mycard/create/index.wxml-->
+<view class="container">
+  <view class="u-ht ht-border"></view>
+  <cardform operat-type="0"></cardform>
+</view>

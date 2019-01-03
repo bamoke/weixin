@@ -1,0 +1,16 @@
+/* pages/card/list/index.wxss */
+.left-box {
+  flex-shrink: 1;
+  flex-grow:1;
+  width:50%;
+}
+.m-card-list .item-wrap .exchange {
+  flex-shrink: 0;
+  flex-grow: 0;
+
+  text-align: center;
+}
+.exchange .icon {
+  width:48rpx;
+  height: 48rpx;
+}

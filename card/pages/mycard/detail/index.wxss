@@ -1,0 +1,23 @@
+/* pages/mycard/detail/index.wxss */
+.container {
+  padding-bottom:90rpx;
+}
+.foot-btn-wrap {
+  position: fixed;
+  bottom:0;
+  left:0;
+  right:0;
+  z-index: 9;
+  padding:24rpx;
+  display: flex;
+  justify-content: space-between;
+}
+.foot-btn-wrap .btn {
+  letter-spacing: 0;
+  font-size:32rpx;
+}
+.foot-btn-wrap .icon {
+  width:48rpx;
+  height:48rpx;
+  vertical-align: middle;
+}

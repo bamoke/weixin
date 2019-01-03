@@ -1,0 +1,89 @@
+/* component/card/index.wxss */
+
+.m-card {
+  margin-bottom: 48rpx;
+  padding-bottom: 24rpx;
+  padding: 48rpx 24rpx;
+  width: 100%;
+  box-shadow: 0 0 12rpx rgba(0, 0, 0, 0.2);
+  background:#fff;
+}
+
+.m-card .top {
+  display: flex;
+  align-items: center;
+  padding-bottom: 24rpx;
+  border-bottom: 1px solid #f1f1f1;
+}
+
+.top-text {
+  padding-left: 48rpx;
+  width: 100%;
+}
+
+.top-text .other {
+  margin-top: 12rpx;
+  color: #6c6c6c;
+}
+
+.m-card .avatar {
+  flex-shrink: 0;
+  width: 160rpx;
+  height: 160rpx;
+  border-radius: 50%;
+}
+
+.m-card .name {
+  font-size: 34rpx;
+  font-weight: bold;
+}
+.sex-box {display: inline-block;}
+.m-card .edit-btn,.sex-icon {
+  display: inline-block;
+  margin-left:12rpx;
+  width: 36rpx;
+  height: 36rpx;
+  vertical-align: middle;
+}
+
+.m-card .row {
+  display: flex;
+  align-items: center;
+  padding: 24rpx 0;
+  border-bottom: 1px solid #f1f1f1;
+}
+
+.m-card .row .caption {
+  flex-shrink: 0;
+  flex-grow: 0;
+  width: 120rpx;
+  color: #999;
+}
+.m-other-info {
+  margin-bottom:48rpx;
+  padding:24rpx;
+  box-shadow: 0 0 12rpx rgba(0, 0, 0, 0.2);
+}
+.m-other-info .bar-center {
+  text-align: center;
+}
+.m-other-info .caption {
+  font-size:28rpx;
+  line-height: 1;
+  color:#6c6c6c;
+}
+.m-other-info .icon-wrap {
+  margin-top:6rpx;
+  margin-bottom:12rpx;
+  text-align: center;
+  line-height: 8rpx;
+}
+.m-other-info .icon {
+  display: inline-block;
+  width:60rpx;
+  height:8rpx;
+  /* background:#333; */
+  background:#1b81d3;
+  border-radius: 4rpx;
+  opacity: .5;
+}

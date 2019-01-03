@@ -1,0 +1,28 @@
+<!--pages/exchange/list/index.wxml-->
+<view class="container" wx:if="{{showPage}}">
+  <bmk-tab items="{{tabArr}}" cur-tab="{{curTab}}" bind:switch="switchTab"></bmk-tab>
+
+  <view class="u-ht"></view>
+  <view class="m-card-list" wx:if="{{total > 0}}">
+    <view class="item-wrap" wx:for="{{list}}" wx:key="id">
+      <navigator open-type='navigate' url="/pages/exchange/detail/index?cardid={{item.cardid}}&exchangeid={{item.exchangeid}}" class="g-row row-align-center left-box">
+        <image class="avatar" src="{{item.avatar||'/static/images/default-avatar.png'}}"></image>
+        <view class="text-wrap">
+          <view class="name">{{item.realname}}</view>
+          <view class="other">{{item.position}}</view>
+          <view class="other">{{item.company}}</view>
+        </view>
+      </navigator>
+      <view class="operation-box" bindtap='verify' data-index="{{index}}" wx:if="{{item.exchange_status==1}}">
+        <view class="btn btn-success" data-type="2">同意</view>
+        <view class="btn btn-default" data-type="3">忽略</view>
+      </view>
+      <view class="tips text-success" wx:elif="{{item.exchange_status==2}}">已同意</view>
+      <view class="tips" wx:else>已忽略</view>
+    </view>
+  </view>
+  <view class="m-tips-page tips-page-empty" wx:else>
+    <image class="icon" src="/static/images/mt-empty.png"></image>
+    <view class="tips">暂无记录</view>
+  </view>
+</view>

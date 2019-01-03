@@ -1,0 +1,35 @@
+<!--component/card/index.wxml-->
+<view>
+  <view class="m-card">
+    <view class="top">
+      <image class="avatar" src="{{cardInfo.avatar||'/static/images/default-avatar.png'}}"></image>
+      <view class="top-text">
+        <view class="name">
+          {{cardInfo.realname}}
+          <image class="edit-btn" wx:if="{{isSelf}}" src="/static/images/icon-edit.png" bindtap='handleEdit'></image>
+          <view class="sex-box" wx:else>
+            <image class="sex-icon" src="/static/images/icon-sexm.png" wx:if="{{cardInfo.sex=='男'}}"></image>
+            <image class="sex-icon" src="/static/images/icon-sexw.png" wx:else></image>
+          </view>
+        </view>
+        <view class="other">{{cardInfo.position}}</view>
+        <view class="other">{{cardInfo.company}}</view>
+      </view>
+    </view>
+    <view class='row'>
+      <view class="caption">手机</view>
+      <view class="phone">{{cardInfo.phone}}</view>
+    </view>
+    <view class='row'>
+      <view class="caption">Email</view>
+      <view class="desc">{{cardInfo.email || '未填写'}}</view>
+    </view>
+  </view>
+  <view class="m-other-info">
+    <view class="bar-center">
+      <view class="caption">兴趣爱好</view>
+      <view class="icon-wrap"><view class="icon"></view></view>
+    </view>
+    <view class="content">{{cardInfo.interest||'未填写'}}</view>
+  </view>
+</view>

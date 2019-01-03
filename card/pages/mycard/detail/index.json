@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "bmk-card": "/components/card/index",
+    "bmk-total":"/components/total/index"
+  }
+}

@@ -1,0 +1,8 @@
+<!--pages/mycard/bind/index.wxml-->
+<view class="container">
+<view class="g-box-pad">
+    <view class="tips">内部有资料的方可创建</view>
+    <input class="input-box" bindinput='setPhone' placeholder='请输入您的手机号码'></input>
+    <button class="btn btn-block btn-primary" bindtap='checkPhone'>提交</button>
+</view>
+</view>

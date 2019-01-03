@@ -1,0 +1,91 @@
+/**index.wxss**/
+
+page {
+  height: 100%;
+}
+
+.container {
+  /* background-color: #f4f4f4; */
+  height: 100%;
+}
+
+.userinfo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.userinfo-avatar {
+  width: 128rpx;
+  height: 128rpx;
+  margin: 20rpx;
+  border-radius: 50%;
+}
+
+.userinfo-nickname {
+  color: #aaa;
+}
+
+.usermotto {
+  margin-top: 200px;
+}
+
+.share-btn-wrap {
+  position: relative;
+  margin-top:48rpx;
+}
+
+.share-btn-wrap .btn {
+}
+
+.share-btn {
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  opacity: 0;
+}
+
+.card-empty {
+  padding-top: 200rpx;
+}
+
+.card-empty .tips {
+  text-align: center;
+  font-size: 24rpx;
+  color: #9c9c9c;
+}
+
+.my-card-wrap {
+  position: absolute;
+  left:0;
+  top:0;
+  z-index:2;
+  width:100%;
+  padding: 48rpx;
+}
+.index-main-page {
+  width:100%;
+  position: relative;
+}
+.index-main-page .bg-wrap {
+  position: relative;
+  width:100%;
+  height:400rpx;
+  overflow: hidden;
+}
+.index-main-page .bg-circle {
+  position: absolute;
+  z-index:1;
+  top:-1600rpx;
+  left:50%;
+  margin-left:-1000rpx;
+  width:2000rpx;
+  height:2000rpx;
+  border-radius:1000rpx;
+  background:#1b81d3;
+}
+
+

@@ -1,0 +1,19 @@
+<!--pages/exchange/detail/index.wxml-->
+<view class="container" wx:if="{{showPage}}">
+  <view class="g-box-pad">
+    <bmk-card card-info="{{cardInfo}}"></bmk-card>
+    <view wx:if="{{isFriend}}">
+      <bmk-total card-id="{{id}}" view-total="{{cardInfo.click}}" like-total="{{likeTotal}}" is-like="{{isLike}}" collected-total="{{collectedTotal}}" is-collected="{{isCollected}}"></bmk-total>
+    </view>
+    <view class="" wx:else>
+      <view wx:if="{{exchangeStatus==1}}" bindtap='verify'>
+        <view class="btn btn-primary" style="margin-bottom:24rpx;" data-status="2">同意</view>
+        <view class="btn btn-default" data-status="3">忽略</view>
+      </view>
+      <view class="tips" wx:else>已忽略交换申请</view>
+    </view>
+
+
+
+  </view>
+</view>

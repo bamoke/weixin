@@ -1,0 +1,6 @@
+/* pages/card/detail/index.wxss */
+.tips {
+  padding:24rpx;
+  color:#9c9c9c;
+  text-align: center;
+}

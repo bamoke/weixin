@@ -1,0 +1,4 @@
+<!--pages/mycard/edit/index.wxml-->
+<view class="container" wx:if="{{showPage}}">
+  <cardform form-info="{{formInfo}}" operat-type="1"></cardform>
+</view>

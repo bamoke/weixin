@@ -1,0 +1,57 @@
+<!--index.wxml-->
+<view class="container" wx:if="{{showPage}}">
+  <view class="index-banner-wrap">
+    <swiper class="index-banner" indicator-dots="true" autoplay="true" interval='3000'>
+      <block wx:for="{{banner}}" wx:key="{{item.id}}">
+        <swiper-item>
+          <navigator url='{{item.url}}' open-type='reLaunch' wx:if="{{item.url}}">
+            <image lazy-load='true' mode='aspectFill' class='img' src="/static/images/index-banner.jpg"></image>
+          </navigator>
+          <image lazy-load='true' mode='aspectFill' class='img' wx:else src="/static/images/index-banner.jpg"></image>
+        </swiper-item>
+      </block>
+    </swiper>
+  </view>
+  <view class="u-ht"></view>
+  <view class="g-card border-top">
+    <view class='header'>
+      <view class="title">
+        <text>热门课程</text>
+      </view>
+    </view>
+    <view class="body m-imgtext-default">
+      <navigator url="/pages/fairs/detail/index?id={{item.id}}" class='item' wx:for="{{course}}" wx:key="id">
+        <image class="thumb" lazy-load='true' src='{{item.thumb}}'></image>
+        <view class="text-box">
+          <view class='title'>{{item.title}}</view>
+          <view class='ft'>
+            <view>
+              <text wx:if="{{item.type==1}}" class="stage stage-info">线下</text>
+              <text class="stage stage-black" wx:else>在线</text>
+            </view>
+            <view class="right-box">
+              <text class="price" wx:if="{{item.is_free==1}}">￥{{item.price}}</text>
+              <text class="stage stage-success" wx:else>免费</text>
+            </view>
+          </view>
+        </view>
+      </navigator>
+    </view>
+  </view>
+  <view class="u-ht"></view>
+  <view class="g-card border-top">
+    <view class='header'>
+      <view class="title">
+        <text>影视赏析</text>
+      </view>
+    </view>
+    <view class="body m-imgtext-small">
+      <navigator url="/pages/video/detail/index?id={{item.id}}" class='item' wx:for="{{article}}" wx:key="id">
+        <image class="thumb" lazy-load='true' src='{{item.thumb}}'></image>
+        <view class="text-box">
+          <view class='title'>{{item.title}}</view>
+        </view>
+      </navigator>
+    </view>
+  </view>
+</view>

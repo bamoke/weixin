@@ -1,0 +1,19 @@
+<!--pages/collection/list/index.wxml-->
+<view class="container" wx:if="{{showPage}}">
+  <view class="m-card-list" wx:if="{{total > 0}}">
+    <view class="item-wrap" wx:for="{{list}}" wx:key="id">
+      <navigator open-type='navigate' url="/pages/mycard/detail/index?id={{item.cardid}}" class="g-row row-align-center left-box">
+        <image class="avatar" src="{{item.avatar||'/static/images/default-avatar.png'}}"></image>
+        <view class="text-wrap">
+          <view class="name">{{item.realname}}</view>
+          <view class="other">{{item.position}}</view>
+          <view class="other">{{item.company}}</view>
+        </view>
+      </navigator>
+    </view>
+  </view>
+  <view class="m-tips-page tips-page-empty" wx:else>
+    <image class="icon" src="/static/images/mt-empty.png"></image>
+    <view class="tips">暂无记录</view>
+  </view>
+</view>
