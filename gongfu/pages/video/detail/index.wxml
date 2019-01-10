@@ -1,9 +1,61 @@
 <!--pages/video/detail/index.wxml-->
 <view class="container" wx:if="showPage">
-  <view></view>
-  <view class="title">{{detail.title}}</view>
-  <view class="other">
-    <view>浏览:{{detail.click}}</view>
-    <view>{{detail.time}}</view>
+  <view class="m-media-box">
+    <video class="video" objectFit="cover" initial-time="1" src="{{detail.video}}"></video>
+  </view>
+  <view class="u-ht ht-black"></view>
+  <view class="g-pad-box m-detail-base">
+    <view class="title">{{detail.title}}</view>
+    <view class="description">{{detail.description}}</view>
+    <view class="g-row other">
+      <view class="item">
+        <text class="stage stage-info">{{detail.cate_name}}</text>
+      </view>
+      <view class="item">
+        <image class="u-myicon" src="/static/images/icon-view-white-line.png"></image>
+        <text>{{detail.click}}</text>
+      </view>
+      <view class="item">
+        <image class="u-myicon" src="/static/images/icon-time-white.png"></image>
+        <text style="display:inline-block;">{{detail.create_time}}</text>
+      </view>
+    </view>
+  </view>
+  <view class="u-ht ht-black"></view>
+  <view class="g-pad-box m-detail-content">
+    {{detail.content}}
+  </view>
+  <view class="u-ht ht-black"></view>
+  <view class="g-card card-reverse">
+    <view class='header'>
+      <view class="title">
+        <text>相关课程</text>
+      </view>
+    </view>
+    <view class="body m-imgtext-default m-related" wx:if="{{course.length}}">
+      <navigator url="/pages/course/detail/index?id={{item.id}}" class='item' wx:for="{{course}}" wx:key="id">
+        <image class="thumb" lazy-load='true' src='{{item.thumb}}'></image>
+        <view class="text-box">
+          <view class='title'>{{item.title}}</view>
+          <view class='ft'>
+            <view>
+              <image class="u-myicon" src="/static/images/icon-user-white-line.png"></image>
+              <text style="color:#666;">学习人数:{{item.study_num}}</text>
+            </view>
+            <view class="right-box">
+              <text class="stage stage-success" wx:if="{{item.isfree==1}}">免费</text>
+              <view wx:else>
+                <view class="price" wx:if="{{!item.has_yh}}">￥{{item.price}}</view>
+                <view wx:else>
+                  <view class="old-price">￥{{item.price}}</view>
+                  <view class="price">限时优惠:￥{{item.yh_price}}</view>
+                </view>
+              </view>
+            </view>
+          </view>
+        </view>
+      </navigator>
+    </view>
+    <view class="g-pad-box" wx:else>暂无记录</view>
   </view>
 </view>

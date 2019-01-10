@@ -1,0 +1,46 @@
+<!--pages/orders/confirm/index.wxml-->
+<view class="container" wx:if="showPage">
+  <view class="g-card">
+    <view class='header'>
+      <view class="title">
+        <text>商品信息</text>
+      </view>
+    </view>
+    <view class="body m-imgtext-default">
+      <view class='item'>
+        <image class="thumb" lazy-load='true' src='{{goodsInfo.thumb}}'></image>
+        <view class="text-box">
+          <view class='title'>{{goodsInfo.title}}</view>
+          <view class="" wx:if="{{goodsInfo.has_yh==1}}">
+            <view class="">原价:<text class="old-price">￥{{goodsInfo.price}}</text></view>
+            <view style="margin-top:8rpx;">
+              <text class="stage stage-warning">限时优惠</text>
+              <text class="yh-price">￥{{goodsInfo.yh_price}}</text>
+            </view>
+          </view>
+          <view class="price text-right" wx:else>￥{{goodsInfo.price}}</view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class="u-ht"></view>
+  <view class="order-other-item">
+    <view class="item">
+      <view class="caption">已优惠</view>
+      <view class="price val" wx:if="{{favourable}}">-￥{{favourable}}</view>
+      <view class="val" wx:else>无</view>
+    </view>
+    <view class="item coupon-item">
+      <view class="caption">优惠卷</view>
+      <view class="val">暂无优惠券</view>
+    </view>
+  </view>
+  <view class="u-ht ht-border"></view>
+  <view class="g-pad-box g-row-bt order-total">
+    <view class="caption">商品总计</view>
+    <view class="val total">￥{{total}}</view>
+  </view>
+  <view class="order-submit-button">
+    <view class="btn btn-block btn-primary" bindtap='goBuy'>确认支付</view>
+  </view>
+</view>

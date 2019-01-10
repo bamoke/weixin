@@ -1,2 +1,127 @@
 <!--pages/course/detail/index.wxml-->
-<text>pages/course/detail/index.wxml</text>
+<import src="../../../wxParse/wxParse.wxml" />
+<import src="../../template/comment/comment.wxml" />
+<view class="container" wx:if="{{showPage}}">
+  <view class="g-page-top">
+    <video class='u-video' initial-time='1' objectFit="cover" wx:if="{{openVideo}}" src='{{videoSource}}'></video>
+    <image wx:else class="u-cover" mode="aspectFill" src="{{introduce.thumb}}"></image>
+
+    <view class="m-nav">
+      <text class="btn {{currentTab === 0 ? 'active':''}}" data-index="0" bindtap="swichNav">介绍</text>
+      <text class="btn {{currentTab === 1 ? 'active':''}}" data-index="1" bindtap="swichNav">目录</text>
+      <text class="btn {{currentTab === 2 ? 'active':''}}" data-index="2" bindtap="swichNav">评论</text>
+    </view>
+  </view>
+
+  <swiper current="{{currentTab}}" duration="300" class="g-content-swiper">
+    <swiper-item>
+      <scroll-view scroll-y="true" class="g-scroll-wrap">
+        <view class="m-course-introduce">
+          <view class='g-row-bt'>
+            <view class="base-info">
+              <view class="title">{{introduce.title}}</view>
+              <view class="tags-box">
+                <text class="stage stage-info">{{introduce.cate_name}}</text>
+              </view>
+              <view class="g-row-bt">
+                <view class="total">
+                  <text>{{introduce.study_num}}人正在学习</text>
+                  <text class="fg">|</text>
+                  <text>{{introduce.period}}课时</text>
+                </view>
+                <view style="text-align:right;" wx:if="{{introduce.isfree == 0}}">
+                  <text class="price {{introduce.has_yh==1?'text-line-through':''}}">￥{{introduce.price}}</text>
+                </view>
+              </view>
+
+            </view>
+          </view>
+          <block wx:if="{{introduce.has_yh==1}}">
+            <view class="u-ht ht-black"></view>
+            <view class="m-yh-price-area">
+              <view>
+                <view class="caption">限时优惠</view>
+                <view class="time">剩余
+                  <text class="nu">{{preferTimeInfo.day}}</text> 天
+                  <text class="nu">{{preferTimeInfo.hour}}</text> 小时
+                  <text class="nu">{{preferTimeInfo.minute}}</text> 分
+                  <text class="nu">{{preferTimeInfo.second}}</text> 秒
+                </view>
+              </view>
+              <view class="price">￥{{introduce.yh_price}}</view>
+            </view>
+          </block>
+          <view class="u-ht ht-black"></view>
+          <navigator open-type="navigateTo" url="/pages/org/index?id={{orgInfo.id}}" class="m-teacher-info">
+            <view class="bd">
+              <image mode="aspectFill" src="{{orgInfo.logo}}" class="avatar"></image>
+              <view class="introduce">
+                <view class="name">{{orgInfo.name}}</view>
+                <view class="desc">{{orgInfo.description}}</view>
+              </view>
+              <view class="icon">></view>
+            </view>
+          </navigator>
+          <view class="u-ht ht-black"></view>
+          <view class="g-card card-reverse">
+            <view class="header">
+              <view class="title">
+                <text>课程介绍</text>
+              </view>
+            </view>
+            <view class="body m-detail-content wxParse" style="padding-bottom:160rpx;">
+              <template is="wxParse" data="{{wxParseData:wxparse_content.nodes}}" />
+            </view>
+          </view>
+
+        </view>
+      </scroll-view>
+    </swiper-item>
+
+    <!--  章节  -->
+    <swiper-item>
+      <scroll-view scroll-y="true" class="g-scroll-wrap">
+        <view class="m-section-list">
+          <view class="list {{index==curPlayIndex?'active':''}}" wx:for="{{section}}" wx:key="id" bindtap='studyStart' data-index='{{index}}'>
+            <view class="g-row-bt top">
+              <image class="u-myicon icon" src="/static/images/icon-video-white-fill.png"></image>
+              <view class="title">{{item.title}}</view>
+              <text class="duration">时长：{{item.duration}}</text>
+            </view>
+          </view>
+        </view>
+      </scroll-view>
+    </swiper-item>
+
+    <!--  评论  -->
+    <swiper-item>
+      <scroll-view scroll-y="true" class="g-scroll-wrap">
+        <view class='m-comment'>
+          <view class='bar'>
+            <text class="caption">精选评论</text>
+            <view class="create-btn" bindtap='createComment'>发表评论</view>
+          </view>
+          <template is="commentList" data="{{commentList}}"></template>
+        </view>
+      </scroll-view>
+    </swiper-item>
+  </swiper>
+
+  <view class="m-foot-operation" wx:if="{{currentTab==0}}">
+    <view class="btn-small">
+      <button class="shareBtn" open-type='share'></button>
+      <image class="u-myicon" src="/static/images/icon-share.png"></image>
+      <view class='txt'>分享</view>
+    </view>
+    <view class="btn-small" bindtap='doCollect'>
+      <image class="icon" src="/static/images/icon-collected-white-{{isCollected ? 'fill':'line'}}.png"></image>
+      <view class='txt'>{{isCollected ? '已收藏':'收藏'}}</view>
+    </view>
+
+    <view class="btn-large disabled" wx:if="{{hasCourse}}">已购买</view>
+    <block wx:else>
+      <view class="btn-large btn-success" wx:if="{{introduce.isfree == 1}}">免费</view>
+      <view class="btn-large btn-warning" bindtap='goOrderConfirm' wx:else>立即购买</view>
+    </block>
+  </view>
+</view>

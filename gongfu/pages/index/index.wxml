@@ -5,12 +5,37 @@
       <block wx:for="{{banner}}" wx:key="{{item.id}}">
         <swiper-item>
           <navigator url='{{item.url}}' open-type='reLaunch' wx:if="{{item.url}}">
-            <image lazy-load='true' mode='aspectFill' class='img' src="/static/images/index-banner.jpg"></image>
+            <image lazy-load='true' mode='aspectFill' class='img' src="{{item.img}}"></image>
           </navigator>
-          <image lazy-load='true' mode='aspectFill' class='img' wx:else src="/static/images/index-banner.jpg"></image>
+          <image lazy-load='true' mode='aspectFill' class='img' wx:else src="{{item.img}}"></image>
         </swiper-item>
       </block>
     </swiper>
+  </view>
+    <view class="u-ht"></view>
+  <view class="g-card border-top">
+    <view class='header'>
+      <view class="title">
+        <text>线下强化班</text>
+      </view>
+    </view>
+    <view class="body m-imgtext-default">
+      <navigator url="/pages/booking/detail/index?id={{item.id}}" class='item' wx:for="{{booking}}" wx:key="id">
+        <image class="thumb" lazy-load='true' src='{{item.thumb}}'></image>
+        <view class="text-box">
+          <view class='title'>{{item.title}}</view>
+          <view class='ft'>
+            <view>
+              <image class="u-myicon" src="/static/images/icon-user-black-line.png"></image>
+              <text>{{item.enroll_person}}/{{item.person_limit}}</text>
+            </view>
+            <view class="right-box">
+              <text class="price">￥{{item.price}}</text>
+            </view>
+          </view>
+        </view>
+      </navigator>
+    </view>
   </view>
   <view class="u-ht"></view>
   <view class="g-card border-top">
@@ -20,18 +45,24 @@
       </view>
     </view>
     <view class="body m-imgtext-default">
-      <navigator url="/pages/fairs/detail/index?id={{item.id}}" class='item' wx:for="{{course}}" wx:key="id">
+      <navigator url="/pages/course/detail/index?id={{item.id}}" class='item' wx:for="{{course}}" wx:key="id">
         <image class="thumb" lazy-load='true' src='{{item.thumb}}'></image>
         <view class="text-box">
           <view class='title'>{{item.title}}</view>
           <view class='ft'>
             <view>
-              <text wx:if="{{item.type==1}}" class="stage stage-info">线下</text>
-              <text class="stage stage-black" wx:else>在线</text>
+              <image class="u-myicon" src="/static/images/icon-user-black-line.png"></image>
+              <text>学习人数:{{item.study_num}}</text>
             </view>
             <view class="right-box">
-              <text class="price" wx:if="{{item.is_free==1}}">￥{{item.price}}</text>
-              <text class="stage stage-success" wx:else>免费</text>
+              <text class="stage stage-success" wx:if="{{item.isfree==1}}">免费</text>
+              <view wx:else>
+                <view class="price" wx:if="{{!item.has_yh}}">￥{{item.price}}</view>
+                <view wx:else>
+                  <view class="old-price">￥{{item.price}}</view>
+                  <view class="price">限时优惠:￥{{item.yh_price}}</view>
+                </view>
+              </view>
             </view>
           </view>
         </view>

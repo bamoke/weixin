@@ -1,0 +1,45 @@
+<!--pages/collection/list/index.wxml-->
+<view class="container" wx:if="{{showPage}}">
+  <bmk-tab items="{{tabArr}}" cur-tab="{{curTab}}" bind:switch="switchTab"></bmk-tab>
+  <view class="u-ht"></view>
+  <view class="m-imgtext-default" wx:if="{{list.length}}">
+    <navigator url="/pages/column/detail/index?id={{item.id}}" class='item' wx:for="{{list}}" wx:key="id" wx:if="{{curTab==0}}">
+      <image class="thumb" lazy-load='true' src='{{item.thumb}}'></image>
+      <view class="text-box">
+        <view class='title'>{{item.title}}</view>
+        <view class='ft'>
+          <view class="right-box">
+            <text class="price" wx:if="{{item.isfree==0}}">￥{{item.price}}</text>
+            <text class="stage stage-success" wx:else>免费</text>
+          </view>
+        </view>
+      </view>
+    </navigator>
+    <navigator url="/pages/course/detail/index?id={{item.id}}" class='item' wx:for="{{list}}" wx:key="id" wx:elseif="{{curTab==0}}">
+        <image class="thumb" lazy-load='true' src='{{item.thumb}}'></image>
+        <view class="text-box">
+          <view class='title'>{{item.title}}</view>
+          <view class='ft'>
+            <view>
+              <image class="u-myicon" src="/static/images/icon-user-black-line.png"></image>
+              <text>学习人数:{{item.study_num}}</text>
+            </view>
+            <view class="right-box">
+              <text class="stage stage-success" wx:if="{{item.isfree==1}}">免费</text>
+              <view wx:else>
+                <view class="price" wx:if="{{!item.has_yh}}">￥{{item.price}}</view>
+                <view wx:else>
+                  <view class="old-price">￥{{item.price}}</view>
+                  <view class="price">限时优惠:￥{{item.yh_price}}</view>
+                </view>
+              </view>
+            </view>
+          </view>
+        </view>
+      </navigator>
+  </view>
+  <view class="m-tips-page tips-page-empty" wx:else>
+    <image class="icon" src="/static/images/mt-empty.png"></image>
+    <view class="tips">暂无记录</view>
+  </view>
+</view>

@@ -1,0 +1,6 @@
+/* pages/orders/confirm/index.wxss */
+@import '../order.wxss';
+.yh-price {margin-left:12rpx;font-size:30rpx;color:#c00;}
+.old-price {margin-left:24rpx;font-size:30rpx;text-decoration: line-through;}
+
+

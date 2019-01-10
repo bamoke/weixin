@@ -1,0 +1,27 @@
+.container {padding-bottom:120rpx;background:#fff;}
+.g-pad-box {background:#fff;}
+.price {color:#f00;}
+.order-other-item {
+  width:100%;
+  border-top:1px solid #f1f1f1;
+}
+.order-other-item .item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding:24rpx;
+  border-bottom:1px solid #f1f1f1;
+}
+.order-other-item .caption {color:#232323;}
+.order-other-item {color:#9c9c9c;}
+.order-other-item .val {text-align: right;}
+.order-total {border-bottom:1px solid #f1f1f1;}
+.order-total .caption {color:#232323;font-weight: bold;}
+.order-total .total {text-align:right;color:#f00;font-size:32rpx;font-weight: bold;}
+.order-submit-button {
+  position: fixed;
+  left:0;
+  right:0;
+  bottom: 0;
+  padding:24rpx;
+}

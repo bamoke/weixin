@@ -13,7 +13,7 @@
 	},
 	"compileType": "miniprogram",
 	"libVersion": "2.4.2",
-	"appid": "wx1348775c6f6d56f2",
+	"appid": "wx90918f938c2ce84f",
 	"projectname": "gongfu",
 	"debugOptions": {
 		"hidedInDevtools": []
@@ -40,9 +40,57 @@
 			"current": 0,
 			"list": [
 				{
-					"id": -1,
+					"id": 0,
 					"name": "视频详情",
 					"pathName": "pages/video/detail/index",
+					"query": "id=1"
+				},
+				{
+					"id": -1,
+					"name": "课程详情",
+					"pathName": "pages/course/detail/index",
+					"query": "id=1"
+				},
+				{
+					"id": 2,
+					"name": "订单确认",
+					"pathName": "pages/orders/confirm/index",
+					"query": "type=2&proid=1"
+				},
+				{
+					"id": 3,
+					"name": "订单完成",
+					"pathName": "pages/orders/success/index",
+					"query": "orderno=15469676890000001634"
+				},
+				{
+					"id": -1,
+					"name": "课程列表",
+					"pathName": "pages/course/list/index",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "个人中心",
+					"pathName": "pages/home/index/index",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "收藏夹",
+					"pathName": "pages/home/collection/index",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "优惠券",
+					"pathName": "pages/home/coupon/index",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "booking detail",
+					"pathName": "pages/booking/detail/index",
 					"query": "id=1"
 				}
 			]

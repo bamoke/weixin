@@ -1,0 +1,44 @@
+/* pages/article-detail/index.wxss */
+.m-article-detail {
+  box-sizing:border-box;
+  padding:20rpx 20rpx 40rpx;
+  margin-top:20rpx;
+  width:100%;
+  background-color:#fff;
+}
+.m-article-detail .thumb {
+  width:100%;
+  height:280rpx;
+}
+.m-base-info .title {
+  font-size:36rpx;
+}
+.m-base-info {
+  margin-top:20rpx;
+  padding:20rpx 24rpx;
+  box-sizing: border-box;
+  width:100%;
+  background-color:#fff;
+  font-size:24rpx;
+}
+.m-base-info .fg {
+  margin:0 20rpx;
+}
+.m-article-detail .content {
+  font-size:28rpx;
+}
+.m-media-box {
+  width:100%;
+  text-align: center;
+}
+.u-video {
+  width:100%;height:350rpx;
+}
+.u-cover {
+  width: 100%;
+  height: 350rpx;
+}
+.u-view-num {
+  font-size:24rpx;
+  color:#999;
+}

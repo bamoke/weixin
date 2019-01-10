@@ -1,0 +1,85 @@
+<!--pages/course/detail/index.wxml-->
+<import src="../../../wxParse/wxParse.wxml" />
+<view class="container" wx:if="{{showPage}}">
+  <image class="u-cover" mode="aspectFill" src="{{introduce.thumb}}"></image>
+  <view class="m-course-introduce">
+    <view class='g-row-bt'>
+      <view class="base-info">
+        <view class="title">{{introduce.title}}</view>
+        <view class="tags-box">
+          <text class="stage stage-info">{{introduce.cateName}}</text>
+        </view>
+        <view class="g-row-bt">
+          <view class="total">
+            <view style="margin-bottom:12rpx;">
+              <text>招生人数:{{introduce.person_limit}}</text>
+              <text class="fg">|</text>
+              <text>已报名:{{introduce.enroll_person}}</text>
+            </view>
+            <view>报名截至：{{introduce.enroll_limit}}</view>
+          </view>
+          <view style="text-align:right;">
+            <text class="price {{introduce.has_yh==1?'text-line-through':''}}">￥{{introduce.price}}</text>
+          </view>
+        </view>
+
+      </view>
+    </view>
+    <block wx:if="{{introduce.has_yh==1}}">
+      <view class="u-ht ht-black"></view>
+      <view class="m-yh-price-area">
+        <view>
+          <view class="caption">限时优惠</view>
+          <view class="time">剩余
+            <text class="nu">{{preferTimeInfo.day}}</text> 天
+            <text class="nu">{{preferTimeInfo.hour}}</text> 小时
+            <text class="nu">{{preferTimeInfo.minute}}</text> 分
+            <text class="nu">{{preferTimeInfo.second}}</text> 秒
+          </view>
+        </view>
+        <view class="price">￥{{introduce.yh_price}}</view>
+      </view>
+    </block>
+    <view class="u-ht ht-black"></view>
+    <navigator open-type="navigateTo" url="/pages/org/index?id={{orgInfo.id}}" class="m-teacher-info">
+      <view class="bd">
+        <image mode="aspectFill" src="{{orgInfo.logo}}" class="avatar"></image>
+        <view class="introduce">
+          <view class="name">{{orgInfo.name}}</view>
+          <view class="desc">{{orgInfo.description}}</view>
+        </view>
+        <view class="icon">></view>
+      </view>
+    </navigator>
+    <view class="u-ht ht-black"></view>
+    <view class="g-card card-reverse">
+      <view class="header">
+        <view class="title">
+          <text>课程介绍</text>
+        </view>
+      </view>
+      <view class="body m-detail-content wxParse">
+        <template is="wxParse" data="{{wxParseData:wxparse_content.nodes}}" />
+      </view>
+    </view>
+
+  </view>
+  <view class="m-foot-operation">
+    <view class="btn-small">
+      <button class="shareBtn" open-type='share'></button>
+      <image class="u-myicon" src="/static/images/icon-share.png"></image>
+      <view class='txt'>分享</view>
+    </view>
+    <view class="btn-small" bindtap='doCollect'>
+      <image class="icon" src="/static/images/icon-collected-white-{{isCollected? 'fill':'line'}}.png"></image>
+      <view class='txt'>{{isCollected? '已收藏':'收藏'}}</view>
+    </view>
+
+    <view class="btn-large disabled" wx:if="{{hasCourse}}">已报名</view>
+    <block wx:else>
+      <view class="btn-large disabled" wx:if="{{enrollEnd == 1}}">报名已结束</view>
+      <view class="btn-large btn-success" wx:elif="{{introduce.isfree == 1}}">免费</view>
+      <view class="btn-large btn-warning" bindtap='goOrderConfirm' wx:else>在线支付</view>
+    </block>
+  </view>
+</view>

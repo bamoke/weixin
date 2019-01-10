@@ -8,7 +8,8 @@ Page({
   data: {
     showPage:false,
     curId:null,
-    detail:{}
+    detail:{},
+    course:[]
   },
 
   /**
@@ -28,6 +29,7 @@ Page({
         showPage: true,
         curId:id,
         detail: res.data.info,
+        course:res.data.course
       })
     })
   }

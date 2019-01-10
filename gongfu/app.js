@@ -5,7 +5,7 @@ App({
     wx.login({
       success: res => {
         wx.request({
-          url: 'https://www.easy-mock.com/mock/5ba635918c38302a9b1a667e/example/Account/mplogin',
+          url: 'https://www.xinzhinetwork.com/gongfu/api.php/Account/mplogin',
           method: 'get',
           dataType: 'json',
           data: {
@@ -70,8 +70,8 @@ App({
 
     // send
     var myPromise = new Promise(function (resolve, reject) {
-      // const baseApiUrl = "https://www.bamoke.com/jygw_api.php";
-      const baseApiUrl = "https://www.easy-mock.com/mock/5ba635918c38302a9b1a667e/example";
+      const baseApiUrl = "https://www.xinzhinetwork.com/gongfu/api.php";
+      // const baseApiUrl = "https://www.easy-mock.com/mock/5ba635918c38302a9b1a667e/example";
       wx.request({
         url: baseApiUrl + apiUrl,
         data: requestData,

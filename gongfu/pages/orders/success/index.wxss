@@ -1,0 +1,16 @@
+/* pages/orders/success/index.wxss */
+@import "../order.wxss";
+.order-success {
+  padding:48rpx 0;
+  text-align: center;
+}
+.order-success .icon {
+  width:96rpx;
+  height:96rpx;
+}
+.order-success .title {
+  margin:24rpx 0;
+  font-size:48rpx;
+  color:#11c17d;
+  /* font-weight: bold; */
+}

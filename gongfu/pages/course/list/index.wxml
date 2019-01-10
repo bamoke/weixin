@@ -1,2 +1,41 @@
 <!--pages/course/list/index.wxml-->
-<text>pages/course/list/index.wxml</text>
+<view class="container" wx:if="{{showPage}}">
+  <view class="m-top-tags">
+    <view class="list">
+      <view class="item {{curTag=='hot'?'active':''}}" bindtap='changeTag' data-tag="hot">
+        <text class="caption">最热</text>
+        <text class="ht-icon"></text>
+      </view>
+      <view class="item {{curTag=='latest'?'active':''}}" bindtap='changeTag' data-tag="latest">
+        <text class="caption">最新</text>
+        <text class="ht-icon"></text>
+      </view>
+      <view class="item {{curTag=='free'?'active':''}}" bindtap='changeTag' data-tag="free">
+        <text class="caption">免费</text>
+        <text class="ht-icon"></text>
+      </view>
+    </view>
+    <image class="search-btn" src="/static/images/icon-search-black.png"></image>
+  </view>
+
+  <view class="u-ht"></view>
+  <view class="body m-imgtext-big">
+    <navigator url="/pages/course/detail/index?id={{item.id}}" class='item' wx:for="{{list}}" wx:key="id">
+      <image class="thumb" lazy-load='true' src='{{item.thumb}}'></image>
+      <view class="text-box">
+        <view class='title'>{{item.title}}</view>
+        <view class='ft'>
+          <view>
+            <text class="stage stage-default cate-name">{{item.cate_name}}</text>
+            <image class="u-myicon" src="/static/images/icon-user-black-line.png"></image>
+            <text>学习人数:{{item.study_num}}</text>
+          </view>
+          <view class="right-box">
+            <text class="price" wx:if="{{item.isfree==0}}">￥{{item.price}}</text>
+            <text class="stage stage-success" wx:else>免费</text>
+          </view>
+        </view>
+      </view>
+    </navigator>
+  </view>
+</view>

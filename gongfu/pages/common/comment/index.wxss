@@ -1,0 +1,25 @@
+/* pages/common/comment/index.wxss */
+.u-comment-title {
+  box-sizing: border-box;
+  width:100%;
+  padding:24rpx;
+  font-size:32rpx;
+  background: #fff;
+  text-align: left;
+}
+.my-commentform-container {
+  width: 100%;
+  height: 100%;
+  background: #fff;
+}
+
+.my-commentform-container textarea {
+  box-sizing: border-box;
+  padding: 24rpx;
+  width: 100%;
+  background: #e8e8e8;
+  font-size:28rpx;
+}
+.my-commentform-footer {
+  padding:24rpx;
+}

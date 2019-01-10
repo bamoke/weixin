@@ -13,7 +13,7 @@ Page({
   },
   //事件处理函数
 
-  onLoad: function () {
+  onShow: function () {
     const params = {
       apiUrl: "/Index/index",
       requestMethod: "GET"
@@ -26,7 +26,8 @@ Page({
         banner: res.data.banner,
         column: res.data.column,
         course: res.data.course,
-        article: res.data.article
+        article: res.data.article,
+        booking: res.data.booking
       })
     })
   },
