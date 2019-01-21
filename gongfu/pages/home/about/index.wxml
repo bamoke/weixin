@@ -1,4 +1,19 @@
 <!--pages/home/about/index.wxml-->
 <view class="container">
-  资料更新中……
+  <view class="g-pad-box">
+  <view>
+    <image mode='widthFix' style="width:100%;" src="/static/images/about.jpg"></image>
+  </view>
+  <view class="content-p">
+  功夫频道旨在系统性的输出功夫课程、武术教程为主，汇集名师名家，打造真材实料的功夫及武术内容平台，为广大武术、功夫爱好者及专业类学员提供有实际意义和价值的在线学习内容。功夫频道的主要有精品课程、专栏、定期直播以及线下特训班的形式输出学习内容，同时，旨在以最实惠、最快捷的方式让广大爱好者获得自己喜欢的课程和学习机会。
+  </view>
+  <view class="content-p">
+  
+  功夫频道平台将定期组织学员公开课、小赛事和技术交流活动，让各类学员学习之后，有展现、发挥和见证技术的机会，平台的优秀学员将有机会获得功夫频道“演艺班”进修。
+  </view>
+  <view class="content-p">功夫频道团队向所有功夫/武术爱好者致敬！！</view>
+
+
+</view>
+  
 </view>

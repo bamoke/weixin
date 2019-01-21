@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "交换申请",
+  "usingComponents": {
+    "bmk-tab": "/components/tab/index"
+  },
+  "onReachBottomDistance": "60"
+}

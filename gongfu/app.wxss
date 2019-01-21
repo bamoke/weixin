@@ -160,7 +160,7 @@ view {
 }
 
 .m-imgtext-default .item .title {
-  margin-bottom: 20rpx;
+  margin-bottom: 12rpx;
   font-size: 28rpx;
   color: #232323;
   word-break: break-all;
@@ -180,8 +180,13 @@ view {
   vertical-align: middle;
 }
 
-.m-imgtext-default .item .addr {
-  margin-bottom: 8rpx;
+.m-imgtext-default .item .desc {
+  margin-bottom:12rpx;
+  font-size:24rpx;
+  line-height: 1.5;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .m-imgtext-default .item .ft {
@@ -314,6 +319,7 @@ view {
   font-size: 28rpx;
   color: #999;
 }
+.m-detail-content image {max-width:100%;}
 
 .m-foot-operation {
   position: fixed;

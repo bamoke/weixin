@@ -9,7 +9,8 @@ Page({
     course: [],
     column: [],
     article: [],
-    banner: []
+    banner: [],
+    showBooking:false
   },
   //事件处理函数
 
@@ -27,7 +28,8 @@ Page({
         column: res.data.column,
         course: res.data.course,
         article: res.data.article,
-        booking: res.data.booking
+        booking: res.data.booking,
+        showBooking:res.data.showBooking
       })
     })
   },

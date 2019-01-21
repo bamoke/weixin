@@ -36,7 +36,7 @@
 
             </view>
           </view>
-          <block wx:if="{{introduce.has_yh==1}}">
+          <block wx:if="{{introduce.has_yh==1 && introduce.isfree==0}}">
             <view class="u-ht ht-black"></view>
             <view class="m-yh-price-area">
               <view>
@@ -51,6 +51,8 @@
               <view class="price">￥{{introduce.yh_price}}</view>
             </view>
           </block>
+
+          <block wx:if="{{showOrg}}">
           <view class="u-ht ht-black"></view>
           <navigator open-type="navigateTo" url="/pages/org/index?id={{orgInfo.id}}" class="m-teacher-info">
             <view class="bd">
@@ -62,6 +64,7 @@
               <view class="icon">></view>
             </view>
           </navigator>
+          </block>
           <view class="u-ht ht-black"></view>
           <view class="g-card card-reverse">
             <view class="header">

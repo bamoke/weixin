@@ -1,0 +1,35 @@
+/* components/tab/index.wxss */
+.m-tab {
+  display: flex;
+  padding-top: 24rpx;
+  width: 100%;
+  background-color: #fff;
+  border-top: 1px solid #f1f1f1;
+}
+
+.m-tab .tab-item {
+  display: block;
+  flex-grow:1;
+  font-size: 30rpx;
+  height: 64rpx;
+  text-align: center;
+  border-bottom: 4rpx solid #ddd;
+}
+
+.m-tab .title {
+  display: inline-block;
+  line-height: 60rpx;
+  box-sizing: border-box;
+  border-bottom: 4rpx solid transparent;
+}
+
+.m-tab .active .title {
+  font-weight: bold;
+  color: #232323;
+  border-bottom-color: #1b81d3;
+}
+.m-base-info .title {
+  font-size: 40rpx;
+  color: #232323;
+  font-weight: bold;
+}

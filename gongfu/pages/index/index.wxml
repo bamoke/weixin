@@ -12,11 +12,12 @@
       </block>
     </swiper>
   </view>
+  <block wx:if="{{showBooking}}">
     <view class="u-ht"></view>
   <view class="g-card border-top">
     <view class='header'>
       <view class="title">
-        <text>线下强化班</text>
+        <text>精英强化班</text>
       </view>
     </view>
     <view class="body m-imgtext-default">
@@ -24,19 +25,21 @@
         <image class="thumb" lazy-load='true' src='{{item.thumb}}'></image>
         <view class="text-box">
           <view class='title'>{{item.title}}</view>
+          <view class="desc">{{item.description}}</view>
           <view class='ft'>
             <view>
               <image class="u-myicon" src="/static/images/icon-user-black-line.png"></image>
               <text>{{item.enroll_person}}/{{item.person_limit}}</text>
             </view>
             <view class="right-box">
-              <text class="price">￥{{item.price}}</text>
+              <!-- <text class="price">￥{{item.price}}</text> -->
             </view>
           </view>
         </view>
       </navigator>
     </view>
   </view>
+  </block>
   <view class="u-ht"></view>
   <view class="g-card border-top">
     <view class='header'>
@@ -49,6 +52,7 @@
         <image class="thumb" lazy-load='true' src='{{item.thumb}}'></image>
         <view class="text-box">
           <view class='title'>{{item.title}}</view>
+          <view class="desc">{{item.description}}</view>
           <view class='ft'>
             <view>
               <image class="u-myicon" src="/static/images/icon-user-black-line.png"></image>

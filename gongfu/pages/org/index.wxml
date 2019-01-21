@@ -1,0 +1,42 @@
+<!--pages/org/index.wxml-->
+<import src="../../wxParse/wxParse.wxml" />
+<view class="container" wx:if="{{showPage}}">
+  <view class="m-top-info">
+    <image class="logo" src="{{orgInfo.logo}}"></image>
+    <view class="name">{{orgInfo.name}}</view>
+  </view>
+  <view class="u-ht"></view>
+  <view class="m-other">
+    <view class="item">
+      <view class="left-box">
+        <image class="u-myicon myicon-big" src="/static/images/icon-tel-black.png"></image>
+        <text class="caption">{{orgInfo.tel}}</text>
+      </view>
+      <view class="btn btn-small btn-warning right-box" bindtap='phoneCall'>拨打电话</view>
+    </view>
+    <view class="item">
+      <view class="left-box">
+        <image class="u-myicon myicon-big" src="/static/images/icon-addr-black.png"></image>
+        <text class="caption">{{orgInfo.addr}}</text>
+      </view>
+      <!-- <view class="right-box">查看地图</view> -->
+    </view>
+    <view class="item">
+    <view class="left-box">
+      <image class="u-myicon myicon-big" src="/static/images/icon-user-black-line.png"></image>
+      <text class="caption">{{orgInfo.contact}}</text>
+    </view>
+    </view>
+  </view>
+  <view class="u-ht"></view>
+  <view class="g-card">
+    <view class='header'>
+      <view class="title">
+        <text>详细介绍</text>
+      </view>
+    </view>
+    <view class="body m-detail-content">
+      <template is="wxParse" data="{{wxParseData:wxparse_content.nodes}}" />
+    </view>
+  </view>
+</view>

@@ -31,7 +31,8 @@ Page({
       minute:"00",
       second:"00"
     },//优惠时间信息,
-    curPlayIndex:null
+    curPlayIndex:null,
+    showOrg:false//是否显示机构信息
   },
 
   /**
@@ -223,7 +224,8 @@ Page({
         introduce: res.data.info,
         orgInfo:res.data.orgInfo,
         isCollected: res.data.isCollected,
-        hasCourse: res.data.isHas
+        hasCourse: res.data.isHas,
+        showOrg:res.data.showOrg
       })
       //update bar title
       wx.setNavigationBarTitle({

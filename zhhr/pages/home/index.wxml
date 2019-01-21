@@ -1,0 +1,47 @@
+<!--pages/home/index/index.wxml-->
+<view class='container'>
+  <view class="home-userinfo border-bottom">
+    <image src="{{cardInfo.avatar || '/static/images/default-avatar.png'}}" class="avatar"></image>
+    <view wx:if="{{cardInfo.id}}">
+      <view class="user-name">
+        {{cardInfo.realname}}
+        <navigator class="edit-btn" open-type='navigate' url="/pages/mycard/edit/index">修改</navigator>
+      </view>
+      <view class="other-info">
+        <view>{{cardInfo.position}}</view>
+        <view>{{cardInfo.company}}</view>
+      </view>
+    </view>
+    <view class="tips" wx:else>
+      <navigator class="reg-link" url="/pages/mycard/create/index" open-type='navigate'>您尚未创建名片,【点击创建】</navigator>
+    </view>
+  </view>
+  <view class="u-ht"></view>
+  <view class="m-nav-list f-has-border">
+    <navigator open-type='navigate' url="/pages/exchange/list/index" class="item">
+      <view class="title">
+        <image class="left-icon u-myicon myicon-big" src="/static/images/icon-exchange-grey.png"></image>
+        <text class="txt">交换申请</text>
+      </view>
+      <view class="icon-arrow"></view>
+    </navigator>
+    <navigator open-type='navigate' url="/pages/home/collection/index" class="item">
+      <view class="title">
+        <image class="left-icon u-myicon myicon-big" src="/static/images/icon-collection-black.png"></image>
+        <text class="txt">名片收藏</text>
+      </view>
+      <view class="icon-arrow"></view>
+    </navigator>
+  </view>
+  <view class="u-ht"></view>
+  <view class="m-nav-list f-has-border">
+    <navigator open-type='navigate' url="/pages/home/feedback/index" class="item">
+      <view class="title">
+        <image class="left-icon u-myicon myicon-big" src="/static/images/icon-edit-black.png"></image>
+        <text class="txt">建议反馈</text>
+      </view>
+      <view class="icon-arrow"></view>
+    </navigator>
+  </view>
+
+</view>

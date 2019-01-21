@@ -19,7 +19,8 @@
     "pages/home/feedback/index",
     "pages/orders/confirm/index",
     "pages/orders/success/index",
-    "pages/common/comment/index"
+    "pages/common/comment/index",
+    "pages/org/index"
   ],
   "window": {
     "backgroundTextStyle": "light",

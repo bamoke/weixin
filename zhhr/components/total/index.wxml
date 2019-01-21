@@ -1,0 +1,17 @@
+<!--components/total/index.wxml-->
+    <view class="m-total-box">
+      <view class="item">
+        <image class="icon" src="/static/images/icon-view.png"></image>
+        <view class="num">浏览：{{viewTotal}}</view>
+      </view>
+      <view class="item" bindtap='doCollecte'>
+        <image class="icon" src="/static/images/icon-collection-active.png" wx:if="{{isCollected}}"></image>
+        <image class="icon icon-grey" src="/static/images/icon-collection-black.png" wx:else></image>
+        <view class="num">收藏：{{collectedTotal}}</view>
+      </view>
+      <view class="item" bindtap='doLike'>
+        <image class="icon" src="/static/images/icon-like-active.png" wx:if="{{isLike}}"></image>
+        <image class="icon icon-grey" src="/static/images/icon-like-black.png" wx:else></image>
+        <view class="num">靠谱：{{likeTotal}}</view>
+      </view>
+    </view>

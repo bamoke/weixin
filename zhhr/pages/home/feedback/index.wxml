@@ -1,0 +1,14 @@
+<!--pages/home/feedback/index.wxml-->
+<view class="container">
+  <view class="g-box-pad">
+  <form class='m-form-default card-form' bindsubmit='submitForm'>
+    <view class='form-group'>
+      <textarea name="content" class="val-box" placeholder='请输入内容，120字符以内' maxlength='120'></textarea>
+    </view>
+    <view class='form-group'>
+      <input name="contact" class="val-box val-input" placeholder='联系人邮箱或qq号'></input>
+    </view>
+    <button class="btn btn-primary" form-type="submit">提交</button>
+  </form>
+  </view>
+</view>

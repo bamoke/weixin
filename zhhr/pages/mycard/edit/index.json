@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "修改名片",
+  "usingComponents":{
+    "cardform":"/components/cardform/index"
+  }
+}

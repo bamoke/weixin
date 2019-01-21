@@ -1,0 +1,14 @@
+/* pages/exchange/list/index.wxss */
+.operation-box {
+  text-align: right;
+}
+.operation-box .btn {
+  display: inline-block;
+  margin-bottom:12rpx;
+  padding:0 24rpx;
+  font-size:28rpx;
+  height: 56rpx;
+  line-height:56rpx;
+  letter-spacing:0;
+}
+.tips {white-space: nowrap;}

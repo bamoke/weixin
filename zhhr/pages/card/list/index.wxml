@@ -1,0 +1,36 @@
+<!--pages/card/list/index.wxml-->
+<view class="container" wx:if="{{showPage}}">
+  <view class="m-top-search-primary">
+    <view class="search-bg">
+      <input type="text" class="input-box" confirm-type="搜索" bindconfirm="search"></input>
+      <view class="right-box">
+        <image class="icon" src="/static/images/icon-search.png"></image>
+        <text>搜索</text>
+      </view>
+    </view>
+
+
+  </view>
+  <view class="u-ht"></view>
+  <view class="m-card-list" wx:if="{{total > 0}}">
+    <view class="item-wrap" wx:for="{{list}}" wx:key="id">
+      <navigator open-type='navigate' url="/pages/card/detail/index?id={{item.id}}" class="g-row row-align-center left-box">
+        <image class="avatar" src="{{item.avatar||'/static/images/default-avatar.png'}}"></image>
+        <view class="text-wrap">
+          <view class="name">{{item.realname}}</view>
+          <view class="other">{{item.position}}</view>
+          <view class="other">{{item.company}}</view>
+        </view>
+      </navigator>
+      <view class="exchange">
+        <image class="icon" style="opacity:.2;" src="/static/images/icon-exchange-grey.png" wx:if="{{item.exchange_status==1}}"></image>
+        <image class="icon" src="/static/images/icon-right.png" wx:elif="{{item.exchange_status==2}}"></image>
+        <image class="icon" bindtap='doExchange' data-index="{{index}}" src="/static/images/icon-exchange.png" wx:else></image>
+      </view>
+    </view>
+  </view>
+  <view class="m-tips-page tips-page-empty" wx:else>
+    <image class="icon" src="/static/images/mt-empty.png"></image>
+    <view class="tips">暂无记录</view>
+  </view>
+</view>

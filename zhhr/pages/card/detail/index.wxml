@@ -1,0 +1,13 @@
+<!--pages/card/detail/index.wxml-->
+<view class="container" wx:if="{{showPage}}">
+  <view class="g-box-pad">
+    <bmk-card card-info="{{cardInfo}}"></bmk-card>
+    <view wx:if="{{exchangeStatus==2}}">
+      <bmk-total card-id="{{id}}" view-total="{{cardInfo.click}}" like-total="{{likeTotal}}" is-like="{{isLike}}" collected-total="{{collectedTotal}}" is-collected="{{isCollected}}"></bmk-total>
+    </view>
+    <view class="tips" wx:elif="{{exchangeStatus==1}}">已申请名片交换,请等待对方审核</view>
+    <view class="" wx:else>
+      <view class="btn btn-block btn-primary" bindtap='doExchange'>交换名片</view>
+    </view>
+  </view>
+</view>

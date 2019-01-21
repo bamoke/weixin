@@ -37,7 +37,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 0,
+			"current": 9,
 			"list": [
 				{
 					"id": 0,
@@ -91,6 +91,12 @@
 					"id": -1,
 					"name": "booking detail",
 					"pathName": "pages/booking/detail/index",
+					"query": "id=1"
+				},
+				{
+					"id": -1,
+					"name": "机构详情",
+					"pathName": "pages/org/index",
 					"query": "id=1"
 				}
 			]
