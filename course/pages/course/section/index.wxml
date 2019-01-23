@@ -4,15 +4,15 @@
   <image wx:if="{{sectioninfo.type != 3}}" class="u-cover" mode="aspectFill" src="{{sourceUrl}}thumb/{{thumb}}"></image>
   <view class='m-media-box'>
     <view wx:if="{{sectioninfo.type==2}}">
-      <xzaudio id="xzaudio" src="{{ossUrl}}/audio/{{encodeURI(sectioninfo.source)}}" title="[欣志会计职业精英汇]{{sectioninfo.title}}" cover="{{sourceUrl}}thumb/{{thumb}}" next="{{nextRecord}}" prev="{{prevRecord}}" bind:playprev="playPrev" bind:playnext="playNext"></xzaudio>
+      <xzaudio id="xzaudio" src="{{ossUrl}}/audio/{{sectioninfo.source}}" title="[会计每日一听]{{sectioninfo.title}}" cover="{{sourceUrl}}thumb/{{thumb}}" next="{{nextRecord}}" prev="{{prevRecord}}" bind:playprev="playPrev" bind:playnext="playNext"></xzaudio>
     </view>
-    <video initial-time='1' wx:elif='{{sectioninfo.type == 3}}' src="{{ossUrl}}/video/{{encodeURI(sectioninfo.source)}}" controls class="u-video" id="myVideo"></video>
+    <video initial-time='1' wx:elif='{{sectioninfo.type == 3}}' src="{{ossUrl}}/video/{{sectioninfo.source}}" controls class="u-video" id="myVideo"></video>
   </view>
 
     <view class="m-base-info">
       <view class="title">{{sectioninfo.title}}</view>
       <view class='g-row-bt'>
-        <view class="u-view-num">学习人数：{{sectioninfo.view_num}}</view>
+        <view class="u-view-num">学习人次：{{sectioninfo.view_num}}</view>
         <view class="u-collection {{isCollect?'collection-active':''}}" bindtap='changeCollection'></view>
       </view>
     </view>

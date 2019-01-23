@@ -1,5 +1,8 @@
 // pages/video/video.js
-import { siteConf } from "../../../static/js/common";
+import {
+  siteConf
+} from "../../../static/js/common";
+import util from "../../../utils/util"
 var WxParse = require('../../../wxParse/wxParse.js');
 //获取应用实例
 var app = getApp()
@@ -10,39 +13,37 @@ Page({
     showPage: false,
     sourceUrl: siteConf.sourceUrl,
     ossUrl: siteConf.ossUrl,
-    thumb:"",
+    thumb: "",
     authStatus: 0,
     sectioninfo: {},
-    isCollect:false,
-    prevRecord:null,
-    nextRecord:null
+    isCollect: false,
+    prevRecord: null,
+    nextRecord: null,
+    audioSeek:0
 
   },
   /**
    * Audio method
    */
-  playPrev: function (e) {
+  playPrev: function(e) {
     var prevRecord = this.data.prevRecord;
     if (prevRecord === null || prevRecord.type != 2) return;
     wx.redirectTo({
-      url: 'index?id=' + prevRecord.id + "&img=" + this.data.thumb,
+      url: 'index?id=' + prevRecord.id + "&img=" + this.data.thumb
     })
   },
-  playNext:function(e){
+  playNext: function(e) {
     var nextRecord = this.data.nextRecord;
     if (nextRecord === null || nextRecord.type != 2) return;
     wx.redirectTo({
-      url: 'index?id='+nextRecord.id+"&img="+this.data.thumb,
+      url: 'index?id=' + nextRecord.id + "&img=" + this.data.thumb,
     })
   },
-/**
- * collection
- */
-  changeCollection:function(){
-    var apiUrl = "/Collection/index"
-    var requestData = {type:2,proid:this.data.sectioninfo.id};
-    var HttpResult;
-    if(!this.data.isCollect){
+  /**
+   * collection
+   */
+  changeCollection: function() {
+    if (!this.data.isCollect) {
       wx.showToast({
         title: '收藏成功',
         icon: "none"
@@ -51,43 +52,64 @@ Page({
         isCollect: true
       })
       requestData.actype = 1;
-    }else {
+    } else {
       wx.showToast({
         title: '已取消收藏',
         icon: "none"
       })
       this.setData({
         isCollect: false
-      })    
+      })
       requestData.actype = 0;
     }
     // http request
-    HttpResult =  app._getApiData(apiUrl,requestData,'GET',1);
-    HttpResult.then();
+    const requestParams = {
+      apiUrl: "/Collection/index",
+      requestData: {
+        type: 2,
+        proid: this.data.sectioninfo.id
+      }
+    }
+    const httpResult = util.request(requestParams);
+    httpResult.then();
 
   },
   /**
    * initialize
    */
-  onLoad: function (options) {
-    // 页面初始化 options为页面跳转所带来的参数
-    var id = options.id;
+  onLoad: function(options) {
+    this.setData({
+      curId: options.id
+    })
+
+  },
+  onReady: function() {
+    // 页面渲染完成
+    // this.videoContext = wx.createVideoContext('js-video');
+
+
+  },
+  onShow: function() {
     var _that = this;
-    var apiUrl = '/Course/sectiondetail'
-    var requestData = { id: id }
-    var myPromise = app._getApiData(apiUrl, requestData);
-    myPromise.then(data => {
+    const requestParams = {
+      apiUrl: "/Course/sectiondetail",
+      requestData: {
+        id:this.data.curId
+      }
+    }
+    const httpResult = util.request(requestParams);
+    httpResult.then(data => {
       //标签转换
       if (data.sectioninfo.content) {
-        WxParse.wxParse('wxparse_content', 'html', data.sectioninfo.content, _that)
+        WxParse.wxParse('wxparse_content', 'html', data.sectioninfo.content, this)
       }
-      _that.setData({
+      this.setData({
         showPage: true,
         sectioninfo: data.sectioninfo,
-        thumb:data.thumb,
+        thumb: data.thumb,
         prevRecord: data.prev,
         nextRecord: data.next,
-        isCollect:data.isCollection
+        isCollect: data.isCollection
       })
       //update bar title
       wx.setNavigationBarTitle({
@@ -97,23 +119,17 @@ Page({
       //设置audio
       if (data.sectioninfo.type == 2) {
         _that.xzaudio = this.selectComponent("#xzaudio")
+        let audioSeek = wx.getStorageSync("audioSeek") == '' ? 20 : wx.getStorageSync("audioSeek")
+        this.setData({
+          audioSeek
+        })
       }
     });
-
   },
-  onReady: function () {
-    // 页面渲染完成
-    // this.videoContext = wx.createVideoContext('js-video');
-    
-
-  },
-  onShow: function () {
-    // 页面显示
-  },
-  onHide: function () {
+  onHide: function() {
     // 页面隐藏
   },
-  onUnload: function () {
+  onUnload: function() {
     // 页面关闭
   }
 })

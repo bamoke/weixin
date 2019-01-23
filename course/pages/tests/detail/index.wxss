@@ -112,13 +112,14 @@ text-align: center;
 .m-answer-result icon {vertical-align: middle;}
 .m-answer-result .txt {margin-left:10rpx;display: inline-block;vertical-align: middle;}
 .m-bottom-btn-box {
-    position: fixed;
-  bottom: 24rpx;
+  position: fixed;
+  bottom: 0;
   left:0;
   right:0;
   z-index: 1;
-  padding:0 24rpx;
+  padding:24rpx;
   box-sizing: border-box;
+  background-color:rgba(255,255,255,.8);
 }
 .m-bottom-btn-box .bottom-btn {
   width:100%;

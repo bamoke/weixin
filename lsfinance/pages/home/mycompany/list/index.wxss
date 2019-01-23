@@ -1,1 +1,9 @@
 /* pages/home/mycompany/list/index.wxss */
+.m-com-list {width: 100%;}
+.m-com-list .item {
+  display: flex;
+  padding:24rpx;
+  border-bottom:1px solid #f1f1f1;
+  justify-content: space-between;
+  background: #fff;
+}

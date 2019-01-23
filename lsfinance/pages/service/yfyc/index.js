@@ -9,13 +9,18 @@ Page({
   data: {
     amountTotal:'0.00',
     curTabKey:'recharge',
-    logsList:[]
+    logsList:[],
+    incentives:[],//优惠信息
+    showBuyBtn:false
   },
   switchTab:function(e){
     const key = e.target.dataset.key
     this.setData({
       curTabKey:key
     })
+  },
+  selecteItem:function(){
+    this.setData({showBuyBtn:true})
   },
   submitForm:function(e){
     const _that = this

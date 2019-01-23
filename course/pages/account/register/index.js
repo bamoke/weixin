@@ -113,7 +113,6 @@ Page({
       onLoading: true
     })
     // 发送表单数据
-    formData.bind_id = wx.getStorageSync("bindId")
     let requestParams = {
       apiUrl: "/Account/regist",
       requestData: formData,
@@ -121,22 +120,24 @@ Page({
     }
     req = util.request(requestParams);
     req.then(data => {
-      wx.removeStorageSync("bindId")
       wx.showModal({
         title: '注册成功',
         content: "现在返回登录页面",
         showCancel: false,
-        success: function() {
+        success: function () {
           wx.navigateTo({
             url: '/pages/account/login/index',
           })
         }
       })
     }).catch(error => {
-      this.setData({
+      _that.setData({
         onLoading: false
       })
     })
+
+
+    
   },
 
   //=======

@@ -56,7 +56,7 @@ view {box-sizing: border-box;}
 .m-column-list .item .info .title {
   font-size: 28rpx;
   display: block;
-  color: #333;
+  color: #121212;
   line-height: 1.2;
 }
 
@@ -220,28 +220,26 @@ view {box-sizing: border-box;}
   background-repeat: no-repeat;
   background-size: 48rpx auto;
 }
-
+.m-horizontal-nav .item .icon .img {
+  width:64rpx;
+  height:64rpx;
+}
 .m-horizontal-nav .item .icon-course {
-  background-image: url(http://ojpuy4nsw.bkt.clouddn.com/course-icon-course.png);
   background-color: #c1d70c;
 }
 
 .m-horizontal-nav .item .icon-column {
-  background-image: url(http://ojpuy4nsw.bkt.clouddn.com/course-icon-column.png);
   background-color: #ffa11d;
 }
 
 .m-horizontal-nav .item .icon-knowledge {
-  background-image: url(http://ojpuy4nsw.bkt.clouddn.com/course-icon-knowledge.png?v=1);
   background-color: #20cc84;
 }
 
 .m-horizontal-nav .item .icon-test {
-  background-image: url(http://ojpuy4nsw.bkt.clouddn.com/course-icon-test.png);
   background-color: #1dadff;
 }
 .m-horizontal-nav .item .icon-booking {
-  background-image: url(http://www.xinzhinetwork.com/Upload/weicon/index-icon-booking.png);
   background-color: #09dcdf;
 }
 
@@ -339,7 +337,7 @@ view {box-sizing: border-box;}
   text-align: center;
   color: #999;
 }
-
+.btn {}
 .btn-import {
   color: #fff;
   background-color: #ff5b57;

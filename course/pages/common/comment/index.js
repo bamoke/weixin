@@ -21,8 +21,7 @@ Page({
       pro_id: this.data.proId,
       type: this.data.commentType
     }
-    var apiUrl = '/Comment/index';
-    var myPromise;
+    
     if (data.detail.value.content == '') {
       wx.showToast({
         title: '请输入评论内容',
@@ -31,7 +30,12 @@ Page({
       return;
     }
     requestData.content = data.detail.value.content;
-    myPromise = app._getApiData(apiUrl, requestData,"POST");
+    const requestParams = {
+      apiUrl:"/Comment/index",
+      requestData,
+      requestMethod:"post"
+    }
+    const myPromise = app.ajax(requestParams);
     myPromise.then(function(){
       wx.hideLoading();
       wx.showModal({
@@ -48,7 +52,7 @@ Page({
       wx.hideLoading();
       wx.showToast({
         title: reject,
-        image: '/static/images/warning.png'
+        image: '/static/images/icon-error.png'
       })
     })
   },

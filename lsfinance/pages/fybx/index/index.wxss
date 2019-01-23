@@ -45,9 +45,18 @@
   width: 100%;
   color: #959595;
 }
-
+.top-box {padding-bottom:12rpx;margin-bottom:12rpx;border-bottom:1px solid #f1f1f1;}
 .m-bxd-list .item .description {
+  margin-right:40rpx;
   margin-bottom: 12rpx;
   font-size: 32rpx;
   color: #2c2c2c;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
+.m-list .item .amount {
+  font-size:32rpx;
+  color:#ff3a31;
+}
+

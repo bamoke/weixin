@@ -9,20 +9,56 @@
       <view class="item {{curTabKey=='recharge'?'active':''}}" data-key="recharge">我要预存</view>
       <view class="item {{curTabKey=='logs'?'active':''}}" data-key="logs">预存记录</view>
     </view>
-    <view class="tab-content g-m-wrap">
-      <view class="item" hidden='{{curTabKey!=="recharge"}}'>
-        <form class='m-form' bindsubmit='submitForm'>
-          <view class="form-group">
-            <input name="amount" class="input" type="number" placeholder='请输入预存金额'></input>
+    <view class="tab-content">
+      <!--recharge-->
+      <view hidden='{{curTabKey!=="recharge"}}'>
+        <view class="m-recharge-type">
+          <view class="recharge-item">
+            <view class="select-icon"></view>
+            <view class="midel-box">
+              <text class="title">1个月</text>
+            </view>
+            <view class="right-box">
+              <view class="price">￥300.00</view>
+            </view>
           </view>
-          <view class="form-group">
-            <input name="description" class="input" placeholder="请填写用途说明"></input>
+          <view class="recharge-item">
+            <view class="select-icon selected"></view>
+            <view class="midel-box">
+              <text class="title">3月</text>
+              <text class="discount">九八折</text>
+            </view>
+            <view class="right-box">
+              <view class="price">￥1800.00</view>
+              <view class="retrench s-text-success">节省:￥200</view>
+            </view>
           </view>
-          <view class="error-box" hidden='{{!errorStatus}}'>{{errorMsg}}</view>
-          <view class='form-group'>
-            <button form-type='submit' class='btn btn-block btn-primary'>提交</button>
+          <view class="recharge-item">
+            <view class="select-icon"></view>
+            <view class="midel-box">
+              <text class="title">6个月</text>
+              <text class="discount">九五折</text>
+            </view>
+            <view class="right-box">
+              <view class="price">￥1800.00</view>
+              <view class="retrench s-text-success">节省:￥200</view>
+            </view>
           </view>
-        </form>
+          <view class="recharge-item">
+            <view class="select-icon"></view>
+            <view class="midel-box">
+              <text class="title">12个月</text>
+              <text class="discount">九折</text>
+            </view>
+            <view class="right-box">
+              <view class="price">￥1800.00</view>
+              <view class="retrench s-text-success">节省:￥200</view>
+            </view>
+          </view>
+        </view>
+        <view class="m-pay-btn">
+          <text class="">确认支付</text>
+        </view>
       </view>
 
       <!--logs-->

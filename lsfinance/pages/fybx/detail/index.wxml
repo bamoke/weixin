@@ -1,9 +1,9 @@
 <!--pages/fybx/detail/index.wxml-->
-<view class='container' wx:if="{{pageShow}}">
+<view class='container' wx:if="{{showPage}}">
   <view class='m-base-box'>
     <view class='title'>
       <text class="text">{{baseInfo.title}}</text>
-      <view class='u-status {{baseInfo.status=="未审核"?"u-status-warning":"u-status-success"}}'>{{baseInfo.status}}</view>
+      <view class='u-status {{baseInfo.status=="已审核"?"u-status-success":"u-status-warning"}}'>{{baseInfo.status}}</view>
     </view>
 
     <view class="m-list-nomar other-info">
@@ -12,16 +12,24 @@
         <view class="amount s-text-error">{{baseInfo.amount}}</view>
       </view>
       <view class='item'>
+        <view class="section">报销人</view>
+        <view>{{baseInfo.person}}</view>
+      </view>
+      <view class='item'>
+        <view class="section">所属部门</view>
+        <view>{{baseInfo.department}}</view>
+      </view>
+      <view class='item'>
         <view class="section">报销单号</view>
-        <view>{{baseInfo.num}}</view>
+        <view>{{baseInfo.nu}}</view>
       </view>
       <view class='item'>
         <view class="section">报销日期</view>
-        <view>{{baseInfo.time}}</view>
+        <view>{{baseInfo.date}}</view>
       </view>
-      <view class='item'>
+      <view class='item' wx:if="{{baseInfo['status']=='已审核'}}">
         <view class="section">审核日期</view>
-        <view>{{baseInfo.time}}</view>
+        <view>{{baseInfo.sh_date}}</view>
       </view>
     </view>
 
@@ -29,15 +37,15 @@
 
   <!--detail-->
   <view class="fybx-detail-list">
-    <view class='item' wx:for="{{detailList}}" wx:key="no" bindtap="switchDeatil" data-index="{{index}}">
+    <view class='item' wx:for="{{detailList}}" wx:key="index" bindtap="switchDeatil" data-index="{{index}}">
       <view class='section g-row-bt'>
-        <view class="index-text">报销明细-{{item.no}}</view>
+        <view class="index-text">报销明细-{{item.index+1}}</view>
         <view class="icon {{item.display == 'hidden'?'icon-close':'icon-open'}}"></view>
       </view>
       <view class="child" hidden='{{item.display == "hidden"}}'>
         <view class='child-item'>
-          <view class="child-name">项目全称</view>
-          <view>{{item.name}}</view>
+          <view class="child-name">类别</view>
+          <view>{{item.cate}}</view>
         </view>
         <view class='child-item'>
           <view class="child-name">金额</view>

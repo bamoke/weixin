@@ -34,9 +34,9 @@
   left:-14px;
   top:-14rpx;
   z-index:9;
-  width:20rpx;
-  height:20rpx;
-  border:8rpx solid #fff;
+  width:32rpx;
+  height:32rpx;
+  border:2px solid #fff;
   border-radius:50%;
   background:#28c0c6;
   box-shadow: 0 0 4rpx rgba(0,0,0,.35);

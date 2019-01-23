@@ -2,25 +2,32 @@
 <view class='container' wx:if="{{pageShow}}">
   <view class="m-top-operator">
     <navigator url='../new/index' class="item">
-      <view class="icon-wrap"><view class='icon icon-new'></view></view>
+      <view class="icon-wrap">
+        <view class='icon icon-new'></view>
+      </view>
       <view class="text">新建</view>
     </navigator>
     <navigator class="item">
-      <view class="icon-wrap"><view class='icon icon-draft'></view></view>
+      <view class="icon-wrap">
+        <view class='icon icon-draft'></view>
+      </view>
       <view class="text">草稿</view>
     </navigator>
   </view>
 
   <view class="m-list m-bxd-list" wx:if="{{list.length > 0}}">
-    <navigator url="../detail/index?id={{item.num}}" open-type='navigate' class="item" wx:for="{{list}}" wx:key="num">
-      <view class="description">
-      {{item.description}}
-      
-      <view class='u-status {{item.status=="未审核"?"u-status-warning":"u-status-success"}}'>{{item.status}}</view>
+    <navigator url="../detail/index?id={{item.id}}" open-type='navigate' class="item" wx:for="{{list}}" wx:key="id">
+      <view class="g-row-bt top-box">
+        <view class="description">{{item.description}}</view>
+        <view class='u-status {{item.status=="已审核"?"u-status-success":"u-status-warning"}}'>{{item.status=="已审核"?"已审核":"未审核"}}</view>
       </view>
       <view class='g-row-bt'>
-        <view class="">单号：{{item.num}}</view>
-        <view class="">日期：{{item.time}}</view>
+        <view>报销人:{{item.name}}</view>
+        <view>报销总额:￥<text class="amount">{{item.amount}}</text></view>
+      </view>
+      <view class='g-row-bt'>
+        <view class="">单号：{{item.nu}}</view>
+        <view class="">日期：{{item.date}}</view>
       </view>
 
       <view class="foot">

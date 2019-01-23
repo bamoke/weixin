@@ -15,13 +15,13 @@
         <view class="desc">预付代理费，防止遗忘或导致逾期</view>
       </view>
     </navigator>
-    <view class='item bg-3'>
+<!--     <view class='item bg-3'>
       <image class="icon" src="/static/images/service-dj.png"></image>
       <view>
         <view class='name'>代付代缴</view>
         <view class="desc">房屋租金、水电、税费、社保等费用代付代缴</view>
       </view>
-    </view>
+    </view> -->
 
 
   </view>

@@ -16,7 +16,7 @@
   </view>
 
   <view class="m-nav-list f-has-border">
-    <navigator open-type='navigate' url="/pages/resume/index/index" class="item">
+    <navigator open-type='navigate' url="/pages/home/mycompany/list/index" class="item">
       <view>
         <image class="left-icon u-myicon myicon-big" src="/static/images/icon-record.png"></image>
         <text class="title">我的企业</text>

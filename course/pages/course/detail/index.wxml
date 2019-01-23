@@ -17,7 +17,7 @@
     <swiper-item>
       <scroll-view scroll-y="true" class="g-scroll-wrap">
         <view class="m-course-introduce">
-          <view class='g-row-bt'>
+          <view class='g-row-bt' style="align-items:flex-start;">
             <view class="base-info">
               <view class="title">{{introduce.title}}</view>
               <view class="total">
@@ -26,19 +26,38 @@
                 <text>{{introduce.period}}课时</text>
               </view>
             </view>
-            <view class='u-gift' bindtap='sendGift' data-id="{{courseId}}">
+            <view class='u-gift' bindtap='confirmOrder' data-type="gift" data-id="{{courseId}}" style="margin-top:36rpx;">
               <text class="icon"></text>
               <view class="text">送好友</view>
             </view>
           </view>
 
-          <view class="m-price-area">
-            <view wx:if="{{!hasCourse}}">
-              <view class="free" wx:if="{{introduce.isfree == 1}}">免费</view>
-              <button wx:else class='u-btn btn-minor' bindtap='buyCourse'>购买￥{{introduce.price}}</button>
+          <view class="m-buy-operation">
+            <view class="btn-small">
+              <button class="shareBtn" open-type='share' id="share-btn"></button>
+              <image class="icon" src="/static/images/icon-share.png"></image>
+              <view class='txt'>分享</view>
             </view>
-            <view class='text-success' wx:else>您已经购买了此课程，可正常观看课程视频</view>
+            <view class="btn-small{{isCollection?' active':''}}" bindtap='collectionCourse'>
+              <image class="icon" src="/static/images/icon-collection{{isCollection?'-active':''}}.png"></image>
+              <view class='txt'>收藏</view>
+            </view>
+            <block wx:if="{{!hasCourse}}">
+              <view class="btn-large disabled" wx:if="{{introduce.isfree == 1}}">免费</view>
+              <view class="buy-btn-wrap" wx:else>
+                <view class='buy-btn buy-single' data-type="singlebuy" bindtap='confirmOrder'>
+                  <view class="price">￥{{introduce.price}}</view>
+                  单独购买
+                </view>
+                <view class='buy-btn buy-together' data-type="togetherbuy" bindtap='confirmOrder'>
+                  <view class="price">￥{{introduce.price}}</view>
+                  发起拼课
+                </view>
+              </view>
+            </block>
+            <view class='tips text-success' wx:else>您已经购买了此课程，可正常观看课程视频</view>
           </view>
+
 
           <navigator open-type="navigateTo" url="/pages/teacher/index?id={{introduce.teacher_id}}" class="m-teacher-info">
             <view class="bd">
@@ -102,6 +121,6 @@
 
 </view>
 <!--buyconfirm-->
-<buyconfirm id='buyconfirm' title="{{introduce.title}}" price="{{introduce.price}}" bind:confirm="giftBuyConfirm"></buyconfirm>
+<buyconfirm id='buyconfirm' title="{{introduce.title}}" price="{{introduce.price}}" bind:confirm="orderPay"></buyconfirm>
 <!-- share btn  -->
 <sharemodal id="shareModal"></sharemodal>

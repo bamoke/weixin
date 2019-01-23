@@ -1,7 +1,7 @@
 {
 	"description": "项目配置文件。",
 	"setting": {
-		"urlCheck": false,
+		"urlCheck": true,
 		"es6": true,
 		"postcss": true,
 		"minified": true,
@@ -30,7 +30,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 5,
+			"current": 13,
 			"list": [
 				{
 					"id": 0,
@@ -39,10 +39,10 @@
 					"query": "serverid=18005"
 				},
 				{
-					"id": -1,
+					"id": 1,
 					"name": "费用报销详情",
 					"pathName": "pages/fybx/detail/index",
-					"query": "id=BX0001"
+					"query": "id=932"
 				},
 				{
 					"id": -1,
@@ -73,6 +73,47 @@
 					"name": "预付预存",
 					"pathName": "pages/service/yfyc/index",
 					"query": "yfyc"
+				},
+				{
+					"id": 7,
+					"name": "费用报销列表",
+					"pathName": "pages/fybx/index/index",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "新建报销单",
+					"pathName": "pages/fybx/new/index",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "公司支出",
+					"pathName": "pages/fyzc/index/index",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "科目选择",
+					"pathName": "pages/fiscal/subject/index",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "费用支出",
+					"pathName": "pages/fyzc/index/index",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "新建费用支出",
+					"pathName": "pages/fyzc/new/index",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "我的企业",
+					"pathName": "pages/home/mycompany/list/index"
 				}
 			]
 		}

@@ -1,5 +1,7 @@
 // pages/testdetail/index.js
-import { siteConf } from "../../../static/js/common";
+import {
+  siteConf
+} from "../../../static/js/common";
 //获取应用实例
 var app = getApp()
 Page({
@@ -8,35 +10,35 @@ Page({
    * 页面的初始数据
    */
   data: {
-    testsId:null,
+    testsId: null,
     symbolArr: ['A', 'B', 'C', "D", 'E', 'F', 'G'],
     showStartPage: true,
     showCompletePage: false,
 
-    havaPurchaset:false,
+    havaPurchaset: false,
     isVip: false,
     curIndex: 0,
     totalNum: 5,
     correctNum: 0,
     score: 0,
     correctName: '',
-    errorList:[],
-    examinationInfo:{},
+    errorList: [],
+    examinationInfo: {},
     question: []
 
   },
-/**
- * 开始答题
- */
-  startTest:function(){
-  this.setData({
-    showStartPage:false
-  })
+  /**
+   * 开始答题
+   */
+  startTest: function() {
+    this.setData({
+      showStartPage: false
+    })
   },
   /**
    * 选择答案,单选和判断题选择即确认，多选需要点击确认按钮
    */
-  selectAnswer: function (e) {
+  selectAnswer: function(e) {
     var newData = {};
     var val = (e.detail.value).toString();
     var newQuestion = this.data.question;
@@ -67,7 +69,7 @@ Page({
   /**
    * 确认答案
    */
-  confirmAnswer: function (data) {
+  confirmAnswer: function(data) {
     var newQuestion = this.data.question;
     var curIndex = this.data.curIndex;
     var val = (newQuestion[curIndex].selected).split(',').sort().toString();
@@ -92,7 +94,7 @@ Page({
     } else {
       newQuestion[curIndex].answeredResult = 2;
       newData.correctName = this._transSymbol(newQuestion[curIndex].correct)
-      newErrorList.push('question_id=' + newQuestion[curIndex].id +'&selected='+val)
+      newErrorList.push('question_id=' + newQuestion[curIndex].id + '&selected=' + val)
       newData.errorList = newErrorList;
     }
     newData.question = newQuestion;
@@ -101,9 +103,9 @@ Page({
   },
 
   /**
-  * 切换下一题
-  */
-  nextQuestion: function () {
+   * 切换下一题
+   */
+  nextQuestion: function() {
     var curQuestion = this.data.question[this.data.curIndex];
     if (curQuestion.answeredResult) {
       this.setData({
@@ -123,17 +125,20 @@ Page({
   /**
    * 交卷
    */
-  submitTest: function () {
+  submitTest: function() {
     var _that = this;
-    var apiUrl = '/Tests/result'
     var requestData = {
-      "tests_id":this.data.testsId,
+      "tests_id": this.data.testsId,
       "score": this.data.score,
       "error_list": this.data.errorList.toString()
     }
-    var myPromise = app._getApiData(apiUrl, requestData,"POST");
-    myPromise.then(function(){
-      wx;wx.hideLoading();
+    const requestParams = {
+      apiUrl: '/Tests/result',
+      requestData,
+      requestMethod: "POSt"
+    }
+    var myPromise = app.ajax(requestParams);
+    myPromise.then(function() {
       _that.setData({
         showCompletePage: true
       })
@@ -143,39 +148,45 @@ Page({
   /**
    * 私有方法
    */
-  _transSymbol: function (str) {//将0,1模式转换成A,B模式
+  _transSymbol: function(str) { //将0,1模式转换成A,B模式
     var arr = str.split(',').sort();
     var that = this;
-    return arr.map(function (item) { return that.data.symbolArr[item] }).toString();
+    return arr.map(function(item) {
+      return that.data.symbolArr[item]
+    }).toString();
   },
 
   /**
    * 购买试卷
    */
-  buyTests:function(){
+  buyTests: function() {
     var proid = this.data.testsId;
-    var apiUrl = '/Orders/create';
-    var requestData = { type: 3, proid: proid }
-    var promise = app._getApiData(apiUrl, requestData);
+    const requestParams = {
+      apiUrl: '/Orders/create',
+      requestData: {
+        type: 3,
+        proid: proid
+      }
+    }
+    const promise = app.ajax(requestParams);
 
-    promise.then((backdata) => {
-      var info = backdata.info;
-      var nonceStr = info.nonceStr;
-      var pkg = info.package;
-      var timeStamp = info.timeStamp;
-      var paySign = info.sign;
+    promise.then(res => {
+      var nonceStr = res.nonceStr;
+      var pkg = res.package;
+      var timeStamp = res.timeStamp;
+      var paySign = res.sign;
       wx.requestPayment({
         timeStamp: timeStamp,
         nonceStr: nonceStr,
         package: pkg,
         signType: 'MD5',
         paySign: paySign,
-        success: function (res) {
+        success: function(res) {
           wx.redirectTo({
             url: '/pages/tests/detail/index?id=' + proid,
           })
         },
-        fail: function (res) {
+        fail: function(res) {
           wx.redirectTo({
             url: '/pages/home/orders/index',
           })
@@ -189,20 +200,24 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
-    var _that = this;
-    var apiUrl = '/Tests/detail'
-    var requestData = { id: options.id }
-    var myPromise = app._getApiData(apiUrl, requestData);
+  onLoad: function(options) {
+
+    const requestParams = {
+      apiUrl: '/Tests/detail',
+      requestData: {
+        id: options.id
+      }
+    }
+    var myPromise = app.ajax(requestParams);
     myPromise.then(data => {
       wx.hideLoading();
-      _that.setData({
+      this.setData({
         showPage: true,
         testsId: options.id,
         havaPurchaset: data.havaPurchaset,
         totalNum: data.totalNum,
         examinationInfo: data.examinationInfo,
-        question:data.question
+        question: data.question
       })
     })
   },
@@ -210,49 +225,16 @@ Page({
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
-  onReady: function () {
+  onReady: function() {
 
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
-  onShow: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
+  onShow: function() {
 
   }
+
+
 })

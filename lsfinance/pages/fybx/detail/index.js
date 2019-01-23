@@ -1,6 +1,6 @@
 // pages/fybx/detail/index.js
 import util from '../../../utils/util';
-const app = getApp();
+
 Page({
 
   /**
@@ -16,31 +16,21 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.setData({
-      pageShow:true,
-      baseInfo:{
-        "num": "BX0001",
-        "title": "6月伙食费5w44酒啊就开始网站备案域名核验要求通知",
-        "status": "未审核",
-        "time": "2018-07-01",
-        "amount": "20158.47"
-      },
-      detailList:[
-        {
-          "no":1,
-          "name":"560107_销售费用_客户招待费",
-          "description":"2018年五月国税局来访接待晚宴、酒店住宿安排、行程交通费用",
-          "amount":"2514.65",
-          "display":"hidden"
-        },
-        {
-          "no": 2,
-          "name": "560107_销售费用_客户招待费",
-          "description": "2018年五月国税局来访接待晚宴、酒店住宿安排、行程交通费用",
-          "amount": "2514.65",
-          "display": "hidden"
-        }
-      ]
+    const id = options.id
+    var orgInfo = wx.getStorageSync("orgInfo");
+    const requestParams = {
+      apiUrl: "/Expenses/detail",
+      requestData: {
+        id: options.id
+      }
+    }
+    util.request(requestParams).then((data) => {
+      this.setData({
+        showPage:true,
+        baseInfo: data.baseInfo,
+        detailList: data.childList
+      })
+    }).catch(function (msg) {
     })
   },
 

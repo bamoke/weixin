@@ -47,7 +47,6 @@ Page({
     }
     var myPromise = util.request(requestParams)
     myPromise.then(data=> {
-      wx.hideLoading()
       this.setData({
         showPage: true,
         column: data.columnist,

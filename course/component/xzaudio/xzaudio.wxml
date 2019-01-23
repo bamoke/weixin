@@ -1,6 +1,6 @@
 <!--component/xz-audio/xzaudio.wxml-->
 <view class='wrap'>
-  <view class='row'>
+  <view class='row' style="margin-bottom:24rpx;">
     <view class="small left-unit">{{curTime}}</view>
     <view class="middle-box progress" id="js-progress">
       <view class="active-bar" style="width:{{curProgressNum}}px" id="js-active-bar"></view>

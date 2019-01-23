@@ -1,0 +1,4 @@
+/* pages/fyzc/index/index.wxss */
+/* pages/work/fybx/index.wxss */
+
+@import "../main.wxss";

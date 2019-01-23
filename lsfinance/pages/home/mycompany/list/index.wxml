@@ -1,2 +1,9 @@
 <!--pages/home/mycompany/list/index.wxml-->
-<text>pages/home/mycompany/list/index.wxml</text>
+<view class="container">
+  <view class="m-com-list">
+    <navigator open-type="navigate" url="/pages/home/mycompany/detail/index?id={{item.objectId}}" class="item" wx:for="{{comList}}" wx:key="comId">
+      <view class="name">{{item.comName}}</view>
+      <view><image class="u-myicon" src="/static/images/arrow-black-right.png"></image></view>
+    </navigator>
+  </view>
+</view>

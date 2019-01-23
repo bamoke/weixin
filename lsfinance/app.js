@@ -36,5 +36,8 @@ App({
       webUrl: 'http://www.pykscloud.com/',
       staticUrl: "https://wesource.oss-cn-shenzhen.aliyuncs.com"
     }
+  },
+  ajax:function(requestParams){
+    return util.request(requestParams)
   }
 })

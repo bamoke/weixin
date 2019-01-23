@@ -50,28 +50,46 @@ Page({
     this.setData({
       btnText: "登录中……"
     })
-    // 发送表单数据
-    let requestParams = {
-      apiUrl:"/Account/login",
-      requestData: formData,
-      requestMethod: "POST"
-    }
-    const req = util.request(requestParams);
-    req.then(data => {
-      wx.showToast({
-        title: '登陆成功',
-      })
-      const _that = this
-      setTimeout(function() {
-        wx.setStorageSync("accessToken", data.token)
-        wx.setStorageSync("user", data.user)
-        wx.reLaunch({
-          url: '/pages/home/index/index'
-        })
-      }, 500)
-    }).catch(error => {
 
+    const _that = this
+    wx.login({
+      success: function (res) {
+        formData.mpcode = res.code
+        // 发送表单数据
+        let requestParams = {
+          apiUrl: "/Account/login",
+          requestData: formData,
+          requestMethod: "POST"
+        }
+        const req = util.request(requestParams);
+        req.then(data => {
+          wx.showToast({
+            title: '登陆成功',
+          })
+          setTimeout(function () {
+            wx.setStorageSync("accessToken", data.token)
+            wx.reLaunch({
+              url: '/pages/home/index/index'
+            })
+          }, 500)
+        }).catch(error => {
+          this.setData({
+            btnText: "登录"
+          })
+        })
+
+      },
+      fail: function () {
+        wx.showToast({
+          title: '微信登陆失败',
+          image: "/static/images/icon-error.png"
+        })
+        this.setData({
+          btnText: "登录"
+        })
+      }
     })
+  
   },
 
   //=======

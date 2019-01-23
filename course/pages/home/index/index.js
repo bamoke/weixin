@@ -14,7 +14,6 @@ Page({
       nickName: '',
       avatarUrl: "https://www.xinzhinetwork.com/Upload/avatar/default-avatar.png",
       balance: 0,
-      mp_identification: 0
     }
   },
 

@@ -2,6 +2,7 @@
 @import "../fybx.wxss";
 
 .m-base-box {
+  width: 100%;
   margin-bottom: 36rpx;
   background-color: #fff;
 }
@@ -34,5 +35,6 @@
   display: flex;
   justify-content: space-between;
 }
+.child-item .amount {color:#232323;}
 
 

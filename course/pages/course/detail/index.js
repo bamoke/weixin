@@ -19,12 +19,15 @@ Page({
     openVideo: false,//是否开始播放课程视频
     videoSource: null,//视频地址,
     hasCourse: false,//是否已购买此课程
+    isCollection:false,//是否已收藏
     showShare: false,
     giftKey: null,//礼品包激活码
     wxparse_content: null,
     introduce: {},
     section: [],
-    commentList: []
+    commentList: [],
+    orderInfo:{},//订单内容
+    operatorType:'',//订单类型，直接购买或是赠送
   },
 
   /**
@@ -139,22 +142,54 @@ Page({
   },
 
   /**
-   * 送好友
+   * 确认订单
    */
-  sendGift: function () {
+  confirmOrder: function (e) {
     var courseId = this.data.courseId;
-    var type = 2;
+    var type = e.currentTarget.dataset.type;
     this.buyconfirm.show();
+    this.setData({
+      operatorType:type
+    })
   },
-
+  /**
+   * 确认支付
+  */
+  orderPay:function(){
+    const operatorType = this.data.operatorType
+    if (operatorType == 'gift') {
+      this.giftBuyConfirm()
+    } else{
+      this.buyCourse()
+    }
+  },
+  /**
+   * 课程收藏
+   */
+  collectionCourse:function(){
+    const courseId=this.data.courseId
+    const requestParams = {
+      apiUrl: '/Collection/docollect',
+      requestData: { proid: courseId, type: 2},
+      requestMethod:"POST"
+    }
+    var myPromise = util.request(requestParams);
+    myPromise.then(res=>{
+      this.setData({
+        isCollection:!this.data.isCollection
+      })
+    })
+  },
   /**
    * giftBuyConfirm
    */
   giftBuyConfirm: function () {
+    const _that = this
     var courseId = this.data.courseId;
     const requestParams = {
       apiUrl : '/Orders/buypresent',
-      requestData : { proid: courseId, protype: 2, type: 5 }
+      requestData : { proid: courseId, protype: 2, type: 5 },
+      requestMethod:"post"
     }
     var myPromise = util.request(requestParams);
     myPromise.then(data => {
@@ -215,7 +250,7 @@ Page({
   onShow: function () {
     const requestParams = {
       apiUrl : '/Course/detail',
-      requestData: { id: this.courseId }
+      requestData: { id: this.data.courseId }
     }
     var myPromise = util.request(requestParams);
     myPromise.then(data => {
@@ -228,7 +263,8 @@ Page({
       this.setData({
         showPage: true,
         introduce: data.courseDetail,
-        hasCourse: data.hasCourse
+        hasCourse: data.hasCourse,
+        isCollection:data.isCollection
       })
       //update bar title
       wx.setNavigationBarTitle({
@@ -273,19 +309,25 @@ Page({
     if (res.from === 'button') {
       // 来自页面内转发按钮
       console.log(res.target)
-    }
-    return {
-      title: '送你一个课程礼品包',
-      path: '/pages/gift/index?key=' + this.data.giftKey,
-      imageUrl: siteConf.sourceUrl + "thumb/" + this.data.introduce.thumb,
-      success: function (res) {
-        // 转发成功
-        _that.sharemodal.hide()
-      },
-      fail: function (res) {
-        // 转发失败
-        console.log("ss")
+      if (res.target.id == 'gift') {
+        return {
+          title: '送你一个课程礼品包',
+          path: '/pages/gift/index?key=' + this.data.giftKey,
+          imageUrl: siteConf.sourceUrl + "thumb/" + this.data.introduce.thumb,
+          success: function (res) {
+            // 转发成功
+            _that.sharemodal.hide()
+          },
+          fail: function (res) {
+            // 转发失败
+          }
+        }
       }
     }
+    return {
+      title: this.data.introduce.title,
+      imageUrl: siteConf.sourceUrl + "thumb/" + this.data.introduce.thumb
+    }
+
   }
 })

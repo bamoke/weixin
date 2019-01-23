@@ -11,39 +11,31 @@
         <button wx:if="{{canIUse}}" open-type="getUserInfo" class='update-userinfo' bindtap='updateUserinfo'>微信同步</button>
       </view>
 
-      <view class='m-bind-box'>
-        <view wx:if="{{userinfo.mp_identification == 0}}">
-          <view>手机号未绑定</view>
-          <navigator open-type='navigate' url='/pages/common/bind/index?type=1' class="btn">
-            立即绑定
-          </navigator>
-        </view>
-        <view wx:else class="">
-          <view>{{userinfo.phone}}</view>
-          <navigator open-type='navigate' url='/pages/common/bind/index?type=2' class="btn">更换手机号</navigator>
-        </view>
-      </view>
-      <!--       <view class="other">
-        <text>同步头像</text>
-        <text>账户余额:￥{{userinfo.balance}}</text>
-      </view> -->
     </view>
   </view>
   <view class="m-horizontal-nav">
     <navigator open-type="navigateTo" url="../mycourse/index" class="item">
-      <view class="icon icon-course"></view>
+      <view class="icon icon-course">
+        <image class="img" src="/static/images/index-icon-course.png"></image>
+      </view>
       <view class="caption">我的课程</view>
     </navigator>
     <navigator open-type="navigateTo" url="../mycolumn/index" class="item">
-      <view class="icon icon-column"></view>
+      <view class="icon icon-column">
+        <image class="img" src="/static/images/index-icon-column.png"></image>
+      </view>
       <view class="caption">我的专栏</view>
     </navigator>
     <navigator open-type="navigateTo" url="../mybooking/index" class="item">
-      <view class="icon icon-booking"></view>
+      <view class="icon icon-booking">
+        <image class="img" src="/static/images/index-icon-booking.png"></image>
+      </view>
       <view class="caption">我的预约</view>
     </navigator>
     <navigator open-type="navigate" url="../mytests/index" class="item">
-      <view class="icon icon-test"></view>
+      <view class="icon icon-test">
+        <image class="img" src="/static/images/index-icon-test.png"></image>
+      </view>
       <view class="caption">我的测验</view>
     </navigator>
   </view>

@@ -3,6 +3,6 @@
   <view class="masker" bindtap='hide'></view>
   <view class='content'>
     <view class='tips'>请点击下面的按钮，选择您要赠送的好友！</view>
-    <button class="btn-minor" open-type='share'>发送给好友</button>
+    <button class="btn-minor" open-type='share' id="gift">发送给好友</button>
   </view>
 </view>
