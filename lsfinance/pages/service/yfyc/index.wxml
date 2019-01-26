@@ -56,8 +56,8 @@
             </view>
           </view>
         </view>
-        <view class="m-pay-btn">
-          <text class="">确认支付</text>
+        <view class="m-pay-btn g-pad-box">
+          <view class="btn btn-large btn-block btn-primary">确认预存</view>
         </view>
       </view>
 
