@@ -8,22 +8,20 @@ Page({
    */
   data: {
     amountTotal: '0.00',
-    curTabKey: 'recharge',
-    logsList: [],
-    showBuyBtn: false,
-    curPrepayIndex:null
+    curPrepayIndex:null,
+    prepayInfo:[]
   },
-  switchTab: function(e) {
-    const key = e.target.dataset.key
-    this.setData({
-      curTabKey: key
-    })
-  },
+
 
   confirmPrepay: function(e) {
     if(this.data.curPrepayIndex === null) return;
-    const _that = this
+    const curItem = this.data.prepayInfo[this.data.curPrepayIndex]
     let formData = {
+      title:curItem.title,
+      comid:curItem.comid,
+      amount:curItem.amount,
+      ratio:curItem.ratio,
+      old_amount:curItem.old_amount
     }
     const curComInfo = wx.getStorageSync("curComInfo");
 
@@ -45,7 +43,13 @@ Page({
             title: '操作成功,结果或有延时',
             icon: "success"
           })
-          _that._loadData()
+          setTimeout(function(){
+            wx.navigateTo({
+              url: '/pages/prepay/log/index',
+            })
+          },1000)
+
+          
         },
         fail: function(res) {
 
@@ -56,24 +60,7 @@ Page({
     })
 
   },
-  _loadData: function() {
-    var curComInfo = wx.getStorageSync("curComInfo");
-    const requestParams = {
-      apiUrl: "/Recharge/index",
-      requestData: {
-        comid: curComInfo.comId
-      }
-    }
-    util.request(requestParams).then((data) => {
-      this.setData({
-        showPage: true,
-        logsList: data.logs == null ? [] : data.logs,
-        amountTotal: data.amountTotal
-      })
-    }).catch(function(msg) {
-      console.log(msg)
-    })
-  },
+
   selectPrepayItem: function(e) {
     const curIndex = e.currentTarget.dataset.index
     const prepayInfo = this.data.prepayInfo

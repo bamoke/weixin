@@ -1,0 +1,30 @@
+<!--pages/service/yfyc/index.wxml-->
+<view class="container" wx:if="showPage">
+    <view class="m-tab">
+      <view class="item active">我要预存</view>
+      <navigator open-type='navigate' url="/pages/prepay/log/index" class="item">预存记录</navigator>
+    </view>
+    <view class="u-ht"></view>
+    <view style="width:100%">
+      <!--recharge-->
+      <view class="m-recharge-type">
+        <view class="recharge-item" wx:for="{{prepayInfo}}" wx:key="{{index}}" bindtap='selectPrepayItem' data-index="{{index}}">
+          <view class="select-icon {{item.selected?'selected':''}}"></view>
+          <view class="midel-box">
+            <text class="title">{{item.title}}</text>
+            <text class="discount" wx:if="{{item.ratio !==1}}">{{item.ratio*10}}折</text>
+          </view>
+          <view class="right-box">
+            <view class="price">￥{{item.amount}}</view>
+            <view class="retrench s-text-success" wx:if="{{item.ratio !==1}}">节省:￥{{item.reduce}}</view>
+          </view>
+        </view>
+
+      </view>
+      <view class="m-pay-btn g-pad-box">
+        <view class="btn btn-large btn-block {{curPrepayIndex===null?'btn-disabled':'btn-primary'}}" bindtap="confirmPrepay">确认预存</view>
+      </view>
+
+
+    </view>
+</view>

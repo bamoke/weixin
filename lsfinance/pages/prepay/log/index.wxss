@@ -1,0 +1,16 @@
+/* pages/prepay/log/index.wxss */
+@import "../main.wxss";
+.m-list {color:#9c9c9c;}
+.m-list .item-bt {
+  margin-top:12rpx;
+  padding-top:12rpx;
+  border-top:1px solid #f1f1f1;
+  font-size:22rpx;
+}
+.m-date-box {
+  display: flex;
+  justify-content: space-between;
+  padding:24rpx;
+  width:100%;
+  background:#fff;
+}

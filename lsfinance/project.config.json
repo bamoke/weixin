@@ -30,7 +30,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 13,
+			"current": 6,
 			"list": [
 				{
 					"id": 0,
@@ -69,10 +69,10 @@
 					"query": ""
 				},
 				{
-					"id": 7,
+					"id": 6,
 					"name": "预付预存",
-					"pathName": "pages/service/yfyc/index",
-					"query": "yfyc"
+					"pathName": "pages/prepay/index/index",
+					"query": ""
 				},
 				{
 					"id": 7,
@@ -113,7 +113,8 @@
 				{
 					"id": -1,
 					"name": "我的企业",
-					"pathName": "pages/home/mycompany/list/index"
+					"pathName": "pages/home/mycompany/list/index",
+					"query": ""
 				}
 			]
 		}

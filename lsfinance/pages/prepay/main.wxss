@@ -1,0 +1,23 @@
+.m-tab {
+  width: 100%;
+  background:#fff;
+}
+
+.m-tab {
+  display: flex;
+  font-size: 34rpx;
+  border-bottom: 1px solid #f1f1f1;
+}
+
+.m-tab .item {
+  flex: 1 1 auto;
+  height: 80rpx;
+  line-height: 80rpx;
+  text-align: center;
+  color: #9c9c9c;
+}
+
+.m-tab .active {
+  color:#121212;
+  /* color: #1b81d3; */
+}

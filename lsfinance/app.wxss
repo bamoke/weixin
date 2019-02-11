@@ -434,6 +434,11 @@ view {
   color: #fff;
   border-color: #2aab8f;
 }
+.btn-disabled {
+  background: #eee;
+  color: #999;
+  border-color: #ddd;
+}
 
 .text-bold {
   font-weight: bold;

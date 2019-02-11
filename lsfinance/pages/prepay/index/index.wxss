@@ -1,38 +1,12 @@
-/* pages/service/yfyc/index.wxss */
-@import '../index.wxss';
+/* pages/prepay/index/index.wxss */
+@import '../main.wxss';
 
 .yfyc-top {
   margin-bottom: 0;
 }
 
-.m-tab {
-  width: 100%;
-}
 
-.m-tab .tab {
-  display: flex;
-  font-size: 32rpx;
-  border-bottom: 1px solid #f1f1f1;
-}
 
-.m-tab .tab .item {
-  flex: 1 1 auto;
-  height: 80rpx;
-  line-height: 80rpx;
-  text-align: center;
-  color: #9c9c9c;
-}
-.m-list {color:#9c9c9c;}
-.m-tab .tab .active {
-  color:#232323;
-  /* color: #1b81d3; */
-}
-.m-list .item-bt {
-  margin-top:12rpx;
-  padding-top:12rpx;
-  border-top:1px solid #f1f1f1;
-  font-size:22rpx;
-}
 .m-recharge-type {
   width:100%;
   background:#fff;

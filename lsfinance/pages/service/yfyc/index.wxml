@@ -1,9 +1,5 @@
 <!--pages/service/yfyc/index.wxml-->
 <view class="container" wx:if="showPage">
-  <view class="m-total yfyc-top">
-    <view class='section'>预存余额(元)</view>
-    <view class="amount">{{amountTotal}}</view>
-  </view>
   <view class="m-tab">
     <view class="tab" bindtap='switchTab'>
       <view class="item {{curTabKey=='recharge'?'active':''}}" data-key="recharge">我要预存</view>
@@ -13,51 +9,22 @@
       <!--recharge-->
       <view hidden='{{curTabKey!=="recharge"}}'>
         <view class="m-recharge-type">
-          <view class="recharge-item">
-            <view class="select-icon"></view>
+
+          <view class="recharge-item" wx:for="{{prepayInfo}}" wx:key="{{index}}" bindtap='selectPrepayItem' data-index="{{index}}">
+            <view class="select-icon {{item.selected?'selected':''}}"></view>
             <view class="midel-box">
-              <text class="title">1个月</text>
+              <text class="title">{{item.title}}</text>
+              <text class="discount" wx:if="{{item.ratio}}">{{item.ratio*10}}折</text>
             </view>
             <view class="right-box">
-              <view class="price">￥300.00</view>
+              <view class="price">￥{{item.amount}}</view>
+              <view class="retrench s-text-success" wx:if="{{item.ratio}}">节省:￥{{item.reduce}}</view>
             </view>
           </view>
-          <view class="recharge-item">
-            <view class="select-icon selected"></view>
-            <view class="midel-box">
-              <text class="title">3月</text>
-              <text class="discount">九八折</text>
-            </view>
-            <view class="right-box">
-              <view class="price">￥1800.00</view>
-              <view class="retrench s-text-success">节省:￥200</view>
-            </view>
-          </view>
-          <view class="recharge-item">
-            <view class="select-icon"></view>
-            <view class="midel-box">
-              <text class="title">6个月</text>
-              <text class="discount">九五折</text>
-            </view>
-            <view class="right-box">
-              <view class="price">￥1800.00</view>
-              <view class="retrench s-text-success">节省:￥200</view>
-            </view>
-          </view>
-          <view class="recharge-item">
-            <view class="select-icon"></view>
-            <view class="midel-box">
-              <text class="title">12个月</text>
-              <text class="discount">九折</text>
-            </view>
-            <view class="right-box">
-              <view class="price">￥1800.00</view>
-              <view class="retrench s-text-success">节省:￥200</view>
-            </view>
-          </view>
+
         </view>
         <view class="m-pay-btn g-pad-box">
-          <view class="btn btn-large btn-block btn-primary">确认预存</view>
+          <view class="btn btn-large btn-block {{curPrepayIndex===null?'btn-disabled':'btn-primary'}}" bindtap="confirmPrepay">确认预存</view>
         </view>
       </view>
 

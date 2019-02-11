@@ -1,0 +1,37 @@
+<!--pages/prepay/log/index.wxml-->
+<view class="container">
+  <!--logs-->
+
+  <view class="m-tab">
+    <navigator open-type='navigate' url="/pages/prepay/index/index" class="item">我要预存</navigator>
+    <view class="item active">预存记录</view>
+  </view>
+  <view class="m-date-box g-row">
+    <view class="caption">年月</view>
+    <view class="">
+      <picker fields="month" mode="date" value="{{selectedMonth}}" start="2016-01" end="{{curMonth}}" bindchange="bindDateChange">
+        <view class="picker">
+          {{selectedMonth}}
+        </view>
+      </picker>
+    </view>
+  </view>
+  <view class="u-ht"></view>
+  <view class='m-list' wx:if="{{logsList.length > 0}}">
+    <view class='item' wx:for="{{logsList}}" wx:key="id">
+      <view class="g-row-bt">
+        <view class='amount'>{{item.amount}}</view>
+        <view class="status {{item.status=='已审核'?'s-text-success':''}}">{{item.status}}</view>
+      </view>
+      <view class='desc'>{{item.desc}}</view>
+      <view class='g-row-bt item-bt'>
+        <view>{{item.comname}}</view>
+        <view>{{item.create_time}}</view>
+      </view>
+    </view>
+  </view>
+
+  <view class="m-empty-box" wx:else>
+    <view class='tips'>没有记录</view>
+  </view>
+</view>
