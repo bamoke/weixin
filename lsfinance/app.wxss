@@ -374,12 +374,18 @@ view {
   border-style: solid;
   border-radius: 6rpx;
   text-align: center;
+  border-color:#f1f1f1;
 }
 
 .btn-large {
   height: 80rpx;
   line-height: 80rpx;
   font-size:34rpx;
+}
+.btn-small {
+  height: 48rpx;
+  line-height: 48rpx;
+  font-size:24rpx;
 }
 
 .btn-inline {

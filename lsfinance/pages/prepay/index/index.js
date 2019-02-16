@@ -9,7 +9,8 @@ Page({
   data: {
     amountTotal: '0.00',
     curPrepayIndex:null,
-    prepayInfo:[]
+    prepayInfo:[],
+    unPayTotal:0
   },
 
 
@@ -44,7 +45,7 @@ Page({
             icon: "success"
           })
           setTimeout(function(){
-            wx.navigateTo({
+            wx.redirectTo({
               url: '/pages/prepay/log/index',
             })
           },1000)
@@ -62,6 +63,7 @@ Page({
   },
 
   selectPrepayItem: function(e) {
+    if(this.data.unPayTotal >= 2) return
     const curIndex = e.currentTarget.dataset.index
     const prepayInfo = this.data.prepayInfo
     prepayInfo.forEach((item, index) => {
@@ -87,7 +89,8 @@ Page({
     util.request(requestParams).then((data) => {
       this.setData({
         showPage: true,
-        prepayInfo: data.info
+        prepayInfo: data.info,
+        unPayTotal:data.unPayTotal
       })
     }).catch(function(msg) {
       console.log(msg)

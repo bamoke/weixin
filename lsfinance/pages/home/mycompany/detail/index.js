@@ -18,7 +18,7 @@ Page({
     }
   },
 
-  /**
+  /** 
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
@@ -40,9 +40,12 @@ Page({
       apiUrl:"/Mycom/detail",
       requestData: { id: objectId}
     }
-/*     app.ajax(requestParams).then(res=>{
+    app.ajax(requestParams).then(res=>{
       console.log(res)
-    }) */
+      this.setData({
+        comInfo:res.info
+      })
+    })
 
   },
 

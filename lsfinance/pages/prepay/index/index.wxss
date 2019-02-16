@@ -59,3 +59,10 @@
 }
 .m-pay-btn {background:#fff;}
 .retrench {white-space: nowrap;}
+.unpay-tips {
+  display: flex;
+  justify-content: space-between;
+  align-items:center;
+  padding:36rpx 24rpx;
+  color:#fa4349;
+}

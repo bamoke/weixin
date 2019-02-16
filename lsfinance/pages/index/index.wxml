@@ -49,10 +49,10 @@
       <text class="title">公告</text>
     </view>
     <view class="m-index-news">
-      <navigator class="item" wx:for="{{news}}" wx:key="id">
+      <view class="item" wx:for="{{news}}" wx:key="id">
         <view class="title">{{item.title}}</view>
         <view class="date">{{item.date}}</view>
-      </navigator>
+      </view>
     </view>
   </view>
 </view>

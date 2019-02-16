@@ -2,10 +2,14 @@
 <view class="container" wx:if="showPage">
     <view class="m-tab">
       <view class="item active">我要预存</view>
-      <navigator open-type='navigate' url="/pages/prepay/log/index" class="item">预存记录</navigator>
+      <navigator open-type='redirect' url="/pages/prepay/log/index" class="item">预存记录</navigator>
     </view>
-    <view class="u-ht"></view>
+    <!-- <view class="u-ht"></view> -->
     <view style="width:100%">
+      <view class="unpay-tips" wx:if="{{unPayTotal>=2}}">
+        <view class="tips">您还有未结清的服务费，请结清后再预存！</view>
+        <navigator open-type='redirect' url="/pages/service/fwjs/index" class="btn btn-small btn-primary">去结算</navigator>
+      </view>
       <!--recharge-->
       <view class="m-recharge-type">
         <view class="recharge-item" wx:for="{{prepayInfo}}" wx:key="{{index}}" bindtap='selectPrepayItem' data-index="{{index}}">

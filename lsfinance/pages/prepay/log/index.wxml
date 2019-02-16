@@ -3,7 +3,7 @@
   <!--logs-->
 
   <view class="m-tab">
-    <navigator open-type='navigate' url="/pages/prepay/index/index" class="item">我要预存</navigator>
+    <navigator open-type='redirect' url="/pages/prepay/index/index" class="item">我要预存</navigator>
     <view class="item active">预存记录</view>
   </view>
   <view class="m-date-box g-row">

@@ -1,1 +1,14 @@
 /* pages/home/mycompany/detail/index.wxss */
+.m-item-wrap {
+  width: 100%;
+  padding:24rpx 0;
+  background:#fff;
+}
+.m-item-wrap .item {
+  padding:24rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom:1px solid #f1f1f1;
+}
+.m-item-wrap .item .section {color:#666;}

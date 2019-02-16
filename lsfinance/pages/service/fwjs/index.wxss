@@ -28,7 +28,7 @@
   left:0;
   bottom:0;
   z-index:1;
-  height:100rpx;
+  padding:24rpx;
   background-color:#fff;
   border-top:1px solid #f1f1f1;
   font-size:32rpx;
@@ -44,8 +44,8 @@
 }
 .btn {
   width:40%;
-  height:100rpx;
-  line-height:100rpx;
+  height:80rpx;
+  line-height:80rpx;
   background:#f1f1f1;
   text-align: center;
   

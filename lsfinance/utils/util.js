@@ -124,7 +124,7 @@ const request = function({
                 }
               }
             })
-          } else if (res.data.code == 11002 ) {
+          } else if (res.data.code == 11001 ) {
             wx.showModal({
               content: res.data.msg,
               showCancel: false,
@@ -153,8 +153,8 @@ const request = function({
                 }
               }
             })
-          } else if (res.data.code == 11001){
-
+          } else if (res.data.code == 13009){
+            // 其他需要前端依据code作回应
           }else {
             wx.showToast({
               title: res.data.msg,
