@@ -1,0 +1,6 @@
+/* pages/resume/index/index.wxss */
+@import "../resume.wxss";
+.update-time {
+  padding:24rpx;
+  background:#f8f8f8;
+}

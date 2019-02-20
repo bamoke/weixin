@@ -1,0 +1,30 @@
+<!--pages/test/list/index.wxml-->
+<view class="container">
+  <view class="m-top-search-primary">
+    <view class="search-bg">
+    <view class="input-box" style="display:{{!searchFocus?'none':'flex'}}">
+      <input type="text" class="input" value='{{keywords}}' focus='true' confirm-type="搜索" bindconfirm="doSearch"></input>
+      <image src="/static/images/error-fill-black.png" class="clear-btn" bindtap='clearSearch'></image>
+    </view>
+      <view class="tips-box" bindtap='setFocus' style="display:{{searchFocus?'none':'flex'}}">
+        <image class="icon" src="/static/images/icon-search-black.png"></image>
+        <text>搜索</text>
+      </view>
+    </view>
+  </view>
+  <view class="g-box-pad index-main-wrap">
+    <view class="m-test">
+      <navigator open-type="navigate" url="/pages/test/detail/index?id={{item.id}}" class="item" wx:for="{{list}}" wx:key="id">
+        <view class="main-box">
+          <view class="title f-ellipsis">{{item.title}}</view>
+          <view class="desc f-ellipsis">{{item.description}}</view>
+        </view>
+        <view class="total-box">
+          <view class="nu">{{item.total}}</view>
+          <view>评测次数</view>
+        </view>
+      </navigator>
+
+    </view>
+  </view>
+</view>

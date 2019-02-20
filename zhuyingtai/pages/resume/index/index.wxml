@@ -1,0 +1,77 @@
+<!--pages/resume/index/index.wxml-->
+<view class="container">
+  <view class="g-box-pad" wx:if="{{!resumeInfo.id}}">
+    <view class="m-tips-page tips-page-empty">
+      <image class="icon f-transparent-1" src="/static/images/mt-empty.png"></image>
+      <view class="tips">还没有创建简历</view>
+      <navigator open-type='navigate' class="btn btn-success" url="/pages/resume/base/index?type=create">立即创建</navigator>
+    </view>
+  </view>
+
+  <view class='m-form-default' wx:else>
+    <view class="update-time">更新于：{{resumeInfo.update_time}}</view>
+    <view class="field-list">
+      <view class='form-group'>
+        <view class="label">真实姓名</view>
+        <view class="val">
+          {{resumeInfo.realname}}
+        </view>
+      </view>
+      <view class='form-group'>
+        <view class="label">性别</view>
+        <view class="val">
+          {{resumeInfo.sex}}
+        </view>
+      </view>
+
+      <view class='form-group'>
+        <view class="label">出生年月</view>
+        <view class="val">
+          {{resumeInfo.birth}}
+        </view>
+      </view>
+      <view class='form-group'>
+        <view class="label">手机号码</view>
+        <view class="val">
+          {{resumeInfo.phone}}
+        </view>
+      </view>
+    </view>
+    <view class='u-ht'></view>
+    <view class="field-list">
+      <view class='form-group'>
+        <view class="label">最高学历</view>
+        <view class="val">
+          {{resumeInfo.edu}}
+        </view>
+      </view>
+      <view class='form-group'>
+        <view class="label">学校名称</view>
+        <view class="val">
+          {{resumeInfo.school}}
+        </view>
+      </view>
+      <view class='form-group'>
+        <view class="label">专业</view>
+        <view class="val">
+          {{resumeInfo.major}}
+        </view>
+      </view>
+    </view>
+    <view class='u-ht'></view>
+    <view class='field-list'>
+
+      <view class='form-group'>
+        <view class="label">求职意向</view>
+        <view class="val">
+          {{resumeInfo.intend}}
+        </view>
+      </view>
+    </view>
+
+    <view class='btn-box'>
+      <navigator open-type='navigate' url="/pages/resume/base/index?id={{resumeInfo.id}}" class='btn btn-primary'>修改简历</navigator>
+    </view>
+
+  </view>
+</view>

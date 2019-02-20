@@ -1,0 +1,27 @@
+<!--pages/test/detail/index.wxml-->
+<view class="container" wx:if="{{showPage}}">
+  <view class="test-title">{{testInfo.title}}</view>
+  <view class="u-ht"></view>
+  <view class="g-box-pad" wx:if="{{!isCompleted}}">
+    <view class="question-title">
+    {{questionList[questionIndex].ask}}
+    <navigator open-type='navigate' url="/pages/test/paraphrase/index?questionid={{questionList[questionIndex].id}}" class="paraphrase" wx:if="{{questionList[questionIndex].paraphrase}}"><image src="/static/images/icon-search-white.png" class="u-myicon"></image>【查看内容释义】</navigator>
+    </view>
+    <view class="answer-list">
+      <view bindtap="chooseAnswer" data-questionid="{{questionList[questionIndex].id}}" data-answerindex="{{index}}" class="item" wx:for="{{questionList[questionIndex].answer}}" wx:key="index">{{item}}</view>
+    </view>
+  </view>
+  <view class="m-complete-box" wx:else>
+    <view class="m-tips-page" wx:if="{{isPassed}}">
+      <image class="icon" mode="aspectFill" src="/static/images/icon-right.png"></image>
+      <view class="tips">祝贺您符合此类人才申报条件</view>
+      <navigator open-type="navigate" url="/pages/article/detail/index?id={{testInfo.process}}" class="btn btn-primary f-mar-b-48" wx:if="{{testInfo.process}}">查看申报流程</navigator>
+      <navigator open-type="navigate" url="/pages/article/detail/index?id={{testInfo.policy}}" class="btn btn-success f-mar-b-48" wx:if="{{testInfo.policy}}">查看人才政策</navigator>
+    </view>
+    <view class="m-tips-page" wx:else>
+      <image class="icon f-transparent-1" mode="aspectFill" src="/static/images/error-fill-black.png"></image>
+      <view class="tips">很抱歉，您现在还不符合此类人才申报条件！</view>
+    </view>
+    <view class="btn btn-default" bindtap='restart'>重新评测</view>
+  </view>
+</view>

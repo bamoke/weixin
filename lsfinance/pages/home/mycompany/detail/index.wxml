@@ -15,7 +15,7 @@
     </view>
     <view class="item">
       <view class="section">社会信用代码</view>
-      <view class="">{{comInfo.shxyCode}}</view>
+      <view class="">{{comInfo.shxyCode || ''}}</view>
     </view>
 
     <view class="item">

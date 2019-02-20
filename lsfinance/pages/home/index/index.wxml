@@ -5,13 +5,13 @@
     <view>
       <button class="get-user-info-btn" wx:if="{{!hasUserInfo && canIUse}}" open-type='getUserInfo' bindgetuserinfo="getUserInfo">更新昵称 </button>
       <view class="user-name" wx:else>{{userInfo.nickName}}</view>
-      <view class="other-info" wx:if="{{userStorage.uid}}">
+<!--       <view class="other-info" wx:if="{{userStorage.uid}}">
         <image class="u-myicon" src="/static/images/icon-mobile.png"></image>
         <text>{{userStorage.phone}}</text>
       </view>
       <view class="tips" wx:else>
         <navigator class="reg-link" url="/pages/user/regist/index?type=login" open-type='navigate'>您尚未登录,【点击登录】</navigator>
-      </view>
+      </view> -->
     </view>
   </view>
 

@@ -1,0 +1,62 @@
+/* pages/ticket/index/index.wxss */
+
+.m-unenroll {
+  text-align: center;
+}
+
+.m-unenroll .title {
+  margin: 24rpx 0;
+  font-size: 34rpx;
+  text-align: center;
+}
+
+.m-unenroll .tips {
+  margin-bottom: 24rpx;
+  padding: 24rpx 0;
+  color: #999;
+}
+
+.m-unenroll .icon-box {
+  margin-top: 48rpx;
+  padding: 24rpx 0;
+}
+
+.m-unenroll .icon {
+  width: 200rpx;
+  height: 200rpx;
+  opacity: 0.6;
+}
+
+.m-ticket .top {
+  margin-bottom: 48rpx;
+  padding: 48rpx 0 64rpx;
+  background: #1b81d3;
+background-image: radial-gradient(#fff 0, #fff 16rpx, transparent 16rpx);
+
+background-size: 48rpx 48rpx;
+background-repeat: repeat-x;
+background-position: 0 114%;
+  color: #fff;
+  text-align: center;
+}
+
+.m-ticket .top .title {
+  margin-bottom: 24rpx;
+  font-size: 40rpx;
+}
+
+.m-ticket .top .code {
+  font-size: 34rpx;
+}
+
+.m-ticket .top .code .nu {
+  font-weight: bold;
+}
+.desc {
+  
+}
+.p {
+  font-size:30rpx;
+  padding:24rpx 0;
+  border-bottom:1px solid #f1f1f1;
+}

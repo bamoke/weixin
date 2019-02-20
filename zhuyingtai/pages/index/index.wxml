@@ -1,0 +1,45 @@
+<!--index.wxml-->
+<view class="container">
+  <view class="m-index-top">
+    <view class='m-banner'>
+      <image src="{{banner}}" mode='aspectFill' class="banner"></image>
+    </view>
+  </view>
+
+  <view class="subnav-wrap">
+    <view class="m-index-subnav">
+      <navigator open-type='navigate' url="/pages/test/list/index" class="item">
+        <image class="icon" src="/static/images/index-icon-01.png " alt=" " mode='widthFix' />
+        <view class="txt ">人才申报</view>
+      </navigator>
+      <navigator open-type='navigate' url="/pages/article/list/index?cid=1" class="item">
+        <image class="icon" src="/static/images/index-icon-02.png " alt=" " mode='widthFix' />
+        <view class="txt ">人才政策</view>
+      </navigator>
+      <navigator open-type='navigate' url="/pages/article/list/index?cid=2" class="item">
+        <image class="icon" src="/static/images/index-icon-process.png " alt=" " mode='widthFix' />
+        <view class="txt ">申报流程</view>
+      </navigator>
+      <navigator open-type='navigate' url="/pages/other/index/index" class="item">
+        <image class="icon" src="/static/images/index-icon-04.png " alt=" " mode='widthFix' />
+        <view class="txt ">其他</view>
+      </navigator>
+    </view>
+  </view>
+  <view class="u-ht"></view>
+  <view class="g-box-pad index-main-wrap">
+    <view class="m-test">
+      <navigator open-type="navigate" url="/pages/test/detail/index?id={{item.id}}" class="item" wx:for="{{testList}}" wx:key="id">
+        <view class="main-box">
+          <view class="title f-ellipsis">{{item.title}}</view>
+          <view class="desc f-ellipsis">{{item.description}}</view>
+        </view>
+        <view class="total-box">
+          <view class="nu">{{item.total}}</view>
+          <view>评测次数</view>
+        </view>
+      </navigator>
+
+    </view>
+  </view>
+</view>

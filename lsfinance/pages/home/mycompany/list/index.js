@@ -15,7 +15,7 @@ Page({
     const myCom = wx.getStorageSync("myCom")
     if(myCom.length == 1){
       wx.redirectTo({
-        url: '/pages/home/mycompany/detail/index?'+myCom[0].comId,
+        url: '/pages/home/mycompany/detail/index?id='+myCom[0].objectId,
       })
       return
     }

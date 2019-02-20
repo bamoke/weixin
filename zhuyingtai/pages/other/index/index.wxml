@@ -1,0 +1,11 @@
+<!--pages/other/index/index.wxml-->
+<view class="container">
+  <view class="g-box-pad">
+    <view class="m-tips-page tips-page-empty">
+      <image class="icon f-transparent-1" src="/static/images/mt-empty.png"></image>
+      <view class="tips">功能待开放</view>
+      <navigator open-type='switchTab' class="btn btn-primary" url="/pages/index/index">回到首页</navigator>
+    </view>
+  </view>
+</view>
+<!-- <web-view src="https://www.bamoke.com/zhuyingtai/other.html"></web-view> -->

@@ -1,0 +1,49 @@
+{
+  "pages":[
+    "pages/index/index",
+    "pages/ticket/index/index",
+    "pages/ticket/enroll/index",
+    "pages/resume/index/index",
+    "pages/resume/base/index",
+    "pages/test/list/index",
+    "pages/test/detail/index",
+    "pages/test/result/index",
+    "pages/test/paraphrase/index",
+    "pages/article/list/index",
+    "pages/article/detail/index",
+    "pages/other/index/index"
+  ],
+  "window":{
+    "backgroundTextStyle":"light",
+    "navigationBarBackgroundColor": "#1b81d3",
+    "navigationBarTitleText": "珠英台",
+    "navigationBarTextStyle":"white"
+  },
+  "tabBar": {
+    "position": "bottom",
+    "backgroundColor": "#fff",
+    "borderStyle": "black",
+    "color": "#000",
+    "selectedColor": "#1b81d3",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "申报",
+        "iconPath": "static/images/tab-index.png",
+        "selectedIconPath": "static/images/tab-index-active.png"
+      },
+      {
+        "pagePath": "pages/ticket/index/index",
+        "text": "入场券",
+        "iconPath": "static/images/tab-ticket.png",
+        "selectedIconPath": "static/images/tab-ticket-active.png"
+      },
+      {
+        "pagePath": "pages/resume/index/index",
+        "text": "简历",
+        "iconPath": "static/images/tab-resume.png",
+        "selectedIconPath": "static/images/tab-resume-active.png"
+      }
+    ]
+  }
+}

@@ -8,12 +8,12 @@ Page({
   data: {
     showPage: false,
     comInfo: {
-      name:"珠海市巴莫克网络科技有限公司",
-      comType:"小规模企业",
-      comStatus:"代理中",
-      startTime:"2018-09-01",
-      shxyCode:"333",
-      address:"珠海市横琴新区急撒打算"
+      name:"",
+      comType:"",
+      comStatus:"",
+      startTime:"",
+      shxyCode:"",
+      address:""
 
     }
   },

@@ -7,6 +7,8 @@
         <text class="name">{{curComInfo.comName}}</text>
         <view class="switch-btn"></view>
       </picker>
+      <view wx:elif="{{comList.length == 1}}"><text class="name">{{curComInfo.comName}}</text></view>
+      <view wx:else><text class="name">还没有绑定企业</text></view>
     </view>
   </view>
   <view class="g-m-wrap">

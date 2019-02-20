@@ -1,0 +1,28 @@
+<!--pages/ticket/index/index.wxml-->
+<view class="container" wx:if="{{showPage}}">
+  <view class="g-box-pad" wx:if="{{!code}}">
+    <view class="m-unenroll">
+      <view class="icon-box">
+        <image class="icon f-transparent-1" src="/static/images/edit_form.png"></image>
+      </view>
+      <view class="title">《英才珠海》入场券领取</view>
+      <view class="tips">请留下您的个人简历信息，我们将为您推送优质岗位。</view>
+      <navigator style="margin-top:48rpx;" open-type='navigate' url="/pages/resume/base/index?type=create" class="btn btn-primary">现在填写</navigator>
+    </view>
+  </view>
+  <view class="m-ticket" wx:else>
+      <view class="top">
+        <view class="title">第六十届《英才珠海》入场券</view>
+        <view class="code">入场凭证号:
+          <text class="nu">{{code}}</text>
+        </view>
+      </view>
+      <view class="g-box-pad">
+        <view class="desc p">感谢您对“英才珠海”中高级人才招聘会的支持！入场凭证号是入场依据，同时可以参与现场抽奖。赶快存起来</view>
+        <view class="p">招聘时间：2019年2月24日上午9点开始</view>
+        <view class="p">招聘地点：珠海市体育中心体育场</view>
+      </view>
+
+  </view>
+
+</view>

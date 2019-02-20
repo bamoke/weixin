@@ -1,0 +1,38 @@
+/* pages/test/detail/index.wxss */
+.test-title {
+  padding:48rpx 24rpx;
+  font-size:36rpx;
+}
+.question-title {
+  margin-top:24rpx;
+  padding-left:24rpx;
+  border-left:4px solid #1b81d3;
+  font-size:34rpx;
+  line-height: 1.5;
+}
+
+.answer-list {
+  padding:48rpx 0;
+}
+.answer-list .item {
+  margin-bottom:48rpx;
+  padding:24rpx;
+  background-color: rgba(27,129,211,.8);
+  color:#fff;
+  font-size:32rpx;
+  line-height: 1.8;
+}
+.m-complete-box {
+  padding:24rpx;
+}
+.paraphrase {
+  display: inline-block;
+  padding:0 20rpx;
+  height:48rpx;
+  line-height: 48rpx;
+  font-size:26rpx;
+  background-color:#25b87b;
+  /* background-color:rgba(255,50,0,.5); */
+  color:#fff;
+}
+.paraphrase .u-myicon {opacity: 1;}
