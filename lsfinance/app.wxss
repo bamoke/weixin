@@ -231,32 +231,53 @@ view {
 
 /**列表带前置图标Nav**/
 
+.m-nav-list-icon {
+  width: 100%;
+}
+
+.m-nav-list-icon .item {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 24rpx;
+  background: #fff;
+  border-bottom: 1px solid #f1f1f1;
+  box-sizing: border-box;
+}
+
 .m-nav-list-icon .item .lf {
   display: flex;
   justify-content: flex-start;
   align-items: center;
 }
 
-.m-nav-list-icon .item .name {
-  font-size: 32rpx;
+.m-nav-list-icon .item .title {
+  width: 100%;
+  flex-grow: 1;
+  flex-shrink: 1;
+  padding-right:24rpx;
+  font-size: 28rpx;
+  overflow: hidden;
 }
 
 .m-nav-list-icon .item .icon-wrap {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-right: 24rpx;
   width: 64rpx;
   height: 64rpx;
-  border-radius: 6rpx;
 }
 
 .m-nav-list-icon .item .icon {
+  flex-shrink: 0;
+  flex-grow: 0;
   width: 48rpx;
   height: 48rpx;
-  background-image: url(http://www.pykscloud.com/Uploads/wesource/main-icon.png);
-  background-repeat: no-repeat;
-  background-size: 300rpx auto;
+}
+
+.m-nav-list-icon .item .arrow-right {
+  flex-shrink: 0;
+  flex-grow: 0;
+  width: 32rpx;
+  height: 32rpx;
 }
 
 .m-ft-operation-box {
@@ -374,18 +395,19 @@ view {
   border-style: solid;
   border-radius: 6rpx;
   text-align: center;
-  border-color:#f1f1f1;
+  border-color: #f1f1f1;
 }
 
 .btn-large {
   height: 80rpx;
   line-height: 80rpx;
-  font-size:34rpx;
+  font-size: 34rpx;
 }
+
 .btn-small {
   height: 48rpx;
   line-height: 48rpx;
-  font-size:24rpx;
+  font-size: 24rpx;
 }
 
 .btn-inline {
@@ -440,6 +462,7 @@ view {
   color: #fff;
   border-color: #2aab8f;
 }
+
 .btn-disabled {
   background: #eee;
   color: #999;

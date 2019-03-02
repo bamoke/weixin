@@ -2,7 +2,10 @@
 <view class='container' wx:if="{{showPage}}">
 
   <view class='m-main-box'>
-  <text class='text-bold'>{{info.realname}}</text>
+    <view class="g-row-bt">
+      <text class='text-bold'>{{info.realname}}</text>
+      <view class="">{{info.phone}}</view>
+    </view>
   </view>
   <view class="m-main-box">
     <view class="bar">关联的企业:</view>
@@ -13,8 +16,8 @@
     </checkbox-group>
   </view>
   <view class='m-main-box'>
-    <button style="margin-bottom:40rpx;" class='btn btn-block btn-primary' loading='{{isSubmiting}}' bindtap='save'>保存</button>
-    <button class='btn btn-block btn-default' loading='{{isSubmiting}}' bindtap='del'>删除</button>
+    <button style="margin-bottom:40rpx;" class='btn btn-block btn-large btn-primary' loading='{{isSubmiting}}' bindtap='save'>保存</button>
+    <button class='btn btn-block btn-large btn-default' loading='{{isSubmiting}}' bindtap='del'>删除</button>
   </view>
 
 
