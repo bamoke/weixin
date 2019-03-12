@@ -7,7 +7,7 @@
       </view>
       <view class="text">新建</view>
     </navigator>
-    <navigator class="item">
+        <navigator open-type='navigate' url='/pages/draft/index?type=2'  class="item">
       <view class="icon-wrap">
         <view class='icon icon-draft'></view>
       </view>

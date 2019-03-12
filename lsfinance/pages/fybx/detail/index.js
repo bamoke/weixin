@@ -7,6 +7,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    id:null,
     pageShow:false,
     baseInfo:{},
     detailList:[]
@@ -16,6 +17,9 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    if(!options.id) {
+      return
+    }
     const id = options.id
     var orgInfo = wx.getStorageSync("orgInfo");
     const requestParams = {
@@ -27,6 +31,7 @@ Page({
     util.request(requestParams).then((data) => {
       this.setData({
         showPage:true,
+        id,
         baseInfo: data.baseInfo,
         detailList: data.childList
       })
@@ -50,6 +55,38 @@ Page({
     })
   },
 
+/**
+ * delete
+ */
+handleDel:function(){
+  wx.showModal({
+    content: '确认删除？',
+    success:res=>{
+      if (res.confirm) {
+        const apiUrl = "/Expenses/dodelete"
+        const requestParams = {
+          apiUrl,
+          requestData: { id: this.data.id }
+        }
+
+        util.request(requestParams).then((data) => {
+          wx.showToast({
+            title: '操作成功',
+            icon: "success"
+          })
+          setTimeout(function () {
+            wx.navigateBack({
+              delta: 1
+            })
+          }, 500)
+        }, reject => {
+          
+        })
+      }
+    }
+  })
+
+},
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
@@ -76,26 +113,11 @@ Page({
    */
   onUnload: function () {
   
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-  
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-  
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-  
   }
+
+
+
+
+
+
 })

@@ -30,7 +30,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 14,
+			"current": 15,
 			"list": [
 				{
 					"id": 0,
@@ -82,12 +82,6 @@
 				},
 				{
 					"id": -1,
-					"name": "新建报销单",
-					"pathName": "pages/fybx/new/index",
-					"query": ""
-				},
-				{
-					"id": -1,
 					"name": "公司支出",
 					"pathName": "pages/fyzc/index/index",
 					"query": ""
@@ -120,6 +114,21 @@
 					"id": -1,
 					"name": "报销模块",
 					"pathName": "pages/fiscal/index/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "报销单详情",
+					"pathName": "pages/fybx/detail/index",
+					"query": "id=2579",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "草稿箱",
+					"pathName": "pages/draft/index",
+					"query": "type=1",
 					"scene": null
 				}
 			]

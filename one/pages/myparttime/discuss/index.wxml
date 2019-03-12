@@ -16,7 +16,7 @@
     <!--empty page-->
     <view class="m-tips-page tips-page-empty" wx:else>
       <image class="icon" src="/static/images/mt-empty.png"></image>
-      <view class="tips">还未创建讨论组</view>
+      <view class="tips">还未开启项目秘书</view>
     </view>
   </view>
 

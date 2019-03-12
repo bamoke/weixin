@@ -7,7 +7,7 @@
       </view>
       <view class="text">新建</view>
     </navigator>
-    <navigator class="item">
+    <navigator open-type='navigate' url='/pages/draft/index?type=1'  class="item">
       <view class="icon-wrap">
         <view class='icon icon-draft'></view>
       </view>
@@ -16,7 +16,7 @@
   </view>
 
   <view class="m-list m-bxd-list" wx:if="{{list.length > 0}}">
-    <navigator url="../detail/index?id={{item.id}}" open-type='navigate' class="item" wx:for="{{list}}" wx:key="id">
+    <navigator url='../detail/index?id={{item.id}}' open-type='navigate' class="item" wx:for="{{list}}" wx:key="id">
       <view class="g-row-bt top-box">
         <view class="description">{{item.description}}</view>
         <view class='u-status {{item.status=="已审核"?"u-status-success":"u-status-warning"}}'>{{item.status=="已审核"?"已审核":"未审核"}}</view>

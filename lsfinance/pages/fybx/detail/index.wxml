@@ -60,6 +60,10 @@
   </view>
 
   <!--operator-->
-  <view class='m-operation-box'>
+  <view class='m-fixed-bottom-box' wx:if="{{baseInfo.status=='未审核'}}">
+    <view class="g-row-bt">
+      <view style="width:38%" class="btn btn-large btn-default" bindtap='handleDel'>删除</view>
+      <navigator style="width:50%;" open-type='redirect' url="../new/index?actype=2&id={{id}}" class="btn btn-large btn-primary">修改</navigator>
+    </view>
   </view>
 </view>

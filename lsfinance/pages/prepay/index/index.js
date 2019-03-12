@@ -10,19 +10,35 @@ Page({
     amountTotal: '0.00',
     curPrepayIndex:null,
     prepayInfo:[],
-    unPayTotal:0
+    unPayTotal:0,
+    description:""
   },
 
-
+  handleSetDesc:function(e){
+    const curDescription = e.detail.value
+    this.setData({
+      description: curDescription.trim()
+    })
+  },
   confirmPrepay: function(e) {
     if(this.data.curPrepayIndex === null) return;
     const curItem = this.data.prepayInfo[this.data.curPrepayIndex]
+    // 设置备注
+    if(this.data.description == '') {
+      wx.showToast({
+        title: '请填写备注信息',
+        image: "/static/images/error.png?v=4"
+      })
+      return false;
+    }
+    curItem.description = this.data.description
     let formData = {
       title:curItem.title,
       comid:curItem.comid,
       amount:curItem.amount,
       ratio:curItem.ratio,
-      old_amount:curItem.old_amount
+      old_amount:curItem.old_amount,
+      description:curItem.description
     }
     const curComInfo = wx.getStorageSync("curComInfo");
 

@@ -28,7 +28,8 @@
     "pages/home/mycompany/list/index",
     "pages/home/mycompany/detail/index",
     "pages/logs/logs",
-    "pages/orders/confirm/index"
+    "pages/orders/confirm/index",
+    "pages/draft/index"
   ],
   "window": {
     "backgroundTextStyle": "light",

@@ -1,5 +1,7 @@
 /* pages/fybx/detail/index.wxss */
 @import "../fybx.wxss";
+page {height:100%;}
+.container {min-height:100%;box-sizing: border-box;align-items:flex-start;justify-content: flex-start;}
 
 .m-base-box {
   width: 100%;
@@ -36,5 +38,11 @@
   justify-content: space-between;
 }
 .child-item .amount {color:#232323;}
-
+.m-fixed-bottom-box .btn {
+  flex-grow: 0;
+  flex-shrink: 0;
+}
+.m-fixed-bottom-box .btn-default {
+  background:#f1f1f1;
+}
 

@@ -37,15 +37,19 @@
 
   <!--detail-->
   <view class="fybx-detail-list">
-    <view class='item' wx:for="{{detailList}}" wx:key="index" bindtap="switchDeatil" data-index="{{index}}">
-      <view class='section g-row-bt'>
+    <view class='item' wx:for="{{detailList}}" wx:key="index">
+      <view class='section g-row-bt' bindtap="switchDeatil" data-index="{{index}}">
         <view class="index-text">报销明细-{{item.index+1}}</view>
         <view class="icon {{item.display == 'hidden'?'icon-close':'icon-open'}}"></view>
       </view>
       <view class="child" hidden='{{item.display == "hidden"}}'>
         <view class='child-item'>
-          <view class="child-name">类别</view>
+          <view class="child-name">所属科目</view>
           <view>{{item.cate}}</view>
+        </view>
+        <view class='child-item'>
+          <view class="child-name">所属部门</view>
+          <view>{{item.department}}</view>
         </view>
         <view class='child-item'>
           <view class="child-name">金额</view>
@@ -60,6 +64,10 @@
   </view>
 
   <!--operator-->
-  <view class='m-operation-box'>
+  <view class='m-fixed-bottom-box' wx:if="{{baseInfo.status=='未审核'}}">
+    <view class="g-row-bt">
+      <view style="width:38%" class="btn btn-large btn-default" bindtap='handleDel'>删除</view>
+      <navigator style="width:50%;" open-type='redirect' url="../new/index?actype=2&id={{id}}" class="btn btn-large btn-primary">修改</navigator>
+    </view>
   </view>
 </view>

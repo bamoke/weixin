@@ -7,27 +7,34 @@ Page({
    * 页面的初始数据
    */
   data: {
-    dataDepartment: [],//部门数据
-    dataStaff:[],// 员工数据
-    dataCapital: [],// 帐户数据
+    actype: 1, //1:新建;2:编辑;3:通过草稿新建
+    draftId: null, //草稿id,编辑过程中保存草稿返回的
+    isDraftPostIng: false,
+    dataDepartment: [], //部门数据
+    dataStaff: [], // 员工数据
+    dataCapital: [], // 帐户数据
     isPostIng: false,
     base: {
-      date: "请选择",
-      capital_name: "请选择",
-      department: '请选择',
-      operator:'请选择',
+      date: "",
+      department: '',
+      operator: '请选择',
       description: '',
       orgid: null,
       com_name: '',
-      com_short_name: ''
+      com_short_name: '',
+      total_amount: "0.00",
+      capital_name: "请选择",
+      capital_nu:"",
+      capital_bank:"",
+      capital_currency:""
     },
     total: "0.00",
     detailList: [{
       "no": 0,
-      "subject_name":"请选择",
+      "subject_name": "请选择",
       "subject_title": '',
       "subject_code": "",
-      "department":'请选择',
+      "department": '请选择',
       "amount": "",
       "display": "block"
     }],
@@ -64,6 +71,7 @@ Page({
     this.setData({
       base: baseData
     })
+    this._setDescription()
   },
   /**
    * 选择部门
@@ -76,11 +84,12 @@ Page({
     this.setData({
       base: baseInfo
     })
+    this._setDescription()
   },
   /**
- * 选择帐户
- */
-  selectedCapital: function (e) {
+   * 选择帐户
+   */
+  selectedCapital: function(e) {
     const index = e.detail.value
     const baseInfo = this.data.base
     const curItem = this.data.dataCapital[index]
@@ -95,7 +104,7 @@ Page({
   /**
    * 选择经手人
    */
-  selectedOperator:function(e){
+  selectedOperator: function(e) {
     const index = e.detail.value
     let baseInfo = this.data.base
     const curItem = this.data.dataStaff[index]
@@ -107,7 +116,7 @@ Page({
   /**
    * 明细栏选择部门
    */
-  selectedChildDepartment:function(e){
+  selectedChildDepartment: function(e) {
     const departmentInfo = this.data.dataDepartment
     const index = e.detail.value
     const detailIndex = e.target.dataset.index
@@ -117,6 +126,7 @@ Page({
     this.setData({
       detailList
     })
+
   },
   /**
    * 费用说明
@@ -129,7 +139,7 @@ Page({
       base: baseInfo
     })
   },
-  
+
   /**
    * showSubject
    */
@@ -141,7 +151,7 @@ Page({
       url: '/pages/fiscal/subject/index',
     })
   },
-  
+
   /**
    * 明细金额
    */
@@ -158,6 +168,16 @@ Page({
     this._computeTotalAmount()
   },
 
+
+  /***设置支出说明 */
+  _setDescription: function() {
+    let baseInfo = this.data.base
+    if (!baseInfo.department || !baseInfo.date) return
+    baseInfo.description = baseInfo.department + baseInfo.date + "的支出单"
+    this.setData({
+      base: baseInfo
+    })
+  },
   /**
    * 计算报销总额
    */
@@ -168,8 +188,10 @@ Page({
       var curMount = detailList[i].amount
       totalAmount += parseInt(curMount * 100)
     }
+    const base = this.data.base
+    base.total_amount = totalAmount / 100
     this.setData({
-      total: totalAmount / 100
+      base
     })
   },
   /**
@@ -193,8 +215,8 @@ Page({
     var detailList = this.data.detailList;
     var newList = {
       "no": curIndex,
-      "subject_name": "请选择",
-      "department":"请选择",
+      "subject_name": "",
+      "department": "",
       "subject_code": "",
       "amount": "",
       "display": "block"
@@ -238,14 +260,57 @@ Page({
       image: "/static/images/error.png?v=4",
     })
   },
+  handleSaveDraft: function() {
+    const _that = this;
+    if (this.data.isDraftPostIng) return;
+    var baseData = this.data.base;
+    var detailList = this.data.detailList;
+    if (baseData.description == '') {
+      this.showError("请填写备注说明")
+      return;
+    }
+    const comInfo = wx.getStorageSync("curComInfo")
+    const apiUrl = "/Draft/save"
+    const requestParams = {
+      apiUrl,
+      requestData: {
+        id: this.data.draftId === null ? '' : this.data.draftId,
+        type: 2,
+        comid: comInfo.comId,
+        base: JSON.stringify(baseData),
+        detail: JSON.stringify(detailList)
+      },
+      requestMethod: "POST"
+    }
+
+    this.setData({
+      isDraftPostIng: true
+    })
+    util.request(requestParams).then((res) => {
+      this.setData({
+        draftId: res.id,
+        isDraftPostIng: false
+      })
+
+    }, reject => {
+      this.setData({
+        isDraftPostIng: false
+      })
+    })
+  },
+
   submitContent: function() {
     const _that = this;
     var hasError = false;
     var baseData = this.data.base;
     var detailList = this.data.detailList;
     if (this.data.isPostIng) return;
-    if (baseData.date == '请选择') {
+    if (baseData.date == '') {
       this.showError("请选择报销日期")
+      return;
+    }
+    if (baseData.department == '') {
+      this.showError("请选择部门")
       return;
     }
     if (baseData.capital_name == '请选择') {
@@ -270,22 +335,21 @@ Page({
         break;
       }
     }
-    baseData.amount_total = this.data.total
     if (!hasError) {
       this.setData({
         isPostIng: true
       })
 
-
+      const apiUrl = this.data.actype == 2 ? "/Expend/doupdate" : "/Expend/doadd"
       const requestParams = {
-        apiUrl: "/Expend/doadd",
+        apiUrl: apiUrl,
         requestData: {
+          draftid: this.data.draftId ? this.data.draftId : '',
           base: JSON.stringify(baseData),
           detail: JSON.stringify(detailList)
         },
         requestMethod: "POST"
       }
-      console.log(requestParams.requestData)
       util.request(requestParams).then((data) => {
         wx.showToast({
           title: '操作成功',
@@ -294,11 +358,11 @@ Page({
         this.setData({
           isPostIng: false
         })
-/*         setTimeout(function() {
-          wx.navigateBack({
-            delta: 1
+        setTimeout(function() {
+          wx.redirectTo({
+            url: '../index/index',
           })
-        }, 500) */
+        }, 500)
       }, reject => {
         this.setData({
           isPostIng: false
@@ -312,8 +376,10 @@ Page({
    */
   onLoad: function(options) {
     const orgInfo = wx.getStorageSync("orgInfo")
-    const staffInfo = wx.getStorageSync("staffData")
-    if (!orgInfo) {
+    const staffData = wx.getStorageSync("staffData")
+    const departmentData = wx.getStorageSync("departmentData")
+    const capitalData = wx.getStorageSync("capitalData")
+    if (!orgInfo || !staffData || !departmentData || !capitalData) {
       wx.showToast({
         title: '访问数据错误',
         image: "/static/images/icon-error.png"
@@ -325,45 +391,75 @@ Page({
       }, 1000)
     }
 
-    var baseInfo = this.data.base
-    baseInfo.orgid = orgInfo.orgid
-    baseInfo.com_short_name = orgInfo.short_name
-    baseInfo.com_name = orgInfo.com_name
-    const requestParams = {
-      apiUrl: "/Expend/newitem",
-      requestData: {
-        orgid: orgInfo.orgid
+
+    if (options.actype == 2) {
+      const id = options.id
+      const requestParams = {
+        apiUrl: "/Expend/edit",
+        requestData: {
+          id: options.id
+        }
       }
-    }
-    util.request(requestParams).then((data) => {
+      util.request(requestParams).then((data) => {
+        this.setData({
+          showPage: true,
+          actype: options.actype,
+          base: data.baseInfo,
+          detailList: data.childList,
+          dataDepartment: departmentData,
+          dataCapital: capitalData,
+          dataStaff: staffData,
+        })
+      }).catch(function(msg) {})
+    } else if (options.actype == 3) {
+      let draftId = options.draftid
+      let requestParams = {
+        apiUrl: "/Draft/detail",
+        requestData: {
+          draftid: draftId
+        }
+      }
+      app.ajax(requestParams).then(res => {
+        this.setData({
+          showPage: true,
+          actype: options.actype,
+          draftId,
+          base: JSON.parse(res.base),
+          detailList: JSON.parse(res.detail),
+          dataDepartment: departmentData,
+          dataCapital: capitalData,
+          dataStaff: staffData,
+        })
+        console.log(this.data)
+      })
+
+    } else {
+      var baseInfo = this.data.base
+      baseInfo.orgid = orgInfo.orgid
+      baseInfo.com_short_name = orgInfo.short_name
+      baseInfo.com_name = orgInfo.com_name
       this.setData({
-        dataDepartment: data.department,
-        dataCapital: data.capitalAccount,
-        dataStaff:wx.getStorageSync("staffData"),
+        dataDepartment: departmentData,
+        dataCapital: capitalData,
+        dataStaff: staffData,
         base: baseInfo
       })
-    }).catch(function(msg) {
-      /*       setTimeout(function() {
-              wx.navigateBack({
-                delta: 1
-              })
-            }, 1000) */
-    })
+    }
   },
 
   /**
    * onShow
    */
-  onShow:function(){
+  onShow: function() {
     if (!wx.getStorageSync("curSelectedSubject")) return
-    const curSelectedSubject = Object.assign({},wx.getStorageSync("curSelectedSubject"))
+    const curSelectedSubject = Object.assign({}, wx.getStorageSync("curSelectedSubject"))
 
     const curDetailIndex = this.data.curDetailListIndex;
     var detailLists = this.data.detailList;
 
     // 检测是否已经选择了此科目
     let isHave = false
-    isHave = detailLists.some(function (item) {
+    isHave = detailLists.some(function(item) {
       return item.subject_code == curSelectedSubject.subject_code
     })
     if (isHave) {

@@ -1,6 +1,8 @@
 .fybx-detail-list {
   width: 100%;
   border-top: 1px solid #f1f1f1;
+  padding-bottom: 180rpx;
+  box-sizing: border-box;
 }
 
 .fybx-detail-list .item {

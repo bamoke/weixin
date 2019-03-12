@@ -1,6 +1,8 @@
 .fybx-detail-list {
   width: 100%;
   border-top: 1px solid #f1f1f1;
+  padding-bottom: 180rpx;
+  box-sizing: border-box;
 }
 
 .fybx-detail-list .item {
@@ -16,20 +18,22 @@
 }
 
 .fybx-detail-list .section .icon {
-  width:48rpx;
-  height:48rpx;
+  width: 48rpx;
+  height: 48rpx;
   background-image: url(http://www.pykscloud.com/Uploads/wesource/main-icon.png);
   background-repeat: no-repeat;
-  background-size:150px auto;
-  background-position:-48px top; 
-  opacity: .4;
-  transition:transform 100ms;
+  background-size: 150px auto;
+  background-position: -48px top;
+  opacity: 0.4;
+  transition: transform 100ms;
 }
+
 .fybx-detail-list .section .icon-close {
-  transform: rotate(-90deg)
+  transform: rotate(-90deg);
 }
+
 .fybx-detail-list .section .icon-open {
-  transform: rotate(90deg)
+  transform: rotate(90deg);
 }
 
 .fybx-detail-list .child {

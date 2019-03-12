@@ -4,13 +4,13 @@
     <view class="g-row-bt item">
       <view class="section-title">单据日期</view>
       <picker class="value-box" value='' mode="date" bindchange="selectedDate">
-        <view class="picker">{{base.date}}</view>
+        <view class="picker">{{base.date||'请选择'}}</view>
       </picker>
     </view>
     <view class="g-row-bt item">
       <view class="section-title">所属部门</view>
       <picker class="value-box" value='' bindchange="selectedDepartment" range-key='name' range='{{dataDepartment}}'>
-        <view class="picker">{{base.department}}</view>
+        <view class="picker">{{base.department|| '请选择'}}</view>
       </picker>
     </view>
     <view class="g-row-bt item">
@@ -32,34 +32,34 @@
   </view>
 
   <view class="fybx-detail-list">
-    <view class='item' wx:for="{{detailList}}" wx:key="no">
-      <view class='section g-row-bt'>
+    <view class='item' wx:for="{{detailList}}" wx:key="no" >
+      <view class='section g-row-bt' bindtap="switchDeatil" data-index="{{index}}">
         <view class="index-text">费用明细-{{index+1}}</view>
         <view class="right-operation">
           <view class="del-btn" bindtap='delDetail' data-index="{{index}}" wx:if="{{index > 0}}">删除</view>
-          <view bindtap="switchDeatil" data-index="{{index}}" class="icon {{item.display == 'hidden'?'icon-close':'icon-open'}}"></view>
+          <view class="icon {{item.display == 'hidden'?'icon-close':'icon-open'}}"></view>
         </view>
       </view>
       <view class="child" hidden='{{item.display == "hidden"}}'>
         <view class='child-item'>
           <view class="child-name">所属科目</view>
-          <view class="value-box" bindtap='showSubject' data-index="{{index}}">{{item.subject_name}}</view>
+          <view class="value-box" bindtap='showSubject' data-index="{{index}}">{{item.subject_title || '请选择'}}</view>
         </view>
         <view class="child-item">
           <view class="child-name">所属部门</view>
           <picker class="value-box" value='' bindchange="selectedChildDepartment" data-index="{{index}}" range-key='name' range='{{dataDepartment}}'>
-            <view class="picker">{{item.department}}</view>
+            <view class="picker">{{item.department || '请选择'}}</view>
           </picker>
         </view>
         <view class='child-item'>
           <view class="child-name">金额</view>
           <view class="value-box">
-            <input type='digit' bindblur="setAmount" data-index="{{index}}"></input>
+            <input type='digit' bindblur="setAmount" value="{{item.amount}}" placeholder='请填写金额' data-index="{{index}}"></input>
           </view>
         </view>
         <view class='child-item item-wrap'>
           <view class="child-name">摘要说明</view>
-          <textarea bindblur="setDescription" data-index="{{index}}" placeholder="150字符以内" />
+          <textarea bindblur="setDescription" data-index="{{index}}" value="{{item.description}}" placeholder="50字符以内" />
         </view>
       </view>
     </view>
@@ -67,11 +67,12 @@
       <view class="icon"></view>添加明细</view>
     <view class="m-row-total">
       <view>费用总计：</view>
-      <view class='amount'>￥{{total}}</view>
+      <view class='amount'>￥{{base.total_amount}}</view>
     </view>
   </view>
 
   <view class="g-pad-box" style="width:100%;">
-    <button class='btn btn-block btn-primary' loading="{{isPostIng}}" bindtap='submitContent'>提交</button>
+    <button class='btn btn-block btn-large btn-primary' loading="{{isPostIng}}" bindtap='submitContent'>提交</button>
+          <button wx:if="{{actype!=2}}" class='btn btn-block btn-large btn-default' loading="{{isDraftPostIng}}" bindtap='handleSaveDraft'>存为草稿</button>
   </view>
 </view>

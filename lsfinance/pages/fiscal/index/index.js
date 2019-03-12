@@ -23,8 +23,10 @@ Page({
     }
     util.request(requestParams).then((data) => {
       wx.setStorageSync("orgInfo", data.orgInfo)
-      wx.setStorageSync("subjectData", data.subjectInfo)
-      wx.setStorageSync("staffData", data.staffInfo)
+      wx.setStorageSync("subjectData", data.subjectInfo)//会计科目
+      wx.setStorageSync("staffData", data.staffInfo)//员工
+      wx.setStorageSync("departmentData", data.department)//部门
+      wx.setStorageSync("capitalData", data.capitalAccount)//资金账户
       this.setData({
         showPage: true
       })
@@ -32,6 +34,8 @@ Page({
       wx.removeStorageSync("orgInfo")
       wx.removeStorageSync("subjectData")
       wx.removeStorageSync("staffData")
+      wx.removeStorageSync("partmentData")
+      wx.removeStorageSync("capitalData")
       setTimeout(function() {
         wx.navigateBack({
           delta: 1
