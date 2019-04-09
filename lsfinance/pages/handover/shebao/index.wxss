@@ -1,0 +1,3 @@
+/* pages/handover/shebao/index.wxss */
+@import "../main.wxss";
+.container {padding-bottom:132rpx;}

@@ -5,7 +5,7 @@ App({
     wx.login({
       success: res => {
         wx.request({
-          url: 'https://www.bamoke.com/zhhr_api.php/Account/mplogin',
+          url: 'https://www.bamoke.com/jygw_api.php/Account/mplogin',
           method: 'get',
           dataType: 'json',
           data: {
@@ -70,7 +70,7 @@ App({
 
     // send
     var myPromise = new Promise(function(resolve, reject) {
-      const baseApiUrl = "https://www.bamoke.com/zhhr_api.php";
+      const baseApiUrl = "https://www.bamoke.com/jygw_api.php";
       wx.request({
         url: baseApiUrl + apiUrl,
         data: requestData,

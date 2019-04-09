@@ -1,0 +1,16 @@
+/* pages/query/work/index.wxss */
+.m-scroll-tab {
+  background:#fff;
+}
+.m-scroll-tab .item {
+  display: inline-block;
+  padding:36rpx 24rpx;
+  line-height: 1;
+  font-size:32rpx;
+  box-sizing: border-box;
+  border-bottom:2px solid #fff;
+}
+.m-scroll-tab .active {
+  border-color:#1b81d3;
+  color:#1b81d3;
+}

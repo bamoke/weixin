@@ -1,0 +1,42 @@
+<!--pages/gsjd/index.wxml-->
+<view class="container">
+    <view class="m-com-name">当前企业：{{contractInfo.com_name}}</view>
+  <view class='' style="width:100%;background:#fff;">
+    <view class="m-contract-info">
+      <view class="item">
+        <view class="section">合同类型</view>
+        <view class="content">{{contractInfo.title}}</view>
+      </view>
+      <view class="item">
+        <view class="section">服务专员</view>
+        <view class="content">
+        {{contractInfo.rep}}
+        <view class="btn btn-primary" bindtap='callPhone' data-phone="{{contractInfo.rep_phone}}" style="margin-left:24rpx;">联系专员</view>
+        </view>
+      </view>
+
+      <view class="item">
+        <view class="section">合同单号</view>
+        <view class="content">{{contractInfo.contract_no}}</view>
+      </view>
+      <view class="item">
+        <view class="section">签订日期</view>
+        <view class="content">{{contractInfo.date}}</view>
+      </view>
+    </view>
+  </view>
+  <view class="u-ht"></view>
+  <view class="m-progress">
+    <view class="progress-bar">详细进度</view>
+    <view class="item {{item.status_style}}" wx:for="{{progressInfo}}" wx:key="index">
+      <view class="top">
+        <view class="title">{{item.name}}</view>
+      </view>
+      <view class="other">
+        <view class="status">{{item.status_name}}</view>
+        <view class="time" wx:if="{{item.complete_date}}">完成日期：{{item.complete_date}}</view>
+        <view class="expense" wx:if="{{item.expense}}">工本费：￥{{item.expense}}</view>
+      </view>
+    </view>
+  </view>
+</view>

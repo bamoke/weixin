@@ -82,26 +82,8 @@
 				},
 				{
 					"id": -1,
-					"name": "公司支出",
-					"pathName": "pages/fyzc/index/index",
-					"query": ""
-				},
-				{
-					"id": -1,
 					"name": "科目选择",
 					"pathName": "pages/fiscal/subject/index",
-					"query": ""
-				},
-				{
-					"id": -1,
-					"name": "费用支出",
-					"pathName": "pages/fyzc/index/index",
-					"query": ""
-				},
-				{
-					"id": -1,
-					"name": "新建费用支出",
-					"pathName": "pages/fyzc/new/index",
 					"query": ""
 				},
 				{
@@ -112,23 +94,43 @@
 				},
 				{
 					"id": -1,
-					"name": "报销模块",
-					"pathName": "pages/fiscal/index/index",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
 					"name": "报销单详情",
 					"pathName": "pages/fybx/detail/index",
 					"query": "id=2579",
 					"scene": null
 				},
 				{
+					"id": 16,
+					"name": "工商进度",
+					"pathName": "pages/gsjd/list/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 17,
+					"name": "工商进度详情",
+					"pathName": "pages/gsjd/detail/index",
+					"query": "id=1112",
+					"scene": null
+				},
+				{
 					"id": -1,
-					"name": "草稿箱",
-					"pathName": "pages/draft/index",
-					"query": "type=1",
+					"name": "服务工作",
+					"pathName": "pages/query/work/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "联络卡",
+					"pathName": "pages/handover/contact/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "社保确认",
+					"pathName": "pages/handover/shebao/index",
 					"scene": null
 				}
 			]

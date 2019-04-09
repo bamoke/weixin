@@ -1,0 +1,21 @@
+/* pages/handover/contact/index.wxss */
+.m-member-list .item {
+  display: flex;
+  align-items: center;
+}
+.m-member-list .section {
+  color: #6c6c6c;
+}
+
+.m-member-list .content {
+  font-size: 32rpx;
+}
+
+.avatar {
+  flex: none;
+  margin-right: 24rpx;
+  width: 96rpx;
+  height: 96rpx;
+  border-radius: 50%;
+  opacity: .5;
+}

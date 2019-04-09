@@ -1,0 +1,13 @@
+<!--pages/query/work/index.wxml-->
+<view class="container" wx:if="{{showPage}}">
+  <scroll-view class="m-scroll-tab" scroll-x style="width: 100%">
+    <view id="{{item.key}}" class="item {{curCate==item.key?'active':''}}" wx:for="{{cate}}" wx:key="key" data-key="{{item.key}}" bindtap='handleSwithTab'>{{item.name}}</view>
+  </scroll-view>
+  <view class="u-ht"></view>
+  <view class="m-list-nomar" hidden='{{content[curCate].length==0}}'>
+    <view class="item" wx:for="{{content[curCate]}}" wx:key="{{index}}">{{item['服务名称']}}</view>
+  </view>
+  <view class='m-empty-box' hidden='{{content[curCate].length>0}}'>
+    <view class="tips">暂无此服务内容</view>
+  </view>
+</view>

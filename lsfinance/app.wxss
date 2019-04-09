@@ -54,6 +54,7 @@ view {
 
 .g-pad-box {
   padding: 24rpx;
+  box-sizing:border-box;
 }
 
 /**module**/
@@ -351,7 +352,10 @@ view {
   text-align: center;
   font-size: 22rpx;
 }
-
+.u-status-default {
+  border-color:#eee;
+  color:#eee;
+}
 .u-status-success {
   border-color: #2aab8f;
   color: #2aab8f;

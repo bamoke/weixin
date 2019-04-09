@@ -1,0 +1,153 @@
+/* pages/gsjd/index.wxss */
+.container {width:100%;overflow: hidden;}
+.g-pad-box {
+  width: 100%;
+}
+.m-com-name {
+  width: 100%;
+  padding:24rpx;
+  box-sizing:border-box;
+  font-size:34rpx;line-height: 1.2;
+  text-align: left;
+}
+.m-contract-info {
+  background: #fff;
+}
+
+.m-contract-info .item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 24rpx;
+  width: 100%;
+  box-sizing: border-box;
+  border-bottom: 1px solid #f1f1f1;
+}
+
+.m-contract-info .item .section {
+  flex: none;
+  width: 140rpx;
+}
+
+.m-progress {
+  box-sizing: border-box;
+  padding: 48rpx 24rpx;
+  width: 100%;
+  background: #fff;
+}
+
+.m-progress .item {
+  padding: 0 0 48rpx 24rpx;
+  border-left: 1px solid #eee;
+}
+
+.m-progress .item .top {
+  position: relative;
+  margin-bottom: 12rpx;
+}
+
+.m-progress .item .other {
+  display: flex;
+  color: #9c9c9c;
+  align-items: center;
+  font-size: 24rpx;
+}
+
+.m-progress .item .top::before {
+  position: absolute;
+  left: -38rpx;
+  top: 0;
+  z-index: 1;
+  content: "";
+  display: inline-block;
+  width: 24rpx;
+  height: 24rpx;
+  border-radius: 50%;
+}
+
+.m-progress .no-start {
+  border-color: #ccc;
+}
+
+.m-progress .begin {
+  border-color: #1b81d3;
+}
+
+.m-progress .complete {
+  border-color: #2aab8f;
+}
+
+.m-progress .no-start .top::before {
+  background: #999;
+}
+
+.m-progress .begin .top::before {
+  background: #1b81d3;
+}
+
+.m-progress .complete .top::before {
+  background: #2aab8f;
+}
+
+.m-progress .item .title {
+  font-size: 30rpx;
+  line-height: 1;
+}
+
+.m-progress .no-start .title {
+  color: #6c6c6c;
+}
+
+.m-progress .begin .title {
+  color: #1b81d3;
+}
+
+.m-progress .complete .title {
+  color: #2aab8f;
+}
+
+.m-progress .item .status {
+  flex: none;
+  margin-right: 48rpx;
+  padding: 6rpx 8rpx;
+  line-height: 1;
+  font-size: 22rpx;
+  border-radius: 3px;
+}
+
+.m-progress .no-start .status {
+  color: #999;
+  background-color: #eee;
+}
+
+.m-progress .begin .status {
+  background-color: #1b81d3;
+  color: #fff;
+  opacity: 0.6;
+}
+
+.m-progress .complete .status {
+  background-color: #2aab8f;
+  color: #fff;
+  opacity: 0.6;
+}
+
+.m-progress .other .time {
+  margin-right: 48rpx;
+}
+
+.progress-bar {
+  margin-bottom: 48rpx;
+  font-size: 32rpx;
+  color: #6c6c6c;
+  text-align: center;
+  line-height: 1;
+}
+.progress-bar::after {
+  margin:12rpx auto 0;
+  content: "";
+  display:block;
+  width:60rpx;
+  height:8rpx;
+  background:#ccc;
+}

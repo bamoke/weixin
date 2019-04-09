@@ -53,7 +53,6 @@ Page({
     const requestParams = {
       apiUrl,
       requestData: {
-        comid: comInfo.comId,
         type,
         comid: comInfo.comId
       }

@@ -1,0 +1,55 @@
+<!--pages/handover/contact/index.wxml-->
+<view class="container">
+  <view class="m-list m-member-list">
+    <view class="item">
+      <image class="avatar" src="/static/images/default-avatar.png"></image>
+      <view class="info">
+        <view class="content">{{info.kjbjl}}</view>
+        <view class="section">会计部经理</view>
+      </view>
+    </view>
+    <view class="item">
+      <image class="avatar" src="/static/images/default-avatar.png"></image>
+      <view class="info">
+        <view class="content">{{info.kjzz}}</view>
+        <view class="section">会计组长</view>
+      </view>
+    </view>
+    <view class="item">
+      <image class="avatar" src="/static/images/default-avatar.png"></image>
+      <view class="info">
+        <view class="content">{{info.swkj}}</view>
+        <view class="section">税务会计</view>
+      </view>
+    </view>
+    <view class="item">
+      <image class="avatar" src="/static/images/default-avatar.png"></image>
+      <view class="info">
+        <view class="content">{{info.zwkj}}</view>
+        <view class="section">账务会计</view>
+      </view>
+    </view>
+
+    <view class="item">
+      <image class="avatar" src="/static/images/default-avatar.png"></image>
+      <view class="info">
+        <view class="content">{{info.cbkj}}</view>
+        <view class="section">成本会计</view>
+      </view>
+    </view>
+    <view class="item">
+      <image class="avatar" src="/static/images/default-avatar.png"></image>
+      <view class="info">
+        <view class="content">{{info.wqzl}}</view>
+        <view class="section">外勤助理</view>
+      </view>
+    </view>
+    <view class="item">
+      <image class="avatar" src="/static/images/default-avatar.png"></image>
+      <view class="info">
+        <view class="content">{{info.cwgw}}</view>
+        <view class="section">财务顾问</view>
+      </view>
+    </view>
+  </view>
+</view>

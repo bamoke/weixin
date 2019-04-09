@@ -1,0 +1,21 @@
+<!--pages/query/index/index.wxml-->
+<view class="container">
+  <view class="m-nav-list-icon">
+    <navigator open-type='redirect' url="/pages/gsjd/list/index" class="item">
+      <view class="title">工商承办进度</view>
+      <image class="arrow-right" src="/static/images/arrow-black-right.png"></image>
+    </navigator>
+    <navigator open-type='navigate' url="/pages/home/mycompany/detail/index?id={{curComObjectId}}" class="item">
+      <view class="title">企业基本信息</view>
+      <image class="arrow-right" src="/static/images/arrow-black-right.png"></image>
+    </navigator>
+    <navigator open-type='navigate' url="/pages/query/work/index" class="item">
+      <view class="title">财税服务工作内容</view>
+      <image class="arrow-right" src="/static/images/arrow-black-right.png"></image>
+    </navigator>
+    <view class="item">
+      <view class="title">服务增长趋势分析</view>
+      <image class="arrow-right" src="/static/images/arrow-black-right.png"></image>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,25 @@
+<!--pages/handover/index/index.wxml-->
+<view class="container">
+  <view class="m-nav-list-icon">
+    <view open-type='redirect' url="/pages/gsjd/list/index" class="item">
+      <view class="title">原始凭证交接单</view>
+      <image class="arrow-right" src="/static/images/arrow-black-right.png"></image>
+    </view>
+    <navigator open-type='navigate' url="/pages/handover/shebao/index" class="item">
+      <view class="title">社保名单确认</view>
+      <image class="arrow-right" src="/static/images/arrow-black-right.png"></image>
+    </navigator>
+    <navigator open-type='navigate' url="/pages/handover/gongzi/index" class="item">
+      <view class="title">工资单确认</view>
+      <image class="arrow-right" src="/static/images/arrow-black-right.png"></image>
+    </navigator>
+    <navigator class="item" open-type='navigate' url="/pages/handover/shuifei/index">
+      <view class="title">税费确认</view>
+      <image class="arrow-right" src="/static/images/arrow-black-right.png"></image>
+    </navigator>
+    <navigator open-type="navigate" url="/pages/handover/contact/index" class="item">
+      <view class="title">工作对接联络卡</view>
+      <image class="arrow-right" src="/static/images/arrow-black-right.png"></image>
+    </navigator>
+  </view>
+</view>

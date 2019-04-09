@@ -1,5 +1,4 @@
 // pages/home/index/index.js
-import util from '../../utils/util';
 const app = getApp();
 Page({
 
@@ -42,7 +41,7 @@ Page({
     }
 
     let curComInfo = wx.getStorageSync("curComInfo")
-    util.request(requestParams).then(data => {
+    app.ajax(requestParams).then(data => {
       if (!curComInfo) {
         curComInfo = data.comList[0]
         wx.setStorageSync('curComInfo', data.comList[0])
@@ -53,18 +52,7 @@ Page({
         curComInfo,
         comList: data.comList,
         pageShow: true,
-        news: [
-          {
-            id: 1,
-            "title": '2018年国庆放假通知',
-            "date": '09-29'
-          },
-          {
-            id: 1,
-            "title": '2018年元旦放假通知',
-            "date": '11-29'
-          }
-        ]
+        news: data.notice
       })
       console.log(this.data)
     })

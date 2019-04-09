@@ -11,7 +11,7 @@
     "pages/fyzc/index/index",
     "pages/fyzc/new/index",
     "pages/fyzc/detail/index",
-    "pages/work/task/index",
+
     "pages/fiscal/index/index",
     "pages/fiscal/subject/index",
     "pages/service/index/index",
@@ -29,7 +29,18 @@
     "pages/home/mycompany/detail/index",
     "pages/logs/logs",
     "pages/orders/confirm/index",
-    "pages/draft/index"
+    "pages/draft/index",
+    "pages/gsjd/list/index",
+    "pages/gsjd/detail/index",
+    "pages/query/index/index",
+    "pages/query/work/index",
+    "pages/mplogin/index",
+    "pages/article/detail/index",
+    "pages/handover/index/index",
+    "pages/handover/contact/index",
+    "pages/handover/gongzi/index",
+    "pages/handover/shebao/index",
+    "pages/handover/shuifei/index"
   ],
   "window": {
     "backgroundTextStyle": "light",

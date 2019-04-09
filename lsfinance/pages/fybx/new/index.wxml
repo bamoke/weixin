@@ -59,7 +59,7 @@
   </view>
 
     <view class="g-pad-box" style="width:100%;">
-      <button class='btn btn-block btn-large btn-primary' loading="{{isPostIng}}" bindtap='submitContent'>提交</button>
+      <button class='btn btn-block btn-large btn-primary' loading="{{isPostIng}}" bindtap='submitContent' style="margin-bottom:36rpx;">提交</button>
       <button wx:if="{{actype!=2}}" class='btn btn-block btn-large btn-default' loading="{{isDraftPostIng}}" bindtap='handleSaveDraft'>存为草稿</button>
     </view>
 </view>

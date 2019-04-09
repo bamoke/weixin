@@ -3,5 +3,5 @@
   "usingComponents": {
     "bmk-tab": "/components/tab/index"
   },
-  "onReachBottomDistance": "60"
+  "onReachBottomDistance": 60
 }

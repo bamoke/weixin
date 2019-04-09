@@ -1,0 +1,43 @@
+<!--pages/handover/shebao/index.wxml-->
+<view class="container">
+  <view class="g-pad-box m-base-info">
+    <view class="title">{{base.date}}月应缴社保金额</view>
+    <view class="total s-text-important">{{base.total}}</view>
+    <view class="tips">共
+      <text class="s-text-important">{{base.person_nu}}</text>人需要申报</view>
+  </view>
+  <view class="u-ht"></view>
+  <view class="m-item-list">
+    <view class="item-group" wx:for="{{list}}" wx:key="index">
+      <view class="item top">
+        <view class="name">{{item.name}}</view>
+        <view class="status">
+          <view class="{{item.style}}">{{item.status}}</view>
+        </view>
+      </view>
+      <view class="item">
+        <view class="section">社保号</view>
+        <view class="content">{{item.sb_nu}}</view>
+      </view>
+      <view class="item">
+        <view class="section">单位缴费</view>
+        <view class="content">{{item.dw_amount}}</view>
+      </view>
+      <view class="item">
+        <view class="section">个人缴费</view>
+        <view class="content">{{item.gr_amount}}</view>
+      </view>
+      <view class="item">
+        <view class="section">应缴总计</view>
+        <view class="content">{{item.total}}</view>
+      </view>
+      <view class="operation" bindtap='handleSb' data-index="{{index}}" wx:if="{{item.status=='待处理'}}">
+        <view class="btn btn-large btn-success" data-type="1">同意申报</view>
+        <view class="btn btn-large btn-default" data-type="0">不申报</view>
+      </view>
+    </view>
+  </view>
+  <view class="m-fixed-bottom-box">
+    <view class="btn btn-large btn-block btn-primary">提交</view>
+  </view>
+</view>

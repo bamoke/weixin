@@ -1,0 +1,17 @@
+/* pages/gsjd/index.wxss */
+.gsfw-list {
+  color:#6c6c6c;
+}
+.gsfw-list .title {
+  margin-right:40rpx;
+  margin-bottom: 12rpx;
+  font-size: 32rpx;
+  color: #2c2c2c;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.gsfw-list .other {
+  font-size:24rpx;
+  color:#6c6c6c;
+}
