@@ -4,13 +4,16 @@
     <image class="img" src="/static/images/welfare-banner.jpg"></image>
     <view class="info">
       <view class="title">当前福利商家273家</view>
-      <view class="addr">{{locationInfo.streetInfo}}</view>
+      <view class="addr">我的位置:{{locationInfo.streetInfo}}</view>
     </view>
   </view>
 
-  <view class="">
-    
+  <view class="m-type-list" bindtap='handleChangeType'>
+    <view class="item" data-type="1">智能排序</view>
+    <view class="item" data-type="2">距离最近</view>
+    <view class="item" data-type="3">评分最高</view>
   </view>
+  <view class="u-ht"></view>
   <view class="m-welfare-list">
     <view class="item" wx:for="{{welfareList}}" wx:key="id">
       <image src="{{item.thumb}}" mode="" class="thumb"></image>

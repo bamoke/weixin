@@ -9,10 +9,24 @@ Page({
   data: {
     showPage: true,
     type: 1,
-    page: 1,
-    total: 34,
+    pageInfo:{
+      total:0,
+      page:0,
+      pageSize:10,
+      hasMore:false
+    },
     locationInfo: {},
     welfareList: []
+  },
+
+  /**
+   * handle
+   */
+  handleChangeType(e){
+    var type = e.target.dataset.type
+    if(typeof e.target.dataset.type === 'undefined') return false;
+    console.log(type)
+    this.setData({type})
   },
 
   /**
@@ -25,7 +39,7 @@ Page({
     });
     var locationInfo;
     myAmapFun.getRegeo({
-      success: function(data) {
+      success: data=> {
         //成功回调
         const result = data[0];
         const addressInfo = result.regeocodeData.addressComponent
@@ -37,9 +51,23 @@ Page({
           latitude: result.latitude,
           longitude: result.longitude
         }
+
+        let requestParams = {
+          apiUrl:"/welfare/vlist",
+          requestData:{
+            page: parseInt(_that.data.pageInfo.page) + 1,
+            type:_that.data.type,
+            lat: locationInfo.latitude,
+            lng: locationInfo.longitude
+          }
+        }
         _that.setData({
           locationInfo
         })
+        app.ajax(requestParams).then(res=>{
+
+        })
+
       },
       fail: function(info) {
         //失败回调
@@ -58,16 +86,7 @@ Page({
         })
       }
     })
-    /*     wx.getLocation({
-          type: 'wgs84',
-          success(res) {
-            console.log(res)
-            const latitude = res.latitude
-            const longitude = res.longitude
-            const speed = res.speed
-            const accuracy = res.accuracy
-          }
-        }) */
+
   },
 
   /**

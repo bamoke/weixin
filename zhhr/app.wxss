@@ -3,7 +3,7 @@ view {box-sizing: border-box;}
 .container {
   min-height: 100%;
   box-sizing: border-box;
-  font-size:28rpx;
+  font-size:26rpx;
 }
 .g-box-pad {
   padding:24rpx;
@@ -129,7 +129,7 @@ view {box-sizing: border-box;}
   border-bottom:1px solid #f1f1f1;
 }
 .m-article-list-big .title{
-  font-size:32rpx;
+  font-size:30rpx;
 }
 .m-article-list-big .thumb {
   margin:12rpx 0;
@@ -177,9 +177,10 @@ view {box-sizing: border-box;}
   display: inline-block;
   height: 40rpx;
   line-height: 40rpx;
-  font-size: 32rpx;
+  font-size: 28rpx;
   color: #232323;
   vertical-align: middle;
+  font-weight: bold;
 }
 
 .g-card > .header > .title::before {
