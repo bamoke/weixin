@@ -61,10 +61,21 @@
 .retrench {white-space: nowrap;}
 .unpay-tips {
   display: flex;
+  flex-direction: column;
   justify-content: space-between;
   align-items:center;
   padding:36rpx 24rpx;
-  color:#fa4349;
+  font-size:32rpx;
+  /* color:#fa4349; */
+  background:#fff;
+}
+.unpay-tips .icon {
+  width: 96rpx;
+  height:96rpx;
+}
+.unpay-tips .tips {
+  text-align: center;
+  margin:24rpx 0;
 }
 .m-recharge-type .desc {color:#999;}
 .m-description {background:#fff;padding-bottom:48rpx;}

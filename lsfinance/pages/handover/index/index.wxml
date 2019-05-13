@@ -1,24 +1,54 @@
 <!--pages/handover/index/index.wxml-->
 <view class="container">
   <view class="m-nav-list-icon">
-    <view open-type='redirect' url="/pages/gsjd/list/index" class="item">
-      <view class="title">原始凭证交接单</view>
+    <view open-type='navigate' url="/pages/handover/jjd/index/index" class="item" style="opacity:.5;">
+      <view class="icon-wrap s-bg-1">
+        <image class="icon" src="/static/images/icon-djjj-white.png"></image>
+      </view>
+      <view class="title">
+        <view class="">原始凭证交接单</view>
+        <view class="desc">企业每次寄送财务单据时填写，正常企业每月寄送(填写)一次</view>
+      </view>
       <image class="arrow-right" src="/static/images/arrow-black-right.png"></image>
     </view>
     <navigator open-type='navigate' url="/pages/handover/shebao/index" class="item">
-      <view class="title">社保名单确认</view>
+      <view class="icon-wrap s-bg-2">
+        <image class="icon" src="/static/images/icon-sb-white.png"></image>
+      </view>
+      <view class="title">
+        <view class="">社保名单确认</view>
+        <view class="desc">每月由会计发出名单，由企业方确认后申报社保及账务处理</view>
+      </view>
       <image class="arrow-right" src="/static/images/arrow-black-right.png"></image>
     </navigator>
-    <navigator open-type='navigate' url="/pages/handover/gongzi/index" class="item">
-      <view class="title">工资单确认</view>
+    <navigator open-type='navigate' url="/pages/handover/gongzi/list/index" class="item">
+      <view class="icon-wrap s-bg-3">
+        <image class="icon" src="/static/images/icon-gz-white.png"></image>
+      </view>
+      <view class="title">
+        <view class="">工资单确认</view>
+        <view class="desc">每月由会计发出名单，由企业方确认后申报个税及账务处理</view>
+      </view>
       <image class="arrow-right" src="/static/images/arrow-black-right.png"></image>
     </navigator>
-    <navigator class="item" open-type='navigate' url="/pages/handover/shuifei/index">
-      <view class="title">税费确认</view>
+    <navigator class="item" open-type='navigate' url="/pages/handover/shuifei/detail/index">
+      <view class="icon-wrap s-bg-4">
+        <image class="icon" src="/static/images/icon-money-white.png"></image>
+      </view>
+      <view class="title">
+        <view class="">税费确认</view>
+        <view class="desc">每月由会计预计税费，企业方确认后并缴存税费，会计进行税务申报</view>
+      </view>
       <image class="arrow-right" src="/static/images/arrow-black-right.png"></image>
     </navigator>
     <navigator open-type="navigate" url="/pages/handover/contact/index" class="item">
-      <view class="title">工作对接联络卡</view>
+      <view class="icon-wrap s-bg-5">
+        <image class="icon" src="/static/images/icon-sbmd-white.png"></image>
+      </view>
+      <view class="title">
+        <view class="">工作对接联络卡</view>
+        <view class="desc">你企业的财税工作对接人，由哪些人负责，查询这...</view>
+      </view>
       <image class="arrow-right" src="/static/images/arrow-black-right.png"></image>
     </navigator>
   </view>

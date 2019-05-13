@@ -1,4 +1,4 @@
-// pages/handover/gongzi/index.js
+// pages/detail/list/index.js
 Page({
 
   /**

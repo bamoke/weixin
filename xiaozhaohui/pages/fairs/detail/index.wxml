@@ -6,7 +6,7 @@
     <view class='g-pad-box'>
       <view class='title'>{{fairsInfo.name}}</view>
       <view class='desc'>
-        <view class='row'>
+        <view class='row' style="align-items:flex-start;">
           <image class="u-myicon" src="/static/images/icon-addr.png"></image>
           <text>{{fairsInfo.addr}}</text>
         </view>

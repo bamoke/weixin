@@ -1,0 +1,24 @@
+/* pages/mplogin/index.wxss */
+.container {
+  background:#fff;
+}
+.main-wrap {
+  box-sizing:border-box;
+  padding:96rpx 48rpx;
+  width: 100%;
+  text-align: center;
+}
+.main-wrap .btn {
+  margin-bottom:48rpx;
+}
+.icon {
+  width:128rpx;
+  height:128rpx;
+  /* filter:grayscale(100%); */
+  opacity:.6;
+}
+.tips {
+  margin:64rpx 0;
+  font-size:34rpx;
+  color:#9c9c9c;
+}

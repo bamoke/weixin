@@ -1,20 +1,44 @@
 <!--pages/query/index/index.wxml-->
 <view class="container">
   <view class="m-nav-list-icon">
-    <navigator open-type='redirect' url="/pages/gsjd/list/index" class="item">
-      <view class="title">工商承办进度</view>
+    <navigator open-type='navigate' url="/pages/gsjd/list/index" class="item">
+      <view class="icon-wrap s-bg-1">
+        <image class="icon" src="/static/images/icon-cx-jd.png"></image>
+      </view>
+      <view class="title">
+        <view class="">工商承办进度</view>
+        <view class="desc">你公司的工商事务(新设立,变更或注销)进度查询</view>
+      </view>
       <image class="arrow-right" src="/static/images/arrow-black-right.png"></image>
     </navigator>
     <navigator open-type='navigate' url="/pages/home/mycompany/detail/index?id={{curComObjectId}}" class="item">
-      <view class="title">企业基本信息</view>
+      <view class="icon-wrap s-bg-3">
+        <image class="icon" src="/static/images/icon-cx-zl.png"></image>
+      </view>
+      <view class="title">
+        <view class="">企业基本信息</view>
+        <view class="desc">当前企业的基本信息查询(开发票时会用到)</view>
+      </view>
       <image class="arrow-right" src="/static/images/arrow-black-right.png"></image>
     </navigator>
     <navigator open-type='navigate' url="/pages/query/work/index" class="item">
-      <view class="title">财税服务工作内容</view>
+      <view class="icon-wrap s-bg-4">
+        <image class="icon" src="/static/images/icon-cx-nr.png"></image>
+      </view>
+      <view class="title">
+        <view class="">财税服务工作内容</view>
+        <view class="desc">为当前企业所提供的财税服务内容(合同服务项)</view>
+      </view>
       <image class="arrow-right" src="/static/images/arrow-black-right.png"></image>
     </navigator>
-    <view class="item">
-      <view class="title">服务增长趋势分析</view>
+    <view class="item" style="opacity:.5;">
+      <view class="icon-wrap s-bg-1">
+        <image class="icon" src="/static/images/icon-cx-tj.png"></image>
+      </view>
+      <view class="title">
+        <view class="">服务增长趋势分析</view>
+        <view class="desc">分析当前企业的财税服务工作量大小及变化趋势</view>
+      </view>
       <image class="arrow-right" src="/static/images/arrow-black-right.png"></image>
     </view>
   </view>

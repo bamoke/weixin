@@ -15,10 +15,10 @@ App({
             if (result.data.code == 200) {
               console.log("login ok")
               wx.setStorageSync("accessToken", result.data.data.token)
-            }else {
+            } else {
               wx.showToast({
                 title: res.data.msg,
-                image:"/static/image/icon-error.png"
+                image: "/static/image/icon-error.png"
               })
             }
           }
@@ -47,21 +47,26 @@ App({
     })
   },
   globalData: {
-    userInfo: null
+    userInfo: null,
+    siteConf: {
+      apiBaseUrl: 'https://www.bamoke.com/jygw_api.php',
+      webUrl: 'http://www.bamoke.com/',
+      staticUrl: "https://wesource.oss-cn-shenzhen.aliyuncs.com"
+    }
   },
   ajaxLoaded: true,
   ajax: function({
     apiUrl,
     requestData = {},
     requestMethod = "GET",
-    isShowLoad = true
+    showLoading = true
   }) {
     // before send
     var _that = this;
     if (!this.ajaxLoaded) {
       return
     }
-    if (isShowLoad) {
+    if (showLoading) {
       wx.showLoading({
         title: '加载中',
       })
@@ -82,28 +87,32 @@ App({
         },
         success: function(res) {
           _that.ajaxLoaded = true;
-          if (isShowLoad) {
+          if (showLoading) {
             wx.hideLoading();
           }
           if (res && res.data.code == 200) {
             resolve(res.data)
           } else {
-            if (res.data.code == 11001 || res.data.code == 11002) {
-              // 创建返回页面路径
-              /*             const routePage = getCurrentPages();
-                          const curRoute = routePage[routePage.length-1]
-                          const realPage = buildUrl(curRoute.route, curRoute.options) */
-              wx.showModal({
-                content: res.data.msg,
-                showCancel: false,
-                success: function(res) {
-                  if (res.confirm) {
-                    wx.reLaunch({
-                      url: '/pages/index/index',
-                    })
-                  }
-                }
+            if (res.data.code == 11002 || res.data.code == 11001) {
+              const routes = getCurrentPages();
+              const curPage = routes[routes.length - 1]
+              const routeOpt = curPage.options
+              var fullPath = "/" + curPage.route
+              let routeOptKeys = Object.keys(routeOpt);
+              var paramsArr = [];
+              var pageParams = ""
+              if (routeOptKeys.length) {
+                paramsArr = routeOptKeys.map(item => {
+                  return item + "=" + routeOpt[item]
+                })
+                pageParams = "?" + paramsArr.join("&")
+              }
+              fullPath += pageParams
+              wx.navigateTo({
+                url: '/pages/mplogin/index?back=' + encodeURIComponent(fullPath),
               })
+
+
             } else {
               wx.showToast({
                 title: res.data.msg,

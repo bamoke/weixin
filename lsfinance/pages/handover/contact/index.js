@@ -9,7 +9,15 @@ Page({
     showPage:true,
     info:{}
   },
-
+  /**
+   * phone call
+   */
+  phoneCall(e){
+    const phone = e.currentTarget.dataset.phone
+    wx.makePhoneCall({
+      phoneNumber: phone
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */

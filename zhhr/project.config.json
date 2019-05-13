@@ -4,11 +4,13 @@
 		"ignore": []
 	},
 	"setting": {
-		"urlCheck": true,
+		"urlCheck": false,
 		"es6": true,
 		"postcss": true,
 		"minified": true,
-		"newFeature": true
+		"newFeature": true,
+		"autoAudits": false,
+		"checkInvalidKey": true
 	},
 	"compileType": "miniprogram",
 	"libVersion": "2.4.1",
@@ -18,6 +20,8 @@
 		"hidedInDevtools": []
 	},
 	"isGameTourist": false,
+	"simulatorType": "wechat",
+	"simulatorPluginLibVersion": {},
 	"condition": {
 		"search": {
 			"current": -1,
@@ -36,7 +40,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 11,
+			"current": 6,
 			"list": [
 				{
 					"id": -1,
@@ -46,44 +50,8 @@
 				},
 				{
 					"id": -1,
-					"name": "名片库",
-					"pathName": "pages/card/list/index",
-					"query": ""
-				},
-				{
-					"id": 2,
-					"name": "名片详情",
-					"pathName": "pages/card/detail/index",
-					"query": "id=2"
-				},
-				{
-					"id": -1,
-					"name": "修改名片",
-					"pathName": "pages/mycard/edit/index",
-					"query": "id=1"
-				},
-				{
-					"id": -1,
-					"name": "名片列表",
-					"pathName": "pages/card/list/index",
-					"query": ""
-				},
-				{
-					"id": -1,
 					"name": "home",
 					"pathName": "pages/home/index",
-					"query": ""
-				},
-				{
-					"id": -1,
-					"name": "我的名片夹",
-					"pathName": "pages/mycard/list/index",
-					"query": ""
-				},
-				{
-					"id": -1,
-					"name": "交换申请",
-					"pathName": "pages/exchange/list/index",
 					"query": ""
 				},
 				{
@@ -100,14 +68,23 @@
 				},
 				{
 					"id": -1,
-					"name": "好友名片详情",
-					"pathName": "pages/mycard/detail/index",
-					"query": "id=2"
+					"name": "绑定",
+					"pathName": "pages/mycard/bind/index",
+					"query": ""
 				},
 				{
 					"id": -1,
-					"name": "绑定",
-					"pathName": "pages/mycard/bind/index"
+					"name": "微信登录",
+					"pathName": "pages/mplogin/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "福利列表",
+					"pathName": "pages/welfare/list/index",
+					"query": "",
+					"scene": null
 				}
 			]
 		}

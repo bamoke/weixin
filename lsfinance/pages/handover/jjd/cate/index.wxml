@@ -1,0 +1,11 @@
+<!--pages/fiscal/subject/index.wxml-->
+<view class="container">
+  <view class="m-subject-list">
+    <view class="item" wx:for="{{cateList}}" wx:key="item.code" data-index="{{index}}" bindtap='selectCate'>
+      <view class="icon"></view>
+      <view class="caption">{{item.name}}</view>
+    </view>
+  </view>
+
+
+</view>

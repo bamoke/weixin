@@ -1,56 +1,69 @@
 /**index.wxss**/
-.m-fairs-list {
 
+.m-fairs-list {
 }
+
 .m-fairs-list .item {
+  box-sizing: border-box;
   display: flex;
   justify-content: flex-start;
   align-items: top;
-  padding:24rpx;
-  border-bottom:1px solid #f1f1f1;
+  padding: 24rpx;
+  border-bottom: 1px solid #f1f1f1;
+  overflow: hidden;
 }
+
 .m-fairs-list .item .thumb {
   flex-shrink: 0;
-  flex-grow:0;
-  margin-right:24rpx;
-  width:220rpx;
-  height:140rpx;
-  border-radius:8rpx;
+  flex-grow: 0;
+  margin-right: 24rpx;
+  width: 220rpx;
+  height: 140rpx;
+  border-radius: 8rpx;
 }
+
 .m-fairs-list .item .title {
-  margin-bottom:20rpx;
+  margin-bottom: 20rpx;
   font-size: 32rpx;
-  color:#232323;
+  color: #232323;
 }
+
 .m-fairs-list .text-box {
   display: flex;
+  flex: 1 1 auto;
+  width: 100%;
   flex-direction: column;
   justify-content: space-between;
-  color:#9c9c9c;
+  color: #9c9c9c;
 }
-.m-fairs-list .text-box .bd text{
+
+.m-fairs-list .text-box .bd text {
   display: inline-block;
   vertical-align: middle;
 }
-.m-fairs-list .item .addr {
-  margin-bottom:8rpx;
-}
-.m-fairs-list .item .ft .time {
 
+.m-fairs-list .item .addr {
+  display: flex;
+  margin-bottom: 8rpx;
 }
+.m-fairs-list .item .addr .icon {
+  flex:none;
+}
+
 
 .index-banner-wrap {
   /* background:#fff; */
-  padding:24rpx 24rpx 0;
+  padding: 24rpx 24rpx 0;
 }
+
 .index-banner {
-  margin-bottom:24rpx;
-  width:100%;
-  height:320rpx;
-  
+  margin-bottom: 24rpx;
+  width: 100%;
+  height: 320rpx;
 }
+
 .index-banner .img {
-  width:100%;
-  height:320rpx;
-  border-radius:10rpx;
+  width: 100%;
+  height: 320rpx;
+  border-radius: 10rpx;
 }

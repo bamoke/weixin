@@ -37,9 +37,10 @@ Page({
    */
   onShow: function () {
     const requestParams = {
-      apiUrl: '/Index/index'
+      apiUrl: '/Index/index',
+      isShowLoad:false
     }
-
+    wx.showNavigationBarLoading();
     let curComInfo = wx.getStorageSync("curComInfo")
     app.ajax(requestParams).then(data => {
       if (!curComInfo) {
@@ -47,7 +48,7 @@ Page({
         wx.setStorageSync('curComInfo', data.comList[0])
       }
       wx.setStorageSync("myCom", data.comList)
-
+      wx.hideNavigationBarLoading();
       this.setData({
         curComInfo,
         comList: data.comList,

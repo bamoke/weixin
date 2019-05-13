@@ -25,8 +25,8 @@
           <view class='title'>{{item.name}}</view>
           <view class='bd'>
             <view class='addr'>
-              <image class="u-myicon" src="/static/images/icon-addr.png"></image>
-              <text>{{item.addr}}</text>
+              <image class="icon u-myicon" src="/static/images/icon-addr.png"></image>
+              <text class="text">{{item.addr}}</text>
             </view>
             <view class="time">
               <image class="u-myicon" src="/static/images/icon-time.png"></image>

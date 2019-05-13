@@ -7,7 +7,6 @@
     "pages/class/notes/index",
     "pages/class/comment/index",
     "pages/class/discuss/index",
-
     "pages/course/index/index",
     "pages/course/enroll/index",
     "pages/course/detail/index",
@@ -25,14 +24,12 @@
     "pages/work/result/index",
     "pages/exam/index/index",
     "pages/exam/detail/index",
-
     "pages/discuss/detail/index",
     "pages/discuss/node/index/index",
     "pages/discuss/node/add/index",
     "pages/discuss/content/detail/index",
     "pages/discuss/content/add/index",
     "pages/discuss/content/more/index",
-
     "pages/account/login/index",
     "pages/account/regist/index",
     "pages/account/forgot/index",
@@ -40,13 +37,11 @@
     "pages/news/detail/index",
     "pages/me/index/index",
     "pages/me/booking/index",
-
     "pages/myparttime/index/index",
     "pages/myparttime/detail/index",
     "pages/myparttime/member/index",
     "pages/myparttime/progress/index",
     "pages/myparttime/discuss/index",
-
     "pages/resume/upload/index",
     "pages/resume/detail/index",
     "pages/resume/base/index",
@@ -93,5 +88,6 @@
         "text": "我的"
       }
     ]
-  }
+  },
+  "sitemapLocation": "sitemap.json"
 }

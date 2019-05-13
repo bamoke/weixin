@@ -3,19 +3,46 @@
   display: flex;
   align-items: center;
 }
+.m-member-list .item .info {
+  box-sizing:border-box;
+  padding:24rpx;
+  flex: 1 1 100%;
+}
 .m-member-list .section {
   color: #6c6c6c;
+  line-height: 1.4;
+  font-size:26rpx;
 }
 
 .m-member-list .content {
   font-size: 32rpx;
 }
-
+.m-member-list .content .name {
+  font-size:34rpx;
+}
+.m-member-list .content .small {
+  display: inline-block;
+  margin-left:24rpx;
+  font-size:26rpx;
+  color:#6c6c6c;
+}
+.m-member-list .item .tel-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex:none;
+  width:72rpx;
+  height:72rpx;
+  background:#1b81d3;
+}
+.m-member-list .item .tel-box .icon{
+  width:56rpx;
+  height:56rpx;
+}
 .avatar {
   flex: none;
-  margin-right: 24rpx;
-  width: 96rpx;
-  height: 96rpx;
+  width: 128rpx;
+  height: 128rpx;
   border-radius: 50%;
   opacity: .5;
 }

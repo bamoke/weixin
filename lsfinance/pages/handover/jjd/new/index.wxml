@@ -1,0 +1,60 @@
+<!--pages/fybx/new/index.wxml-->
+<view class='container'>
+  <view class="g-pad-box top-tips">
+  <image class="icon" src="/static/images/icon-tips.png"></image>
+  <view>新建凭证交接单，只能提交上一个月份的单据</view>
+  </view>
+  <view class="u-ht"></view>
+  <view class="m-list-nomar">
+    <view class="g-row-bt item">
+      <view class="section-title">所属月份</view>
+      <picker class="value-box" value='{{base.date}}' mode="date" fields="month" end="{{endMonth}}" bindchange="selectedDate">
+        <view class="picker">{{base.date || '请选择'}}</view>
+      </picker>
+    </view>
+
+  </view>
+
+  <view class="fybx-detail-list">
+    <view class='item' wx:for="{{detailList}}" wx:key="no">
+      <view class='section g-row-bt' bindtap="switchDeatil" data-index="{{index}}" >
+        <view class="index-text">单据明细-{{index+1}}</view>
+        <view class="right-operation">
+          <view class="del-btn" bindtap='delDetail' data-index="{{index}}" wx:if="{{index > 0}}">删除</view>
+          <view class="icon {{item.display == 'hidden'?'icon-close':'icon-open'}}"></view>
+        </view>
+      </view>
+      <view class="child" hidden='{{item.display == "hidden"}}'>
+        <view class='child-item'>
+          <view class="child-name">单据类型</view>
+          <view class="value-box" bindtap='showCate' data-index="{{index}}">{{item.cate_name||'请选择'}}</view>
+        </view>
+        <view class='child-item'>
+          <view class="child-name">纸质单据数量</view>
+          <view class="value-box">
+            <input type='digit' bindblur="setNum" value='{{item.num}}' placeholder='请输入数量' data-index="{{index}}"></input>
+          </view>
+        </view>
+        <view class='child-item item-wrap'>
+          <view class="child-name">备注说明</view>
+          <textarea bindblur="setDescription" bindconfirm="setDescription" data-index="{{index}}" value="{{item.description}}" placeholder="120字符以内" />
+        </view>
+      </view>
+    </view>
+    <view class="u-add-detail" bindtap="addDetail">
+      <view class="icon"></view>添加记录</view>
+  </view>
+
+    <view class="g-pad-box" style="width:100%;">
+      <button class='btn btn-block btn-large btn-primary' loading="{{isPostIng}}" bindtap='submitContent' style="margin-bottom:36rpx;">提交</button>
+      <button wx:if="{{actype!=2}}" class='btn btn-block btn-large btn-default' loading="{{isDraftPostIng}}" bindtap='handleSaveDraft'>存为草稿</button>
+    </view>
+</view>
+
+<view class="m-bottom-selector" hidden='{{!showBottomSeletor}}'>
+  <picker-view indicator-style="height: 50px;" style="width: 100%; height: 300px;" mask-class="masker" value="{{value}}">
+    <picker-view-column>
+      <view bindtap='subjectChange' data-index="{{index}}" class="opt" wx:for="{{subject}}" wx:key="subject_code" style="line-height: 50px">{{item.subject_name}}</view>
+    </picker-view-column>
+  </picker-view>
+</view>

@@ -124,35 +124,26 @@ const request = function({
                 }
               }
             })
-          } else if (res.data.code == 11001 ) {
-            wx.showModal({
-              content: res.data.msg,
-              showCancel: false,
-              success: function (res) {
-                if (res.confirm) {
-                  let routeParams = ''
-                  let curPage = routePage[routePage.length - 1]
-                  if (Object.keys(curPage.options).length) {
-                    for (var opt in curPage.options) {
-                      routeParams += opt + '=' + curPage.options[opt] + '&'
-                    }
-
-                    routeParams = "?" + routeParams.slice(0, routeParams.length - 1)
-                  }
-                  wxLogin(function(){
-                    if (routePage.length>1) {
-                      wx.navigateBack({
-                        delta:1
-                      })
-                    }else {
-                      wx.reLaunch({
-                        url: '/' + curPage.route + routeParams
-                      })
-                    }
-                  })
-                }
-              }
+          } else if (res.data.code == 11002 || res.data.code == 11001) {
+            const routes = getCurrentPages();
+            const curPage = routes[routes.length -1]
+            const routeOpt = curPage.options
+            var fullPath = "/"+curPage.route
+            let routeOptKeys = Object.keys(routeOpt);
+            var paramsArr=[];
+            var pageParams = ""
+            if (routeOptKeys.length) {
+              paramsArr = routeOptKeys.map(item=>{
+                return item + "=" +routeOpt[item]
+              })
+              pageParams = "?" + paramsArr.join("&")
+            }
+            fullPath += pageParams
+            wx.navigateTo({
+              url: '/pages/mplogin/index?back=' + encodeURIComponent(fullPath),
             })
+            
+
           } else if (res.data.code == 13009){
             // 其他需要前端依据code作回应
           }else {

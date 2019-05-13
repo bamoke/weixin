@@ -4,52 +4,29 @@
     <view class="item">
       <image class="avatar" src="/static/images/default-avatar.png"></image>
       <view class="info">
-        <view class="content">{{info.kjbjl}}</view>
-        <view class="section">会计部经理</view>
+        <view class="content">
+          <text class="name">{{info.kjbjl.name}}</text>
+          <text class="small">会计部经理</text>
+        </view>
+        <view class="section">客户结算、岗位辅导、政策落实、投诉与建议收集</view>
+      </view>
+      <view class="tel-box" bindtap='phoneCall' data-phone="{{info.kjbjl.phone}}">
+        <image class="icon" src="/static/images/icon-phone.png"></image>
       </view>
     </view>
     <view class="item">
       <image class="avatar" src="/static/images/default-avatar.png"></image>
       <view class="info">
-        <view class="content">{{info.kjzz}}</view>
-        <view class="section">会计组长</view>
+        <view class="content">
+          <text class="name">{{info.kjzz.name}}</text>
+          <text class="small">会计组长</text>
+        </view>
+        <view class="section">负责企业日常工作对接、工作质量和工作进度管理</view>
       </view>
-    </view>
-    <view class="item">
-      <image class="avatar" src="/static/images/default-avatar.png"></image>
-      <view class="info">
-        <view class="content">{{info.swkj}}</view>
-        <view class="section">税务会计</view>
-      </view>
-    </view>
-    <view class="item">
-      <image class="avatar" src="/static/images/default-avatar.png"></image>
-      <view class="info">
-        <view class="content">{{info.zwkj}}</view>
-        <view class="section">账务会计</view>
+      <view class="tel-box" bindtap='phoneCall' data-phone="{{info.kjbjl.phone}}">
+        <image class="icon" src="/static/images/icon-phone.png"></image>
       </view>
     </view>
 
-    <view class="item">
-      <image class="avatar" src="/static/images/default-avatar.png"></image>
-      <view class="info">
-        <view class="content">{{info.cbkj}}</view>
-        <view class="section">成本会计</view>
-      </view>
-    </view>
-    <view class="item">
-      <image class="avatar" src="/static/images/default-avatar.png"></image>
-      <view class="info">
-        <view class="content">{{info.wqzl}}</view>
-        <view class="section">外勤助理</view>
-      </view>
-    </view>
-    <view class="item">
-      <image class="avatar" src="/static/images/default-avatar.png"></image>
-      <view class="info">
-        <view class="content">{{info.cwgw}}</view>
-        <view class="section">财务顾问</view>
-      </view>
-    </view>
   </view>
 </view>

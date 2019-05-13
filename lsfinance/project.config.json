@@ -5,13 +5,17 @@
 		"es6": true,
 		"postcss": true,
 		"minified": true,
-		"newFeature": true
+		"newFeature": true,
+		"autoAudits": false,
+		"checkInvalidKey": true
 	},
 	"compileType": "miniprogram",
 	"libVersion": "1.9.94",
 	"appid": "wx389c6f0e8b058566",
 	"projectname": "%E8%93%9D%E6%80%9D%E4%BA%91%E8%B4%A2%E5%8A%A1",
 	"isGameTourist": false,
+	"simulatorType": "wechat",
+	"simulatorPluginLibVersion": {},
 	"condition": {
 		"search": {
 			"current": -1,
@@ -30,7 +34,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 15,
+			"current": 25,
 			"list": [
 				{
 					"id": 0,
@@ -128,9 +132,79 @@
 					"scene": null
 				},
 				{
-					"id": -1,
+					"id": 15,
 					"name": "社保确认",
 					"pathName": "pages/handover/shebao/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 16,
+					"name": "税费详情",
+					"pathName": "pages/handover/shuifei/detail/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "交接单列表",
+					"pathName": "pages/handover/jjd/index/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "新建交接单",
+					"pathName": "pages/handover/jjd/new/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "新建交接单类别",
+					"pathName": "pages/handover/jjd/cate/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 20,
+					"name": "fuwu结算",
+					"pathName": "pages/service/fwjs/index",
+					"query": "id=1&page=2&t=3",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "微信登录",
+					"pathName": "pages/mplogin/index",
+					"query": "back=%2Fpages%2Fservice%2Ffwjs%2Findex%3Fid%3D1%26page%3D2%26t%3D3",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "交接联络卡",
+					"pathName": "pages/handover/contact/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "交接单主页",
+					"pathName": "pages/handover/index/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "账户收支主页",
+					"pathName": "pages/fiscal/index/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "服务查询主页",
+					"pathName": "pages/query/index/index",
 					"scene": null
 				}
 			]

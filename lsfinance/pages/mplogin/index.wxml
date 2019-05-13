@@ -1,2 +1,9 @@
 <!--pages/mplogin/index.wxml-->
-<text>pages/mplogin/index.wxml</text>
+<view class="container">
+  <view class="main-wrap">
+    <image class="icon" src="/static/images/icon-tips.png"></image>
+    <view class="tips">请先登录后再操作</view>
+    <view class="btn btn-large btn-primary" style="width:100%" bindtap='handleMpLogin'>微信登录</view>
+    <view class="btn btn-large" style="width:100%" bindtap='handleCancel'>取消</view>
+  </view>
+</view>

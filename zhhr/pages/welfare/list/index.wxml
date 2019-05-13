@@ -1,0 +1,26 @@
+<!--pages/welfare/list/index.wxml-->
+<view class="container" wx:if="{{showPage}}">
+  <view class="m-banner">
+    <image class="img" src="/static/images/welfare-banner.jpg"></image>
+    <view class="info">
+      <view class="title">当前福利商家273家</view>
+      <view class="addr">{{locationInfo.streetInfo}}</view>
+    </view>
+  </view>
+
+  <view class="">
+    
+  </view>
+  <view class="m-welfare-list">
+    <view class="item" wx:for="{{welfareList}}" wx:key="id">
+      <image src="{{item.thumb}}" mode="" class="thumb"></image>
+      <view class="info">
+        <view class="title">{{item.title}}</view>
+        <view class="tags-box">
+          <text class="tag" wx:for="{{item.tags}}" wx:for-item="tag" wx:key="id">{{tag.name}}</text>
+        </view>
+        <view class="addr"></view>
+      </view>
+    </view>
+  </view>
+</view>

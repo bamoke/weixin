@@ -11,7 +11,6 @@
     "pages/fyzc/index/index",
     "pages/fyzc/new/index",
     "pages/fyzc/detail/index",
-
     "pages/fiscal/index/index",
     "pages/fiscal/subject/index",
     "pages/service/index/index",
@@ -38,9 +37,16 @@
     "pages/article/detail/index",
     "pages/handover/index/index",
     "pages/handover/contact/index",
-    "pages/handover/gongzi/index",
+    "pages/handover/gongzi/list/index",
+    "pages/handover/gongzi/detail/index",
     "pages/handover/shebao/index",
-    "pages/handover/shuifei/index"
+    "pages/handover/shuifei/history/index",
+    "pages/handover/shuifei/detail/index",
+    "pages/handover/jjd/new/index",
+    "pages/handover/jjd/detail/index",
+    "pages/handover/jjd/index/index",
+    "pages/handover/jjd/cgx/index",
+    "pages/handover/jjd/cate/index"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -74,5 +80,6 @@
         "selectedIconPath": "static/images/tab-sys-active.png"
       }
     ]
-  }
+  },
+  "sitemapLocation": "sitemap.json"
 }

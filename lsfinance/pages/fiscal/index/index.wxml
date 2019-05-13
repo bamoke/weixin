@@ -1,28 +1,55 @@
 <!--pages/fiscal/index/index.wxml-->
 <view class="container" wx:if="{{showPage}}">
+  <!-- <view class="u-ht"></view> -->
   <view class="m-nav-list-icon">
     <navigator open-type='navigate' class="item" url="/pages/fyzc/index/index">
-      <view class="title">公司支出登记</view>
+      <view class="icon-wrap s-bg-1">
+        <image class="icon" src="/static/images/icon-zc-zc.png"></image>
+      </view>
+      <view class="title">
+        <view class="">公司支出</view>
+        <view class="desc">当前企业资金账户的支出登记</view>
+      </view>
       <image class="arrow-right" src="/static/images/arrow-black-right.png"></image>
     </navigator>
-    <view class="item" url="/pages/fyzc/index/index">
-      <view class="title">公司收入登记</view>
+    <view class="item" url="/pages/fyzc/index/index" style="opacity:.5;">
+      <view class="icon-wrap s-bg-5">
+        <image class="icon" src="/static/images/icon-zc-sr.png"></image>
+      </view>
+      <view class="title">
+        <view class="">公司收入</view>
+        <view class="desc">当前企业资金账户的收入登记</view>
+      </view>
       <image class="arrow-right" src="/static/images/arrow-black-right.png"></image>
     </view>
     <navigator open-type='navigate' class="item" url="/pages/fybx/index/index">
-      <view class="title">个人费用报销</view>
+      <view class="icon-wrap s-bg-2">
+        <image class="icon" src="/static/images/icon-zc-bx.png"></image>
+      </view>
+      <view class="title">
+        <view class="">费用报销</view>
+        <view class="desc">当前企业所属员工的费用报销登记</view>
+      </view>
       <image class="arrow-right" src="/static/images/arrow-black-right.png"></image>
     </navigator>
-    <view class="item" url="/pages/fybx/index/index">
-      <view class="title">个人费用报销</view>
+    <view class="item" style="opacity:.5;">
+      <view class="icon-wrap s-bg-4">
+        <image class="icon" src="/static/images/icon-zc-skd.png"></image>
+      </view>
+      <view class="title">
+        <view class="">收款单</view>
+        <view class="desc">当前企业收到客户的货款核销(原来有挂账)</view>
+      </view>
       <image class="arrow-right" src="/static/images/arrow-black-right.png"></image>
     </view>
-    <view class="item">
-      <view class="title">收款单</view>
-      <image class="arrow-right" src="/static/images/arrow-black-right.png"></image>
-    </view>
-    <view class="item">
-      <view class="title">付款单</view>
+    <view class="item" style="opacity:.5;">
+      <view class="icon-wrap s-bg-1">
+        <image class="icon" src="/static/images/icon-zc-fkd.png"></image>
+      </view>
+      <view class="title">
+        <view class="">付款单</view>
+        <view class="desc">当前企业支付供应商的货款核销(原来有挂账)</view>
+      </view>
       <image class="arrow-right" src="/static/images/arrow-black-right.png"></image>
     </view>
   </view>

@@ -4,13 +4,22 @@
       <view class="item active">我要预存</view>
       <navigator open-type='redirect' url="/pages/prepay/log/index" class="item">预存记录</navigator>
     </view>
-    <!-- <view class="u-ht"></view> -->
+    <view class="u-ht"></view>
     <view style="width:100%">
-      <view class="unpay-tips" wx:if="{{unPayTotal>=2}}">
-        <view class="tips">您还有未结清的服务费，请结清后再预存！</view>
-        <navigator open-type='redirect' url="/pages/service/fwjs/index" class="btn btn-small btn-primary">去结算</navigator>
+      <view wx:if="{{unPayTotal>=2}}">
+      <view class="unpay-tips">
+        <image src="/static/images/icon-warning.png" class="icon"></image>
+        <view class="tips">
+          <view>系统检测到您本月之前有未结清的费用</view><view>请结清后再预付，谢谢！！</view>
+        </view>
+        <navigator open-type='navigate' url="/pages/service/fwjs/index" class="btn btn-large btn-warning">现在去结算</navigator>
+      </view>
+      <view class="u-ht"></view>
       </view>
       <!--recharge-->
+      <view style="{{unPayTotal >=2?'opacity:.5':''}}">
+      
+
       <view class="m-recharge-type">
         <view class="recharge-item" wx:for="{{prepayInfo}}" wx:key="{{index}}" bindtap='selectPrepayItem' data-index="{{index}}">
           <view class="select-icon {{item.selected?'selected':''}}"></view>
@@ -35,7 +44,7 @@
       <view class="m-pay-btn g-pad-box">
         <view class="btn btn-large btn-block {{curPrepayIndex===null?'btn-disabled':'btn-primary'}}" bindtap="confirmPrepay">确认预存</view>
       </view>
-
+      </view>
 
     </view>
 </view>

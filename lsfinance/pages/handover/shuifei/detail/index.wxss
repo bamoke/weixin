@@ -1,0 +1,15 @@
+/* pages/handover/gongzi/list/index.wxss */
+@import "../../main.wxss";
+.m-tips {
+  display: flex;
+  align-items: center;
+  padding:24rpx;
+  background:#fff;
+}
+.m-tips .icon {
+  flex:none;
+  margin-right:24rpx;
+  width:64rpx;
+  height:64rpx;
+}
+.m-tips .text {color:#6c6c6c;}

@@ -1,4 +1,4 @@
-// pages/handover/shuifei/index.js
+// pages/event/list/index.js
 Page({
 
   /**

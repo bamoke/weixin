@@ -78,11 +78,15 @@ const request = function ({ apiUrl, requestData = {}, requestMethod="GET", isSho
             const realPage = buildUrl(curRoute.route, curRoute.options) */
             wx.showModal({
               content: res.data.msg,
-              showCancel: false,
+              // showCancel: false,
               success: function(res){
                 if (res.confirm) {
                   wx.navigateTo({
                     url: '/pages/user/regist/index?type=login&back=1',
+                  })
+                }else {
+                  wx.navigateBack({
+                    delta:1
                   })
                 } 
               }

@@ -5,36 +5,27 @@ const app = getApp()
 Page({
   data: {
     showPage: true,
-    cardInfo: {}
+    bannerList: [],
+    articleList:[]
   },
   //事件处理函数
   onShow: function() {
     let requestParams = {
       apiUrl: '/Index/index',
-      requestData: {}
+      requestData: {},
+      showLoading:true
     }
 
     app.ajax(requestParams).then(res => {
-      let updateData = {
-        cardInfo: res.data.cardInfo
-      }
-      if (res.data.cardInfo.id) {
-        updateData.isCollected = res.data.isCollected,
-        updateData.isLike = res.data.isLike,
-        updateData.collectedTotal = res.data.collectedTotal,
-        updateData.likeTotal = res.data.likeTotal
-      }
-      this.setData({...updateData})
+      this.setData({
+        showPage:true,
+        bannerList:res.data.bannerList,
+        articleList:res.data.articleList
+      })
     })
   },
   onShareAppMessage: function(res) {
-    const cardId = this.data.cardInfo.id
-    if (res.from === 'button') {
-      return {
-        title: '您好！这是我的名片，请惠存',
-        path: '/pages/mycard/detail/index?id=' + cardId +"&from=share"
-      }
-    }
+
 
   }
 

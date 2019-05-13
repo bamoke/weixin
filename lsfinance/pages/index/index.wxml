@@ -31,15 +31,15 @@
       <view class="m-index-subnav">
         <view class="item">
           <image class="icon" src="/static/images/icon-sfqr.png"></image>
-          <view>借支报销</view>
+          <view class="s-text-gray">借支报销</view>
         </view>
         <view class="item">
           <image class="icon" src="/static/images/icon-gsjd.png"></image>
-          <view>人事薪资</view>
+          <view class="s-text-gray" >人事薪资</view>
         </view>
         <view class="item last">
           <image class="icon" src="/static/images/icon-csfw.png"></image>
-          <view>报表与分析</view>
+          <view class="s-text-gray">报表与分析</view>
         </view>
       </view>
     </view>

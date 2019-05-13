@@ -4,6 +4,7 @@
     "pages/home/index",
     "pages/home/collection/index",
     "pages/home/feedback/index",
+    "pages/mycard/index/index",
     "pages/mycard/list/index",
     "pages/mycard/create/index",
     "pages/mycard/bind/index",
@@ -12,8 +13,20 @@
     "pages/card/list/index",
     "pages/card/detail/index",
     "pages/exchange/list/index",
-    "pages/exchange/detail/index"
+    "pages/exchange/detail/index",
+    "pages/mplogin/index",
+    "pages/event/list/index",
+    "pages/event/detail/index",
+    "pages/welfare/list/index",
+    "pages/welfare/detail/index",
+    "pages/article/list/index",
+    "pages/article/detail/index"
   ],
+  "permission": {
+    "scope.userLocation": {
+      "desc": "你的位置信息将用于小程序位置接口的效果展示"
+    }
+  },
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#1b81d3",
@@ -34,14 +47,20 @@
         "selectedIconPath": "static/images/tab-index-active.png"
       },
       {
-        "pagePath": "pages/mycard/list/index",
-        "text": "名片夹",
+        "pagePath": "pages/article/list/index",
+        "text": "政策通",
+        "iconPath": "static/images/tab-find.png",
+        "selectedIconPath": "static/images/tab-find-active.png"
+      },
+      {
+        "pagePath": "pages/event/list/index",
+        "text": "活动",
         "iconPath": "static/images/tab-card.png",
         "selectedIconPath": "static/images/tab-card-active.png"
       },
       {
-        "pagePath": "pages/card/list/index",
-        "text": "发现",
+        "pagePath": "pages/welfare/list/index",
+        "text": "福利",
         "iconPath": "static/images/tab-find.png",
         "selectedIconPath": "static/images/tab-find-active.png"
       },
@@ -52,5 +71,6 @@
         "selectedIconPath": "static/images/tab-sys-active.png"
       }
     ]
-  }
+  },
+  "sitemapLocation": "sitemap.json"
 }

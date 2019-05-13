@@ -1,1 +1,19 @@
 /* pages/query/index/index.wxss */
+.m-nav-list-icon .item .icon-wrap {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right:24rpx;
+  width:112rpx;
+  height:112rpx;
+  border-radius:4px;
+}
+.m-nav-list-icon .item .icon-wrap .icon {
+  width:64rpx;
+  height: 64rpx;
+}
+.s-bg-1 {background-color:#4b8dfa;}
+.s-bg-2 {background-color:#4bbefa;}
+.s-bg-3 {background-color:#8b64fa;}
+.s-bg-4 {background-color:#fab24b;}
+.s-bg-5 {background-color:#4ed581;}

@@ -1,11 +1,35 @@
+.container {display: block;background: #fff;}
+page {height:100%;}
+.container-pad-bt {height:auto;box-sizing:border-box;padding-bottom:132rpx;}
+.text-big {font-size:32rpx;}
 .m-base-info {
+  position: relative;
+  padding:48rpx 24rpx;
+  box-sizing:border-box;
   width:100%;
   background:#fff;
   text-align: center;
+  font-size:32rpx;
 }
 .m-base-info .total {
-  font-size:34rpx;
+  font-size:36rpx;
   font-weight: bold;
+}
+.m-base-info .status-icon-wrap {
+  position:absolute;
+  top:72rpx;
+  right:24rpx;
+  z-index:1;
+  width:260rpx;
+  height:100rpx;
+}
+.m-base-info .status-icon {
+  line-height: 100rpx;
+  text-align: center;
+  color:#2aab8f;
+  border:2px solid #2aab8f;
+  transform:rotate(45deg);
+  font-size:36rpx;
 }
 .m-item-list {
   width:100%;
@@ -26,7 +50,17 @@
 }
 .m-item-list .top {
   border-bottom:1px solid #f1f1f1;
-  
+}
+.m-item-list .top .name {
+  flex:1 1 100%;
+}
+.m-item-list .top .status {
+  flex: none;
+  width:120rpx;
+  text-align: right;
+}
+.m-item-list .top .check-box{
+  flex:none;
 }
 .m-item-list .item .status {}
 .m-item-list .item .status .default {color:#9c9c9c;}

@@ -22,22 +22,22 @@ Page({
   selectItem: function(data) {
     var curIndex = data.currentTarget.dataset.index;
     var dataList = this.data.list;
-    var total = this.data.total;
+    var total = Math.round(this.data.total*100);
     var selectedItem = this.data.selectedItem;
-    var curAmount = dataList[curIndex].mp_amount;
+    var curAmount = Math.round(dataList[curIndex].mp_amount*100);
 
     if (typeof dataList[curIndex].isSelected !== 'undefined' && dataList[curIndex].isSelected === true) {
       dataList[curIndex].isSelected = false
-      total = parseFloat(total) - parseFloat(curAmount);
+      total = total - curAmount;
       selectedItem.splice(selectedItem.indexOf(curIndex), 1)
     } else {
       dataList[curIndex].isSelected = true
-      total = parseFloat(total) + parseFloat(curAmount);
+      total = total + curAmount;
       selectedItem.push(curIndex);
     }
     this.setData({
       list: dataList,
-      total: total == 0 ? "0.00" : total,
+      total: total == 0 ? "0.00" : total/100,
       selectedItem,
       canPayment: !!selectedItem.length
     })

@@ -1,25 +1,65 @@
 <view class="container" wx:if="{{showPage}}">
-  <view class="card-empty" wx:if="{{!cardInfo.id}}">
-    <view class="tips">您还没有创建名片，现在开始创建，建立自己的人脉库</view>
-    <view class="g-box-pad">
-<!--       <navigator class="btn btn-block btn-success" open-type='navigate' url="/pages/mycard/create/index">创建我的名片</navigator> -->
-      <navigator class="btn btn-block btn-success" open-type='navigate' url="/pages/mycard/bind/index">创建我的名片</navigator>
+  <view class="m-index-banner-box">
+    <swiper class="index-banner" indicator-dots="true" autoplay="true" interval='3000'>
+      <block wx:for="{{bannerList}}" wx:key="{{item.id}}">
+        <swiper-item>
+          <navigator url='{{item.url}}' open-type='reLaunch' wx:if="{{item.url}}">
+            <image lazy-load='true' mode='aspectFill' class='img' src="{{item.img}}"></image>
+          </navigator>
+          <image lazy-load='true' mode='aspectFill' class='img' wx:else src="{{item.img}}"></image>
+        </swiper-item>
+      </block>
+    </swiper>
+  </view>
+  <view class="m-index-nav-wrap">
+    <view class="m-index-subnav">
+      <navigator open-type='navigate' url="/pages/fiscal/index/index" class="item">
+        <view class="icon-wrap s-bg-1">
+          <image class="icon" src="/static/images/index-nav-icon-bb.png"></image>
+        </view>
+        <view>金英播报</view>
+      </navigator>
+      <navigator open-type='navigate' url="/pages/query/index/index" class="item">
+        <view class="icon-wrap s-bg-5">
+          <image class="icon" src="/static/images/index-nav-icon-gw.png"></image>
+        </view>
+        <view>顾问团</view>
+      </navigator>
+      <navigator open-type='navigate' url="/pages/mycard/index/index" class="item">
+        <view class="icon-wrap s-bg-3">
+          <image class="icon" mode='aspectFill' src="/static/images/index-nav-icon-mp.png"></image>
+        </view>
+        <view>名片</view>
+      </navigator>
+      <navigator open-type="navigate" url="/pages/handover/index/index" class="item last">
+        <view class="icon-wrap s-bg-4">
+          <image class="icon" mode='aspectFill' src="/static/images/index-nav-icon-rc.png"></image>
+        </view>
+        <view>人才卡</view>
+      </navigator>
     </view>
   </view>
 
-  <view class="index-main-page" wx:else>
-    <view class="bg-wrap">
-      <view class="bg-circle"></view>
-    </view>
 
-    <view class="my-card-wrap">
-      <bmk-card card-info="{{cardInfo}}" is-self="true"></bmk-card>
-      <bmk-total card-id="{{id}}" view-total="{{cardInfo.click}}" like-total="{{likeTotal}}" is-like="{{isLike}}" collected-total="{{collectedTotal}}" is-collected="{{isCollected}}"></bmk-total>
-      <view class="share-btn-wrap">
-        <button class="share-btn" open-type='share'></button>
-        <view class="btn btn-block btn-primary">递名片</view>
+
+  <view class="g-card border-top">
+    <view class='header'>
+      <view class="title">
+        <text>最新播报</text>
       </view>
     </view>
+    <view class="body m-article-list-big">
+      <navigator url="/pages/article/detail/index?id={{item.id}}" class='item' wx:for="{{articleList}}" wx:key="id">
+        <view class="title">{{item.title}}</view>
+        <image class="thumb" mode='aspectFill' lazy-load='true' src='{{item.thumb}}'></image>
+        <view class="other">
+          <view class="cate">{{item.cateName}}</view>
+          <view class="time">
+            <image class="u-myicon icon" src="/static/images/icon-time.png"></image>
+            <text class="txt">{{item.date}}</text>
+          </view>
+        </view>
+      </navigator>
+    </view>
   </view>
-
 </view>

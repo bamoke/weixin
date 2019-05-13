@@ -1,6 +1,10 @@
 <!--pages/handover/shebao/index.wxml-->
-<view class="container">
-  <view class="g-pad-box m-base-info">
+<view class="container {{base.status==0?'container-pad-bt':''}}" wx:if="{{showPage}}">
+<block wx:if="{{!noData}}">
+  <view class="m-base-info">
+    <view class="status-icon-wrap" wx:if="{{base.status == 1 || base.status ==2}}">
+      <view class="status-icon">已确认名单</view>
+    </view>
     <view class="title">{{base.date}}月应缴社保金额</view>
     <view class="total s-text-important">{{base.total}}</view>
     <view class="tips">共
@@ -10,8 +14,13 @@
   <view class="m-item-list">
     <view class="item-group" wx:for="{{list}}" wx:key="index">
       <view class="item top">
+        <view class="check-box" wx:if="{{base.status== 0}}">
+        <checkbox-group bindchange="handleSelectedItem" data-index="{{index}}">
+          <checkbox value="1" checked='{{item.checked}}'></checkbox>
+        </checkbox-group>
+        </view>
         <view class="name">{{item.name}}</view>
-        <view class="status">
+        <view class="status" wx:if="{{base.status != 0}}">
           <view class="{{item.style}}">{{item.status}}</view>
         </view>
       </view>
@@ -21,23 +30,32 @@
       </view>
       <view class="item">
         <view class="section">单位缴费</view>
-        <view class="content">{{item.dw_amount}}</view>
+        <view class="content">￥{{item.dw_amount}}</view>
       </view>
       <view class="item">
         <view class="section">个人缴费</view>
-        <view class="content">{{item.gr_amount}}</view>
+        <view class="content">￥{{item.gr_amount}}</view>
       </view>
       <view class="item">
         <view class="section">应缴总计</view>
-        <view class="content">{{item.total}}</view>
-      </view>
-      <view class="operation" bindtap='handleSb' data-index="{{index}}" wx:if="{{item.status=='待处理'}}">
-        <view class="btn btn-large btn-success" data-type="1">同意申报</view>
-        <view class="btn btn-large btn-default" data-type="0">不申报</view>
+        <view class="content text-big">￥{{item.total}}</view>
       </view>
     </view>
   </view>
-  <view class="m-fixed-bottom-box">
-    <view class="btn btn-large btn-block btn-primary">提交</view>
+  <view class="m-fixed-bottom-box" wx:if="{{base.status==0}}">
+    <view class="g-row-bt">
+      <view class="select-all">
+      <checkbox-group bindchange="handleSelectAll">
+        <checkbox value="1">全选</checkbox>
+      </checkbox-group>
+      </view>
+      <view class="btn btn-large btn-block btn-primary" bindtap='handleSubmit' style="width:55%">提交名单</view>
+    </view>
+  </view>
+  </block>
+  <view class="m-empty-box" wx:else>
+    <image class="icon" src="/static/images/mt-empty.png"></image>
+    <view class="tips">本期数据还未生成</view>
+    <navigator open-type='navigateBack' delta="1" class="btn btn-large" style="width:60%;">返回</navigator>
   </view>
 </view>

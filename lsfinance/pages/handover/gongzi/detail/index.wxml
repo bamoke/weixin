@@ -1,0 +1,9 @@
+<!--pages/handover/gongzi/detail/index.wxml-->
+<view class="container" wx:if="{{showPage}}">
+  <view class="m-item-list">
+    <view class="item" wx:for="{{list}}" wx:key="index">
+      <view class=""></view>
+      <view></view>
+    </view>
+  </view>
+</view>
