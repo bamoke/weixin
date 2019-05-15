@@ -32,7 +32,7 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function(options) {
+  onShow: function(options) {
     var _that = this;
     var myAmapFun = new amapFile.AMapWX({
       key: '8d2304d0927601db4c4d5020bcd1f625'
@@ -55,7 +55,7 @@ Page({
         let requestParams = {
           apiUrl:"/welfare/vlist",
           requestData:{
-            page: parseInt(_that.data.pageInfo.page) + 1,
+            page: parseInt(_that.data.pageInfo.page),
             type:_that.data.type,
             lat: locationInfo.latitude,
             lng: locationInfo.longitude
@@ -65,12 +65,16 @@ Page({
           locationInfo
         })
         app.ajax(requestParams).then(res=>{
-
+          _that.setData({
+            pageInfo:res.data.pageInfo,
+            welfareList:res.data.list
+          })
         })
 
       },
       fail: function(info) {
         //失败回调
+        console.log(info)
         wx.showModal({
           title: '位置信息获取失败',
           content: '',
@@ -96,12 +100,7 @@ Page({
 
   },
 
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function() {
 
-  },
 
   /**
    * 生命周期函数--监听页面隐藏

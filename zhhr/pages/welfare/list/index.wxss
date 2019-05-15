@@ -50,3 +50,74 @@
   line-height: 1;
   border-right: 1px solid #f1f1f1;
 }
+
+.m-welfare-list .item {
+  display: flex;
+  padding:24rpx;
+  border-bottom:1px solid #f1f1f1;
+}
+.m-welfare-list .item .thumb {
+  flex: 0 width;
+  margin-right:24rpx;
+  width:200rpx;
+  height:160rpx;
+}
+.m-welfare-list .item .title {
+  margin-bottom:18rpx;
+  font-size:30rpx;
+  line-height: 1;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.m-welfare-list .item .addr-box {
+  font-size:22rpx;
+  color:#9c9c9c;
+}
+.tags-box {
+  margin-bottom:8rpx;
+}
+.tags-box .tag {
+  display: inline-block;
+  margin-right:12rpx;
+  padding:4rpx 8rpx;
+  line-height: 1;
+  font-size:20rpx;
+  border:1px solid #4b8dfa;
+  color:#4b8dfa;
+}
+.addr-box .distance {
+  display: inline-block;
+  margin-right:24rpx;
+}
+.m-grade-box {
+  position: relative;
+  margin-right: 12rpx;
+  width:136rpx;
+  height:26rpx;
+  /* overflow: hidden; */
+}
+.m-grade-box .grade {
+  position: absolute;
+  left: 0;
+  top:0;
+  z-index: 1;
+  height:32rpx;
+  overflow: hidden;
+}
+.m-grade-box .icon-star {
+  width: 136rpx;
+  height: 26rpx;
+}
+.m-grade-box .bg {height:26rpx;}
+.m-grade-box .bg .icon-star {
+  filter: grayscale(100%);
+  opacity:.3;
+}
+.grade-info {
+  margin-bottom:8rpx;
+}
+.grade-num {
+  font-size:22rpx;
+  color:#9c9c9c;
+}
