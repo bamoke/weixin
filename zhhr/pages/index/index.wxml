@@ -13,30 +13,30 @@
   </view>
   <view class="m-index-nav-wrap">
     <view class="m-index-subnav">
-      <navigator open-type='navigate' url="/pages/fiscal/index/index" class="item">
+      <navigator open-type='navigate' url="/pages/article/list/index" class="item">
         <view class="icon-wrap s-bg-1">
           <image class="icon" src="/static/images/index-nav-icon-bb.png"></image>
         </view>
         <view>金英播报</view>
       </navigator>
-      <navigator open-type='navigate' url="/pages/query/index/index" class="item">
+      <view open-type='navigate' url="/pages/query/index/index" class="item">
         <view class="icon-wrap s-bg-5">
           <image class="icon" src="/static/images/index-nav-icon-gw.png"></image>
         </view>
         <view>顾问团</view>
-      </navigator>
+      </view>
       <navigator open-type='navigate' url="/pages/mycard/index/index" class="item">
         <view class="icon-wrap s-bg-3">
           <image class="icon" mode='aspectFill' src="/static/images/index-nav-icon-mp.png"></image>
         </view>
         <view>名片</view>
       </navigator>
-      <navigator open-type="navigate" url="/pages/handover/index/index" class="item last">
+      <view open-type="navigate" url="/pages/handover/index/index" class="item last">
         <view class="icon-wrap s-bg-4">
           <image class="icon" mode='aspectFill' src="/static/images/index-nav-icon-rc.png"></image>
         </view>
         <view>人才卡</view>
-      </navigator>
+      </view>
     </view>
   </view>
 

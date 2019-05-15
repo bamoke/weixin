@@ -199,6 +199,13 @@ view {box-sizing: border-box;}
   box-sizing:border-box;
 }
 /***util***/
+.u-nomore {
+  padding:48rpx 0;
+  background:#f8f8f8;
+  text-align: center;
+  font-size:22rpx;
+  color:#9c9c9c;
+}
 .u-ht {
   height:24rpx;
   background:#f4f4f4;

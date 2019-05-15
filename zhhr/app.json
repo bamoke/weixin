@@ -20,7 +20,9 @@
     "pages/welfare/list/index",
     "pages/welfare/detail/index",
     "pages/article/list/index",
-    "pages/article/detail/index"
+    "pages/article/detail/index",
+    "pages/policy/index/index",
+    "pages/policy/detail/index"
   ],
   "permission": {
     "scope.userLocation": {
@@ -47,7 +49,7 @@
         "selectedIconPath": "static/images/tab-index-active.png"
       },
       {
-        "pagePath": "pages/article/list/index",
+        "pagePath": "pages/policy/index/index",
         "text": "政策通",
         "iconPath": "static/images/tab-find.png",
         "selectedIconPath": "static/images/tab-find-active.png"

@@ -9,11 +9,11 @@ Page({
   data: {
     showPage: true,
     type: 1,
-    pageInfo:{
-      total:0,
-      page:0,
-      pageSize:10,
-      hasMore:false
+    pageInfo: {
+      total: 0,
+      page: 1,
+      pageSize: 10,
+      hasMore: false
     },
     locationInfo: {},
     welfareList: []
@@ -22,11 +22,28 @@ Page({
   /**
    * handle
    */
-  handleChangeType(e){
+  handleChangeType(e) {
     var type = e.target.dataset.type
-    if(typeof e.target.dataset.type === 'undefined') return false;
-    console.log(type)
-    this.setData({type})
+    if (typeof e.target.dataset.type === 'undefined') return false;
+    var locationInfo = this.data.locationInfo
+    var requestParams = {
+      apiUrl: "/welfare/vlist",
+      requestData: {
+        lat: locationInfo.latitude,
+        lng: locationInfo.longitude,
+        page: 1,
+        type
+      },
+      showLoading: false
+    }
+    app.ajax(requestParams).then(res => {
+      this.setData({
+        pageInfo: res.data.pageInfo,
+        welfareList: res.data.list,
+        type
+      })
+    })
+
   },
 
   /**
@@ -39,7 +56,7 @@ Page({
     });
     var locationInfo;
     myAmapFun.getRegeo({
-      success: data=> {
+      success: data => {
         //成功回调
         const result = data[0];
         const addressInfo = result.regeocodeData.addressComponent
@@ -53,10 +70,10 @@ Page({
         }
 
         let requestParams = {
-          apiUrl:"/welfare/vlist",
-          requestData:{
-            page: parseInt(_that.data.pageInfo.page),
-            type:_that.data.type,
+          apiUrl: "/welfare/vlist",
+          requestData: {
+            page: 1,
+            type: 1,
             lat: locationInfo.latitude,
             lng: locationInfo.longitude
           }
@@ -64,10 +81,10 @@ Page({
         _that.setData({
           locationInfo
         })
-        app.ajax(requestParams).then(res=>{
+        app.ajax(requestParams).then(res => {
           _that.setData({
-            pageInfo:res.data.pageInfo,
-            welfareList:res.data.list
+            pageInfo: res.data.pageInfo,
+            welfareList: res.data.list
           })
         })
 
@@ -94,46 +111,54 @@ Page({
   },
 
   /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function() {
-
-  },
-
-
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function() {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function() {
-
-  },
-
-  /**
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function() {
-
+    var locationInfo = this.data.locationInfo
+    var type = this.data.type
+    var requestParams = {
+      apiUrl: "/welfare/vlist",
+      requestData: {
+        lat: locationInfo.latitude,
+        lng: locationInfo.longitude,
+        page: 1,
+        type
+      },
+      showLoading: false
+    }
+    app.ajax(requestParams).then(res => {
+      this.setData({
+        pageInfo: res.data.pageInfo,
+        welfareList: res.data.list
+      })
+      wx.stopPullDownRefresh()
+    })
   },
 
   /**
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function() {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function() {
-
+    if(!this.data.pageInfo.hasMore) return;
+    var locationInfo = this.data.locationInfo
+    var type = this.data.type
+    var requestParams = {
+      apiUrl: "/welfare/vlist",
+      requestData: {
+        lat: locationInfo.latitude,
+        lng: locationInfo.longitude,
+        page: this.data.pageInfo.page + 1,
+        type
+      },
+      showLoading: false
+    }
+    app.ajax(requestParams).then(res => {
+      this.setData({
+        pageInfo: res.data.pageInfo,
+        welfareList: res.data.list
+      })
+    })
   }
+
+
 })

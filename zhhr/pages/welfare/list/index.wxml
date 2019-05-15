@@ -41,4 +41,8 @@
       </view>
     </view>
   </view>
+
+    <view class='u-nomore' hidden="{{pageInfo.hasMore}}" >
+    <view class="tips">没有更多了</view>
+  </view>
 </view>

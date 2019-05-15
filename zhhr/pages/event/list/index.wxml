@@ -1,2 +1,28 @@
 <!--pages/event/list/index.wxml-->
-<text>pages/event/list/index.wxml</text>
+<view class='container' wx:if="{{showPage}}">
+  <bmk-tab items="{{tabArr}}" cur-tab="{{curTab}}" bind:switch="switchTab"></bmk-tab>
+  <view class="g-wrap-main">
+    <view class="m-event-list">
+      <view wx:for="{{list}}" wx:key="id">
+        <navigator open-type='navigate' url='../detail/index?id={{item.id}}' class="item big-item">
+        <view class="thumb-box">
+          <view class="stage stage-{{item.stage}}">{{item.stageTxt}}</view>
+          <image lazy-load="true" mode="aspectFill" class="thumb" src="{{item.thumb}}"></image>
+        </view>
+          <view class='title'>{{item.title}}</view>
+          <view class='g-row-bt foot-info'>
+            <view class='time'>
+            活动日期：{{item.start_date}}至{{item.end_date}}
+            </view>
+          </view>
+        </navigator>
+      </view>
+
+    </view>
+  </view>
+
+
+  <view class='u-nomore' hidden="{{pageInfo.hasMore}}" >
+    <view class="tips">没有更多了</view>
+  </view>
+</view>

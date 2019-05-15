@@ -40,7 +40,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 6,
+			"current": 8,
 			"list": [
 				{
 					"id": -1,
@@ -84,6 +84,19 @@
 					"name": "福利列表",
 					"pathName": "pages/welfare/list/index",
 					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "活动列表",
+					"pathName": "pages/event/list/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "金英播报",
+					"pathName": "pages/article/list/index",
 					"scene": null
 				}
 			]
