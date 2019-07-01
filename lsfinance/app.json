@@ -26,9 +26,6 @@
     "pages/home/mycompany/detail/index",
     "pages/home/feedback/index",
     "pages/home/about/index",
-    "pages/home/staff/index/index",
-    "pages/home/staff/add/index",
-    "pages/home/staff/edit/index",
     "pages/logs/logs",
     "pages/orders/confirm/index",
     "pages/draft/index",
@@ -50,9 +47,12 @@
     "pages/handover/jjd/index/index",
     "pages/handover/jjd/cgx/index",
     "pages/handover/jjd/cate/index",
-    "pages/jzbx/index/index",
-    "pages/jzbx/new/index",
-    "pages/jzbx/detail/index"
+
+    "pages/staff/index/index",
+    "pages/staff/add/index",
+    "pages/staff/edit/index",
+
+    "pages/home/invite/index"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -87,5 +87,6 @@
       }
     ]
   },
-  "sitemapLocation": "sitemap.json"
+  "sitemapLocation": "sitemap.json",
+  "navigateToMiniProgramAppIdList":["wxe0ad4459e84ec05b"]
 }

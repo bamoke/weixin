@@ -10,7 +10,7 @@
 		"checkInvalidKey": true
 	},
 	"compileType": "miniprogram",
-	"libVersion": "1.9.94",
+	"libVersion": "2.4.4",
 	"appid": "wx389c6f0e8b058566",
 	"projectname": "%E8%93%9D%E6%80%9D%E4%BA%91%E8%B4%A2%E5%8A%A1",
 	"isGameTourist": false,
@@ -34,7 +34,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 29,
+			"current": 33,
 			"list": [
 				{
 					"id": 0,
@@ -255,6 +255,12 @@
 					"name": "服务内容",
 					"pathName": "pages/query/work/index",
 					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "员工邀请",
+					"pathName": "pages/home/invite/index",
 					"scene": null
 				}
 			]

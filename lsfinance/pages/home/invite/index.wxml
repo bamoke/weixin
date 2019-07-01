@@ -1,0 +1,8 @@
+<!--pages/home/invite/index.wxml-->
+<view class="container">
+  <view class='g-box-pad'>
+      <view>员工邀请</view>
+      <view class=""></view>
+      <button class="btn btn-primary" bindtap='jumpMiniProgram'>同意加入</button>
+  </view>
+</view>

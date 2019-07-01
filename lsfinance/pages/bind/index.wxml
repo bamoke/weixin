@@ -8,10 +8,7 @@
           <radio value="1" checked="{{item.checked}}" />企业经理人
         </label>
         <label class="radio">
-          <radio value="2" checked="{{item.checked}}" />财务助理
-        </label>
-        <label class="radio">
-          <radio value="3" checked="{{item.checked}}" />企业员工
+          <radio value="2" checked="{{item.checked}}" />财务助理(子账号)
         </label>
       </radio-group>
     </view>
