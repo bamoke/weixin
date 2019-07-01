@@ -1,0 +1,23 @@
+/* component/topnav/index.wxss */
+
+.m-top-nav .content {
+  display: flex;
+  padding:0 24rpx;
+}
+
+.m-top-nav .item {
+  padding: 12rpx 0;
+}
+
+.m-top-nav .name {
+  white-space: nowrap;
+  padding: 0 24rpx;
+  height: 48rpx;
+  line-height: 48rpx;
+}
+
+.m-top-nav .active .name {
+  background: #1b81d3;
+  color: #ffff;
+  border-radius: 24rpx;
+}

@@ -17,8 +17,11 @@ page {
   height:76rpx;
   box-sizing: border-box;
 }
-.radio-group {width:100%;}
-.radio-group .radio {display:inline-block;width:50%;}
+.radio-group {
+  /* display:flex; */
+  width:100%;
+  }
+.radio-group .radio {display:block;}
 .select-label {flex-shrink: 0;width:auto;}
 .select-opt {flex-shrink:1;width:100%;text-align: right;}
 .m-form .form-group .code-btn {

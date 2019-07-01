@@ -13,7 +13,7 @@
       </view>
     </view>
     <view class="tips" wx:else>
-      <navigator class="reg-link" url="/pages/mycard/create/index" open-type='navigate'>您尚未创建名片,【点击创建】</navigator>
+      <navigator class="reg-link" url="/pages/mycard/bind/index" open-type='navigate'>您尚未创建名片,【点击创建】</navigator>
     </view>
   </view>
   <view class="u-ht"></view>
@@ -35,6 +35,13 @@
   </view>
   <view class="u-ht"></view>
   <view class="m-nav-list f-has-border">
+      <navigator open-type='navigate' url="/pages/home/about/index" class="item">
+      <view class="title">
+        <image class="left-icon u-myicon myicon-big" src="/static/images/icon-record.png"></image>
+        <text class="txt">关于我们</text>
+      </view>
+      <view class="icon-arrow"></view>
+    </navigator>
     <navigator open-type='navigate' url="/pages/home/feedback/index" class="item">
       <view class="title">
         <image class="left-icon u-myicon myicon-big" src="/static/images/icon-edit-black.png"></image>

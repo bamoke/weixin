@@ -1,0 +1,104 @@
+/* pages/adviser/index/index.wxss */
+page {height:100%;}
+.container {
+  padding-bottom:64rpx;
+  min-height: 100%;
+  background:#00d0bd;
+}
+.m-subpage-banner {
+  /* background:#fff; */
+}
+.m-service-list {
+  margin:0 48rpx;
+
+}
+.m-service-list .top-icon {
+  display: flex;
+  height: 48rpx;
+}
+.m-service-list .top-icon::before,.m-service-list .top-icon::after {
+  content: "";
+  flex:none;
+  width: 0;
+  height: 0;
+  border:24rpx solid #eee;
+  border-top-color:transparent;
+}
+.m-service-list .top-icon::before {
+  border-left-color:transparent;
+}
+.m-service-list .top-icon::after {
+  border-right-color:transparent;
+}
+.m-service-list .top-icon .content {
+  flex: 1 auto;
+  height: 48rpx;
+  background:#eee;
+}
+.m-service-list .item {
+  display: flex;
+  padding:36rpx 24rpx;
+  border-bottom:1px solid #eee;
+  background:#fff;
+}
+.m-service-list .item .title {
+  margin-bottom:12rpx;
+  font-size:32rpx;
+}
+.m-service-list .item .desc {
+  margin-bottom:12rpx;
+  font-size:24rpx;
+  color:#9c9c9c;
+}
+.m-service-list .item .service-content {
+  margin-bottom:24rpx;
+}
+.m-service-list .item .service-content text {
+  display: inline-block;
+  margin-right:12rpx;
+  font-size:24rpx;
+}
+.m-service-list .pic {
+  margin-right:24rpx;
+  flex:none;
+  width:200rpx;
+  height:150rpx;
+  border-top-left-radius: 30px;
+  border-bottom-right-radius: 30px;
+}
+.service-bar {
+  display: flex;
+}
+.service-bar::before,.service-bar::after {
+  flex:none;
+  content:"";
+  display: block;
+  width:0;
+  height:0;
+  border:48rpx solid #fff;
+  border-bottom-color:transparent;
+}
+.service-bar::before {
+  border-left-color:transparent;
+}
+.service-bar::after {
+  border-right-color:transparent;
+}
+.service-bar .section {
+  flex: 1 auto;
+  height:96rpx;
+  line-height: 96rpx;
+  text-align: center;
+  background:#fff;
+  font-size:36rpx;
+  font-weight: bold;
+  color:#f30;
+}
+.service-btn {
+  width:200rpx;
+  height:64rpx;
+  line-height: 64rpx;
+  text-align: center;
+  background:#f30;
+  color:#fff;
+}

@@ -1,2 +1,36 @@
 <!--pages/policy/index/index.wxml-->
-<text>pages/policy/index/index.wxml</text>
+<view class="container">
+  <view class="m-nav-list-icon">
+    <navigator open-type='navigate' url="/pages/policy/list/index?cate=1" class="item">
+      <view class="icon-wrap s-bg-2">
+        <image class="icon" src="/static/images/policy-cy.png"></image>
+      </view>
+      <view class="title">
+        <view class="">金湾区产业人才政策</view>
+        <view class="desc">金湾区产业人才政策，产业范围、申请对象，申报流程</view>
+      </view>
+      <image class="arrow-right" src="/static/images/arrow-black-right.png"></image>
+    </navigator>
+    <navigator open-type='navigate' url="/pages/policy/list/index?cate=2" class="item">
+      <view class="icon-wrap s-bg-1">
+        <image class="icon" src="/static/images/policy-fz.png"></image>
+      </view>
+      <view class="title">
+        <view class="">珠海市人才发展政策</view>
+        <view class="desc">珠海市人才发展政策，扶持补贴措施、申请对象，申报流程</view>
+      </view>
+      <image class="arrow-right" src="/static/images/arrow-black-right.png"></image>
+    </navigator>
+    <navigator class="item" open-type='navigate' url="/pages/policy/list/index?cate=3">
+      <view class="icon-wrap s-bg-5">
+        <image class="icon" src="/static/images/policy-jycy.png"></image>
+      </view>
+      <view class="title">
+        <view class="">珠海市就业创业政策</view>
+        <view class="desc">珠海市就业创业扶持、补贴政策；申请对象，申报流程</view>
+      </view>
+      <image class="arrow-right" src="/static/images/arrow-black-right.png"></image>
+    </navigator>
+
+  </view>
+</view>

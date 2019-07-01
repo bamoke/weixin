@@ -1,0 +1,25 @@
+<!--pages/policy/list/index.wxml-->
+<view class="container">
+  <view class="m-top-search-primary">
+    <view class="search-bg">
+      <input type="text" class="input-box" confirm-type="搜索" bindconfirm="search" bindblur='setKeywords'></input>
+      <view class="right-box" bindtap='search'>
+        <image class="icon" src="/static/images/icon-search.png"></image>
+        <text>搜索</text>
+      </view>
+    </view>
+  </view>
+  <view class="u-ht"></view>
+  <view class="m-article-list">
+    <navigator open-type='navigate' url="/pages/policy/detail/index?id={{item.id}}" class="item" wx:for="{{list}}" wx:key="id">
+      <view class="main-box">
+        <view class="title">{{item.title}}</view>
+        <view class="other">
+          <text class="unit">发布日期:{{item.date}}</text>
+          <text class="unit">浏览:{{item.click}}</text>
+        </view>
+      </view>
+      <image class="arrow" src="/static/images/arrow-black-right.png"></image>
+    </navigator>
+  </view>
+</view>

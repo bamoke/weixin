@@ -1,0 +1,19 @@
+/* pages/gongzi/detail/index.wxss */
+.top-operation {
+  box-sizing: border-box;
+  width:100%;
+  padding:24rpx;
+  background:#fff;
+  text-align: center;
+  font-size:32rpx;
+}
+.top-operation .small {
+  font-size:24rpx;
+  color:#9c9c9c;
+}
+.m-list-group .bar {
+  padding:24rpx 0;
+  font-size:32rpx;
+  text-align: center;
+  border-bottom:1px solid #f1f1f1;
+}

@@ -29,10 +29,10 @@
       </view>
 
       <view class="m-index-subnav">
-        <view class="item">
+        <navigator open-type='navigate' url="/pages/jzbx/index/index" class="item">
           <image class="icon" src="/static/images/icon-sfqr.png"></image>
-          <view class="s-text-gray">借支报销</view>
-        </view>
+          <view class="">借支报销</view>
+        </navigator>
         <view class="item">
           <image class="icon" src="/static/images/icon-gsjd.png"></image>
           <view class="s-text-gray" >人事薪资</view>

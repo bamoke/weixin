@@ -41,6 +41,9 @@ Page({
       this.setData({
         list: dataList
       })
+      wx.showToast({
+        title: '操作成功',
+      })
     })
 
   },

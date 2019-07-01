@@ -1,0 +1,54 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/common/bind/index",
+    "pages/common/mplogin/index",
+    "pages/common/subject/index",
+    "pages/home/index/index",
+    "pages/home/about/index",
+    "pages/home/feedback/index",
+    "pages/home/profile/index",
+    "pages/home/mycompany/detail/index",
+    "pages/fybx/index/index",
+    "pages/fybx/detail/index",
+    "pages/fybx/new/index",
+    "pages/draft/index",
+    "pages/addressbook/index/index",
+    "pages/gongzi/index/index",
+    "pages/shebao/index/index"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#1b81d3",
+    "navigationBarTitleText": "蓝思云财务员工端",
+    "navigationBarTextStyle": "white"
+  },
+  "tabBar": {
+    "position": "bottom",
+    "backgroundColor": "#fff",
+    "borderStyle": "black",
+    "color": "#000",
+    "selectedColor": "#1b81d3",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "工作台",
+        "iconPath": "static/images/tab-index.png",
+        "selectedIconPath": "static/images/tab-index-active.png"
+      },
+      {
+        "pagePath": "pages/addressbook/index/index",
+        "text": "通讯录",
+        "iconPath": "static/images/tab-index.png",
+        "selectedIconPath": "static/images/tab-index-active.png"
+      },
+      {
+        "pagePath": "pages/home/index/index",
+        "text": "系统",
+        "iconPath": "static/images/tab-sys.png",
+        "selectedIconPath": "static/images/tab-sys-active.png"
+      }
+    ]
+  },
+  "sitemapLocation": "sitemap.json"
+}

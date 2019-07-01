@@ -1,0 +1,7 @@
+/* pages/home/childaccount/index.wxss */
+.com-list {
+  display: block;
+  margin-bottom:24rpx;
+  width:100%;
+}
+.tips {color:#9c9c9c;}

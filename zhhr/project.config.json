@@ -40,7 +40,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 8,
+			"current": 16,
 			"list": [
 				{
 					"id": -1,
@@ -97,6 +97,62 @@
 					"id": -1,
 					"name": "金英播报",
 					"pathName": "pages/article/list/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "政策通",
+					"pathName": "pages/policy/index/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "活动详情",
+					"pathName": "pages/event/detail/index",
+					"query": "id=1",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "名片首页",
+					"pathName": "pages/mycard/index/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "政策通首页",
+					"pathName": "pages/policy/index/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "政策通列表",
+					"pathName": "pages/policy/list/index",
+					"query": "cate=1",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "政策通详情",
+					"pathName": "pages/policy/detail/index",
+					"query": "id=9",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "顾问团",
+					"pathName": "pages/adviser/index/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "名片发现",
+					"pathName": "pages/card/list/index",
 					"scene": null
 				}
 			]

@@ -7,6 +7,8 @@ Page({
    */
   data: {
     showPage: false,
+    showDlInfo:false,
+    showSlInfo:false,
     comInfo: {
       name:"",
       comType:"",
@@ -14,10 +16,26 @@ Page({
       startTime:"",
       shxyCode:"",
       address:""
-
     }
   },
 
+/**
+ * handle
+ */
+  showOther(e){
+    const type = e.currentTarget.dataset.type
+    if(type == 'dl') {
+      this.setData({
+        showDlInfo: !this.data.showDlInfo,
+        showSlInfo: false
+      })
+    }else if(type == 'sl') {
+      this.setData({
+        showSlInfo: !this.data.showSlInfo,
+        showDlInfo:false
+      })
+    }
+  },
   /** 
    * 生命周期函数--监听页面加载
    */

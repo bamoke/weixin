@@ -1,0 +1,53 @@
+<!--pages/home/index/index.wxml-->
+<view class='container'>
+  <view class="home-userinfo border-bottom">
+    <view class="avatar-wrap">
+      <button class="avatar-btn" open-type="getUserInfo" bindgetuserinfo="getUserInfo"></button>
+      <image class="avatar" src="{{staffInfo.avatar||'/static/images/default-avatar.png'}}"></image>
+    </view>
+    <view>
+      <view class="user-name">{{staffInfo.name}}</view>
+      <view class="other-info">
+        <text>{{staffInfo.department}} - {{staffInfo.position}}</text>
+      </view>
+
+
+
+    </view>
+  </view>
+
+  <view class="m-nav-list f-has-border">
+    <navigator open-type='navigate' url="/pages/home/mycompany/detail/index" class="item">
+      <view>
+        <image class="left-icon u-myicon myicon-big" src="/static/images/icon-record.png"></image>
+        <text class="title">企业信息</text>
+      </view>
+      <view class="icon-arrow"></view>
+    </navigator>
+    <navigator open-type='navigate' url="/pages/home/profile/index" class="item">
+      <view>
+        <image class="left-icon u-myicon myicon-big" src="/static/images/icon-record.png"></image>
+        <text class="title">个人信息</text>
+      </view>
+      <view class="icon-arrow"></view>
+    </navigator>
+  </view>
+
+  <view class="m-nav-list f-has-border">
+    <navigator open-type='navigate' url="/pages/home/feedback/index" class="item">
+      <view>
+        <image class="left-icon u-myicon myicon-big" src="/static/images/icon-record.png"></image>
+        <text class="title">建议与反馈</text>
+      </view>
+      <view class="icon-arrow"></view>
+    </navigator>
+    <navigator open-type='navigate' url="/pages/home/about/index" class="item">
+      <view>
+        <image class="left-icon u-myicon myicon-big" src="/static/images/icon-record.png"></image>
+        <text class="title">关于我们</text>
+      </view>
+      <view class="icon-arrow"></view>
+    </navigator>
+  </view>
+
+</view>

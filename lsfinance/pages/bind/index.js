@@ -1,5 +1,4 @@
 // pages/common/bind/index.js
-import util from '../../utils/util';
 var app = getApp();
 
 Page({
@@ -15,9 +14,7 @@ Page({
     errorStatus: false,
     errorMsg: "",
     phone: null,
-    typeIndex:0,
-    userType:0,
-    typeArray:["请选择","企业主","管理人员"]
+    userType:0
   },
 
   /**
@@ -53,7 +50,7 @@ Page({
       apiUrl : '/Account/mpcode',
       requestData : { "phone": phone }
     }
-    var myPromise = util.request(requestParams);
+    var myPromise = app.ajax(requestParams);
     var _that = this;
     var num = 60;
     var timeText = "";
@@ -118,11 +115,11 @@ Page({
 
     // 发送表单数据
     const requestParams = {
-      apiUrl : "/Account/bindaccount",
+      apiUrl,
       requestData: formData,
       requestMethod:"POST"
     }
-    req = util.request(requestParams);
+    req = app.ajax(requestParams);
     req.then(data => {
       wx.setStorageSync("userInfo", data.userInfo);
       wx.showModal({
@@ -149,11 +146,11 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    var navigationBarTitle;
+/*     var navigationBarTitle;
     navigationBarTitle = "账号绑定";
     wx.setNavigationBarTitle({
       title: navigationBarTitle
-    })
+    }) */
     
   },
 
@@ -169,40 +166,11 @@ Page({
    */
   onShow: function () {
 
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
   }
+
+
+
+
+ 
+
 })

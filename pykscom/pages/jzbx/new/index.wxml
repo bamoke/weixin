@@ -1,0 +1,59 @@
+<!--pages/fybx/new/index.wxml-->
+<view class='container' bindtap='pageTouch'>
+  <view class="m-list-nomar">
+    <view class="g-row-bt item">
+      <view class="section-title">报销日期</view>
+      <picker class="value-box" value='' mode="date" bindchange="selectedDate">
+        <view class="picker">{{base.curDate}}</view>
+      </picker>
+    </view>
+    <view class="g-row-bt item">
+      <view class="section-title">费用说明</view>
+      <input class="value-box" bindblur='enterBaseDescription' maxlength='50' type='text' placeholder='50字符以内' value='{{base.explain}}'></input>
+    </view>
+  </view>
+
+  <view class="fybx-detail-list">
+    <view class='item' wx:for="{{detailList}}" wx:key="no">
+      <view class='section g-row-bt'>
+        <view class="index-text">报销明细-{{index+1}}</view>
+        <view class="right-operation">
+          <view class="del-btn" bindtap='delDetail' data-index="{{index}}" wx:if="{{index > 0}}">删除</view>
+          <view  bindtap="switchDeatil" data-index="{{index}}" class="icon {{item.display == 'hidden'?'icon-close':'icon-open'}}"></view>
+        </view>
+      </view>
+      <view class="child" hidden='{{item.display == "hidden"}}'>
+        <view class='child-item'>
+          <view class="child-name">所属科目</view>
+          <view class="value-box" catchtap='openBottomSeletor' data-index="{{index}}">{{item.subject_name}}</view>
+        </view>
+        <view class='child-item'>
+          <view class="child-name">金额</view>
+          <view class="value-box"><input type='digit' bindblur="setAmount" data-index="{{index}}"></input></view>
+        </view>
+        <view class='child-item item-wrap'>
+          <view class="child-name">摘要说明</view>
+          <textarea bindblur="setDescription" data-index="{{index}}" placeholder="150字符以内" />
+        </view>
+      </view>
+    </view>
+    <view class="u-add-detail" bindtap="addDetail"><view class="icon"></view>添加明细</view>
+    <view class="m-row-total">
+      <view>费用总计：</view>
+      <view class='amount'>￥{{total}}</view>
+    </view>
+  </view>
+
+  <view class="m-ft-operation-box">
+    <button class='col-4 btn'>保存为草稿</button>
+    <button class='col-5 btn btn-primary' loading="{{isPostIng}}" bindtap='submitContent'>提交</button>
+  </view>
+</view>
+
+<view class="m-bottom-selector" hidden='{{!showBottomSeletor}}'>
+  <picker-view indicator-style="height: 50px;" style="width: 100%; height: 300px;" mask-class="masker" value="{{value}}">
+    <picker-view-column>
+      <view bindtap='subjectChange' data-index="{{index}}" class="opt" wx:for="{{subject}}" wx:key="subj_code" style="line-height: 50px">{{item.title}}</view>
+    </picker-view-column>
+  </picker-view>
+</view>

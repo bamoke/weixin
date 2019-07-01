@@ -1,0 +1,48 @@
+/* pages/fybx/detail/index.wxss */
+@import "../fybx.wxss";
+page {height:100%;}
+.container {min-height:100%;box-sizing: border-box;align-items:flex-start;justify-content: flex-start;}
+
+.m-base-box {
+  width: 100%;
+  margin-bottom: 36rpx;
+  background-color: #fff;
+}
+
+.m-base-box .title {
+  padding: 36rpx 24rpx;
+}
+
+.m-base-box .title .text {
+  margin-right: 24rpx;
+  font-size: 36rpx;
+  color: #232323;
+}
+
+.other-info {
+  color: #7c7c7c;
+  font-size: 32rpx;
+}
+
+
+.other-info .section {
+  color: #232323;
+}
+
+.amount {
+  font-weight: bold;
+}
+
+.other-info .item {
+  display: flex;
+  justify-content: space-between;
+}
+.child-item .amount {color:#232323;}
+.m-fixed-bottom-box .btn {
+  flex-grow: 0;
+  flex-shrink: 0;
+}
+.m-fixed-bottom-box .btn-default {
+  background:#f1f1f1;
+}
+

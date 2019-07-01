@@ -1,0 +1,6 @@
+/* pages/home/staff/staff-form/staff-form.wxss */
+@import "/app.wxss";
+.form-group {
+  font-size:30rpx;
+}
+.val {text-align: right;}

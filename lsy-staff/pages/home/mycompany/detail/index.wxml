@@ -1,0 +1,31 @@
+<!--pages/home/mycompany/detail/index.wxml-->
+<view class="container">
+  <view class="m-top-info">
+    <image src="/static/images/com-detail-bg.jpg" class="bg-img"></image>
+    <view class="content">
+      <view class="comname">
+        <text selectable>{{comInfo.comName}}</text>
+      </view>
+      <view class="desc">
+        <text selectable>{{comInfo.shxyCode || ''}}</text>
+      </view>
+      <view class="tips">长按可复制信息</view>
+    </view>
+  </view>
+
+  <view class="m-item-wrap">
+    <view class="item-bar">
+      <view class="section">企业基本信息</view>
+      <view class="icon"></view>
+    </view>
+    <view class="item">
+      <view class="section">成立日期</view>
+      <view class="val-box">{{comInfo.com_clrq}}</view>
+    </view>
+    <view class="item">
+      <view class="section">办公地址</view>
+      <view class="val-box">{{comInfo.com_bgdz}}</view>
+    </view>
+
+  </view>
+</view>

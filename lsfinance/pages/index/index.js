@@ -18,27 +18,10 @@ Page({
     wx.setStorageSync("curComInfo", curComInfo)
     this.setData({ curComInfo})
   },
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad: function (options) {
- 
-  },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-    // console.log("ready")
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
+  _fetchData(afterFun){
     const requestParams = {
       apiUrl: '/Index/index',
-      isShowLoad:false
+      isShowLoad: false
     }
     wx.showNavigationBarLoading();
     let curComInfo = wx.getStorageSync("curComInfo")
@@ -55,8 +38,30 @@ Page({
         pageShow: true,
         news: data.notice
       })
-      console.log(this.data)
+      if(typeof afterFun !== 'undefined') {
+        afterFun()
+      }
     })
+  },
+  /**
+   * 生命周期函数--监听页面加载
+   */
+  onLoad: function (options) {
+    this._fetchData()
+  },
+
+  /**
+   * 生命周期函数--监听页面初次渲染完成
+   */
+  onReady: function () {
+    // console.log("ready")
+  },
+
+  /**
+   * 生命周期函数--监听页面显示
+   */
+  onShow: function () {
+
   },
 
   /**
@@ -77,7 +82,10 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
-
+    var afterFunction = function(){
+      wx.stopPullDownRefresh()
+    }
+    this._fetchData(afterFunction)
   },
 
   /**

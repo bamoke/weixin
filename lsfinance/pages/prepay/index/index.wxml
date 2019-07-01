@@ -8,11 +8,11 @@
     <view style="width:100%">
       <view wx:if="{{unPayTotal>=2}}">
       <view class="unpay-tips">
-        <image src="/static/images/icon-warning.png" class="icon"></image>
+        <!-- <image src="/static/images/icon-warning.png" class="icon"></image> -->
         <view class="tips">
-          <view>系统检测到您本月之前有未结清的费用</view><view>请结清后再预付，谢谢！！</view>
+          <view>温馨提示：系统检测到您本月之前</view><view>有未结清的费用请结清后再预付，</view><view>感谢您的积极配合</view>
         </view>
-        <navigator open-type='navigate' url="/pages/service/fwjs/index" class="btn btn-large btn-warning">现在去结算</navigator>
+        <navigator open-type='navigate' url="/pages/service/fwjs/index" class="btn btn-large btn-info">现在去结清</navigator>
       </view>
       <view class="u-ht"></view>
       </view>

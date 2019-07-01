@@ -1,9 +1,0 @@
-<!--template/nav/index.wxml-->
-<template name='nav'>
-  <scroll-view scroll-x class="m-top-nav">
-  <view class='content'>
-    <navigator open-type='reLaunch' url='../index/index' class="item {{nav.isIndex?'active':''}}">首页</navigator> 
-    <navigator open-type='reLaunch' url='../list/index?cid={{item.id}}' wx:for="{{nav.list}}" wx:key="id" id="cate-{{item.id}}" class="item {{nav.curCid == item.id?'active':''}}">{{item.title}}</navigator>
-  </view>
-  </scroll-view>
-</template>

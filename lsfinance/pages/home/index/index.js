@@ -39,16 +39,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
-    const requestParams = {
-      apiUrl:"/Home/index"
-    }
-    app.ajax(requestParams).then(res=>{
-      this.setData({
-        userInfo:{avatar:res.info.avatar,realname:res.info.realname},
-        userType:res.userType,
-        userTypeName: res.userType == 1 ? "企业经理人" : res.userType == 2?"财务助理":"员工"
-      })
-    })
+
   },
 
   /**
@@ -63,6 +54,16 @@ Page({
    */
   onShow: function() {
     // account info
+    const requestParams = {
+      apiUrl: "/Home/index"
+    }
+    app.ajax(requestParams).then(res => {
+      this.setData({
+        userInfo: { avatar: res.info.avatar, realname: res.info.realname },
+        userType: res.userType,
+        userTypeName: res.userType == 1 ? "企业经理人" : res.userType == 2 ? "财务助理" : "员工"
+      })
+    })
     const userStorage = wx.getStorageSync("user")
     if (userStorage) {
       this.setData({

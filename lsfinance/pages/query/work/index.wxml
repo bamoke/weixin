@@ -5,7 +5,10 @@
   </scroll-view>
   <view class="u-ht"></view>
   <view class="m-list-nomar" hidden='{{content[curCate].length==0}}'>
-    <view class="item" wx:for="{{content[curCate]}}" wx:key="{{index}}">{{item['服务名称']}}</view>
+    <view class="item" wx:for="{{content[curCate]}}" wx:key="{{index}}">
+    <view class="info">{{item['服务名称']}}</view>
+    <icon class="icon" type="success" size="12"/>
+    </view>
   </view>
   <view class='m-empty-box' hidden='{{content[curCate].length>0}}'>
     <view class="tips">暂无此服务内容</view>

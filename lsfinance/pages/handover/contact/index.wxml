@@ -2,7 +2,7 @@
 <view class="container">
   <view class="m-list m-member-list">
     <view class="item">
-      <image class="avatar" src="/static/images/default-avatar.png"></image>
+      <image class="avatar" src="{{info.kjbjl.avatar || '/static/images/default-avatar.png'}}"></image>
       <view class="info">
         <view class="content">
           <text class="name">{{info.kjbjl.name}}</text>
@@ -15,7 +15,7 @@
       </view>
     </view>
     <view class="item">
-      <image class="avatar" src="/static/images/default-avatar.png"></image>
+      <image class="avatar" src="{{info.kjzz.avatar || '/static/images/default-avatar.png'}}"></image>
       <view class="info">
         <view class="content">
           <text class="name">{{info.kjzz.name}}</text>

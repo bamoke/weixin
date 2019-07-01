@@ -1,0 +1,7 @@
+/* pages/draft/index.wxss */
+.m-draft-list .title {
+  font-size:32rpx;
+}
+.m-draft-list .desc {
+  color:#999;
+}

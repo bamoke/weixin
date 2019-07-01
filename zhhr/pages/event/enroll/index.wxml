@@ -1,0 +1,38 @@
+<!--index.wxml-->
+<view class="container">
+
+  <view class="g-box-pad text-dark top-class-name">
+    活动名称：{{eventInfo.title}}
+  </view>
+  <view class="u-ht"></view>
+  <form class="m-form-default form-contain" bindsubmit="formSubmit">
+    <view class="form-group">
+      <view class="label">您的姓名</view>
+      <view class="value-box">
+        <input class="input-control" name="realname" type="text" placeholder="请输入您的姓名" />
+      </view>
+    </view>
+    <view class="form-group">
+      <view class="label">单位名称</view>
+      <view class="value-box">
+        <input class="input-control" name="company" type="text" placeholder="请输入您所在单位名称" />
+      </view>
+    </view>
+
+    <view class="form-group">
+      <view class="label">您的手机号</view>
+      <view class="value-box">
+        <input class="input-control" name="phone" type="number" readonly value='{{formInfo.phone}}' placeholder="请输入您的手机号" />
+      </view>
+    </view>
+    <view class="form-group">
+      <view class="label">Email</view>
+      <view class="value-box">
+        <input class="input-control" name="email" type="text" placeholder="请输入您的邮箱" />
+      </view>
+    </view>
+    <view class="g-box-pad">
+      <button formType="submit" loading="{{submiting}}" class="btn btn-block btn-primary">提交</button>
+    </view>
+  </form>
+</view>

@@ -1,2 +1,25 @@
 <!--pages/article/detail/index.wxml-->
-<text>pages/article/detail/index.wxml</text>
+<import src="../../../wxParse/wxParse.wxml" />
+<view class="container" wx:if="{{showPage}}">
+  <view class='m-detail-wrap'>
+    <view class='title'>{{detail.title}}</view>
+    <view class='total'>
+      <view class='view'>点击：{{detail.click}}</view>
+      <view class='view' wx:if="{{detail.origin}}">来源：{{detail.origin}}</view>
+      <view class='time'>发布日期：{{detail.date}}</view>
+    </view>
+
+    <view class="m-video-box" wx:if="{{detail.video}}">
+      <video src="{{detail.video}}"></video>
+    </view>
+    <view class="thumb-box" wx:if="{{detail.thumb && detail.thumb_show_in_content==2}}">
+      <image mode='aspectFill' class="detail-thumb" src="{{detail.thumb}}" style="width:100%;"></image>
+    </view>
+    <view class="content">
+       <template is="wxParse" data="{{wxParseData:wxparse_content.nodes}}" />
+    </view>
+    <view class="m-end">
+      <view class="tips">END</view>
+    </view>
+  </view>
+</view>

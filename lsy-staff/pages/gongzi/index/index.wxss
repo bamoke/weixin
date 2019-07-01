@@ -1,0 +1,13 @@
+/* pages/gongzi/detail/index.wxss */
+.top-operation {
+  box-sizing: border-box;
+  width:100%;
+  padding:24rpx;
+  background:#fff;
+  text-align: center;
+  font-size:32rpx;
+}
+.top-operation .small {
+  font-size:24rpx;
+  color:#9c9c9c;
+}

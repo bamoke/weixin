@@ -1,6 +1,6 @@
 <!--pages/event/list/index.wxml-->
 <view class='container' wx:if="{{showPage}}">
-  <bmk-tab items="{{tabArr}}" cur-tab="{{curTab}}" bind:switch="switchTab"></bmk-tab>
+
   <view class="g-wrap-main">
     <view class="m-event-list">
       <view wx:for="{{list}}" wx:key="id">
@@ -12,7 +12,7 @@
           <view class='title'>{{item.title}}</view>
           <view class='g-row-bt foot-info'>
             <view class='time'>
-            活动日期：{{item.start_date}}至{{item.end_date}}
+            活动日期：{{item.event_time}}
             </view>
           </view>
         </navigator>

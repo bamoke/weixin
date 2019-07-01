@@ -53,13 +53,7 @@ const wxLogin = function(callback){
   })
 }
 
-var isLoaded = true;
-/**
- * @param apiUrl
- * @param requestData 
- * @param method
- * @param show wx.loading
- */
+
 
 var isLoaded = true;
 /**

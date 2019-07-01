@@ -1,0 +1,69 @@
+<!--pages/home/staff/staff-form/staff-form.wxml-->
+<view style="width:100%">
+  <form class="m-form form-border-bt" bindsubmit="formSubmit">
+    <view class="form-group">
+      <view class="section">姓名：</view>
+      <view class='val'>
+        <input type='text' name="name" placeholder='请输入姓名' value='{{formData.name}}' />
+      </view>
+    </view>
+    <view class="form-group">
+      <view class="section">入职日期：</view>
+      <view class='val'>
+        <picker bindchange="handleChangeEntrytime" mode="date" end="{{toDay}}">
+          <view class="picker">{{curEntrytime || '请选择'}}</view>
+        </picker>
+      </view>
+    </view>
+    <view class="form-group">
+      <view class="section">任职状况：</view>
+      <view class='val'>
+        <picker bindchange="handleChangeWorktype" range="{{workTypeArr}}">
+          <view class="picker">{{curWorktype || '请选择'}}</view>
+        </picker>
+      </view>
+    </view>
+    <view class="form-group">
+      <view class="section">职员类别：</view>
+      <view class='val'>
+        <picker bindchange="handleChangeStafftype" range="{{staffTypeArr}}">
+          <view class="picker">{{curStafftype || '请选择'}}</view>
+        </picker>
+      </view>
+    </view>
+    <view class="u-ht"></view>
+    <view class="form-group">
+      <view class="section">工号：</view>
+      <view class='val'>
+        <input type='text' name="worknu" placeholder='请输入工号' value='{{formData.worknu}}' />
+      </view>
+    </view>
+    <view class="form-group">
+      <view class="section">部门：</view>
+      <view class='val'>
+        <picker bindchange="handleChangeDepartment" range-key="name" range="{{department}}">
+          <view class="picker">{{curDepartment || '请选择部门'}}</view>
+        </picker>
+      </view>
+    </view>
+    <view class="form-group">
+      <view class="section">职位：</view>
+      <view class='val'>
+        <input type='text' name="position" placeholder='请输入职位' value='{{formData.position}}' />
+      </view>
+    </view>
+
+    <view class="form-group">
+      <view class="section">手机号：</view>
+      <view class='val'>
+        <input type='number' name="phone" placeholder='请输入手机号码' value='{{formData.phone}}' />
+      </view>
+    </view>
+    <view>
+      <view class='g-pad-box' style="background:#fff;">
+        <button class='btn btn-large btn-block btn-primary' style="margin:48rpx 0;" form-type='submit'>保存</button>
+        <view wx:if="{{id}}" class="btn btn-large btn-block btn-default" bindtap="handleDel">删除</view>
+      </view>
+    </view>
+  </form>
+</view>

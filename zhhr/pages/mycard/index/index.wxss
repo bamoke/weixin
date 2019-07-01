@@ -64,7 +64,7 @@ page {
   top:0;
   z-index:2;
   width:100%;
-  padding: 48rpx;
+  padding: 24rpx 48rpx 48rpx;
 }
 .index-main-page {
   width:100%;
@@ -86,6 +86,31 @@ page {
   height:2000rpx;
   border-radius:1000rpx;
   background:#1b81d3;
+}
+
+.card-top-nav {
+  display: flex;
+  justify-content: space-between;
+  padding:12rpx 48rpx;
+  background: #1b81d3;
+}
+.card-top-nav .item {
+  flex:1 auto;
+  padding:24rpx;
+  text-align: center;
+  background:#fff;
+  border-right:1px solid #f1f1f1;
+}
+.card-top-nav .item .title {
+  font-size:30rpx;
+}
+.card-top-nav .item .desc {
+  font-size:22rpx;
+  color:#9c9c9c;
+}
+.card-top-nav .item .icon {
+  width:64rpx;
+  height:64rpx;
 }
 
 

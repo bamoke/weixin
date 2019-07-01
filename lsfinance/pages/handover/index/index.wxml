@@ -1,5 +1,5 @@
 <!--pages/handover/index/index.wxml-->
-<view class="container">
+<view class="container" wx:if="{{showPage}}">
   <view class="m-nav-list-icon">
     <view open-type='navigate' url="/pages/handover/jjd/index/index" class="item" style="opacity:.5;">
       <view class="icon-wrap s-bg-1">

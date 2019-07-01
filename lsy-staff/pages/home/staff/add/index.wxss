@@ -1,0 +1,4 @@
+/* pages/teams/add/index.wxss */
+.form-group input {
+  text-align: right;
+}

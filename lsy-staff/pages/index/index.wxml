@@ -1,0 +1,38 @@
+<!--pages/handover/index/index.wxml-->
+<view class="container">
+  <view class="m-nav-list-icon">
+    <navigator open-type='navigate' url="/pages/fybx/index/index" class="item">
+      <view class="icon-wrap s-bg-1">
+        <image class="icon" src="/static/images/icon-djjj-white.png"></image>
+      </view>
+      <view class="title">
+        <view class="">员工报销</view>
+        <view class="desc">员工自助填写报销单据，在线审批</view>
+      </view>
+      <image class="arrow-right" src="/static/images/arrow-black-right.png"></image>
+    </navigator>
+    
+    <navigator open-type='navigate' url="/pages/shebao/index/index" class="item">
+      <view class="icon-wrap s-bg-2">
+        <image class="icon" src="/static/images/icon-sb-white.png"></image>
+      </view>
+      <view class="title">
+        <view class="">社保</view>
+        <view class="desc">查看每月社保扣费缴纳情况</view>
+      </view>
+      <image class="arrow-right" src="/static/images/arrow-black-right.png"></image>
+    </navigator>
+    <navigator open-type='navigate' url="/pages/gongzi/index/index" class="item">
+      <view class="icon-wrap s-bg-3">
+        <image class="icon" src="/static/images/icon-gz-white.png"></image>
+      </view>
+      <view class="title">
+        <view class="">工资单</view>
+        <view class="desc">查看每月工资详情</view>
+      </view>
+      <image class="arrow-right" src="/static/images/arrow-black-right.png"></image>
+    </navigator>
+
+
+  </view>
+</view>

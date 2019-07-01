@@ -34,7 +34,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 25,
+			"current": 29,
 			"list": [
 				{
 					"id": 0,
@@ -205,6 +205,56 @@
 					"id": -1,
 					"name": "服务查询主页",
 					"pathName": "pages/query/index/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "企业资料",
+					"pathName": "pages/home/mycompany/detail/index",
+					"query": "id=507",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "关于",
+					"pathName": "pages/home/about/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "反馈",
+					"pathName": "pages/home/feedback/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 29,
+					"name": "员工管理",
+					"pathName": "pages/home/staff/index/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "员工管理新建",
+					"pathName": "pages/home/staff/add/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "员工管理编辑",
+					"pathName": "pages/home/staff/edit/index",
+					"query": "id=1202",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "服务内容",
+					"pathName": "pages/query/work/index",
+					"query": "",
 					"scene": null
 				}
 			]

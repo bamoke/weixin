@@ -1,2 +1,39 @@
 <!--pages/event/detail/index.wxml-->
-<text>pages/event/detail/index.wxml</text>
+<import src="../../../wxParse/wxParse.wxml" />
+<view class="container" wx:if="{{showPage}}">
+  <view class="event-banner-box">
+    <view class="stage stage-{{detail.stage}}">{{detail.stagetxt}}</view>
+    <image class="banner" src="{{detail.thumb}}" mode='aspectFill'></image>
+  </view>
+  <view class="g-box-pad base-info">
+    <view class="title">{{detail.title}}</view>
+    <view class="row time">活动时间：{{detail.event_time}}</view>
+    <view class="row addr" wx:if="{{detail.type==2}}">活动地点：{{detail.addr}}</view>
+  </view>
+  <view class="u-ht"></view>
+  <view class="g-wrap main-content-wrap">
+    <view class='bar'>
+      <view class='title'>活动详情</view>
+      <view class='line-icon'></view>
+    </view>
+    <view class="content">
+      <template is="wxParse" data="{{wxParseData:wxparse_content.nodes}}" />
+    </view>
+  </view>
+  <view class="m-foot-operation" >
+    <view class="ft-btn-small">
+      <button class="shareBtn" open-type='share'></button>
+      <image class="u-myicon" src="/static/images/icon-share.png"></image>
+      <view class='txt'>分享</view>
+    </view>
+    <view class="ft-btn-small{{isCollection?' active':''}}" bindtap='handleCollection'>
+      <image class="icon" src="/static/images/icon-collection-{{isCollection?'fill':'line'}}.png"></image>
+      <view class='txt'>{{isCollection?'已收藏':'收藏'}}</view>
+    </view>
+    <view class="ft-btn-large disabled" wx:if="{{detail.stage !==1}}">活动{{detail.stagetxt}}</view>
+    <block wx:else>
+      <view class="ft-btn-large disabled" wx:if="{{enrolled}}">已报名</view>
+      <view class="ft-btn-large" bindtap='handleEnroll' wx:else>我要报名</view>
+    </block>
+  </view>
+</view>

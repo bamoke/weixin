@@ -1,0 +1,87 @@
+/* pages/fybx/new/index.wxss */
+@import "../fybx.wxss";
+.m-base {
+  width:100%;
+}
+.right-operation {
+  display: flex;
+  align-items: center;
+}
+.right-operation .del-btn {
+  margin-right:48rpx;
+  color:#1b81d3;
+  font-size:28rpx;
+}
+.fybx-detail-list .child {
+  padding:0;
+  background: #fff;
+  color:#3c3c3c;
+}
+.fybx-detail-list .child-item {
+  padding-left:24rpx;
+  padding-right:24rpx;
+  font-size:28rpx;
+}
+.fybx-detail-list .section {
+  background:#f5f5f5;
+}
+.fybx-detail-list .child-item .child-name {
+  font-size:28rpx;
+}
+.section-title {
+  flex-grow:0;
+  width:200rpx;
+  font-size:32rpx;
+}
+.value-box {
+  width:450rpx;
+  text-align: right;
+}
+.m-bottom-selector {
+  position: fixed;
+  left:0;
+  bottom:0;
+  z-index: 9999;
+  width:100%;
+  box-sizing: border-box;
+  font-size:28rpx;
+  background:#fff;
+}
+.m-bottom-selector .opt {
+  padding:0 24rpx;
+}
+.m-bottom-selector .masker {
+  /* background-color:rgba(0,0,0,.5); */
+}
+.u-add-detail {
+  padding:24rpx 0;
+  color:#1b81d3;
+  text-align: center;
+  font-size:32rpx;
+}
+.m-row-total {
+  display: flex;
+  justify-content: space-between;
+  padding:24rpx;
+  box-sizing:border-box;
+  width:100%;
+  background:#fff;
+  border-top:1px solid #e1e1e1;
+  border-bottom:1px solid #e1e1e1;
+  font-size:32rpx;
+}
+.m-row-total .amount {
+  color:#ff3a31;
+  font-weight: bold;
+}
+.fybx-detail-list .item-wrap {
+  display: block;
+}
+.fybx-detail-list textarea {
+  margin-top:12rpx;
+  width:100%;
+  height:160rpx;
+  box-sizing:border-box;
+   padding:12rpx; 
+  background-color:#f5f5f5;
+}

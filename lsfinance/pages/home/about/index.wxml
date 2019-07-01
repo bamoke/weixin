@@ -1,0 +1,15 @@
+<!--pages/home/about/index.wxml-->
+<import src="../../../wxParse/wxParse.wxml" />
+<view class="container" wx:if="{{showPage}}">
+  <view class="g-box-pad" style="font-size:30rpx;line-height:1.7;">
+  <view style="text-align:center;">
+    <image mode='widthFix' style="width:100%;" src="{{detail.thumb}}"></image>
+  </view>
+  <view class="main-content">
+    <template is="wxParse" data="{{wxParseData:wxparse_content.nodes}}" />
+  </view>
+
+
+</view>
+  
+</view>

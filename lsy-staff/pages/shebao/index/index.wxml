@@ -1,0 +1,66 @@
+<!--pages/gongzi/index/index.wxml-->
+<view class="container">
+  <view class="top-operation">
+    <picker mode="date" fields="month" value="{{curMonth}}" start="2010-01" end="{{toMonth}}" bindchange="handleMonthChange">
+      <view class="picker">
+        当前选择: {{curMonth}}
+      </view>
+      <view class="small">切换</view>
+    </picker>
+  </view>
+  <view class="u-ht"></view>
+  <view wx:if="{{base.length > 0}}" style="width:100%;">
+    <view class="m-list-group">
+      <view class="bar">基本养老保险</view>
+      <view class="item" wx:for="{{base}}" wx:key="index">
+        <view class="">{{item.name}}</view>
+        <view>{{item.val}}</view>
+      </view>
+    </view>
+    <view class="m-list-group">
+      <view class="bar">工伤保险</view>
+      <view class="item" wx:for="{{gongshang}}" wx:key="index">
+        <view class="">{{item.name}}</view>
+        <view>{{item.val}}</view>
+      </view>
+    </view>
+    <view class="m-list-group">
+      <view class="bar">农民工失业险</view>
+      <view class="item" wx:for="{{shiye_nmg}}" wx:key="index">
+        <view class="">{{item.name}}</view>
+        <view>{{item.val}}</view>
+      </view>
+    </view>
+    <view class="m-list-group">
+      <view class="bar">城镇工失业险</view>
+      <view class="item" wx:for="{{shiye_czg}}" wx:key="index">
+        <view class="">{{item.name}}</view>
+        <view>{{item.val}}</view>
+      </view>
+    </view>
+    <view class="m-list-group">
+      <view class="bar">基本医疗保险</view>
+      <view class="item" wx:for="{{yiliao}}" wx:key="index">
+        <view class="">{{item.name}}</view>
+        <view>{{item.val}}</view>
+      </view>
+    </view>
+    <view class="m-list-group">
+      <view class="bar">生育保险</view>
+      <view class="item" wx:for="{{shengyu}}" wx:key="index">
+        <view class="">{{item.name}}</view>
+        <view>{{item.val}}</view>
+      </view>
+    </view>
+    <view class="m-list-group">
+      <view class="item" wx:for="{{totalInfo}}" wx:key="index">
+        <view class="">{{item.name}}</view>
+        <view>{{item.val}}</view>
+      </view>
+    </view>
+
+  </view>
+  <view class="m-empty-box" wx:else>
+    <view class='tips'>暂无数据</view>
+  </view>
+</view>

@@ -1,0 +1,4 @@
+<!--pages/home/staff/edit/index.wxml-->
+<view class="container" wx:if="{{showPage}}">
+  <staff-form objid="{{id}}" init-form-data="{{info}}" style="width:100%;"></staff-form>
+</view>

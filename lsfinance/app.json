@@ -1,9 +1,7 @@
 {
   "pages": [
     "pages/index/index",
-    "pages/teams/add/index",
     "pages/work/kqdk/index",
-    "pages/teams/index/index",
     "pages/work/index/index",
     "pages/fybx/index/index",
     "pages/fybx/new/index",
@@ -26,6 +24,11 @@
     "pages/home/childaccount/edit/index",
     "pages/home/mycompany/list/index",
     "pages/home/mycompany/detail/index",
+    "pages/home/feedback/index",
+    "pages/home/about/index",
+    "pages/home/staff/index/index",
+    "pages/home/staff/add/index",
+    "pages/home/staff/edit/index",
     "pages/logs/logs",
     "pages/orders/confirm/index",
     "pages/draft/index",
@@ -46,7 +49,10 @@
     "pages/handover/jjd/detail/index",
     "pages/handover/jjd/index/index",
     "pages/handover/jjd/cgx/index",
-    "pages/handover/jjd/cate/index"
+    "pages/handover/jjd/cate/index",
+    "pages/jzbx/index/index",
+    "pages/jzbx/new/index",
+    "pages/jzbx/detail/index"
   ],
   "window": {
     "backgroundTextStyle": "light",

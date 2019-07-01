@@ -1,26 +1,128 @@
 <!--pages/home/mycompany/detail/index.wxml-->
 <view class="container">
+  <view class="m-top-info">
+    <image src="/static/images/com-detail-bg.jpg" class="bg-img"></image>
+    <view class="content">
+      <view class="comname">
+        <text selectable>{{comInfo.comName}}</text>
+      </view>
+      <view class="desc">
+        <text selectable>{{comInfo.shxyCode || ''}}</text>
+      </view>
+      <view class="tips">长按可复制信息</view>
+    </view>
+  </view>
+  <view class="m-other-info-btn">
+    <view class="item s-bg-1" bindtap='showOther' data-type="dl">
+      <image class="icon" src="/static/images/icon-cx-nr.png"></image>
+      <view class="content">
+        <view class="title">代理信息</view>
+        <view class="desc">企业财务代理方面信息</view>
+      </view>
+    </view>
+    <view class="item s-bg-2" bindtap='showOther' data-type="sl">
+      <image class="icon" src="/static/images/icon-cx-tj.png"></image>
+      <view class="content">
+        <view class="title">税率信息</view>
+        <view class="desc">当前企业适用税率明细</view>
+      </view>
+    </view>
+  </view>
   <view class="m-item-wrap">
-    <view class="item">
+    <!--     <view class="item">
       <view class="section">企业名称</view>
-      <view class="">{{comInfo.comName}}</view>
-    </view>
-    <view class="item">
-      <view class="section">服务状态</view>
-      <view class="">{{comInfo.comStatus}}</view>
-    </view>
-    <view class="item">
-      <view class="section">企业类型</view>
-      <view class="">{{comInfo.comType}}</view>
+      <view class="">
+        <text selectable>{{comInfo.comName}}</text>
+      </view>
     </view>
     <view class="item">
       <view class="section">社会信用代码</view>
-      <view class="">{{comInfo.shxyCode || ''}}</view>
+      <view class="">
+        <text selectable>{{comInfo.shxyCode || ''}}</text>
+      </view>
+    </view> -->
+
+    <block wx:if="{{showDlInfo}}">
+      <view class="item-bar">
+        <view class="section">代理信息</view>
+        <view class="icon"></view>
+      </view>
+      <view class="item">
+        <view class="section">财税代理状态</view>
+        <view class="val-box {{comInfo.cs_status=='代理中'?'s-text-info':''}}">{{comInfo.cs_status}}</view>
+      </view>
+      <view class="item">
+        <view class="section">财税代理类型</view>
+        <view class="val-box">{{comInfo.cs_dllx}}</view>
+      </view>
+      <view class="item">
+        <view class="section">代理开始日期</view>
+        <view class="val-box">{{comInfo.cs_dlrq}}</view>
+      </view>
+<!--       <view class="item">
+        <view class="section">财税对接人</view>
+        <view class="">{{comInfo.cs_djr}}</view>
+      </view> -->
+      <view class="u-ht"></view>
+    </block>
+
+    <block wx:if="{{showSlInfo}}">
+      <view class="item-bar">
+        <view class="section">税率信息</view>
+        <view class="icon"></view>
+      </view>
+      <view class="item">
+        <view class="section">企业所得税率</view>
+        <view class="val-box">{{comInfo.taxInfo.qysdsl}}%</view>
+      </view>
+      <view class="item">
+        <view class="section">增值税率</view>
+        <view class="val-box">{{comInfo.taxInfo.zzsl}}%</view>
+      </view>
+
+      <view class="item">
+        <view class="section">教育费附加率</view>
+        <view class="val-box">{{comInfo.taxInfo.jyfj}}%</view>
+      </view>
+      <view class="item">
+        <view class="section">城建税率</view>
+        <view class="val-box">{{comInfo.taxInfo.cjsl}}%</view>
+      </view>
+      <view class="item">
+        <view class="section">文化建设税率</view>
+        <view class="val-box">{{comInfo.taxInfo.whjssl}}%</view>
+      </view>
+      <view class="u-ht"></view>
+    </block>
+
+    <view class="item-bar">
+      <view class="section">企业基本信息</view>
+      <view class="icon"></view>
+    </view>
+    <view class="item">
+      <view class="section">企业类型</view>
+      <view class="val-box">{{comInfo.com_type}}</view>
+    </view>
+    <view class="item">
+      <view class="section">企业法人</view>
+      <view class="val-box">{{comInfo.com_qyfr}}</view>
+    </view>
+    <view class="item">
+      <view class="section">注册资本</view>
+      <view class="val-box">{{comInfo.com_zczb || ''}}</view>
+    </view>
+    <view class="item">
+      <view class="section">实收资本</view>
+      <view class="val-box">{{comInfo.com_sszb || ''}}</view>
+    </view>
+    <view class="item">
+      <view class="section">成立日期</view>
+      <view class="val-box">{{comInfo.com_clrq}}</view>
+    </view>
+    <view class="item">
+      <view class="section">办公地址</view>
+      <view class="val-box">{{comInfo.com_bgdz}}</view>
     </view>
 
-    <view class="item">
-      <view class="section">代理开始日期</view>
-      <view class="">{{comInfo.startTime}}</view>
-    </view>    
   </view>
 </view>

@@ -478,6 +478,11 @@ border-bottom:1px solid #f1f1f1;
   color: #fff;
   border-color: #1b81d3;
 }
+.btn-info {
+  background: #4bbefa;
+  color: #fff;
+  border-color: #4bbefa;
+}
 
 .btn-minor {
   background: #6eb3ea;

@@ -62,7 +62,7 @@ Page({
         base
       })
       wx.showModal({
-        content: '有未发放人员，确认继续提交？',
+        content: '未被选择名单本月将暂停工资发放，确认继续提交？',
         success: res => {
           if (res.confirm) {
             this._sendData()

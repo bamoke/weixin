@@ -1,7 +1,7 @@
 {
-  "usingComponents": {},
-  "enablePullDownRefresh": true,
-  "backgroundTextStyle": "dark",
+  "usingComponents": {
+    "bmk-topnav":"/components/topnav/index"
+  },
   "onReachBottomDistance": 60,
   "navigationBarTitleText": "金英播报"
 }

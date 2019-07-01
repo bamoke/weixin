@@ -1,0 +1,22 @@
+/* pages/home/feedback/index.wxss */
+.m-form-default {
+  width:100%;
+}
+.g-pad-box {
+  width:100%;
+  background:#fff;
+}
+.form-group {
+  margin-bottom:48rpx;
+}
+.val-box {
+  box-sizing: border-box;
+  padding:24rpx;
+  width:100%;
+  background:#f4f4f4;
+  border-radius:8rpx;
+}
+.val-input {
+  padding:12rpx 24rpx;
+  height:auto;
+}

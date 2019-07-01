@@ -3,7 +3,7 @@
     <swiper class="index-banner" indicator-dots="true" autoplay="true" interval='3000'>
       <block wx:for="{{bannerList}}" wx:key="{{item.id}}">
         <swiper-item>
-          <navigator url='{{item.url}}' open-type='reLaunch' wx:if="{{item.url}}">
+          <navigator url='{{item.url}}' open-type='navigate' wx:if="{{item.url}}">
             <image lazy-load='true' mode='aspectFill' class='img' src="{{item.img}}"></image>
           </navigator>
           <image lazy-load='true' mode='aspectFill' class='img' wx:else src="{{item.img}}"></image>
@@ -13,30 +13,30 @@
   </view>
   <view class="m-index-nav-wrap">
     <view class="m-index-subnav">
-      <navigator open-type='navigate' url="/pages/article/list/index" class="item">
+      <navigator open-type='navigate' url="/pages/policy/index/index" class="item">
         <view class="icon-wrap s-bg-1">
           <image class="icon" src="/static/images/index-nav-icon-bb.png"></image>
         </view>
-        <view>金英播报</view>
+        <view>政策通</view>
       </navigator>
-      <view open-type='navigate' url="/pages/query/index/index" class="item">
-        <view class="icon-wrap s-bg-5">
-          <image class="icon" src="/static/images/index-nav-icon-gw.png"></image>
+      <navigator open-type='navigate' url="/pages/event/list/index" class="item">
+        <view class="icon-wrap s-bg-6">
+          <image class="icon" src="/static/images/index-nav-icon-hd.png"></image>
         </view>
-        <view>顾问团</view>
-      </view>
+        <view>金英活动</view>
+      </navigator>
       <navigator open-type='navigate' url="/pages/mycard/index/index" class="item">
         <view class="icon-wrap s-bg-3">
           <image class="icon" mode='aspectFill' src="/static/images/index-nav-icon-mp.png"></image>
         </view>
-        <view>名片</view>
+        <view>金英名片</view>
       </navigator>
-      <view open-type="navigate" url="/pages/handover/index/index" class="item last">
-        <view class="icon-wrap s-bg-4">
-          <image class="icon" mode='aspectFill' src="/static/images/index-nav-icon-rc.png"></image>
+      <navigator open-type='navigate' url="/pages/adviser/index/index" class="item">
+        <view class="icon-wrap s-bg-5">
+          <image class="icon" src="/static/images/index-nav-icon-gw.png"></image>
         </view>
-        <view>人才卡</view>
-      </view>
+        <view>金英顾问</view>
+      </navigator>
     </view>
   </view>
 
@@ -53,7 +53,7 @@
         <view class="title">{{item.title}}</view>
         <image class="thumb" mode='aspectFill' lazy-load='true' src='{{item.thumb}}'></image>
         <view class="other">
-          <view class="cate">{{item.cateName}}</view>
+          <view class="cate">{{item.catename}}</view>
           <view class="time">
             <image class="u-myicon icon" src="/static/images/icon-time.png"></image>
             <text class="txt">{{item.date}}</text>

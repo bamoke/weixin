@@ -4,6 +4,7 @@
     "pages/home/index",
     "pages/home/collection/index",
     "pages/home/feedback/index",
+    "pages/home/about/index",
     "pages/mycard/index/index",
     "pages/mycard/list/index",
     "pages/mycard/create/index",
@@ -17,12 +18,16 @@
     "pages/mplogin/index",
     "pages/event/list/index",
     "pages/event/detail/index",
+    "pages/event/enroll/index",
     "pages/welfare/list/index",
     "pages/welfare/detail/index",
     "pages/article/list/index",
     "pages/article/detail/index",
     "pages/policy/index/index",
-    "pages/policy/detail/index"
+    "pages/policy/list/index",
+    "pages/policy/detail/index",
+    "pages/adviser/index/index",
+    "pages/talent/index/index"
   ],
   "permission": {
     "scope.userLocation": {
@@ -49,23 +54,12 @@
         "selectedIconPath": "static/images/tab-index-active.png"
       },
       {
-        "pagePath": "pages/policy/index/index",
-        "text": "政策通",
+        "pagePath": "pages/article/list/index",
+        "text": "金英播报",
         "iconPath": "static/images/tab-find.png",
         "selectedIconPath": "static/images/tab-find-active.png"
       },
-      {
-        "pagePath": "pages/event/list/index",
-        "text": "活动",
-        "iconPath": "static/images/tab-card.png",
-        "selectedIconPath": "static/images/tab-card-active.png"
-      },
-      {
-        "pagePath": "pages/welfare/list/index",
-        "text": "福利",
-        "iconPath": "static/images/tab-find.png",
-        "selectedIconPath": "static/images/tab-find-active.png"
-      },
+
       {
         "pagePath": "pages/home/index",
         "text": "我的",

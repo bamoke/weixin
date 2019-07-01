@@ -1,5 +1,5 @@
 <!--pages/query/index/index.wxml-->
-<view class="container">
+<view class="container" wx:if="{{showPage}}">
   <view class="m-nav-list-icon">
     <navigator open-type='navigate' url="/pages/gsjd/list/index" class="item">
       <view class="icon-wrap s-bg-1">

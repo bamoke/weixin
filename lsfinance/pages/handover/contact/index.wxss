@@ -44,5 +44,5 @@
   width: 128rpx;
   height: 128rpx;
   border-radius: 50%;
-  opacity: .5;
+  /* opacity: .5; */
 }

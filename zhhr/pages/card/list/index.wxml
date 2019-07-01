@@ -2,8 +2,8 @@
 <view class="container" wx:if="{{showPage}}">
   <view class="m-top-search-primary">
     <view class="search-bg">
-      <input type="text" class="input-box" confirm-type="搜索" bindconfirm="search"></input>
-      <view class="right-box">
+      <input type="text" class="input-box" confirm-type="搜索" bindconfirm="search" bindblur='setKeywords'></input>
+      <view class="right-box" bindtap="search">
         <image class="icon" src="/static/images/icon-search.png"></image>
         <text>搜索</text>
       </view>

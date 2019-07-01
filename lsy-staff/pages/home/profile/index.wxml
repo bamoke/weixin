@@ -1,0 +1,11 @@
+<!--pages/home/profile/index.wxml-->
+<view class="container" wx:if="{{showPage}}">
+  <view class="" style="width:100%;">
+  <view class="m-list-group">
+    <view class="item" wx:for="{{crossReference}}" wx:key="{{index}}">
+      <view>{{item.cn}}</view>
+      <view>{{info[item.en] || '未填写'}}</view>
+    </view>
+  </view>
+  </view>
+</view>

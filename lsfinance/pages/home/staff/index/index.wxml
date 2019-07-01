@@ -1,0 +1,24 @@
+<!--pages/teams/index/index.wxml-->
+<view class="container" wx:if="{{showPage}}">
+  <view class='top-bar g-row-bt'>
+    <view>总人数：
+      <text class="total">{{pageInfo.total}}</text>人</view>
+    <view class='handle-btn btn-inline btn-primary' bindtap='addMember'>
+      <image src="/static/images/icon-add-white.png" class='icon add-icon'></image>
+      <text class="text">添加成员</text>
+    </view>
+  </view>
+
+  <view class="team-members">
+    <navigator open-type='navigate' url="../edit/index?id={{item.id}}" class='item' wx:for="{{list}}" wx:key="id">
+      <image src="{{item.avatar || '/static/images/default-avatar.png'}}" class='avatar'></image>
+      <view>
+        <view class='name'>
+        {{item.name}}
+        <text class="small" wx:if="{{item.position}}"> - {{item.position}}</text>
+        </view>
+        <view class='position'>{{item.department}}</view>
+      </view>
+    </navigator>
+  </view>
+</view>

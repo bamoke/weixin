@@ -94,7 +94,7 @@ Page({
         console.log(info)
         wx.showModal({
           title: '位置信息获取失败',
-          content: '',
+          content: info,
           showCancel: false,
           success(res) {
             if (res.confirm) {

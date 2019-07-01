@@ -1,0 +1,10 @@
+<!--component/topnav/index.wxml-->
+  <scroll-view scroll-x class="m-top-nav">
+  <view class='content'>
+    <view class="item {{curTab==index?'active':''}}" wx:for="{{items}}" wx:key="index" bindtap="switch" data-index="{{index}}" >
+    <view class="name">{{item.name}}</view>
+      
+    </view> 
+  </view>
+  </scroll-view>
+

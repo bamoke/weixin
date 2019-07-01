@@ -1,5 +1,5 @@
 {
-  "pages":[
+  "pages": [
     "pages/index/index",
     "pages/ticket/index/index",
     "pages/ticket/enroll/index",
@@ -13,11 +13,11 @@
     "pages/article/detail/index",
     "pages/other/index/index"
   ],
-  "window":{
-    "backgroundTextStyle":"light",
+  "window": {
+    "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#1b81d3",
     "navigationBarTitleText": "珠英台",
-    "navigationBarTextStyle":"white"
+    "navigationBarTextStyle": "white"
   },
   "tabBar": {
     "position": "bottom",
@@ -45,5 +45,6 @@
         "selectedIconPath": "static/images/tab-resume-active.png"
       }
     ]
-  }
+  },
+  "sitemapLocation": "sitemap.json"
 }

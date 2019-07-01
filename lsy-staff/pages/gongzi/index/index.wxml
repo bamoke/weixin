@@ -1,0 +1,21 @@
+<!--pages/gongzi/index/index.wxml-->
+<view class="container">
+  <view class="top-operation">
+    <picker mode="date" fields="month" value="{{curMonth}}" start="2010-01" end="{{toMonth}}" bindchange="handleMonthChange">
+      <view class="picker">
+        当前选择: {{curMonth}}
+      </view>
+      <view class="small">切换</view>
+    </picker>
+  </view>
+  <view class="u-ht"></view>
+  <view class="m-list-group" wx:if="{{list.length > 0}}">
+    <view class="item" wx:for="{{list}}" wx:key="index">
+      <view class="">{{item.name}}</view>
+      <view>{{item.val}}</view>
+    </view>
+  </view>
+  <view class="m-empty-box" wx:else>
+    <view class='tips'>暂无数据</view>
+  </view>
+</view>

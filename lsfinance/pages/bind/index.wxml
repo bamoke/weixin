@@ -2,13 +2,16 @@
 <view class='container'>
   <view class='tips'>请输入您的手机号，获取短信验证码后完成手机绑定</view>
   <form class='m-form' bindsubmit='submitForm'>
-    <view class="form-group">
-      <radio-group class="radio-group" bindchange="bindTypeChange">
+    <view class="">
+      <radio-group class="form-group radio-group" bindchange="bindTypeChange">
         <label class="radio">
           <radio value="1" checked="{{item.checked}}" />企业经理人
         </label>
         <label class="radio">
           <radio value="2" checked="{{item.checked}}" />财务助理
+        </label>
+        <label class="radio">
+          <radio value="3" checked="{{item.checked}}" />企业员工
         </label>
       </radio-group>
     </view>
@@ -21,7 +24,7 @@
     </view>
     <view class="error-box" hidden='{{!errorStatus}}'>{{errorMsg}}</view>
     <view class='form-group'>
-      <button form-type='submit' class='btn btn-primary'>提交</button>
+      <button form-type='submit' class='btn btn-large btn-primary'>提交</button>
     </view>
   </form>
 </view>

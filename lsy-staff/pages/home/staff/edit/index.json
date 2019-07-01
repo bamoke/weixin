@@ -1,0 +1,5 @@
+{
+  "usingComponents": {
+    "staff-form": "../staff-form/staff-form"
+  }
+}

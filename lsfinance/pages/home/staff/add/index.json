@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "添加职员",
+  "usingComponents": {
+    "staff-form":"../staff-form/staff-form"
+  }
+}

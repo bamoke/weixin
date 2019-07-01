@@ -14,3 +14,22 @@
   border-color:#1b81d3;
   color:#1b81d3;
 }
+.m-list-nomar .item {
+  display: flex;
+  align-items: center;
+}
+.m-list-nomar .item::before {
+  content:"";
+  display: block;
+  flex:0 0 auto;
+  margin-right:24rpx;
+  width:8rpx;
+  height:8rpx;
+  background:#999;
+}
+.m-list-nomar .item .info {
+  flex-grow:1;
+}
+.m-list-nomar .item .icon {
+  flex:0 0 auto;
+}

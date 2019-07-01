@@ -15,6 +15,11 @@ Page({
    */
   onLoad: function(options) {
     var curComInfo = wx.getStorageSync("curComInfo");
+    const userInfo = wx.getStorageSync("userInfo")
+    if (userInfo.userType == 3) {
+      app.errorBack({ tips: "此功能仅限企业管理人员查看" })
+      return
+    }
     const requestParams = {
       apiUrl: "/Fiscal/index",
       requestData: {

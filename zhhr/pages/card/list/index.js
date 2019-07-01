@@ -12,14 +12,20 @@ Page({
     hasMore: false,
     list: []
   },
+  setKeywords(e) {
+    this.setData({
+      keywords: e.detail.value
+    })
+  },
   search:function(e){
-    const keywords = e.detail.value
+    const keywords = e.detail.value || this.data.keywords
     let requestParams = {
       apiUrl: '/Card/vlist',
       requestData: {keywords}
     }
     app.ajax(requestParams).then(res => {
       this.setData({
+        keywords,
         page: res.data.page,
         total: res.data.total,
         hasMore: res.data.hasMore,
@@ -109,7 +115,7 @@ Page({
     if(!this.data.hasMore) return
     let requestParams = {
       apiUrl: '/Card/vlist',
-      requestData: { page: parseInt(this.data.page)+1}
+      requestData: { page: parseInt(this.data.page)+1,keywords:this.data.keywords}
     }
     app.ajax(requestParams).then(res => {
       this.setData({

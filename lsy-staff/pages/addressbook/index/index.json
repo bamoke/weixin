@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "企业通讯录",
+  "onReachBottomDistance": 60,
+  "enablePullDownRefresh": true,
+  "backgroundTextStyle": "dark"
+}

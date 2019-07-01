@@ -1,0 +1,18 @@
+<!--pages/home/about/index.wxml-->
+<view class="container">
+  <view class="g-box-pad" style="font-size:30rpx;line-height:1.7;">
+  <view style="padding:24rpx;text-align:center;">
+    <image mode='widthFix' style="width:80%;" src="/static/images/about.jpg" style="border-radius:50%;"></image>
+  </view>
+  <view class="content-p">
+“金英港湾”旨在通过搭建线上人才服务平台和举办线下人才交流活动，进一步提高金湾区人才服务水平，提升区内人才的幸福感和获得感，以才引才，助力各类人才到金湾落户扎根、成长发展。发布仪式上，主持人详细解读了“金英港湾”的寓意，“港湾”二字不仅代表了金湾的特殊地理属性，即“沿海、海湾”，也体现金湾区意在打造区内精英人才相聚的港湾，给人才“家”的归属感，“金湾”两字分别居于品牌名称首尾，特指金湾区的人才服务品牌。
+  </view>
+  <view class="content-p">
+“金英港湾”线上平台未来一年内将陆续为人才打通在线交流、在线申报、在线咨询、领取人才福利通道，通过“互联网+政务+商业”的形式，让人才享受全方面的服务和绿色通道。人才线下交流活动则打造“金湾人才日”，分别在“春节”、“端午”、“中秋”、“冬至”四大传统节日前后举行，为人才送上如家人般关怀的同时，一道向人才弘扬中国传统文化及金湾本土文化。
+  </view>
+  <view class="content-p">打造金湾区人才服务品牌顺应了新时代发展的要求，为金湾区更好地开展人才服务工作开启新篇章，迈出新步伐。</view>
+
+
+</view>
+  
+</view>

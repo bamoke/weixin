@@ -1,0 +1,18 @@
+/**index.wxss**/
+
+.pb-40{
+	padding-bottom: 40rpx;
+}
+
+.top-class-name{
+	font-size: 32rpx;
+}
+
+.code-btn {
+  margin-left:40rpx;
+  flex-shrink:0;
+  flex-grow:0;
+}
+.input-control {
+  text-align: right;
+}

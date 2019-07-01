@@ -7,7 +7,7 @@ App({
     // 登录
     util.wxLogin()
   },
-    // 获取用户信息
+  // 获取用户信息
   getUserInfo: function() {
     wx.getSetting({
       success: res => {
@@ -37,7 +37,18 @@ App({
       staticUrl: "https://wesource.oss-cn-shenzhen.aliyuncs.com"
     }
   },
-  ajax:function(requestParams){
+  ajax: function(requestParams) {
     return util.request(requestParams)
+  },
+  errorBack: function({tips,deltaNu=1,delay=1000}) {
+    wx.showToast({
+      title: tips,
+      image: "/static/images/error.png?v=4",
+    })
+    setTimeout(function() {
+      wx.navigateBack({
+        delta: deltaNu
+      })
+    }, delay)
   }
 })

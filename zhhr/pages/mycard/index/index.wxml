@@ -2,24 +2,42 @@
   <view class="card-empty" wx:if="{{!cardInfo.id}}">
     <view class="tips">您还没有创建名片，现在开始创建，建立自己的人脉库</view>
     <view class="g-box-pad">
-<!--       <navigator class="btn btn-block btn-success" open-type='navigate' url="/pages/mycard/create/index">创建我的名片</navigator> -->
+      <!--       <navigator class="btn btn-block btn-success" open-type='navigate' url="/pages/mycard/create/index">创建我的名片</navigator> -->
       <navigator class="btn btn-block btn-success" open-type='navigate' url="/pages/mycard/bind/index">创建我的名片</navigator>
     </view>
   </view>
-
-  <view class="index-main-page" wx:else>
-    <view class="bg-wrap">
-      <view class="bg-circle"></view>
+  <view wx:else>
+    <view class="card-top-nav">
+      <navigator type="navigate" url="/pages/card/list/index" class="item">
+        <image class="icon" src="/static/images/tab-find-active.png"></image>
+        <view class="title">发现</view>
+        <view class="desc">认识更多朋友</view>
+      </navigator>
+      <navigator type="navigate" url="/pages/exchange/list/index" class="item">
+        <image class="icon" src="/static/images/icon-tips.png"></image>
+        <view class="title">交换</view>
+        <view class="desc">名片交换申请</view>
+      </navigator>
+      <navigator type="navigate" url="/pages/mycard/list/index" class="item">
+        <image class="icon" src="/static/images/cardnav-friend.png"></image>
+        <view class="title">好友</view>
+        <view class="desc">已交换过的名片</view>
+      </navigator>
     </view>
 
-    <view class="my-card-wrap">
-      <bmk-card card-info="{{cardInfo}}" is-self="true"></bmk-card>
-      <bmk-total card-id="{{id}}" view-total="{{cardInfo.click}}" like-total="{{likeTotal}}" is-like="{{isLike}}" collected-total="{{collectedTotal}}" is-collected="{{isCollected}}"></bmk-total>
-      <view class="share-btn-wrap">
-        <button class="share-btn" open-type='share'></button>
-        <view class="btn btn-block btn-primary">递名片</view>
+    <view class="index-main-page">
+      <view class="bg-wrap">
+        <view class="bg-circle"></view>
+      </view>
+
+      <view class="my-card-wrap">
+        <bmk-card card-info="{{cardInfo}}" is-self="true"></bmk-card>
+        <bmk-total card-id="{{id}}" view-total="{{cardInfo.click}}" like-total="{{likeTotal}}" is-like="{{isLike}}" collected-total="{{collectedTotal}}" is-collected="{{isCollected}}"></bmk-total>
+        <view class="share-btn-wrap">
+          <button class="share-btn" open-type='share'></button>
+          <view class="btn btn-block btn-primary">递名片</view>
+        </view>
       </view>
     </view>
   </view>
-
 </view>

@@ -1,18 +1,26 @@
 // pages/handover/index/index.js
+const app = getApp()
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    showPage: false
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    const userInfo = wx.getStorageSync("userInfo")
+    if (userInfo.userType == 3) {
+      app.errorBack({ tips: "此功能仅限企业管理人员查看" })
+      return
+    }
+    this.setData({
+      showPage: true
+    })
   },
 
   /**

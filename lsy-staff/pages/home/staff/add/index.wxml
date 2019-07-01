@@ -1,0 +1,4 @@
+<!--pages/teams/add/index.wxml-->
+<view class="container">
+  <staff-form style="width:100%;"></staff-form>
+</view>

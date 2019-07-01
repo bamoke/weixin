@@ -1,0 +1,23 @@
+<!--pages/teams/index/index.wxml-->
+<view class="container" wx:if="{{showPage}}">
+  <view class='top-bar g-row-bt'>
+    <view>总人数：
+      <text class="total">{{pageInfo.total}}</text>人</view>
+  </view>
+
+  <view class="team-members">
+    <view open-type='navigate' url="../edit/index?id={{item.id}}" class='item' wx:for="{{list}}" wx:key="id">
+      <image src="{{item.avatar || '/static/images/default-avatar.png'}}" class='avatar'></image>
+      <view class="info">
+        <view class='name'>
+          {{item.name}}
+          <text class="small" wx:if="{{item.position}}"> - {{item.position}}</text>
+        </view>
+        <view class='position'>{{item.department}}</view>
+      </view>
+      <view class="tel-box {{item.phone?'':'tel-disabled'}}" bindtap='phoneCall' data-phone="{{item.phone}}">
+        <image class="icon" src="/static/images/icon-phone.png"></image>
+      </view>
+    </view>
+  </view>
+</view>
