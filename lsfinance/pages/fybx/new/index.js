@@ -144,14 +144,14 @@ Page({
     var detailLists = this.data.detailList;
 
     // 检测是否已经选择了此科目
-    let isHave = false
+ /*    let isHave = false
     isHave = detailLists.some(function(item) {
       return item.subject_code == subject[curSelectedIndex].subject_code
     })
     if (isHave) {
       this.showError("不能重复选择所属科目")
       return
-    }
+    } */
     detailLists[curDetailIndex].subject_code = subject[curSelectedIndex].subject_code;
     detailLists[curDetailIndex].subject_name = subject[curSelectedIndex].subject_name;
     detailLists[curDetailIndex].subject_title = subject[curSelectedIndex].subject_title;

@@ -1,5 +1,5 @@
 <!--pages/home/invite/index.wxml-->
-<view class="container">
+<view class="container" wx:if="{{showPage}}">
   <view class='m-invite-wrap'>
       <image class="icon" src="{{icon}}"></image>
       <view class="info">
@@ -9,6 +9,5 @@
         <view>云财务企业员工专属小程序</view>
       </view>
       <button class="btn btn-block btn-large btn-success" bindtap='jumpMiniProgram'>同意加入</button>
-      <button class="btn btn-block btn-large btn-primary" open-type='share'>点击邀请</button>
   </view>
 </view>

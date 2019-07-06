@@ -1,0 +1,9 @@
+{
+  "navigationBarTitleText": "费用审批",
+  "usingComponents":{
+    "bmk-topnav":"/components/topnav/index"
+  },
+  "onReachBottomDistance": 60,
+  "enablePullDownRefresh":true,
+  "backgroundTextStyle": "dark"
+}

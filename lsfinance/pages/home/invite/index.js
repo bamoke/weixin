@@ -5,14 +5,15 @@ Page({
    * 页面的初始数据
    */
   data: {
-    comInfo : null,
-    serverId : null
+    comInfo: null,
+    serverId: null,
+    icon: "http://www.pykscloud.com/Uploads/wesource/invite-image.jpg"
   },
 
   /**
    * 跳转
    */
-  jumpMiniProgram(){
+  jumpMiniProgram() {
     console.log("s")
     wx.navigateToMiniProgram({
       appId: 'wxe0ad4459e84ec05b',
@@ -21,7 +22,7 @@ Page({
       success(res) {
         // 打开成功
       },
-      fail:function(){
+      fail: function() {
         console.log("fail")
       }
     })
@@ -30,12 +31,14 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
+  onLoad: function(options) {
+    var type = typeof options.type !== "undefined" ? options.type : "share"
+
     var comInfo = wx.getStorageSync("curComInfo")
     var userInfo = wx.getStorageSync("userInfo")
     this.setData({
       comInfo,
-      serverId: userInfo.serverId
+      userInfo
     })
   },
 
@@ -43,7 +46,11 @@ Page({
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function () {
-
+  onShareAppMessage: function() {
+    return {
+      title: '邀请加入'+this.data.comName,
+      path: '/pages/home/invite/index?code='+this.data.inviteCode,
+      imageUrl:this.data.icon
+    }
   }
 })

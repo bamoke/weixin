@@ -29,14 +29,14 @@
       </view>
 
       <view class="m-index-subnav">
-        <navigator open-type='navigate' url="/pages/jzbx/index/index" class="item">
+        <navigator open-type='navigate' url="/pages/shenpi/index/index" class="item">
           <image class="icon" src="/static/images/icon-sfqr.png"></image>
-          <view class="">借支报销</view>
+          <view class="">费用审批</view>
         </navigator>
-        <view class="item">
+        <navigator open-type='navigate' url="/pages/staff/index/index" class="item">
           <image class="icon" src="/static/images/icon-gsjd.png"></image>
-          <view class="s-text-gray" >人事薪资</view>
-        </view>
+          <view class="" >人事薪资</view>
+        </navigator>
         <view class="item last">
           <image class="icon" src="/static/images/icon-csfw.png"></image>
           <view class="s-text-gray">报表与分析</view>

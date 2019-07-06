@@ -51,7 +51,7 @@ Page({
         ...res
       })
     }, reject => {
-      if (reject.code === 13009) {
+      if (reject.code === 13010) {
         app.errorBack(reject.msg)
       }
     })

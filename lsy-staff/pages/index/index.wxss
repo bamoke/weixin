@@ -4,8 +4,8 @@
   justify-content: center;
   align-items: center;
   margin-right:24rpx;
-  width:112rpx;
-  height:112rpx;
+  width:96rpx;
+  height:96rpx;
   border-radius:4px;
 }
 .m-nav-list-icon .item .icon-wrap .icon {

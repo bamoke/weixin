@@ -3,7 +3,7 @@ page,container{
   height:100%;
 }
 .container {
-  background-color:rgba(217, 239, 248,.3);
+  background-color:#fff;
 
 }
 .btn {font-size:30rpx;border:none;}
@@ -21,4 +21,17 @@ page,container{
 .m-invite-wrap .info {
   padding:24px 0 64rpx;
   font-size:34rpx;
+}
+.desc {
+  margin-top:24rpx;
+  padding:24rpx 0;
+  font-size:24rpx;
+  color:#9c9c9c;
+  text-align: left;
+  border-top:1px solid #f1f1f1;
+  border-bottom:1px solid #f1f1f1;
+}
+.desc .bar {
+  font-size:30rpx;
+  color:#666;
 }

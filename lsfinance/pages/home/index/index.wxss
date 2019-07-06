@@ -140,3 +140,5 @@
   width: 144rpx;
   height:144rpx;
 }
+
+.nav-tips {padding-left:48rpx;font-size:24rpx;color:#999;}

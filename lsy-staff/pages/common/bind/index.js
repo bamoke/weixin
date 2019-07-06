@@ -121,6 +121,7 @@ Page({
       requestData: formData,
       requestMethod: "POST"
     }
+    console.log(formData)
     req = app.ajax(requestParams);
     req.then(res => {
       console.log(res)
@@ -147,7 +148,8 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
-    if (typeof options.comid === 'undefined') {
+    console.log(options)
+    if (typeof options.code === 'undefined') {
       this.setData({
         showPage: true,
         noPermission: true
@@ -156,8 +158,7 @@ Page({
       let requestParams = {
         apiUrl: "/Account/fetchcominfo",
         requestData: {
-          comid: options.comid,
-          serverid: options.serverid
+          code: options.code
         },
         requestMethod: "GET"
       }
@@ -165,8 +166,8 @@ Page({
         this.setData({
           showPage:true,
           noPermission: false,
-          comid:options.comid,
-          serverid:options.serverid,
+          comid: res.comid,
+          serverid: res.serverid,
           comName:res.cominfo.name,
           ztId:res.cominfo.ztid
         })

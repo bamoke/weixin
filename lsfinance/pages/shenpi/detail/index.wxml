@@ -1,0 +1,65 @@
+<!--pages/fybx/detail/index.wxml-->
+<view class='container' wx:if="{{showPage}}">
+  <view class='m-base-box'>
+    <view class='g-row-bt title'>
+      <text class="text">{{info.title}}</text>
+      <view class='u-status {{info.spStyle}}'>{{info.spTxt}}</view>
+    </view>
+
+    <view class="m-list-nomar other-info">
+      <view class='item'>
+        <view class="section">报销总额</view>
+        <view class="amount s-text-error">￥{{baseInfo.total_amount}}</view>
+      </view>
+      <view class='item'>
+        <view class="section">报销人</view>
+        <view>{{baseInfo.person}}</view>
+      </view>
+      <view class='item'>
+        <view class="section">所属部门</view>
+        <view>{{baseInfo.department}}</view>
+      </view>
+      <view class='item'>
+        <view class="section">报销日期</view>
+        <view>{{baseInfo.date}}</view>
+      </view>
+      <view class='item' wx:if="{{info['sp_status'] !=0}}">
+        <view class="section">审批日期</view>
+        <view>{{info.sp_date}}</view>
+      </view>
+    </view>
+
+  </view>
+
+  <!--detail-->
+  <view class="fybx-detail-list">
+    <view class='item' wx:for="{{detailList}}" wx:key="index" bindtap="switchDeatil" data-index="{{index}}">
+      <view class='section g-row-bt'>
+        <view class="index-text">报销明细-{{index+1}}</view>
+        <view class="icon {{item.display == 'hidden'?'icon-close':'icon-open'}}"></view>
+      </view>
+      <view class="child" hidden='{{item.display == "hidden"}}'>
+        <view class='child-item'>
+          <view class="child-name">类别</view>
+          <view>{{item.subject_name}}</view>
+        </view>
+        <view class='child-item'>
+          <view class="child-name">金额</view>
+          <view class="amount">{{item.amount}}</view>
+        </view>
+        <view class='child-item'>
+          <view class="child-name">摘要说明</view>
+          <view>{{item.description}}</view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!--operator-->
+  <view class='m-fixed-bottom-box' wx:if="{{info.sp_status == 0}}">
+    <view class="g-row-bt">
+      <view style="width:45%" class="btn btn-large btn-warning" bindtap='handleVerify' data-type="2">不同意</view>
+      <view style="width:45%" class="btn btn-large btn-success" bindtap='handleVerify' data-type="1">同意</view>
+    </view>
+  </view>
+</view>

@@ -23,7 +23,7 @@ Page({
       apiUrl: '/Index/index',
       isShowLoad: false
     }
-    wx.showNavigationBarLoading();
+    // wx.showNavigationBarLoading();
     let curComInfo = wx.getStorageSync("curComInfo")
     app.ajax(requestParams).then(data => {
       if (!curComInfo) {

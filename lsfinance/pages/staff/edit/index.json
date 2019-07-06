@@ -1,4 +1,5 @@
 {
+  "navigationBarTitleText": "人事薪资",
   "usingComponents": {
     "staff-form": "../staff-form/staff-form"
   }

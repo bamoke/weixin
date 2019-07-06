@@ -271,8 +271,8 @@ view {
   overflow: hidden;
 }
 .m-nav-list-icon .item .title .desc {
-  font-size:28rpx;
-  color:#7c7c7c;
+  font-size:24rpx;
+  color:#9c9c9c;
   line-height: 1.2;
 }
 
@@ -295,6 +295,7 @@ view {
   flex-grow: 0;
   width: 32rpx;
   height: 32rpx;
+  opacity: .3;
 }
 
 .m-ft-operation-box {

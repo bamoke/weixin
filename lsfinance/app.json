@@ -52,7 +52,12 @@
     "pages/staff/add/index",
     "pages/staff/edit/index",
 
-    "pages/home/invite/index"
+    "pages/common/invite/index",
+    "pages/common/landing/index",
+
+    "pages/shenpi/index/index",
+    "pages/shenpi/detail/index"
+    
   ],
   "window": {
     "backgroundTextStyle": "light",

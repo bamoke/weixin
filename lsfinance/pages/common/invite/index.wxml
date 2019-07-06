@@ -1,0 +1,24 @@
+<!--pages/home/invite/index.wxml-->
+<view class="container">
+  <view class='m-invite-wrap'>
+      <!-- <image class="icon" src="{{icon}}"></image> -->
+      <view class="info">
+        <!-- <view class="s-text-info"></view> -->
+        <view>邀请同事加入</view>
+        <!-- <view class="comname s-text-info">{{inviteInfo.comname}}</view> -->
+        <view>云财务企业员工专属小程序</view>
+
+        <view class="desc">
+          <view class="bar">功能看点</view>
+          <view>1.自助在线填写报销单</view>
+          <view>2.在线工资收入查询</view>
+          <view>3.在线社保缴费查询</view>
+          <view>4.员工通讯录</view>
+          <view>我们将持续对员工端小程序进行更新新的功能</view>
+        </view>
+      </view>
+
+
+      <button class="btn btn-block btn-large btn-primary" open-type='share'>点击邀请</button>
+  </view>
+</view>

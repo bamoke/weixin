@@ -39,8 +39,8 @@
       {
         "pagePath": "pages/addressbook/index/index",
         "text": "通讯录",
-        "iconPath": "static/images/tab-index.png",
-        "selectedIconPath": "static/images/tab-index-active.png"
+        "iconPath": "static/images/tab-addressbook.png",
+        "selectedIconPath": "static/images/tab-addressbook-active.png"
       },
       {
         "pagePath": "pages/home/index/index",
