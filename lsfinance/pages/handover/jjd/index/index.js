@@ -12,7 +12,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    pageShow: true,
+    pageShow: false,
     curPage: 1,
     list: [],
     curMonth: "",
@@ -86,6 +86,7 @@ Page({
     }
     app.ajax(requestParams).then((res) => {
       this.setData({
+        pageShow:true,
         list: res.list,
         pageInfo: res.pageInfo
       })

@@ -140,6 +140,22 @@ const request = function({
 
           } else if (res.data.code == 13009){
             // 其他需要前端依据code作回应
+          } else if (res.data.code == 13010){
+            // 无操作权限的请求
+            wx.showModal({
+              title: "无权限操作",
+              content: res.data.msg,
+              showCancel:false,
+              success:function(result){
+                if(result.confirm){
+                  wx.navigateBack({
+                    delta:1
+                  })
+                }
+              }
+            })
+
+
           }else {
             wx.showToast({
               title: res.data.msg,
