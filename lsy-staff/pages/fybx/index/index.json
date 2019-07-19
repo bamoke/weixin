@@ -1,4 +1,9 @@
 {
   "navigationBarTitleText": "费用报销",
-  "onReachBottomDistance": 60
+  "usingComponents": {
+    "bmk-topnav": "/components/topnav/index"
+  },
+  "onReachBottomDistance": 60,
+  "enablePullDownRefresh": true,
+  "backgroundTextStyle": "dark"
 }

@@ -144,6 +144,7 @@ Page({
    * 存草稿
    */
   handleSaveDraft: function() {
+
     const _that = this;
     var hasError = false;
     var detailList = this.data.detailList;
@@ -152,11 +153,12 @@ Page({
 
     const comInfo = wx.getStorageSync("curComInfo")
     const apiUrl = "/Draft/save"
+    baseData.description = "所属月份：" + baseData.date
     const requestParams = {
       apiUrl,
       requestData: {
         id:this.data.draftId === null ? '':this.data.draftId,
-        type:1,
+        type:3,
         comid:comInfo.comId,
         base: JSON.stringify(baseData),
         detail: JSON.stringify(detailList)
@@ -217,9 +219,9 @@ Page({
       isPostIng: true
     })
 
-    const apiUrl = this.data.actype == 2 ? "/Handover/voucher_doupdate" :"/Handover/voucher_doadd"
+    const apiUrl = this.data.actype == 2 ? "/Voucher/doupdate" :"/Voucher/doadd"
     const requestParams = {
-      apiUrl,
+      apiUrl: apiUrl + "/comid/" + baseData.comId,
       requestData: {
         draftid: this.data.draftId ? this.data.draftId:'',
         base: JSON.stringify(baseData),
@@ -268,11 +270,13 @@ Page({
     this.setData({ endMonth: prevMonth })
 
     if (options.actype == 2) {
+      // 编辑修改
       const id = options.id
       const requestParams = {
-        apiUrl: "/Handover/edit",
+        apiUrl: "/Voucher/edit",
         requestData: {
-          id: options.id
+          id: options.id,
+          comid:curComInfo.comId
         }
       }
       app.ajax(requestParams).then((data) => {
@@ -284,6 +288,7 @@ Page({
         })
       }).catch(function(msg) {})
     }else if(options.actype==3){
+      // 通过草稿箱新建
       const draftId = options.draftid
       const requestParams = {
         apiUrl: "/Draft/detail",

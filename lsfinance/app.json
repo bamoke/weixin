@@ -16,8 +16,7 @@
     "pages/prepay/index/index",
     "pages/prepay/log/index",
     "pages/bind/index",
-    "pages/service/fybx/index",
-    "pages/service/grjk/index",
+    
     "pages/home/index/index",
     "pages/home/childaccount/add/index",
     "pages/home/childaccount/list/index",
@@ -56,8 +55,10 @@
     "pages/common/landing/index",
 
     "pages/shenpi/index/index",
-    "pages/shenpi/detail/index"
-    
+    "pages/shenpi/detail/index",
+
+    "pages/ysyf/index/index",
+    "pages/ysyf/detail/index"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -93,5 +94,7 @@
     ]
   },
   "sitemapLocation": "sitemap.json",
-  "navigateToMiniProgramAppIdList":["wxe0ad4459e84ec05b"]
+  "navigateToMiniProgramAppIdList": [
+    "wxe0ad4459e84ec05b"
+  ]
 }

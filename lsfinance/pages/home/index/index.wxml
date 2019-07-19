@@ -30,13 +30,23 @@
       </view>
       <view class="icon-arrow"></view>
     </navigator>
-    <navigator open-type='navigate' url="/pages/home/childaccount/list/index" class="item" wx:if="{{userType==1}}">
-      <view>
-        <image class="left-icon u-myicon myicon-big" src="/static/images/icon-resume.png"></image>
-        <text class="title">子账号</text>
-      </view>
-      <view class="icon-arrow"></view>
-    </navigator>
+    <block wx:if="{{userType==1}}">
+      <navigator open-type='navigate' url="/pages/home/childaccount/list/index" class="item">
+        <view>
+          <image class="left-icon u-myicon myicon-big" src="/static/images/icon-resume.png"></image>
+          <text class="title">子账号</text>
+        </view>
+        <view class="icon-arrow"></view>
+      </navigator>
+      <navigator open-type='navigate' url="/pages/staff/index/index" class="item">
+        <view>
+          <image class="left-icon u-myicon myicon-big" src="/static/images/icon-resume.png"></image>
+          <text class="title">员工管理</text>
+        </view>
+        <view class="icon-arrow"></view>
+      </navigator>
+    </block>
+
     <navigator open-type='navigate' url="/pages/common/invite/index" class="item">
       <view>
         <image class="left-icon u-myicon myicon-big" src="/static/images/icon-resume.png"></image>
@@ -64,5 +74,5 @@
     </navigator>
   </view>
 
-  <!-- <view class="home-logout-btn f-has-border" bindtap='logout'>退出帐号</view> -->
+  <view class="home-logout-btn f-has-border" bindtap='logout'>退出帐号</view>
 </view>

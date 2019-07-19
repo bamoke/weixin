@@ -2,14 +2,14 @@
 <view class='container' wx:if="{{showPage}}">
   <view class='m-base-box'>
     <view class='g-row-bt title'>
-      <text class="text">{{info.title}}</text>
-      <view class='u-status {{info.spStyle}}'>{{info.spTxt}}</view>
+      <text class="text">{{baseInfo.title}}</text>
+      <view class='u-status {{baseInfo.sp_status_style}}'>{{baseInfo.sp_status_text}}</view>
     </view>
 
     <view class="m-list-nomar other-info">
       <view class='item'>
         <view class="section">报销总额</view>
-        <view class="amount s-text-error">￥{{baseInfo.total_amount}}</view>
+        <view class="amount s-text-error">￥{{baseInfo.amount}}</view>
       </view>
       <view class='item'>
         <view class="section">报销人</view>
@@ -23,10 +23,7 @@
         <view class="section">报销日期</view>
         <view>{{baseInfo.date}}</view>
       </view>
-      <view class='item' wx:if="{{info['sp_status'] !=0}}">
-        <view class="section">审批日期</view>
-        <view>{{info.sp_date}}</view>
-      </view>
+
     </view>
 
   </view>
@@ -56,7 +53,7 @@
   </view>
 
   <!--operator-->
-  <view class='m-fixed-bottom-box' wx:if="{{info.sp_status == 0}}">
+  <view class='m-fixed-bottom-box' wx:if="{{baseInfo.sp_status == 0}}">
     <view class="g-row-bt">
       <view style="width:45%" class="btn btn-large btn-warning" bindtap='handleVerify' data-type="2">不同意</view>
       <view style="width:45%" class="btn btn-large btn-success" bindtap='handleVerify' data-type="1">同意</view>

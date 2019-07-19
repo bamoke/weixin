@@ -1,4 +1,4 @@
-// pages/home/index/index.js
+// pages/ysyf/detail/index.js
 Page({
 
   /**

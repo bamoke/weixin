@@ -1,5 +1,4 @@
 // pages/fybx/new/index.js
-import util from '../../../utils/util';
 const app = getApp();
 Page({
 
@@ -7,6 +6,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    comId:null,
     actype: 1,//1:新建;2:编辑;3:通过草稿新建
     draftId:null,//草稿id,编辑过程中保存草稿返回的
     isDraftPostIng:false,
@@ -19,12 +19,10 @@ Page({
       work_nu: '',
       department: '',
       description: '',
-      orgid: null,
       com_name: '',
       com_short_name: '',
       total_amount:"0.00"
     },
-    total: "0.00",
     detailList: [{
       "no": 0,
       "subject_name": "请选择",
@@ -58,12 +56,6 @@ Page({
     var value = e.detail.value;
     var baseData = this.data.base;
 
-    /*     var userName = "王祥印";
-        var date = new Date(value);
-        var year = date.getFullYear();
-        var month = date.getMonth() + 1;
-        var day = date.getDate();
-        var fyExplain = userName + "_" + year + "年" + month + '月' + day + '日报销'; */
     baseData.date = value;
     this.setData({
       base: baseData
@@ -168,8 +160,6 @@ Page({
     var detailListIndex = e.target.dataset.index;
     var amount = e.detail.value;
     var detailList = this.data.detailList;
-    var totalAmount = 0;
-    var item;
     detailList[detailListIndex].amount = amount;
     this.setData({
       detailList
@@ -302,7 +292,7 @@ Page({
     this.setData({
       isDraftPostIng: true
     })
-    util.request(requestParams).then((res) => {
+    app.ajax(requestParams).then((res) => {
       this.setData({
         draftId:res.id,
         isDraftPostIng: false
@@ -360,9 +350,9 @@ Page({
       isPostIng: true
     })
 
-    const apiUrl = this.data.actype == 2 ? "/Expenses/doupdate":"/Expenses/doadd"
+    const apiUrl = this.data.actype == 2 ? "/Expenses/doupdate" :"/Expenses/doadd"
     const requestParams = {
-      apiUrl,
+      apiUrl: apiUrl + "/comid/"+this.data.comId,
       requestData: {
         draftid: this.data.draftId ? this.data.draftId:'',
         base: JSON.stringify(baseData),
@@ -370,7 +360,7 @@ Page({
       },
       requestMethod: "POST"
     }
-    util.request(requestParams).then((data) => {
+    app.ajax(requestParams).then((data) => {
       wx.showToast({
         title: '操作成功',
         icon: "success"
@@ -394,37 +384,28 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
-    const orgInfo = wx.getStorageSync("orgInfo")
-    if (!orgInfo) {
-      wx.showToast({
-        title: '访问数据错误',
-        image: "/static/images/icon-error.png"
-      })
-      setTimeout(function() {
-        wx.navigateBack({
-          delta: 1
-        })
-      }, 1000)
-      //==//
-    }
-
+    const curComInfo = wx.getStorageSync("curComInfo")
+    const comId = curComInfo.comId
+    const staffArr = wx.getStorageSync("staffData")
     if (options.actype == 2) {
       const id = options.id
       const requestParams = {
         apiUrl: "/Expenses/edit",
         requestData: {
-          id: options.id
+          id: options.id,
+          comid: comId
         }
       }
-      util.request(requestParams).then((data) => {
+      app.ajax(requestParams).then((data) => {
         this.setData({
           showPage: true,
+          comId: comId,
           actype: options.actype,
           base: data.baseInfo,
           detailList: data.childList,
-          dataPerson: wx.getStorageSync("staffData")
+          dataPerson: staffArr
         })
-      }).catch(function(msg) {})
+      })
     }else if(options.actype==3){
       const draftId = options.draftid
       const requestParams = {
@@ -437,24 +418,23 @@ Page({
         this.setData({
           showPage: true,
           actype: options.actype,
+          comId,
           draftId,
           total: res.total,
           base: JSON.parse(res.base),
           detailList: JSON.parse(res.detail),
-          dataPerson: wx.getStorageSync("staffData")
+          dataPerson: staffArr
         })
 
-        console.log(this.data)
-      }).catch(function (msg) { })
+      })
       
     } else {
       var baseInfo = this.data.base
-      baseInfo.orgid = orgInfo.orgid
-      baseInfo.com_short_name = orgInfo.short_name
-      baseInfo.com_name = orgInfo.com_name
+      baseInfo.com_name = curComInfo.comName
       this.setData({
+        comId,
         base: baseInfo,
-        dataPerson: wx.getStorageSync("staffData")
+        dataPerson: staffArr
       })
     }
 
@@ -470,7 +450,7 @@ Page({
     const curDetailIndex = this.data.curDetailListIndex;
     var detailLists = this.data.detailList;
 
-    // 检测是否已经选择了此科目
+/*     // 检测是否已经选择了此科目
     let isHave = false
     isHave = detailLists.some(function(item) {
       return item.subject_code == curSelectedSubject.subject_code
@@ -478,7 +458,7 @@ Page({
     if (isHave) {
       this.showError("不能重复选择所属科目")
       return
-    }
+    } */
     detailLists[curDetailIndex].subject_code = curSelectedSubject.subject_code;
     detailLists[curDetailIndex].subject_name = curSelectedSubject.subject_name;
     detailLists[curDetailIndex].subject_title = curSelectedSubject.subject_title;

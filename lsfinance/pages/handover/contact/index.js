@@ -25,7 +25,7 @@ Page({
     const curComInfo = wx.getStorageSync("curComInfo")
     let requestParams = {
       apiUrl:"/Handover/contact",
-      requestData:{id:curComInfo.objectId}
+      requestData:{id:curComInfo.objectId,comid:curComInfo.comId}
     }
     app.ajax(requestParams).then(res=>{
       this.setData({

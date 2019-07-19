@@ -34,7 +34,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 36,
+			"current": 38,
 			"list": [
 				{
 					"id": 0,
@@ -283,6 +283,19 @@
 					"name": "审批详情",
 					"pathName": "pages/shenpi/detail/index",
 					"query": "id=1",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "单据交接",
+					"pathName": "pages/handover/jjd/index/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "应收应付",
+					"pathName": "pages/ysyf/index/index",
 					"scene": null
 				}
 			]

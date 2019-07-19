@@ -1,18 +1,12 @@
 // pages/work/fybx/index.js
 const app = getApp();
 const cateArr = [{
-  name: "全部",
-  type: "all"
-}, {
-  name: "待审批",
-  type: "0"
-}, {
-  name: "审批通过",
+  name: "报销",
   type: "1"
-}, {
-  name: "审批未通过",
+}/* , {
+  name: "借支",
   type: "2"
-}]
+} */]
 Page({
 
   /**
@@ -35,7 +29,7 @@ Page({
       apiUrl: "/Shenpi/vlist",
       requestData: {
         comid: this.data.comId,
-        sp_status: cateArr[newIndex].type
+        type: cateArr[newIndex].type
       }
     }
     app.ajax(requestParams).then((data) => {
@@ -49,27 +43,29 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function(options) {
+  onLoad(){
     const curComInfo = wx.getStorageSync("curComInfo")
+    this.setData({
+      comId: curComInfo.comId
+    })
+  },
+  /**
+   * 生命周期函数--监听页面显示
+   */
+  onShow: function(options) {
+
     const requestParams = {
       apiUrl: "/Shenpi/vlist",
       requestData: {
-        comid: curComInfo.comId
+        comid: this.data.comId
       }
     }
     app.ajax(requestParams).then((data) => {
       this.setData({
         showPage: true,
-        comId: curComInfo.comId,
         list: data.list,
         pageInfo: data.pageInfo
       })
-    }).catch(function (msg) {
-      /*       setTimeout(function() {
-              wx.navigateBack({
-                delta: 1
-              })
-            }, 1000) */
     })
 
   },
@@ -83,7 +79,7 @@ Page({
       apiUrl: "/Shenpi/vlist",
       requestData: {
         comid: this.data.comId,
-        sp_status: cateArr[navIndex].type
+        type: cateArr[navIndex].type
       }
     }
     app.ajax(requestParams).then((data) => {
@@ -104,11 +100,11 @@ Page({
       return
     }
     const requestParams = {
-      apiUrl: "/Expenses/vlist",
+      apiUrl: "/Shenpi/vlist",
       requestData: {
         comid: this.data.comId,
         page: parseInt(pageInfo.page) + 1,
-        sp_status: cateArr[this.data.curNavIndex].type
+        type: cateArr[this.data.curNavIndex].type
       }
     }
     app.ajax(requestParams).then((res) => {
@@ -116,12 +112,6 @@ Page({
         list: oldList.concat(res.list),
         pageInfo: res.pageInfo
       })
-    }).catch(function(msg) {
-      /*       setTimeout(function() {
-              wx.navigateBack({
-                delta: 1
-              })
-            }, 1000) */
     })
   }
 

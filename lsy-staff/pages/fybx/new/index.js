@@ -20,10 +20,8 @@ Page({
       description: '',
       orgid: null,
       com_name: '',
-      com_short_name: '',
       total_amount: "0.00"
     },
-    total: "0.00",
     detailList: [{
       "no": 0,
       "subject_name": "请选择",
@@ -413,7 +411,6 @@ Page({
       }
       app.ajax(requestParams).then(res => {
         baseInfo.orgid = res.comInfo.ztId
-        baseInfo.com_short_name = res.comInfo.shortName
         baseInfo.com_name = res.comInfo.fullName
 
         baseInfo.person = res.staffInfo.name

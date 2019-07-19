@@ -89,9 +89,8 @@ Page({
     app.ajax(requestParams).then((res) => {
       this.setData({
         showPage: true,
-        info: res.info,
-        baseInfo: res.info.base,
-        detailList: res.info.detail
+        baseInfo: res.base,
+        detailList: res.detail
       })
     })
   },

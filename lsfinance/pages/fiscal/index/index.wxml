@@ -32,7 +32,7 @@
       </view>
       <image class="arrow-right" src="/static/images/arrow-black-right.png"></image>
     </navigator>
-    <view class="item" style="opacity:.5;">
+<!--     <view class="item" style="opacity:.5;">
       <view class="icon-wrap s-bg-4">
         <image class="icon" src="/static/images/icon-zc-skd.png"></image>
       </view>
@@ -51,6 +51,6 @@
         <view class="desc">当前企业支付供应商的货款核销(原来有挂账)</view>
       </view>
       <image class="arrow-right" src="/static/images/arrow-black-right.png"></image>
-    </view>
+    </view> -->
   </view>
 </view>

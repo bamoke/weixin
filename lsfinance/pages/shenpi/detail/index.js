@@ -40,12 +40,14 @@ Page({
       apiUrl: "/Shenpi/doverify",
       requestData: {
         id: this.data.id,
-        type: acType
+        comid:this.data.comId,
+        type:1,
+        sp_result: acType
       }
     }
     app.ajax(requestParams).then(res=>{
       wx.showToast({
-        title: res.msg,
+        title: "操作成功",
         icon: "success"
       })
       setTimeout(function(){
@@ -64,7 +66,8 @@ Page({
     if (!options.id) {
       app.errorBack("参数错误")
     }
-    this.setData({id:options.id})
+    const comInfo = wx.getStorageSync("curComInfo")
+    this.setData({id:options.id,comId:comInfo.comId})
 
   },
   /**
@@ -74,15 +77,15 @@ Page({
     const requestParams = {
       apiUrl: "/Shenpi/detail",
       requestData: {
-        id: this.data.id
+        id: this.data.id,
+        comid:this.data.comId
       }
     }
     app.ajax(requestParams).then((res) => {
       this.setData({
         showPage: true,
-        info: res.info,
-        baseInfo: res.info.base,
-        detailList: res.info.detail
+        baseInfo: res.base,
+        detailList: res.detail
       })
     })
   },

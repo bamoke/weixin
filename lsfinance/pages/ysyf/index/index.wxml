@@ -1,0 +1,45 @@
+<!--pages/service/yfk/index.wxml-->
+<view class='container' wx:if="{{showPage}}">
+  <view class="m-total">
+    <view class="m-month-switch">
+      <picker mode="date" fields="month" value="{{curMonth}}" start="2010-01" bindchange="handleMonthChange">
+        <image src="/static/images/icon-calendar.png" class="icon"></image>
+        <view>切换月份</view>
+      </picker>
+    </view>
+    <view class='section'><text class="month">{{curMonth}}月</text>应{{type==1?'收':'付'}}款总计(元)</view>
+    <view class="amount">{{totalInfo.amount}}</view>
+    <view class="">共
+      <text class="num">{{totalInfo.num}}笔</text>记录</view>
+  </view>
+
+  <view class="m-nav-tab">
+    <view class="item" bindtap='switchType' data-type="1">
+      <text class="caption {{type==1?'active':''}}">应收</text>
+    </view>
+    <view class="item {{type==2?'active':''}}" bindtap='switchType' data-type="2">
+      <text class="caption {{type==2?'active':''}}">应付</text>
+    </view>
+  </view>
+  <view class="u-ht"></view>
+  <view class='m-list' wx:if="{{list.length > 0}}">
+    <view class='item' wx:for="{{list}}" wx:key="id" bindtap='selectItem' data-index="{{index}}">
+      <view class="g-row-bt">
+        <view class='amount'>{{item.amount}}</view>
+        <view class="u-status {{item.status_style}}">{{item.status_text}}</view>
+      </view>
+      <view class='description'>{{item.description}}</view>
+      <view class='item-bt'>
+        <view>付款对象：{{item.target}}</view>
+      </view>
+      <view class='g-row-bt item-bt'>
+        <view>业务日期：{{item.ywTime}}</view>
+        <view>创建时间:{{item.createTime}}</view>
+      </view>
+    </view>
+  </view>
+
+  <view class="m-empty-box" wx:else>
+    <view class='tips'>没有记录</view>
+  </view>
+</view>

@@ -1,5 +1,6 @@
-{"navigationBarTitleText": "费用报销",
+{
+  "navigationBarTitleText": "应收应付",
   "onReachBottomDistance": 60,
   "enablePullDownRefresh": true,
   "backgroundTextStyle": "dark"
-  }
+}

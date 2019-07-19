@@ -174,12 +174,13 @@ view {
   padding: 96rpx 40rpx;
   width:100%;
   text-align: center;
+  background:#fff;
 }
 
 .m-empty-box .tips {
   margin:48rpx 0;
-  font-size: 34rpx;
-  color: #9c9c9c;
+  font-size: 30rpx;
+  color: #ccc;
 }
 .m-empty-box .icon {
   width:168rpx;
@@ -332,6 +333,32 @@ view {
   background-color:rgba(255,255,255,.9);
   padding:24rpx;
   box-sizing: border-box;
+}
+/**top filter bar**/
+.m-top-filter {
+  padding:24rpx;
+  display: flex;
+  width:100%;
+  background:#fff;
+}
+.m-top-filter .item {
+  flex-grow: 1;
+  flex-shrink: 1;
+  display: flex;
+  align-items:center;
+  /* width:33.33%; */
+  font-size:30rpx;
+}
+.m-top-filter .item .section {
+  font-weight:bold;
+}
+.m-top-filter .item .icon {
+  margin-left:12rpx;
+  margin-top:12rpx;
+  width:0;
+  height:0;
+  border: 12rpx solid transparent;
+  border-top-color:#999;
 }
 
 /***skin****/

@@ -18,7 +18,8 @@ Page({
     wx.navigateToMiniProgram({
       appId: 'wxe0ad4459e84ec05b',
       path: '/pages/common/bind/index?code='+this.data.info.code,
-      envVersion: 'develop',
+      // envVersion: 'trial',
+      envVersion: 'release',
       success(res) {
         // 打开成功
       },

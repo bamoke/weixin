@@ -6,112 +6,116 @@ Page({
    * 页面的初始数据
    */
   data: {
-    id:null,
-    pageShow:false,
-    baseInfo:{},
-    detailList:[]
+    id: null,
+    pageShow: false,
+    baseInfo: {},
+    detailList: []
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
-    if(!options.id) {
-      return
+  onLoad: function(options) {
+    if (!options.id) {
+      app.errorBack("非法操作")
     }
+    const curComInfo = wx.getStorageSync("curComInfo")
     const id = options.id
-    var orgInfo = wx.getStorageSync("orgInfo");
     const requestParams = {
-      apiUrl: "/Expenses/detail",
+      apiUrl: "/Voucher/detail",
       requestData: {
-        id: options.id
+        id: options.id,
+        comid: curComInfo.comId
       }
     }
     app.ajax(requestParams).then((data) => {
       this.setData({
-        showPage:true,
+        showPage: true,
         id,
         baseInfo: data.baseInfo,
-        detailList: data.childList
+        detailList: data.childList,
+        comId: curComInfo.comId
       })
-    }).catch(function (msg) {
-    })
+    }).catch(function(msg) {})
   },
 
   /**
    * 切换明细
    */
-  switchDeatil:function(opt){
+  switchDeatil: function(opt) {
     var index = opt.currentTarget.dataset.index;
     var detailList = this.data.detailList;
-    if(detailList[index].display == "hidden"){
+    if (detailList[index].display == "hidden") {
       detailList[index].display = "show";
-    }else {
+    } else {
       detailList[index].display = "hidden";
     }
     this.setData({
-      detailList:detailList
+      detailList: detailList
     })
   },
 
-/**
- * delete
- */
-handleDel:function(){
-  wx.showModal({
-    content: '确认删除？',
-    success:res=>{
-      if (res.confirm) {
-        const apiUrl = "/Expenses/dodelete"
-        const requestParams = {
-          apiUrl,
-          requestData: { id: this.data.id }
-        }
+  /**
+   * delete
+   */
+  handleDel: function() {
+    wx.showModal({
+      content: '确认删除？',
+      success: res => {
+        if (res.confirm) {
+          const apiUrl = "/Voucher/dodelete"
+          const requestParams = {
+            apiUrl,
+            requestData: {
+              id: this.data.id,
+              comid: this.data.comId
+            }
+          }
 
-        app.ajax(requestParams).then((data) => {
-          wx.showToast({
-            title: '操作成功',
-            icon: "success"
-          })
-          setTimeout(function () {
-            wx.navigateBack({
-              delta: 1
+          app.ajax(requestParams).then((data) => {
+            wx.showToast({
+              title: '操作成功',
+              icon: "success"
             })
-          }, 500)
-        }, reject => {
-          
-        })
-      }
-    }
-  })
+            setTimeout(function() {
+              wx.navigateBack({
+                delta: 1
+              })
+            }, 500)
+          }, reject => {
 
-},
+          })
+        }
+      }
+    })
+
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
-  onReady: function () {
-  
+  onReady: function() {
+
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
-  onShow: function () {
-  
+  onShow: function() {
+
   },
 
   /**
    * 生命周期函数--监听页面隐藏
    */
-  onHide: function () {
-  
+  onHide: function() {
+
   },
 
   /**
    * 生命周期函数--监听页面卸载
    */
-  onUnload: function () {
-  
+  onUnload: function() {
+
   }
 
 

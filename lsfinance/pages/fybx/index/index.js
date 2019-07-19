@@ -1,53 +1,118 @@
 // pages/work/fybx/index.js
-import util from '../../../utils/util';
 const app = getApp();
+const curDate = new Date();
+const year = curDate.getFullYear();
+var month = curDate.getMonth() + 1;
+month = month < 10 ? "0" + month : month
+var curMonth = [year, month].join("-")
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    pageShow: true,
-    curPage: 1,
-    list: []
+    comId:null,
+    showPage: false,
+    pageInfo: 1,
+    list: [],
+    toMonth: curMonth,
+    curStaff:"",
+    curMonth: "",
+    spStatusArr:["全部","待审批","通过","未通过"],
+    curSpStatus:""
   },
 
+  /**
+   * Methods
+   */
+  handleStatusChange(e){
+    const index = e.detail.value
+    var curSpStatus = index == 0 ? "" : this.data.spStatusArr[index]
+    const requestParams = {
+      apiUrl: "/Expenses/vlist",
+      requestData: {
+        comid: this.data.comId,
+        month: this.data.curMonth,
+        staff: this.data.curStaff,
+        sp_status:curSpStatus
+      }
+    }
+
+    app.ajax(requestParams).then(res => {
+      this.setData({
+        curSpStatus,
+        list: res.list
+      })
+    })
+  },
+  handleMonthChange: function (e) {
+    const curMonth = e.detail.value
+    const requestParams = {
+      apiUrl: "/Expenses/vlist",
+      requestData: {
+        comid: this.data.comId,
+        month: curMonth,
+        staff: this.data.curStaff,
+        sp_status: this.data.curSpStatus
+      }
+    }
+
+    app.ajax(requestParams).then(res => {
+      this.setData({
+        curMonth,
+        list: res.list
+      })
+    }, reject => {
+
+    })
+  },
+
+  handleStaffChange(e){
+    var value = e.detail.value
+    const staffArr = this.data.staffArr
+    var curStaff = value == 0 ? '' : staffArr[value].name
+
+    const curMonth = e.detail.value
+    var requestData = {
+      comid: this.data.comId
+    }
+    if(this.data.curMonth) {
+      requestData.month = this.data.curMonth
+    }
+    if (this.data.curMonth) {
+      requestData.sp_status = this.data.curSpStatus
+    }
+    if(curStaff) {
+      requestData.staff = curStaff
+    }
+    const requestParams = {
+      apiUrl: "/Expenses/vlist",
+      requestData
+    }
+    app.ajax(requestParams).then(res => {
+      this.setData({
+        curStaff,
+        list: res.list
+      })
+    }, reject => {
+
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
-    const orgInfo = wx.getStorageSync("orgInfo")
-    if (!orgInfo) {
-      wx.showToast({
-        title: '访问数据错误',
-        image:"/static/images/icon-error.png"
+    const curComInfo = wx.getStorageSync("curComInfo")
+    const staffArr = wx.getStorageSync("staffData")
+    if (!curComInfo) {
+      app.errorBack("访问参数错误")
+    }else {
+      this.setData({
+        comId: curComInfo.comId,
+        staffArr : [{name:'全部'}].concat(staffArr)
       })
-      setTimeout(function() {
-        wx.navigateBack({
-          delta: 1
-        })
-      }, 1000)
     }
-    /*     var list = [
-          {
-            "num":"BX0001",
-            "description":"6月伙食费5w44酒啊就开始网站备案域名核验要求通知",
-            "status":"未审核",
-            "time":"2018-07-01",
-            "amount":"20158.47"
-          },
-          {
-            "num": "BX0002",
-            "description": "5月伙食费",
-            "status": "已审核",
-            "time": "2018-06-01",
-            "amount": "981.04"
-          },
-        ]
-        this.setData({
-          pageShow:true,
-          list:list
-        }) */
+   
 
   },
 
@@ -56,18 +121,17 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function() {
-    var orgInfo = wx.getStorageSync("orgInfo");
     const requestParams = {
       apiUrl: "/Expenses/vlist",
       requestData: {
-        orgid: orgInfo.orgid
+        comid: this.data.comId
       }
     }
-    util.request(requestParams).then((data) => {
+  app.ajax(requestParams).then((res) => {
       this.setData({
-        list:data.list,
-        curPage:data.page,
-        hasMore:data.hasMore
+        showPage:true,
+        list:res.list,
+        pageInfo:res.pageInfo
       })
     }).catch(function(msg) {
 /*       setTimeout(function() {
@@ -77,6 +141,71 @@ Page({
       }, 1000) */
     })
 
+  },
+  /**
+ * 页面相关事件处理函数--监听用户下拉动作
+ */
+  onPullDownRefresh: function () {
+    const navIndex = this.data.curNavIndex
+    var requestData = {
+      comid: this.data.comId
+    }
+
+    const requestParams = {
+      apiUrl: "/Expenses/vlist",
+      requestData
+    }
+    app.ajax(requestParams).then((data) => {
+      wx.stopPullDownRefresh();
+      this.setData({
+        list: data.list,
+        pageInfo: data.pageInfo,
+        curMonth: "",
+        curStaff: "",
+        curSpStatus: ""
+      })
+    })
+  },
+  /**
+ * 页面上拉触底事件的处理函数
+ */
+  onReachBottom: function () {
+    var oldList = this.data.list
+    var pageInfo = this.data.pageInfo
+    if (pageInfo.total <= (pageInfo.pageSize * pageInfo.page)) {
+      return
+    }
+
+    var requestData = {
+      comid: this.data.comId,
+      page: parseInt(pageInfo.page) + 1
+    }
+    if (this.data.curMonth) {
+      requestData.month = this.data.curMonth
+    }
+    if (this.data.curStaff) {
+      requestData.staff = this.data.curStaff
+    } 
+    if (this.data.curSpStatus) {
+      requestData.sp_status = this.data.curSpStatus
+    }
+
+    const requestParams = {
+      apiUrl: "/Expenses/vlist",
+      requestData
+    }
+    app.ajax(requestParams).then((res) => {
+      this.setData({
+        list: oldList.concat(res.list),
+        pageInfo: res.pageInfo
+      })
+    }).catch(function (msg) {
+      /*       setTimeout(function() {
+              wx.navigateBack({
+                delta: 1
+              })
+            }, 1000) */
+    })
   }
 
 })

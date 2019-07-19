@@ -14,16 +14,18 @@
       <view class="text">草稿</view>
     </navigator>
   </view>
-
+  <view class="u-ht"></view>
+  <bmk-topnav items="{{cateArr}}" cur-tab="{{curNavIndex}}" bind:switch="changeCate" style="width:100%;"></bmk-topnav>
+  <view class="u-ht"></view>
   <view class="m-list m-bxd-list" wx:if="{{list.length > 0}}">
     <navigator url='../detail/index?id={{item.id}}' open-type='navigate' class="item" wx:for="{{list}}" wx:key="id">
       <view class="g-row-bt top-box">
-        <view class="description">{{item.title}}</view>
-        <view class='u-status s-status-{{item.sp_status}}'>{{item.spTxt}}</view>
+        <view class="description">{{item.description}}</view>
+        <view class='u-status {{item.sp_status_style}}'>{{item.sp_status_text}}</view>
       </view>
       <view class='g-row-bt'>
-        <view class="">日期：{{item.base.date}}</view>
-        <view>报销总额:￥<text class="amount">{{item.base.total_amount}}</text></view>
+        <view class="">日期：{{item.date}}</view>
+        <view>报销总额:￥<text class="amount">{{item.amount}}</text></view>
       </view>
 
       <view class="foot">

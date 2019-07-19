@@ -27,19 +27,17 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
-    const rwdjInfo = wx.getStorageSync('rwdjCateData')
-    if (rwdjInfo !== '') {
-      this.setData({
-        cateList:rwdjInfo
-      })
-      return;
-    }
+    const curComInfo = wx.getStorageSync("curComInfo")
+
     let requestParams = {
-      apiUrl:"/Handover/voucher_cate"
+      apiUrl:"/Voucher/cate",
+      requestData: { comid: curComInfo.comId}
+      
     }
     app.ajax(requestParams).then(res=>{
       this.setData({
-        cateList:res.list
+        cateList:res.list,
+        comId: curComInfo.comId
       })
       wx.setStorageSync("rwdjCateData", res.list)
     })
@@ -56,11 +54,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function() {
-    const subjectInfo = wx.getStorageSync('subjectData')
-    this.setData({
-      subjectInfo,
-      curSubjectList: subjectInfo[0].child
-    })
+
   }
 
 

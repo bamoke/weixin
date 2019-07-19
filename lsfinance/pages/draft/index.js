@@ -58,7 +58,7 @@ Page({
       }
     }
     app.ajax(requestParams).then((res) => {
-      const toUrl = type == 1 ? "/pages/fybx/new/index?" : "/pages/fyzc/new/index?"
+      const toUrl = type == 1 ? "/pages/fybx/new/index?" : type == 2 ? "/pages/fyzc/new/index?" : "/pages/handover/jjd/new/index?"
       this.setData({
         type,
         toUrl,

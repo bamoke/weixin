@@ -1,0 +1,80 @@
+/* pages/ysyf/index/index.wxss */
+
+.m-total {
+  width: 100%;
+  padding: 24rpx;
+  margin-bottom: 24rpx;
+  box-sizing: border-box;
+  background: #fff;
+  text-align: center;
+  border-bottom: 1px solid #f1f1f1;
+  position:relative;
+}
+.m-month-switch {
+  position: absolute;
+  top:24rpx;
+  right:24rpx;
+  z-index: 1.2;
+  font-size:20rpx;
+  -webkit-text-size-adjust:none; 
+  line-height: 1;
+}
+.m-month-switch .icon {
+  width:32rpx;
+  height:32rpx;
+}
+
+.m-total .section {
+  font-size: 32rpx;
+  color: #232323;
+}
+.m-total .section .month {
+  margin-right:12rpx;
+  font-weight: bold;
+}
+.m-total .amount {
+  color: #fa4349;
+  font-size: 56rpx;
+  line-height: 1.5;
+}
+
+.m-total .num {
+  margin: 0 12rpx;
+  color: #fa4349;
+}
+
+.container {
+  color: #787878;
+}
+
+.item-bt {
+  margin-top: 12rpx;
+  padding-top: 12rpx;
+  border-top: 1px solid #f1f1f1;
+}
+
+.m-nav-tab {
+  width: 100%;
+  display: flex;
+}
+
+.m-nav-tab .item {
+  width: 50%;
+  padding-top:20rpx;
+  text-align: center;
+  background: #fff;
+}
+
+.m-nav-tab .caption {
+  display: inline-block;
+  height: 60rpx;
+  line-height: 60rpx;
+  border-bottom: 2px solid #fff;
+  color: #666;
+  font-size: 30rpx;
+}
+
+.m-nav-tab .active {
+  color: #1b81d3;
+  border-color: #1b81d3;
+}

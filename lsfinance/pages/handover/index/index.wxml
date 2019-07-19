@@ -1,7 +1,7 @@
 <!--pages/handover/index/index.wxml-->
 <view class="container" wx:if="{{showPage}}">
   <view class="m-nav-list-icon">
-    <view open-type='navigate' url="/pages/handover/jjd/index/index" class="item" style="opacity:.5;">
+    <navigator open-type='navigate' url="/pages/handover/jjd/index/index" class="item">
       <view class="icon-wrap s-bg-1">
         <image class="icon" src="/static/images/icon-djjj-white.png"></image>
       </view>
@@ -10,7 +10,7 @@
         <view class="desc">企业每次寄送财务单据时填写，正常企业每月寄送(填写)一次</view>
       </view>
       <image class="arrow-right" src="/static/images/arrow-black-right.png"></image>
-    </view>
+    </navigator>
     <navigator open-type='navigate' url="/pages/handover/shebao/index" class="item">
       <view class="icon-wrap s-bg-2">
         <image class="icon" src="/static/images/icon-sb-white.png"></image>

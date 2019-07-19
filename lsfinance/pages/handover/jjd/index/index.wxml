@@ -7,27 +7,44 @@
       </view>
       <view class="text">新建</view>
     </navigator>
-    <navigator open-type='navigate' url='/pages/draft/index?type=1'  class="item">
+    <navigator open-type='navigate' url='/pages/draft/index?type=3'  class="item">
       <view class="icon-wrap">
         <view class='icon icon-draft'></view>
       </view>
       <view class="text">草稿</view>
     </navigator>
   </view>
-
+  <view class="m-top-filter">
+      <view class="item">
+      <view class="section">审批状态：</view>
+      <view class="selection">
+        <picker bindchange="handleStatusChange" range="{{statusArr}}">
+          <view class="picker">{{curStatus || "全部"}}</view>
+        </picker>
+      </view>
+      <view class="icon"></view>
+    </view>
+    <view class="item">
+      <view class="section">所属月份：</view>
+      <view class="selection">
+        <picker mode="date" fields="month" value="{{curMonth}}" bindchange="handleMonthChange">
+          <view class="picker">{{curMonth || "全部"}}</view>
+        </picker>
+      </view>
+      <view class="icon"></view>
+    </view>
+  </view>
+  <view class="u-ht"></view>
   <view class="m-list m-bxd-list" wx:if="{{list.length > 0}}">
     <navigator url='../detail/index?id={{item.id}}' open-type='navigate' class="item" wx:for="{{list}}" wx:key="id">
       <view class="g-row-bt top-box">
-        <view class="description">{{item.description}}</view>
+        <view class="description">所属月份：{{item.date}}</view>
         <view class='u-status {{item.status=="已审核"?"u-status-success":"u-status-warning"}}'>{{item.status=="已审核"?"已审核":"未审核"}}</view>
       </view>
+
       <view class='g-row-bt'>
-        <view>报销人:{{item.name}}</view>
-        <view>报销总额:￥<text class="amount">{{item.amount}}</text></view>
-      </view>
-      <view class='g-row-bt'>
-        <view class="">单号：{{item.nu}}</view>
-        <view class="">日期：{{item.date}}</view>
+        <view class="">单号：{{item.no}}</view>
+        <view class="">日期：{{item.create_time}}</view>
       </view>
 
       <view class="foot">
