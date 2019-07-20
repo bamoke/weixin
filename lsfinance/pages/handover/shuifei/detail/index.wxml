@@ -1,42 +1,53 @@
 <!--pages/handover/shebao/index.wxml-->
 <view class="container {{base.status=='未操作'?'container-pad-bt':''}}" wx:if="{{showPage}}">
-<block wx:if="{{!noData}}">
-  <view class="m-base-info">
-    <view class="status-icon-wrap" wx:if="{{base.status == '已确认'}}">
-      <view class="status-icon">已确认</view>
-    </view>
-    <view class="title">{{base.date}}月本期应缴税额总计</view>
-    <view class="total s-text-important">{{base.total}}</view>
+  <view class="m-top-month">
+    <picker mode="date" fields="month" value="{{curMonth}}" end='{{toMonth}}' bindchange="handleMonthChange">
+      <!-- <view class="section">当前月份</view> -->
+      <view class="month-value">
+        <image class="icon" src="/static/images/icon-calendar.png"></image>
+        <view class="value">{{curMonth}}</view>
+        <view class="arrow"></view>
+      </view>
+    </picker>
   </view>
   <view class="u-ht"></view>
-  <view wx:if="{{base.status=='未操作'}}">
-    <view class="m-tips">
-      <image src="/static/images/icon-tips.png" class="icon"></image>
-      <view class="text">
-        每月十五号以前税务系统将自动从基本户扣缴税费，请检查基本户余额是否充足，以免因扣款失败而产生滞纳金。
+  <block wx:if="{{!noData}}">
+    <view class="m-base-info">
+      <view class="status-icon-wrap" wx:if="{{base.status == '已确认'}}">
+        <view class="status-icon">已确认</view>
       </view>
+      <view class="title">{{base.date}}月本期应缴税额总计</view>
+      <view class="total s-text-important">{{base.total}}</view>
     </view>
     <view class="u-ht"></view>
-  </view>
-  <view class="m-item-list">
-    <view class="item-group" wx:for="{{list}}" wx:key="index">
-      <view class="item top">
-        <view class="name">{{item.name}}</view>
-        <view class="total s-text-error">{{item.total}}</view>
+    <view wx:if="{{base.status=='未操作'}}">
+      <view class="m-tips">
+        <image src="/static/images/icon-tips.png" class="icon"></image>
+        <view class="text">
+          每月十五号以前税务系统将自动从基本户扣缴税费，请检查基本户余额是否充足，以免因扣款失败而产生滞纳金。
+        </view>
       </view>
-
-      <view class="item" wx:for="{{item.detail}}" wx:for-item="detail" wx:key="index" wx:for-index="i">
-        <view class="section">{{detail.keyname}}</view>
-        <view class="content">{{detail.value}}</view>
-      </view>
-
+      <view class="u-ht"></view>
     </view>
-  </view>
-  <view class="m-fixed-bottom-box" wx:if="{{base.status=='未操作'}}">
-    <view class="btn btn-large btn-block btn-primary" bindtap='handleSubmit'>提交并同意扣款</view>
-  </view>
+    <view class="m-item-list">
+      <view class="item-group" wx:for="{{list}}" wx:key="index">
+        <view class="item top">
+          <view class="name">{{item.name}}</view>
+          <view class="total s-text-error">{{item.total}}</view>
+        </view>
+
+        <view class="item" wx:for="{{item.detail}}" wx:for-item="detail" wx:key="index" wx:for-index="i">
+          <view class="section">{{detail.keyname}}</view>
+          <view class="content">{{detail.value}}</view>
+        </view>
+
+      </view>
+    </view>
+    <view class="m-fixed-bottom-box" wx:if="{{base.status=='未操作'}}">
+      <view class="btn btn-large btn-block btn-primary" bindtap='handleSubmit'>提交并同意扣款</view>
+    </view>
   </block>
-    <view class="m-empty-box" wx:else>
+  <view class="m-empty-box" wx:else>
     <image class="icon" src="/static/images/mt-empty.png"></image>
     <view class="tips">本期数据还未生成</view>
     <navigator open-type='navigateBack' delta="1" class="btn btn-large" style="width:60%;">返回</navigator>

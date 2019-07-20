@@ -1,57 +1,69 @@
 <!--pages/handover/shebao/index.wxml-->
 <view class="container {{base.status==0?'container-pad-bt':''}}" wx:if="{{showPage}}">
-<block wx:if="{{!noData}}">
-  <view class="m-base-info">
-    <view class="status-icon-wrap" wx:if="{{base.status == 1 || base.status ==2}}">
-      <view class="status-icon">已确认名单</view>
-    </view>
-    <view class="title">{{base.date}}月应缴社保金额</view>
-    <view class="total s-text-important">{{base.total}}</view>
-    <view class="tips">共
-      <text class="s-text-important">{{base.person_nu}}</text>人需要申报</view>
+  <view class="m-top-month">
+    
+    <picker mode="date" fields="month" value="{{curMonth}}" end='{{toMonth}}' bindchange="handleMonthChange">
+      <!-- <view class="section">当前月份</view> -->
+      <view class="month-value">
+        <image class="icon" src="/static/images/icon-calendar.png"></image>
+        <view class="value">{{curMonth}}</view>
+        <view class="arrow"></view>
+      </view>
+    </picker>
   </view>
   <view class="u-ht"></view>
-  <view class="m-item-list">
-    <view class="item-group" wx:for="{{list}}" wx:key="index">
-      <view class="item top">
-        <view class="check-box" wx:if="{{base.status== 0}}">
-        <checkbox-group bindchange="handleSelectedItem" data-index="{{index}}">
-          <checkbox value="1" checked='{{item.checked}}'></checkbox>
-        </checkbox-group>
+  <block wx:if="{{!noData}}">
+    <view class="m-base-info">
+      <view class="status-icon-wrap" wx:if="{{base.status == 1 || base.status ==2}}">
+        <view class="status-icon">已确认名单</view>
+      </view>
+      <view class="title">{{base.date}}月应缴社保金额</view>
+      <view class="total s-text-important">{{base.total}}</view>
+      <view class="tips">共
+        <text class="s-text-important">{{base.person_nu}}</text>人需要申报</view>
+    </view>
+    <view class="u-ht"></view>
+    <view class="m-item-list">
+      <view class="item-group" wx:for="{{list}}" wx:key="index">
+        <view class="item top">
+          <view class="check-box" wx:if="{{base.status== 0}}">
+            <checkbox-group bindchange="handleSelectedItem" data-index="{{index}}">
+              <checkbox value="1" checked='{{item.checked}}'></checkbox>
+            </checkbox-group>
+          </view>
+          <view class="name">{{item.name}}</view>
+          <view class="status" wx:if="{{base.status != 0}}">
+            <view class="{{item.style}}">{{item.status}}</view>
+          </view>
         </view>
-        <view class="name">{{item.name}}</view>
-        <view class="status" wx:if="{{base.status != 0}}">
-          <view class="{{item.style}}">{{item.status}}</view>
+        <view class="item">
+          <view class="section">社保号</view>
+          <view class="content">{{item.sb_nu}}</view>
         </view>
-      </view>
-      <view class="item">
-        <view class="section">社保号</view>
-        <view class="content">{{item.sb_nu}}</view>
-      </view>
-      <view class="item">
-        <view class="section">单位缴费</view>
-        <view class="content">￥{{item.dw_amount}}</view>
-      </view>
-      <view class="item">
-        <view class="section">个人缴费</view>
-        <view class="content">￥{{item.gr_amount}}</view>
-      </view>
-      <view class="item">
-        <view class="section">应缴总计</view>
-        <view class="content text-big">￥{{item.total}}</view>
+        <view class="item">
+          <view class="section">单位缴费</view>
+          <view class="content">￥{{item.dw_amount}}</view>
+        </view>
+        <view class="item">
+          <view class="section">个人缴费</view>
+          <view class="content">￥{{item.gr_amount}}</view>
+        </view>
+        <view class="item">
+          <view class="section">应缴总计</view>
+          <view class="content text-big">￥{{item.total}}</view>
+        </view>
       </view>
     </view>
-  </view>
-  <view class="m-fixed-bottom-box" wx:if="{{base.status==0}}">
-    <view class="g-row-bt">
-      <view class="select-all">
-      <checkbox-group bindchange="handleSelectAll">
-        <checkbox value="1">全选</checkbox>
-      </checkbox-group>
+    <view class="m-fixed-bottom-box" wx:if="{{base.status==0}}">
+      <view class="g-row-bt">
+        <view class="select-all">
+          <checkbox-group bindchange="handleSelectAll">
+            <checkbox value="1">全选</checkbox>
+          </checkbox-group>
+        </view>
+        <view class="btn btn-large btn-block btn-primary" bindtap='handleSubmit' style="width:55%">提交名单</view>
       </view>
-      <view class="btn btn-large btn-block btn-primary" bindtap='handleSubmit' style="width:55%">提交名单</view>
     </view>
-  </view>
   </block>
   <view class="m-empty-box" wx:else>
     <image class="icon" src="/static/images/mt-empty.png"></image>

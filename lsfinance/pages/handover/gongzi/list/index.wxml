@@ -1,5 +1,17 @@
 <!--pages/handover/shebao/index.wxml-->
 <view class="container {{base.status==0?'container-pad-bt':''}}" wx:if="{{showPage}}">
+  <view class="m-top-month">
+    
+    <picker mode="date" fields="month" value="{{curMonth}}" end='{{toMonth}}' bindchange="handleMonthChange">
+      <!-- <view class="section">当前月份</view> -->
+      <view class="month-value">
+        <image class="icon" src="/static/images/icon-calendar.png"></image>
+        <view class="value">{{curMonth}}</view>
+        <view class="arrow"></view>
+      </view>
+    </picker>
+  </view>
+  <view class="u-ht"></view>
 <block wx:if="{{!noData}}">
   <view class="m-base-info">
     <view class="status-icon-wrap" wx:if="{{base.status == 1}}">

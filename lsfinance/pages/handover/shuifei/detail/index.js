@@ -1,5 +1,10 @@
 // pages/handover/shebao/index.js
 const app = getApp();
+const curDate = new Date();
+const year = curDate.getFullYear();
+var month = curDate.getMonth() + 1;
+month = month < 10 ? "0" + month : month
+var curMonth = [year, month].join("-")
 Page({
 
   /**
@@ -10,14 +15,43 @@ Page({
     curComInfo: null,
     base: {},
     list: [],
-    noData:false
+    noData:false,
+    toMonth: curMonth,
+    curMonth: curMonth
   },
 
+  handleMonthChange(e) {
+    var newMonth = e.detail.value
+    const requestParams = {
+      apiUrl: "/Handover/shenbao",
+      requestData: {
+        comid: this.data.curComInfo.comId,
+        type: "sf",
+        month: newMonth
+      }
+    }
+    app.ajax(requestParams).then(res => {
+      this.setData({
+        base: res.base,
+        list: res.list,
+        noData: false,
+        showPage: true,
+        curMonth: newMonth
+      })
+    }, reject => {
+      if (reject.code == 13009) {
+        this.setData({
+          showPage: true,
+          noData: true
+        })
+      }
+    })
+  },
 
   handleSubmit() {
     let base = this.data.base;
     const requestParams = {
-      apiUrl: "/Handover/shenbao_save",
+      apiUrl: "/Handover/shenbao_save/comid/" + this.data.curComInfo.comId,
       requestData: {
         type: "sf",
         base: JSON.stringify(this.data.base)
@@ -63,7 +97,8 @@ Page({
       apiUrl: "/Handover/shenbao",
       requestData: {
         comid: this.data.curComInfo.comId,
-        type: "sf"
+        type: "sf",
+        month:this.data.curMonth
       }
     }
     app.ajax(requestParams).then(res => {
