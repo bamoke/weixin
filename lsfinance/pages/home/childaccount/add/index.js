@@ -1,5 +1,4 @@
 // pages/home/childaccount/index.js
-import util from '../../../../utils/util';
 const app = getApp();
 Page({
 
@@ -25,28 +24,24 @@ Page({
   submitForm:function(form){
     if(this.data.isSubmiting) return
     let formData = {
-      comid: this.data.selectedCom,
       realname:form.detail.value.realname,
       phone:form.detail.value.phone
     }
     if (formData.realname == '') {
-      return this._showError("请填写管理人员的姓名")
+      return this._showError("请填写子账号管理人员的姓名")
     }
     if (formData.phone == '') {
-      return this._showError("请填写管理人员的手机号码")
-    }
-    if (formData.comid == '') {
-      return this._showError("请选择管理企业")
+      return this._showError("请填写子账号管理人员的手机号码")
     }
     const requestParams = {
-      apiUrl: "/ChildAccount/doadd",
+      apiUrl: `/ChildAccount/doadd/comid/${this.data.curComInfo.comId}`,
       requestData:formData,
       requestMethod:"POST"
     }
     this.setData({
       isSubmiting:true
     })
-    util.request(requestParams).then(res => {
+    app.ajax(requestParams).then(res => {
       wx.showToast({
         title: '添加成功',
         icon:"sucess"
@@ -75,7 +70,10 @@ _showError:function(msg){
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
-
+    const curComInfo = wx.getStorageSync("curComInfo")
+    this.setData({
+      curComInfo
+    })
   },
 
   /**
@@ -89,12 +87,7 @@ _showError:function(msg){
    * 生命周期函数--监听页面显示
    */
   onShow: function() {
-    const accountInfo = wx.getStorageSync("userInfo")
-    this.setData({
-      showPage: true,
-      comList: wx.getStorageSync("myCom"),
-      // selectedCom: temArr.length?temArr.join(','):''
-    })
+
   }
 
 

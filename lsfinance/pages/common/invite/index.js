@@ -18,11 +18,7 @@ Page({
   onLoad: function(options) {
     var comInfo = wx.getStorageSync("curComInfo")
     var requestParams = {
-      apiUrl:"/Home/invite",
-      requestData:{
-        comid:comInfo.comId,
-        comname:comInfo.comName
-      }
+      apiUrl:"/Mycom/invite"
     }
     app.ajax(requestParams).then(res=>{
       this.setData({

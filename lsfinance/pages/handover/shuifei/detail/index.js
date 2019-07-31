@@ -12,10 +12,8 @@ Page({
    */
   data: {
     showPage: false,
-    curComInfo: null,
     base: {},
     list: [],
-    noData:false,
     toMonth: curMonth,
     curMonth: curMonth
   },
@@ -25,7 +23,6 @@ Page({
     const requestParams = {
       apiUrl: "/Handover/shenbao",
       requestData: {
-        comid: this.data.curComInfo.comId,
         type: "sf",
         month: newMonth
       }
@@ -34,24 +31,15 @@ Page({
       this.setData({
         base: res.base,
         list: res.list,
-        noData: false,
-        showPage: true,
         curMonth: newMonth
       })
-    }, reject => {
-      if (reject.code == 13009) {
-        this.setData({
-          showPage: true,
-          noData: true
-        })
-      }
     })
   },
 
   handleSubmit() {
     let base = this.data.base;
     const requestParams = {
-      apiUrl: "/Handover/shenbao_save/comid/" + this.data.curComInfo.comId,
+      apiUrl: "/Handover/shenbao_save",
       requestData: {
         type: "sf",
         base: JSON.stringify(this.data.base)
@@ -75,10 +63,6 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
-    const curComInfo = wx.getStorageSync("curComInfo")
-    this.setData({
-      curComInfo
-    })
   },
 
   /**
@@ -96,7 +80,6 @@ Page({
     const requestParams = {
       apiUrl: "/Handover/shenbao",
       requestData: {
-        comid: this.data.curComInfo.comId,
         type: "sf",
         month:this.data.curMonth
       }
@@ -105,16 +88,9 @@ Page({
       this.setData({
         base: res.base,
         list: res.list,
-        noData:false,
+
         showPage:true
       })
-    },reject=>{
-      if (reject.code == 13009) {
-        this.setData({
-          showPage: true,
-          noData: true
-        })
-      }
     })
   }
 })

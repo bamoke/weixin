@@ -1,5 +1,4 @@
 // pages/fybx/new/index.js
-import util from '../../../utils/util';
 const app = getApp();
 Page({
 
@@ -19,9 +18,6 @@ Page({
       department: '',
       operator: '请选择',
       description: '',
-      orgid: null,
-      com_name: '',
-      com_short_name: '',
       total_amount: "0.00",
       capital_name: "请选择",
       capital_nu:"",
@@ -54,19 +50,14 @@ Page({
   },
 
   /**
-   * 选择报销日期
+   * 选择日期
    */
   selectedDate: function(e) {
     // console.log(e)
     var value = e.detail.value;
     var baseData = this.data.base;
 
-    /*     var userName = "王祥印";
-        var date = new Date(value);
-        var year = date.getFullYear();
-        var month = date.getMonth() + 1;
-        var day = date.getDate();
-        var fyExplain = userName + "_" + year + "年" + month + '月' + day + '日报销'; */
+
     baseData.date = value;
     this.setData({
       base: baseData
@@ -269,14 +260,12 @@ Page({
       this.showError("请填写备注说明")
       return;
     }
-    const comInfo = wx.getStorageSync("curComInfo")
     const apiUrl = "/Draft/save"
     const requestParams = {
       apiUrl,
       requestData: {
         id: this.data.draftId === null ? '' : this.data.draftId,
         type: 2,
-        comid: comInfo.comId,
         base: JSON.stringify(baseData),
         detail: JSON.stringify(detailList)
       },
@@ -286,7 +275,7 @@ Page({
     this.setData({
       isDraftPostIng: true
     })
-    util.request(requestParams).then((res) => {
+    app.ajax(requestParams).then((res) => {
       this.setData({
         draftId: res.id,
         isDraftPostIng: false
@@ -350,7 +339,7 @@ Page({
         },
         requestMethod: "POST"
       }
-      util.request(requestParams).then((data) => {
+      app.ajax(requestParams).then((data) => {
         wx.showToast({
           title: '操作成功',
           icon: "success"
@@ -375,11 +364,10 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
-    const orgInfo = wx.getStorageSync("orgInfo")
     const staffData = wx.getStorageSync("staffData")
     const departmentData = wx.getStorageSync("departmentData")
     const capitalData = wx.getStorageSync("capitalData")
-    if (!orgInfo || !staffData || !departmentData || !capitalData) {
+    if ( !staffData || !departmentData || !capitalData) {
       wx.showToast({
         title: '访问数据错误',
         image: "/static/images/icon-error.png"
@@ -400,7 +388,7 @@ Page({
           id: options.id
         }
       }
-      util.request(requestParams).then((data) => {
+      app.ajax(requestParams).then((data) => {
         this.setData({
           showPage: true,
           actype: options.actype,
@@ -435,9 +423,6 @@ Page({
 
     } else {
       var baseInfo = this.data.base
-      baseInfo.orgid = orgInfo.orgid
-      baseInfo.com_short_name = orgInfo.short_name
-      baseInfo.com_name = orgInfo.com_name
       this.setData({
         dataDepartment: departmentData,
         dataCapital: capitalData,

@@ -1,5 +1,5 @@
 // pages/fiscal/index/index.js
-import util from '../../../utils/util';
+
 const app = getApp();
 Page({
 
@@ -14,20 +14,10 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
-    var curComInfo = wx.getStorageSync("curComInfo");
-    const userInfo = wx.getStorageSync("userInfo")
-    if (userInfo.userType == 3) {
-      app.errorBack({ tips: "此功能仅限企业管理人员查看" })
-      return
-    }
     const requestParams = {
-      apiUrl: "/Fiscal/index",
-      requestData: {
-        comid: curComInfo.comId
-      }
+      apiUrl: "/Fiscal/index"
     }
-    util.request(requestParams).then((data) => {
-      wx.setStorageSync("orgInfo", data.orgInfo)
+    app.ajax(requestParams).then((data) => {
       wx.setStorageSync("subjectData", data.subjectInfo)//会计科目
       wx.setStorageSync("staffData", data.staffInfo)//员工
       wx.setStorageSync("departmentData", data.department)//部门
@@ -36,7 +26,6 @@ Page({
         showPage: true
       })
     }).catch(function(msg) {
-      wx.removeStorageSync("orgInfo")
       wx.removeStorageSync("subjectData")
       wx.removeStorageSync("staffData")
       wx.removeStorageSync("partmentData")

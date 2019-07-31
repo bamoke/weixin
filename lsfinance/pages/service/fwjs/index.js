@@ -1,5 +1,4 @@
 // pages/service/fwjs/index.js
-import util from '../../../utils/util';
 const app = getApp();
 
 Page({
@@ -10,11 +9,11 @@ Page({
   data: {
     showPage: false,
     curPage: 1,
-    totalInfo:{},//服务器返回的总计信息
-    total: '0.00',//选择项目的计算总计
+    totalInfo: {}, //服务器返回的总计信息
+    total: '0.00', //选择项目的计算总计
     canPayment: false,
     list: [],
-    selectedItem:[]//已选择项目的index值
+    selectedItem: [] //已选择项目的index值
   },
   /** 
    * selectItem
@@ -22,9 +21,9 @@ Page({
   selectItem: function(data) {
     var curIndex = data.currentTarget.dataset.index;
     var dataList = this.data.list;
-    var total = Math.round(this.data.total*100);
+    var total = Math.round(this.data.total * 100);
     var selectedItem = this.data.selectedItem;
-    var curAmount = Math.round(dataList[curIndex].mp_amount*100);
+    var curAmount = Math.round(dataList[curIndex].mp_amount * 100);
 
     if (typeof dataList[curIndex].isSelected !== 'undefined' && dataList[curIndex].isSelected === true) {
       dataList[curIndex].isSelected = false
@@ -37,61 +36,53 @@ Page({
     }
     this.setData({
       list: dataList,
-      total: total == 0 ? "0.00" : total/100,
+      total: total == 0 ? "0.00" : total / 100,
       selectedItem,
       canPayment: !!selectedItem.length
     })
   },
 
-  settlement:function(){
-/*     const testRequestParams = {
-      apiUrl: "/Service/testinsert",
-    }
-    var testPromise = util.request(testRequestParams);
-    return; */
+  settlement: function() {
+    /*     const testRequestParams = {
+          apiUrl: "/Service/testinsert",
+        }
+        var testPromise = util.request(testRequestParams);
+        return; */
     const _that = this;
     if (!this.data.canPayment) return
     let curSeletedItem = this.data.list.filter((item, index) => {
       return this.data.selectedItem.indexOf(index) >= 0
     })
-    const curComInfo = wx.getStorageSync('curComInfo')
     const requestParams = {
       apiUrl: "/Orders/yfjs",
       requestData: {
         amount: this.data.total,
-        comid: curComInfo.comId,
         content: JSON.stringify(curSeletedItem)
       },
-      requestMethod:"POST"
+      requestMethod: "POST"
     }
-    console.log(requestParams.requestData.content)
-    var myPromise = util.request(requestParams);
-    myPromise.then(data=>{
+    app.ajax(requestParams).then(data => {
       wx.requestPayment({
         timeStamp: data.timeStamp,
         nonceStr: data.nonceStr,
         package: data.package,
         signType: 'MD5',
         paySign: data.sign,
-        success: function (res) {
+        success: function(res) {
           _that._loadData()
         },
-        fail: function (res) {
+        fail: function(res) {
 
         }
       })
     })
   },
-  _loadData:function(){
+  _loadData: function() {
     var objList = this.data.list;
-    var curComInfo = wx.getStorageSync("curComInfo");
     const requestParams = {
-      apiUrl: "/Service/fwjs",
-      requestData: {
-        comid: curComInfo.comId
-      }
+      apiUrl: "/Service/fwjs"
     }
-    util.request(requestParams).then((data) => {
+    app.ajax(requestParams).then((data) => {
       this.setData({
         showPage: true,
         list: data.list == null ? [] : data.list,
@@ -100,7 +91,7 @@ Page({
         canPayment: false,
         selectedItem: []
       })
-    }).catch(function (msg) {
+    }).catch(function(msg) {
       console.log(msg)
     })
   },

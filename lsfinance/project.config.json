@@ -34,7 +34,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 38,
+			"current": 39,
 			"list": [
 				{
 					"id": 0,
@@ -296,6 +296,13 @@
 					"id": -1,
 					"name": "应收应付",
 					"pathName": "pages/ysyf/index/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "企业切换",
+					"pathName": "pages/home/mycompany/list/index",
 					"scene": null
 				}
 			]

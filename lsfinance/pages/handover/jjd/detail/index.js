@@ -19,13 +19,12 @@ Page({
     if (!options.id) {
       app.errorBack("非法操作")
     }
-    const curComInfo = wx.getStorageSync("curComInfo")
+
     const id = options.id
     const requestParams = {
       apiUrl: "/Voucher/detail",
       requestData: {
-        id: options.id,
-        comid: curComInfo.comId
+        id: options.id
       }
     }
     app.ajax(requestParams).then((data) => {
@@ -33,8 +32,7 @@ Page({
         showPage: true,
         id,
         baseInfo: data.baseInfo,
-        detailList: data.childList,
-        comId: curComInfo.comId
+        detailList: data.childList
       })
     }).catch(function(msg) {})
   },
@@ -67,8 +65,7 @@ Page({
           const requestParams = {
             apiUrl,
             requestData: {
-              id: this.data.id,
-              comid: this.data.comId
+              id: this.data.id
             }
           }
 

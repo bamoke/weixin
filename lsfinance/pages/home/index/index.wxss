@@ -98,8 +98,9 @@
   height: 120rpx;
   line-height: 120rpx;
   text-align: center;
-  color: #9c9c9c;
+  /* color: #9c9c9c; */
   background: #fff;
+  font-size:32rpx;
 }
 .icon-arrow {
   width:24rpx;

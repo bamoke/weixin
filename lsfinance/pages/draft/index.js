@@ -48,13 +48,11 @@ Page({
    */
   onShow: function () {
     const type = this.data.type;
-    const comInfo = wx.getStorageSync("curComInfo")
     const apiUrl = "/Draft/vlist"
     const requestParams = {
       apiUrl,
       requestData: {
-        type,
-        comid: comInfo.comId
+        type
       }
     }
     app.ajax(requestParams).then((res) => {

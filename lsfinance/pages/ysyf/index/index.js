@@ -33,7 +33,6 @@ Page({
       apiUrl: "/Ysyf/vlist",
       requestData: {
         type: type,
-        comid: this.data.curComInfo.comId,
         month: this.data.curMonth
       }
     }
@@ -53,7 +52,6 @@ Page({
       apiUrl: "/Ysyf/vlist",
       requestData: {
         type: type,
-        comid: this.data.curComInfo.comId,
         month: newMonth
       }
     }
@@ -70,13 +68,11 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
-    var curComInfo = wx.getStorageSync("curComInfo")
-    var curType = typeof options.type !== "undefined" ? options.type : 1
+    var curType = typeof options.type !== "undefined" ? parseInt(options.type) : 1
     var requestParams = {
       apiUrl: "/Ysyf/vlist",
       requestData: {
         type: curType,
-        comid: curComInfo.comId,
         month: curMonth
       }
     }
@@ -87,7 +83,6 @@ Page({
         totalInfo: res.totalInfo,
         pageInfo: res.pageInfo,
         type: curType,
-        curComInfo,
         curMonth
       })
     })
@@ -133,7 +128,6 @@ Page({
       apiUrl: "/Ysyf/vlist",
       requestData: {
         type: type,
-        comid: this.data.curComInfo.comId,
         month: curMonth
       }
     }
@@ -160,7 +154,6 @@ Page({
       apiUrl: "/Ysyf/vlist",
       requestData: {
         type: type,
-        comid: this.data.curComInfo.comId,
         month: curMonth,
         page
       }

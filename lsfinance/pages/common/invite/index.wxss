@@ -23,7 +23,7 @@ page,container{
   font-size:34rpx;
 }
 .desc {
-  margin-top:24rpx;
+  margin-top:64rpx;
   padding:24rpx 0;
   font-size:24rpx;
   color:#9c9c9c;

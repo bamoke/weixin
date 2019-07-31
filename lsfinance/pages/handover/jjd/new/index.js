@@ -151,7 +151,6 @@ Page({
     var baseData = this.data.base
 
 
-    const comInfo = wx.getStorageSync("curComInfo")
     const apiUrl = "/Draft/save"
     baseData.description = "所属月份：" + baseData.date
     const requestParams = {
@@ -159,7 +158,6 @@ Page({
       requestData: {
         id:this.data.draftId === null ? '':this.data.draftId,
         type:3,
-        comid:comInfo.comId,
         base: JSON.stringify(baseData),
         detail: JSON.stringify(detailList)
       },
@@ -221,7 +219,7 @@ Page({
 
     const apiUrl = this.data.actype == 2 ? "/Voucher/doupdate" :"/Voucher/doadd"
     const requestParams = {
-      apiUrl: apiUrl + "/comid/" + baseData.comId,
+      apiUrl: apiUrl,
       requestData: {
         draftid: this.data.draftId ? this.data.draftId:'',
         base: JSON.stringify(baseData),
@@ -266,7 +264,6 @@ Page({
     
 
     // 
-    const curComInfo = wx.getStorageSync("curComInfo")
     this.setData({ endMonth: prevMonth })
 
     if (options.actype == 2) {
@@ -276,7 +273,6 @@ Page({
         apiUrl: "/Voucher/edit",
         requestData: {
           id: options.id,
-          comid:curComInfo.comId
         }
       }
       app.ajax(requestParams).then((data) => {
@@ -306,16 +302,12 @@ Page({
           detailList: JSON.parse(res.detail)
         })
 
-        console.log(this.data)
       }).catch(function (msg) { })
       
     }else {
       this.setData({
         base:{
-          date:prevMonth,
-          comId:curComInfo.comId,
-          comShortName:curComInfo.comShortName,
-          comFullName: curComInfo.comName
+          date:prevMonth
         }
       })
     } 

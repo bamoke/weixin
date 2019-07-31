@@ -5,8 +5,8 @@
       <view class="info">
         <!-- <view class="s-text-info"></view> -->
         <view>邀请同事加入</view>
-        <!-- <view class="comname s-text-info">{{inviteInfo.comname}}</view> -->
-        <view>云财务企业员工专属小程序</view>
+        <view class="comname s-text-info">{{inviteInfo.comname}}</view>
+        <view>云财务员工专属小程序</view>
 
         <view class="desc">
           <view class="bar">功能看点</view>

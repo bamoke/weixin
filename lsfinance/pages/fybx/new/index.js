@@ -275,14 +275,12 @@ Page({
       return;
     }
 
-    const comInfo = wx.getStorageSync("curComInfo")
     const apiUrl = "/Draft/save"
     const requestParams = {
       apiUrl,
       requestData: {
         id:this.data.draftId === null ? '':this.data.draftId,
         type:1,
-        comid:comInfo.comId,
         base: JSON.stringify(baseData),
         detail: JSON.stringify(detailList)
       },
@@ -352,7 +350,7 @@ Page({
 
     const apiUrl = this.data.actype == 2 ? "/Expenses/doupdate" :"/Expenses/doadd"
     const requestParams = {
-      apiUrl: apiUrl + "/comid/"+this.data.comId,
+      apiUrl: apiUrl,
       requestData: {
         draftid: this.data.draftId ? this.data.draftId:'',
         base: JSON.stringify(baseData),
@@ -384,22 +382,19 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
-    const curComInfo = wx.getStorageSync("curComInfo")
-    const comId = curComInfo.comId
+
     const staffArr = wx.getStorageSync("staffData")
     if (options.actype == 2) {
       const id = options.id
       const requestParams = {
         apiUrl: "/Expenses/edit",
         requestData: {
-          id: options.id,
-          comid: comId
+          id: options.id
         }
       }
       app.ajax(requestParams).then((data) => {
         this.setData({
           showPage: true,
-          comId: comId,
           actype: options.actype,
           base: data.baseInfo,
           detailList: data.childList,
@@ -418,7 +413,6 @@ Page({
         this.setData({
           showPage: true,
           actype: options.actype,
-          comId,
           draftId,
           total: res.total,
           base: JSON.parse(res.base),
@@ -430,9 +424,7 @@ Page({
       
     } else {
       var baseInfo = this.data.base
-      baseInfo.com_name = curComInfo.comName
       this.setData({
-        comId,
         base: baseInfo,
         dataPerson: staffArr
       })

@@ -12,10 +12,8 @@ Page({
    */
   data: {
     showPage: false,
-    curComInfo: null,
     base: {},
     list: [],
-    noData: false,
     toMonth: curMonth,
     curMonth: curMonth
   },
@@ -25,7 +23,6 @@ Page({
     const requestParams = {
       apiUrl: "/Handover/shenbao",
       requestData: {
-        comid: this.data.curComInfo.comId,
         type: "sb",
         month: newMonth
       }
@@ -34,20 +31,32 @@ Page({
       this.setData({
         base: res.base,
         list: res.list,
-        noData: false,
         showPage: true,
         curMonth:newMonth
       })
-    }, reject => {
-      if (reject.code == 13009) {
-        this.setData({
-          showPage: true,
-          noData: true
-        })
-      }
     })
   },
 
+  /**
+   * 
+   */
+  stopPop(){
+
+  },
+  /**
+   * 
+   */
+  switchDetail(e){
+    var curIndex = e.currentTarget.dataset.index
+    var list = this.data.list
+    list[curIndex].show = !list[curIndex].show
+    this.setData({
+      list
+    })
+  },
+  /**
+   * 
+   */
   handleSelectedItem(e) {
     const value = e.detail.value[0]
     const index = e.currentTarget.dataset.index
@@ -80,17 +89,24 @@ Page({
   handleSubmit() {
     let list = this.data.list;
     let base = this.data.base;
-    let hasUnSb = list.some(item => {
-      return item.status === "不申报" || item.status === '待处理'
+    var unSbNum = 0;
+    list.forEach(item=>{
+      if (item.status === "不申报" || item.status === '待处理') {
+        unSbNum ++
+      }
     })
+/*     let hasUnSb = list.some(item => {
+      return item.status === "不申报" || item.status === '待处理'
+    }) */
 
-    if (hasUnSb) {
+    if (unSbNum > 0) {
       base.status_name = "部分申报"
       this.setData({
         base
       })
       wx.showModal({
-        content: '有未申报名单，确认不申报？',
+        title: `${unSbNum}个名单未选择`,
+        content: `未选择名单不会申报，确定不申报？`,
         success: res => {
           if (res.confirm) {
             this._sendData()
@@ -107,7 +123,7 @@ Page({
   },
   _sendData() {
     const requestParams = {
-      apiUrl: "/Handover/shenbao_save/comid/" + this.data.curComInfo.comId,
+      apiUrl: "/Handover/shenbao_save",
       requestData: {
         type: "sb",
         base: JSON.stringify(this.data.base),
@@ -132,10 +148,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
-    const curComInfo = wx.getStorageSync("curComInfo")
-    this.setData({
-      curComInfo
-    })
+
   },
 
   /**
@@ -152,25 +165,18 @@ Page({
     const requestParams = {
       apiUrl: "/Handover/shenbao",
       requestData: {
-        comid: this.data.curComInfo.comId,
         type: "sb",
         month:this.data.curMonth
       }
     }
     app.ajax(requestParams).then(res => {
+      console.log(res)
       this.setData({
         base: res.base,
         list: res.list,
-        noData: false,
         showPage: true
       })
-    }, reject => {
-      if (reject.code == 13009) {
-        this.setData({
-          showPage: true,
-          noData: true
-        })
-      }
+      
     })
   }
 })

@@ -31,7 +31,6 @@ Page({
     const requestParams = {
       apiUrl: "/Expenses/vlist",
       requestData: {
-        comid: this.data.comId,
         month: this.data.curMonth,
         staff: this.data.curStaff,
         sp_status:curSpStatus
@@ -50,7 +49,6 @@ Page({
     const requestParams = {
       apiUrl: "/Expenses/vlist",
       requestData: {
-        comid: this.data.comId,
         month: curMonth,
         staff: this.data.curStaff,
         sp_status: this.data.curSpStatus
@@ -73,13 +71,11 @@ Page({
     var curStaff = value == 0 ? '' : staffArr[value].name
 
     const curMonth = e.detail.value
-    var requestData = {
-      comid: this.data.comId
-    }
+    var requestData = {}
     if(this.data.curMonth) {
       requestData.month = this.data.curMonth
     }
-    if (this.data.curMonth) {
+    if (this.data.curSpStatus) {
       requestData.sp_status = this.data.curSpStatus
     }
     if(curStaff) {
@@ -102,18 +98,10 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
-    const curComInfo = wx.getStorageSync("curComInfo")
     const staffArr = wx.getStorageSync("staffData")
-    if (!curComInfo) {
-      app.errorBack("访问参数错误")
-    }else {
-      this.setData({
-        comId: curComInfo.comId,
-        staffArr : [{name:'全部'}].concat(staffArr)
-      })
-    }
-   
-
+    this.setData({
+      staffArr: [{ name: '全部' }].concat(staffArr)
+    })
   },
 
 
@@ -122,10 +110,7 @@ Page({
    */
   onShow: function() {
     const requestParams = {
-      apiUrl: "/Expenses/vlist",
-      requestData: {
-        comid: this.data.comId
-      }
+      apiUrl: "/Expenses/vlist"
     }
   app.ajax(requestParams).then((res) => {
       this.setData({
@@ -147,9 +132,6 @@ Page({
  */
   onPullDownRefresh: function () {
     const navIndex = this.data.curNavIndex
-    var requestData = {
-      comid: this.data.comId
-    }
 
     const requestParams = {
       apiUrl: "/Expenses/vlist",
@@ -177,7 +159,6 @@ Page({
     }
 
     var requestData = {
-      comid: this.data.comId,
       page: parseInt(pageInfo.page) + 1
     }
     if (this.data.curMonth) {

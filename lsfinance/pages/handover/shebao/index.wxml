@@ -12,7 +12,7 @@
     </picker>
   </view>
   <view class="u-ht"></view>
-  <block wx:if="{{!noData}}">
+  <block wx:if="{{list.length > 0}}">
     <view class="m-base-info">
       <view class="status-icon-wrap" wx:if="{{base.status == 1 || base.status ==2}}">
         <view class="status-icon">已确认名单</view>
@@ -25,9 +25,9 @@
     <view class="u-ht"></view>
     <view class="m-item-list">
       <view class="item-group" wx:for="{{list}}" wx:key="index">
-        <view class="item top">
+        <view class="item top" bindtap="switchDetail" data-index="{{index}}">
           <view class="check-box" wx:if="{{base.status== 0}}">
-            <checkbox-group bindchange="handleSelectedItem" data-index="{{index}}">
+            <checkbox-group bindchange="handleSelectedItem" data-index="{{index}}" catchtap="stopPop">
               <checkbox value="1" checked='{{item.checked}}'></checkbox>
             </checkbox-group>
           </view>
@@ -36,21 +36,23 @@
             <view class="{{item.style}}">{{item.status}}</view>
           </view>
         </view>
-        <view class="item">
-          <view class="section">社保号</view>
-          <view class="content">{{item.sb_nu}}</view>
-        </view>
-        <view class="item">
-          <view class="section">单位缴费</view>
-          <view class="content">￥{{item.dw_amount}}</view>
-        </view>
-        <view class="item">
-          <view class="section">个人缴费</view>
-          <view class="content">￥{{item.gr_amount}}</view>
-        </view>
-        <view class="item">
-          <view class="section">应缴总计</view>
-          <view class="content text-big">￥{{item.total}}</view>
+        <view class="detail-box" hidden="{{!item.show}}">
+          <view class="item">
+            <view class="section">社保号</view>
+            <view class="content">{{item.sb_nu}}</view>
+          </view>
+          <view class="item">
+            <view class="section">单位缴费</view>
+            <view class="content">￥{{item.dw_amount}}</view>
+          </view>
+          <view class="item">
+            <view class="section">个人缴费</view>
+            <view class="content">￥{{item.gr_amount}}</view>
+          </view>
+          <view class="item">
+            <view class="section">应缴总计</view>
+            <view class="content text-big">￥{{item.total}}</view>
+          </view>
         </view>
       </view>
     </view>

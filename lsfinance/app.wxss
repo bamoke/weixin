@@ -34,6 +34,20 @@ view {
   color: #9c9c9c !important;
 }
 
+.s-bg-success {
+  background-color: #2aab8f;
+}
+
+.s-bg-important {
+  background-color: #ff3a31;
+}
+
+.s-bg-error {
+  background-color: #ff3a31;
+}
+.s-bg-info {
+  background-color: #1b81d3;
+}
 /***function **/
 
 /**g**/

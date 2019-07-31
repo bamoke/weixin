@@ -3,7 +3,7 @@
   <view class="m-top-search"></view>
   <view class="u-ht"></view>
   <scroll-view scroll-x="true" class="m-tab" bindtap='changeTab'>
-    <view class="scroll-view-item">科目类别：</view>
+    <view class="scroll-view-item">主科目：</view>
     <view id="{{item.code}}" data-index="{{index}}" class="scroll-view-item{{index==curTabIndex?' active':''}}" wx:for="{{subjectInfo}}" wx:key="code">{{item.title}}</view>
   </scroll-view>
   <view class="m-subject-list">

@@ -28,7 +28,6 @@ Page({
     const requestParams = {
       apiUrl: "/Shenpi/vlist",
       requestData: {
-        comid: this.data.comId,
         type: cateArr[newIndex].type
       }
     }
@@ -44,10 +43,6 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad(){
-    const curComInfo = wx.getStorageSync("curComInfo")
-    this.setData({
-      comId: curComInfo.comId
-    })
   },
   /**
    * 生命周期函数--监听页面显示
@@ -55,10 +50,7 @@ Page({
   onShow: function(options) {
 
     const requestParams = {
-      apiUrl: "/Shenpi/vlist",
-      requestData: {
-        comid: this.data.comId
-      }
+      apiUrl: "/Shenpi/vlist"
     }
     app.ajax(requestParams).then((data) => {
       this.setData({
@@ -78,7 +70,6 @@ Page({
     const requestParams = {
       apiUrl: "/Shenpi/vlist",
       requestData: {
-        comid: this.data.comId,
         type: cateArr[navIndex].type
       }
     }
@@ -102,7 +93,6 @@ Page({
     const requestParams = {
       apiUrl: "/Shenpi/vlist",
       requestData: {
-        comid: this.data.comId,
         page: parseInt(pageInfo.page) + 1,
         type: cateArr[this.data.curNavIndex].type
       }

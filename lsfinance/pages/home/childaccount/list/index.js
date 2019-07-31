@@ -1,5 +1,4 @@
 // pages/home/childaccount/list/index.js
-import util from '../../../../utils/util';
 const app = getApp();
 Page({
 
@@ -10,7 +9,12 @@ Page({
     showPage:false,
     memberList:[]
   },
-
+  onLoad(){
+    const curComInfo = wx.getStorageSync("curComInfo")
+    this.setData({
+      curComInfo
+    })
+  },
 
   /**
    * 生命周期函数--监听页面显示
@@ -19,9 +23,10 @@ Page({
     wx.showNavigationBarLoading()
     const requestParams = {
       apiUrl: "/ChildAccount/vlist",
+      requestData:{comid:this.data.curComInfo.comId},
       isShowLoad:false
     }
-    util.request(requestParams).then(res => {
+    app.ajax(requestParams).then(res => {
       wx.hideNavigationBarLoading()
       this.setData({
         showPage:true,

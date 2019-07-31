@@ -28,8 +28,7 @@ Page({
       apiUrl: "/Voucher/vlist",
       requestData: {
         status: curStatus,
-        month: this.data.curMonth,
-        comid: this.data.comId
+        month: this.data.curMonth
       }
     }
     app.ajax(requestParams).then((res) => {
@@ -46,8 +45,7 @@ Page({
       apiUrl: "/Voucher/vlist",
       requestData: {
         status: this.data.curStatus,
-        month: newMonth,
-        comid: this.data.comId
+        month: newMonth
       }
     }
     app.ajax(requestParams).then((res) => {
@@ -62,13 +60,6 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
-    const curComInfo = wx.getStorageSync("curComInfo")
-    if (!curComInfo) {
-      app.errorBack("参数错误")
-    }
-    this.setData({
-      comId: curComInfo.comId
-    })
 
 
   },
@@ -79,10 +70,7 @@ Page({
    */
   onShow: function() {
     const requestParams = {
-      apiUrl: "/Voucher/vlist",
-      requestData: {
-        comid: this.data.comId
-      }
+      apiUrl: "/Voucher/vlist"
     }
     app.ajax(requestParams).then((res) => {
       this.setData({
@@ -104,7 +92,6 @@ Page({
       apiUrl: "/Voucher/vlist",
       requestData: {
         status: curStatus,
-        comid: this.data.comId,
         month: curMonth
       }
     }
@@ -130,7 +117,6 @@ Page({
       apiUrl: "/Voucher/vlist",
       requestData: {
         status: curStatus,
-        comid: this.data.comId,
         month: curMonth,
         page
       }

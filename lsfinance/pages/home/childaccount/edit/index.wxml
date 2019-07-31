@@ -1,24 +1,22 @@
 <!--pages/home/childaccount/edit/index.wxml-->
 <view class='container' wx:if="{{showPage}}">
 
-  <view class='m-main-box'>
-    <view class="g-row-bt">
-      <text class='text-bold'>{{info.realname}}</text>
-      <view class="">{{info.phone}}</view>
+  <form class='m-form' bindsubmit='submitForm'>
+    <view class='form-group'>
+      <input type='text' name="realname" value="{{info.realname}}" placeholder='请输入管理人员姓名' class="input-box"></input>
     </view>
-  </view>
-  <view class="m-main-box">
-    <view class="bar">关联的企业:</view>
-    <checkbox-group class="" bindchange="selectCom">
-      <label class="com-list" wx:for="{{comList}}" wx:key="comId">
-        <checkbox value="{{item.comId}}" checked='{{item.checked}}' />{{item.comName}}
-      </label>
-    </checkbox-group>
-  </view>
-  <view class='m-main-box'>
-    <button style="margin-bottom:40rpx;" class='btn btn-block btn-large btn-primary' loading='{{isSubmiting}}' bindtap='save'>保存</button>
-    <button class='btn btn-block btn-large btn-default' loading='{{isSubmiting}}' bindtap='del'>删除</button>
-  </view>
+    <view class='form-group'>
+      <input type='number' name="phone" value='{{info.phone}}' placeholder='请输入管理人员手机号码' class="input-box"></input>
+    </view>
+
+    <view class="u-ht"></view>
+    <view class='g-pad-box' style="padding-top:64rpx;background:#fff;">
+      <button form-type='submit' class='btn btn-large btn-block btn-primary' loading='{{isSubmiting}}'>提交</button>
+      <button class='btn btn-block btn-large btn-default' loading='{{isSubmiting}}' bindtap='del' style="margin-top:24rpx;">删除</button>
+    </view>
+  </form>
+
+
 
 
 </view>

@@ -7,11 +7,16 @@
         <image src="/static/images/arrow-black-right.png" class="arrow-right" />
       </view>
     </navigator>
-    
+
   </view>
-  <view class="m-empty-box" wx:else>
-    <view class='tips'>还没有添加企业成员</view>
+  <block wx:else>
+    <view class="m-empty-box">
+      <view class='tips'>还没有添加子账号(财务助理)</view>
+    </view>
     <view class="u-ht"></view>
-  </view>
-  <navigator open-type="navigate" url='/pages/home/childaccount/add/index' class='home-logout-btn'>添加财务助理</navigator>
+  </block>
+  <navigator open-type="navigate" url='/pages/home/childaccount/add/index' class='m-add-btn'>
+    <image class="icon" src="/static/images/icon-add-primary.png" style="opacity:1;"></image>
+    <view class="text">添加子账号(财务助理)</view>
+  </navigator>
 </view>

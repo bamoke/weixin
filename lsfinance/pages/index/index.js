@@ -24,23 +24,18 @@ Page({
       isShowLoad: false
     }
     // wx.showNavigationBarLoading();
-    let curComInfo = wx.getStorageSync("curComInfo")
     app.ajax(requestParams).then(data => {
-      if (!curComInfo) {
-        curComInfo = data.comList[0]
-        wx.setStorageSync('curComInfo', data.comList[0])
-      }
-      wx.setStorageSync("myCom", data.comList)
       wx.hideNavigationBarLoading();
       this.setData({
-        curComInfo,
-        comList: data.comList,
+        curComInfo: data.curComInfo,
         pageShow: true,
         news: data.notice
       })
       if(typeof afterFun !== 'undefined') {
         afterFun()
       }
+    },rejet=>{
+      wx.stopPullDownRefresh()
     })
   },
   /**

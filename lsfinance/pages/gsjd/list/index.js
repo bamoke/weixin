@@ -7,7 +7,6 @@ Page({
    */
   data: {
     showPage:true,
-    curComInfo:{},
     page:1,
     hasMore:false,
     list:[]
@@ -17,8 +16,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    let curComInfo = wx.getStorageSync("curComInfo")
-    this.setData({curComInfo})
+
   },
 
   /**
@@ -32,15 +30,10 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    const comInfo = this.data.curComInfo;
     const requestParams = {
-      apiUrl:"/Gsjd/vlist",
-      requestData: {
-        comid: comInfo.comId
-      }
+      apiUrl:"/Gsjd/vlist"
     }
     app.ajax(requestParams).then((res) => {
-      console.log(res)
       this.setData({
         showPage: true,
         hasMore: res.hasMore,

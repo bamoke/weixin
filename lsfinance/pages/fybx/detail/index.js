@@ -8,7 +8,6 @@ Page({
    */
   data: {
     id:null,
-    comId:null,
     pageShow:false,
     baseInfo:{},
     detailList:[]
@@ -18,21 +17,19 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    if (!options.id || !options.comid) {
+    if (!options.id) {
       app.errorBack("参数错误")
     }
     const id = options.id
     const requestParams = {
       apiUrl: "/Expenses/detail",
       requestData: {
-        id: options.id,
-        comid: options.comid
+        id: options.id
       }
     }
     app.ajax(requestParams).then((data) => {
       this.setData({
         showPage:true,
-        comId: options.comid,
         id,
         baseInfo: data.baseInfo,
         detailList: data.childList
@@ -68,7 +65,7 @@ handleDel:function(){
         const apiUrl = "/Expenses/dodelete"
         const requestParams = {
           apiUrl,
-          requestData: { id: this.data.id ,comid: this.data.comId}
+          requestData: { id: this.data.id }
         }
 
         app.ajax(requestParams).then((data) => {

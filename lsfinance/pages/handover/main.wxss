@@ -56,8 +56,8 @@ page {
 
 .m-item-list .item-group {
   box-sizing: border-box;
-  padding: 24rpx;
-  margin-bottom: 24rpx;
+  padding: 0 24rpx;
+  /* margin-bottom: 24rpx; */
   background: #fff;
 }
 
@@ -70,7 +70,9 @@ page {
 }
 
 .m-item-list .top {
+  padding:24rpx 0;
   border-bottom: 1px solid #f1f1f1;
+  line-height: 1;
 }
 
 .m-item-list .top .name {
@@ -154,4 +156,8 @@ page {
 
   border: 12rpx solid transparent;
   border-top-color: #6c6c6c;
+}
+.detail-box {
+  /* display: none; */
+  border-bottom:1px solid #f1f1f1;
 }

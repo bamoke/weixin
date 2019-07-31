@@ -1,5 +1,4 @@
 // pages/home/childaccount/edit/index.js
-import util from '../../../../utils/util';
 const app = getApp();
 Page({
 
@@ -10,30 +9,35 @@ Page({
     showpage: false,
     curId:null,
     info:{},
-    selectedCom: '',
-    comList: [],
     isSubmiting: false
   },
-  selectCom: function (e) {
-    const selectedComArr = e.detail.value
-    this.setData({
-      selectedCom: selectedComArr.join(",")
-    })
-  },
-  save: function () {
+
+  submitForm: function (e) {
+    var formData = e.detail.value
+    formData.id = this.data.curId
     if (this.data.isSubmiting) return
-    if (this.data.selectedCom == '') {
-      return this._showError("请选择管理企业")
+    var phoneRe = /^[1][3578]{1}([0-9]{9})$/;
+
+    if(formData.realname == '') {
+      this._showError("姓名不能为空")
+      return
+    }
+    if (formData.phone == '') {
+      this._showError("手机号不能为空")
+      return
+    }
+    if (!phoneRe.test(formData.phone)) {
+      return this._showError("手机号格式不正确")
     }
     const requestParams = {
-      apiUrl: "/ChildAccount/update",
-      requestData: {id:this.data.curId,comid:this.data.selectedCom},
+      apiUrl: "/ChildAccount/update/comid/"+this.data.curComInfo.comId,
+      requestData: { ...formData},
       requestMethod: "POST"
     }
     this.setData({
       isSubmiting: true
     })
-    util.request(requestParams).then(res => {
+    app.ajax(requestParams).then(res => {
       wx.showToast({
         title: '修改成功',
         icon: "sucess"
@@ -61,15 +65,17 @@ Page({
 
   del:function(){
     const _that = this
+    const curId = this.data.curId
+    const comId = this.data.curComInfo.comId
     wx.showModal({
       content: '确认删除此账号吗？',
       success:function(res){
         if(res.confirm) {
           const requestParams = {
             apiUrl: "/ChildAccount/del",
-            requestData: { id: _that.data.curId}
+            requestData: { id: curId, comid:comId}
           }
-          util.request(requestParams).then(res => {
+          app.ajax(requestParams).then(res => {
             wx.showToast({
               title: '账号已删除',
               icon: "sucess"
@@ -89,7 +95,8 @@ Page({
    */
   onLoad: function (options) {
     const curId = options.id
-    this.setData({curId})
+    const curComInfo = wx.getStorageSync("curComInfo")
+    this.setData({ curId, curComInfo})
   },
 
   /**
@@ -105,23 +112,14 @@ Page({
   onShow: function () {
     const requestParams = {
       apiUrl: "/ChildAccount/detail",
-      requestData:{id:this.data.curId}
+      requestData:{id:this.data.curId,comid:this.data.curComInfo.comId}
     }
-    const myComList = wx.getStorageSync("myCom")
-    util.request(requestParams).then(res => {
-      let userComList = res.info.belong_com.split(",")
-      let comList = myComList.map(item=>{
-        let newItem = Object.assign({}, item)
-        if(userComList.indexOf(item.comId)>=0) {
-          newItem.checked =true
-        }
-        return newItem
-      })
+
+    app.ajax(requestParams).then(res => {
+
       this.setData({
         showPage: true,
-        info:res.info,
-        selectedCom:res.info.belong_com,
-        comList
+        info:res.info
       })
     })
   }

@@ -13,14 +13,8 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    const curComInfo = wx.getStorageSync("curComInfo")
-    const userInfo = wx.getStorageSync("userInfo")
-    if(userInfo.userType == 3) {
-      app.errorBack({tips:"此功能仅限企业管理人员查看"})
-      return
-    }
     this.setData({
-      curComObjectId: curComInfo.objectId,
+
       showPage:true
     })
   },

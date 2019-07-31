@@ -2,13 +2,7 @@
 <view class="container" wx:if="{{pageShow}}">
   <view class="m-index-top">
     <view class="index-company-name">
-      
-      <picker bindchange="bindComChange" value="0" range="{{comList}}" range-key="comShortName" class="" wx:if="{{comList.length > 1}}">
-        <text class="name">{{curComInfo.comName}}</text>
-        <view class="switch-btn"></view>
-      </picker>
-      <view wx:elif="{{comList.length == 1}}"><text class="name">{{curComInfo.comName}}</text></view>
-      <view wx:else><text class="name">还没有绑定企业</text></view>
+      <text class="name">{{curComInfo.comName}}</text>
     </view>
   </view>
   <view class="g-m-wrap">
@@ -35,7 +29,7 @@
         </navigator>
         <navigator open-type='navigate' url="/pages/ysyf/index/index" class="item">
           <image class="icon" src="/static/images/icon-gsjd.png"></image>
-          <view class="" >应收应付</view>
+          <view class="">应收应付</view>
         </navigator>
         <view class="item last">
           <image class="icon" src="/static/images/icon-csfw.png"></image>

@@ -22,10 +22,8 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    const curComInfo = wx.getStorageSync("curComInfo")
     let requestParams = {
-      apiUrl:"/Handover/contact",
-      requestData:{id:curComInfo.objectId,comid:curComInfo.comId}
+      apiUrl:"/Handover/contact"
     }
     app.ajax(requestParams).then(res=>{
       this.setData({

@@ -1,8 +1,15 @@
 /* pages/home/childaccount/list/index.wxss */
-.home-logout-btn {
+.m-add-btn .icon {
+  margin-right:12rpx;
+  width:48rpx;
+  height:48rpx;
+}
+.m-add-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 100%;
   height: 120rpx;
-  line-height: 120rpx;
   text-align: center;
   color: #232323;
   font-size:32rpx;

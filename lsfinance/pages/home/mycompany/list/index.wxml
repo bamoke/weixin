@@ -1,9 +1,16 @@
 <!--pages/home/mycompany/list/index.wxml-->
 <view class="container">
   <view class="m-com-list">
-    <navigator open-type="navigate" url="/pages/home/mycompany/detail/index?id={{item.objectId}}" class="item" wx:for="{{comList}}" wx:key="comId">
-      <view class="name">{{item.comName}}</view>
-      <view><image class="u-myicon" src="/static/images/arrow-black-right.png"></image></view>
-    </navigator>
+    <radio-group class="radio-group" bindchange="radioChange">
+      <label class="item" wx:for="{{comList}}" wx:key="comid">
+        <radio value="{{item.comid}}" checked="{{item.isCur}}" />
+        <view class="com-name">{{item.comname}}</view>
+
+      </label>
+    </radio-group>
+
+  </view>
+  <view class="m-fixed-bottom-box" wx:if="{{comList.length > 1}}">
+    <view class="btn btn-block btn-large btn-primary" bindtap="handleChangeCom">确认切换</view>
   </view>
 </view>

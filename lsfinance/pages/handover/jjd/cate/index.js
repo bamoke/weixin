@@ -27,17 +27,14 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
-    const curComInfo = wx.getStorageSync("curComInfo")
 
     let requestParams = {
-      apiUrl:"/Voucher/cate",
-      requestData: { comid: curComInfo.comId}
+      apiUrl:"/Voucher/cate"
       
     }
     app.ajax(requestParams).then(res=>{
       this.setData({
-        cateList:res.list,
-        comId: curComInfo.comId
+        cateList:res.list
       })
       wx.setStorageSync("rwdjCateData", res.list)
     })

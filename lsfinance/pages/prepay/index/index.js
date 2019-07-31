@@ -34,7 +34,6 @@ Page({
     curItem.description = this.data.description
     let formData = {
       title:curItem.title,
-      comid:curItem.comid,
       amount:curItem.amount,
       ratio:curItem.ratio,
       old_amount:curItem.old_amount,
@@ -95,12 +94,8 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
-    var curComInfo = wx.getStorageSync("curComInfo");
     const requestParams = {
-      apiUrl: "/Prepay/index",
-      requestData: {
-        comid: curComInfo.comId
-      }
+      apiUrl: "/Prepay/index"
     }
     util.request(requestParams).then((data) => {
       this.setData({

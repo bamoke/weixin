@@ -170,6 +170,7 @@ const request = function({
           title: "网络连接错误",
           image: "/static/images/icon-error.png"
         })
+        isLoaded = true;
         reject("连接错误")
       }
     })

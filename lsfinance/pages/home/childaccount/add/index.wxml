@@ -1,25 +1,25 @@
 <!--pages/home/childaccount/index.wxml-->
 <view class='container'>
-  <view class='g-pad-box tips'>设置子账号，可以让子账号代理您完成日常财务操作</view>
-  <form class='m-form' bindsubmit='submitForm' wx:if="{{comList.length}}">
+  <view class='g-pad-box tips'>
+  <image class="icon" src="/static/images/icon-tips.png"></image>
+  <view>
+    <view>1.子账号可以代理您完成日常财务操作;</view>
+    <view>2.子账号与主账号具有相同的操作权限，请谨慎使用;</view>
+    <view>3.无效的账号应及时做删除处理。</view>
+  </view>
+  </view>
+  <view class="u-ht"></view>
+  <form class='m-form' bindsubmit='submitForm'>
     <view class='form-group'>
-      <input type='text' name="realname" placeholder='请输入管理人员姓名' class="input-box"></input>
+      <input type='text' name="realname" placeholder='请输入子账号管理人员姓名' class="input-box"></input>
     </view>
     <view class='form-group'>
-      <input type='number' name="phone" placeholder='请输入管理人员手机号码' class="input-box"></input>
+      <input type='number' name="phone" placeholder='请输入子账号管理人员手机号码' class="input-box"></input>
     </view>
-    <view class="g-pad-box" style="margin-top:24rpx;background:#fff;border-bottom:1px solid #f1f1f1;">关联企业:</view>
-    <view class="form-group">
-      <checkbox-group class="" bindchange="selectCom">
-        <label class="com-list" wx:for="{{comList}}" wx:key="comId">
-          <checkbox value="{{item.comId}}" checked='{{item.checked}}' />{{item.comName}}
-        </label>
-      </checkbox-group>
-    </view>
+
     <view class="u-ht"></view>
     <view class='form-group'>
-      <button form-type='submit' class='btn btn-block btn-primary' loading='{{isSubmiting}}'>提交</button>
+      <button form-type='submit' class='btn btn-large btn-block btn-primary' loading='{{isSubmiting}}'>提交</button>
     </view>
   </form>
-  <view class="g-pad-box" wx:else>名下暂无企业可管理</view>
 </view>

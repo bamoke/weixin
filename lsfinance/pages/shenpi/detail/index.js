@@ -66,8 +66,8 @@ Page({
     if (!options.id) {
       app.errorBack("参数错误")
     }
-    const comInfo = wx.getStorageSync("curComInfo")
-    this.setData({id:options.id,comId:comInfo.comId})
+
+    this.setData({id:options.id})
 
   },
   /**
@@ -77,8 +77,7 @@ Page({
     const requestParams = {
       apiUrl: "/Shenpi/detail",
       requestData: {
-        id: this.data.id,
-        comid:this.data.comId
+        id: this.data.id
       }
     }
     app.ajax(requestParams).then((res) => {

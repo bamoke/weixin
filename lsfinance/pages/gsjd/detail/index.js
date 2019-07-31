@@ -38,7 +38,6 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function() {
-    const comInfo = this.data.curComInfo;
     const requestParams = {
       apiUrl: "/Gsjd/detail",
       requestData: {

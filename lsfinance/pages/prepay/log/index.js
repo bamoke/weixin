@@ -23,13 +23,11 @@ Page({
   
   // fetchData
   _fetchData:function(){
-    var curComInfo = wx.getStorageSync("curComInfo");
     const requestParams = {
       apiUrl: "/Recharge/index",
       requestData: {
         page:this.data.page,
-        month:this.data.selectedMonth,
-        comid: curComInfo.comId
+        month:this.data.selectedMonth
       }
     }
     app.ajax(requestParams).then((data) => {

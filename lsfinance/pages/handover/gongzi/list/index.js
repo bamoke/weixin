@@ -13,10 +13,8 @@ Page({
    */
   data: {
     showPage: false,
-    curComInfo: null,
     base: {},
     list: [],
-    noData: false,
     toMonth:curMonth,
     curMonth:curMonth
   },
@@ -33,7 +31,6 @@ Page({
     const requestParams = {
       apiUrl: "/Handover/shenbao",
       requestData: {
-        comid: this.data.curComInfo.comId,
         type: "gz",
         month: newMonth
       }
@@ -42,20 +39,27 @@ Page({
       this.setData({
         base: res.base,
         list: res.list,
-        noData: false,
         showPage: true,
         curMonth: newMonth
       })
-    }, reject => {
-      if (reject.code == 13009) {
-        this.setData({
-          showPage: true,
-          noData: true
-        })
-      }
     })
   },
 
+  /**
+   * 
+   */
+  switchDetail(e) {
+    var curIndex = e.currentTarget.dataset.index
+    var list = this.data.list
+    list[curIndex].show = !list[curIndex].show
+    this.setData({
+      list
+    })
+  },
+  
+  /**
+   * 
+   */
   handleSelectedItem(e) {
     const value = e.detail.value[0]
     const index = e.currentTarget.dataset.index
@@ -88,17 +92,24 @@ Page({
   handleSubmit() {
     let list = this.data.list;
     let base = this.data.base;
-    let hasUnSb = list.some(item => {
-      return item.status === "暂停发放" || item.status === '待处理'
+
+    var unSbNum = 0;
+    list.forEach(item => {
+      if (item.status === "暂停发放" || item.status === '待处理') {
+        unSbNum++
+      }
     })
 
-    if (hasUnSb) {
+
+
+    if (unSbNum > 0) {
       base.status_name = "部分发放"
       this.setData({
         base
       })
       wx.showModal({
-        content: '未被选择名单本月将暂停工资发放，确认继续提交？',
+        title: `${unSbNum}个名单未选择`,
+        content: `未被选择名单本月将暂停工资发放，确定继续提交？`,
         success: res => {
           if (res.confirm) {
             this._sendData()
@@ -115,7 +126,7 @@ Page({
   },
   _sendData() {
     const requestParams = {
-      apiUrl: "/Handover/shenbao_save/comid/" + this.data.curComInfo.comId,
+      apiUrl: "/Handover/shenbao_save",
       requestData: {
         type: "gz",
         base: JSON.stringify(this.data.base),
@@ -139,10 +150,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
-    const curComInfo = wx.getStorageSync("curComInfo")
-    this.setData({
-      curComInfo
-    })
+
   },
 
   /**
@@ -160,7 +168,6 @@ Page({
     const requestParams = {
       apiUrl: "/Handover/shenbao",
       requestData: {
-        comid: this.data.curComInfo.comId,
         type: "gz",
         month:this.data.curMonth
       }
@@ -169,16 +176,8 @@ Page({
       this.setData({
         showPage: true,
         base: res.base,
-        list: res.list,
-        noData:false
+        list: res.list
       })
-    }, reject => {
-      if (reject.code == 13009) {
-        this.setData({
-          showPage: true,
-          noData: true
-        })
-      }
     })
   }
 })
