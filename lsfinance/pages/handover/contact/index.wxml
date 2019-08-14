@@ -23,7 +23,7 @@
         </view>
         <view class="section">负责企业日常工作对接、工作质量和工作进度管理</view>
       </view>
-      <view class="tel-box" bindtap='phoneCall' data-phone="{{info.kjbjl.phone}}">
+      <view class="tel-box" bindtap='phoneCall' data-phone="{{info.kjzz.phone}}">
         <image class="icon" src="/static/images/icon-phone.png"></image>
       </view>
     </view>

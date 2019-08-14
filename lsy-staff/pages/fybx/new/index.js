@@ -381,7 +381,7 @@ Page({
         })
       }, reject => {
         if (reject.code == 13009) {
-          app.errorBack(reject.msg)
+          app.errorBack({tips:reject.msg})
         }
       })
     } else if (options.actype == 3) {

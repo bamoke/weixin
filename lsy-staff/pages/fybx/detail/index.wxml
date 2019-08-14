@@ -52,7 +52,7 @@
   </view>
 
   <!--operator-->
-  <view class='m-fixed-bottom-box' wx:if="{{baseInfo.sp_status == 0}}">
+  <view class='m-fixed-bottom-box' wx:if="{{baseInfo.sp_status == 0 || baseInfo.sp_status == 2}}">
     <view class="g-row-bt">
       <view style="width:35%" class="btn btn-large btn-default" bindtap='handleDel'>删除</view>
       <navigator style="width:45%;" open-type='redirect' url="../new/index?actype=2&id={{id}}" class="btn btn-large btn-primary">修改</navigator>
