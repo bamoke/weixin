@@ -1,0 +1,5 @@
+<!--components/bmk-page/page.wxml-->
+<view class='m-page-wrap'>
+  <view class="no-more" wx:if="{{pageSize*current > total}}">没有更多</view>
+  <view class="load-more" wx:else>加载更多</view>
+</view>

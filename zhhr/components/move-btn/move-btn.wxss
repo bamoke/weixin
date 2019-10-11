@@ -1,0 +1,52 @@
+/* components/move-btn/move-btn.wxss */
+
+.m-move-btn {
+  position: fixed;
+  z-index: 9999;
+  width: 48px;
+  height: 48px;
+  
+  color: #fff;
+
+}
+
+.m-move-btn .icon-wrap {
+  box-sizing: border-box;
+  width: 48px;
+  height: 48px;
+  padding: 5px;
+  background-color: rgba(255,255,255,.6);
+  border: 1px solid transparent;
+  border-radius: 50%;
+  animation: btn-animation 1s infinite;
+}
+
+.m-move-btn .icon {
+  position: absolute;
+  left:6px;
+  top:6px;
+  box-sizing:border-box;
+  width: 36px;
+  height: 36px;
+  background:#fff;
+  border-radius:50%;
+}
+
+@keyframes btn-animation {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+
+  50% {
+    transform: scale(1.1);
+    opacity: .6;
+  }
+
+  100% {
+    transform: scale(1);
+    opacity: 1;
+
+  }
+}
+

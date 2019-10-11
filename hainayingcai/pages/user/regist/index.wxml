@@ -1,0 +1,36 @@
+<!--pages/common/bind/index.wxml-->
+<view class='container'>
+
+  <form class='m-form' bindsubmit='submitForm'>
+    <view class="form-wrap">
+      <view class='form-group'>
+        <input type='number' name="phone" placeholder='请输入手机号码' class="input-box" bindinput='updatePhone'></input>
+      </view>
+      <view class='form-group'>
+        <input type='password' name="password" placeholder='请输入密码' class="input-box"></input>
+      </view>
+      <block wx:if="{{acType === 'reg'}}">
+        <view class='form-group'>
+          <input type='password' name="password2" placeholder='确认密码' class="input-box"></input>
+        </view>
+        <view class='form-group'>
+          <input type='number' name="code" placeholder='请输入验证码' class="input-box"></input>
+          <view class='code-btn {{btnStyle}}' bindtap='fetchCode'>{{btnText}}</view>
+        </view>
+      </block>
+      <view class="error-box" hidden='{{!errorStatus}}'>{{errorMsg}}</view>
+      <view class='form-group'>
+        <button form-type='submit' class='btn btn-primary'>提交</button>
+      </view>
+    </view>
+  </form>
+  <view class='bot-info g-pad-box'>
+    <view class='' wx:if="{{acType=='reg'}}">
+      <navigator url='/pages/user/regist/index?type=login' open-type='navigateTo' style='text-align:center'>已有账号？立即登录</navigator>
+    </view>
+    <view class='' style="text-align:center;" wx:else>
+      <navigator url="/pages/user/regist/index?type=reg" open-type='navigateTo'>还没有账号？点击注册</navigator>
+<!--       <navigator url="/pages/user/reset/index" open-type='navigateTo'>忘记密码？</navigator> -->
+    </view>
+  </view>
+</view>

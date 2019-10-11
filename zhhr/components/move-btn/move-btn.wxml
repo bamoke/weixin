@@ -1,0 +1,6 @@
+<!--components/move-btn/move-btn.wxml-->
+  <view class="m-move-btn" id="bmk-move-btn" style="right:24rpx;bottom:200rpx" catchtap='showPage' catchtouchend="{{move.touchend}}" catchtouchmove="{{move.touchmove}}" data-windowwidth="{{windowWidth}}" data-windowheight="{{windowHeight}}">
+    <view class="icon-wrap" style="border-color:{{borderColor}}"></view>
+    <image src="{{icon}}" class="icon" mode="aspectFill"></image>
+  </view>
+  <wxs module="move" src="index.wxs"></wxs>

@@ -1,0 +1,62 @@
+<!--pages/fairs/company/index.wxml-->
+<import src="/wxParse/wxParse.wxml" />
+<import src="/template/jobs-list.wxml" />
+<view class="container" wx:if="showPage">
+  <view class='m-top'>
+    <view class='logo-box'>
+      <image class='logo' src="{{comInfo.logo? comInfo.logo : defaultLogo}}" mode='aspectFill'></image>
+    </view>
+    <view class="m-base-info">
+      <view class='title'>{{comInfo.name}}</view>
+      <view class="other">
+        <text class='util'>{{comInfo.city}}</text>
+        <text class='fg'>|</text>
+        <text class='util'>{{comSizeArr[comInfo.size]}}</text>
+      </view>
+    </view>
+  </view>
+
+  <view class="m-tab">
+    <view class="tab-item {{currentTab === 0 ? 'active':''}}" data-index="0" bindtap="swichTab">
+      <text class="title">企业介绍</text>
+    </view>
+    <view class="tab-item {{currentTab === 1 ? 'active':''}}" data-index="1" bindtap="swichTab">
+      <text class="title">校招职位</text>
+    </view>
+  </view>
+  <view class='m-tab-content'>
+    <view class='content-box g-pad-box' hidden='{{currentTab !== 0}}'>
+    <template is="wxParse" data="{{wxParseData:wxparse_introduce_content.nodes}}" />
+    </view>
+
+    <view class="" hidden='{{currentTab !== 1}}'>
+      <view class='m-jobs-list'>
+        <navigator url="/pages/jobs/detail/index?id={{item.id}}" class='item' wx:for="{{jobsInfo.list}}" wx:key="id">
+          <view>
+            <view class="g-row-bt hd">
+              <view class='title'>{{item.name}}</view>
+              <view class="wages">{{item.custom_wage||wagesArr[item.wages]}}</view>
+            </view>
+            <view class="company-name" wx:if="{{item.companyName}}">{{item.companyName}}</view>
+            <view class="requirement">
+              <text>{{item.work_addr}}</text>
+              <text class='fg'>|</text>
+              <text>{{eduArr[item.edu]}}</text>
+            </view>
+            <view class='m-tags wx:if="{{item.tags}}"'>
+              <text wx:for="{{item.tags}}" wx:key="index" wx:for-item="val">{{val}}</text>
+            </view>
+          </view>
+        </navigator>
+        <view class="m-paging-wrap">
+          <view class='row no-more' wx:if="{{!jobInfo.hasMore}}">没有更多了</view>
+          <view wx:else>
+            <view class='row load-more' bindtap='loadMore' hidden='{{jobLoading}}'>加载更多</view>
+            <view class="row" hidden='{{!jobLoading}}'>加载中</view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+</view>

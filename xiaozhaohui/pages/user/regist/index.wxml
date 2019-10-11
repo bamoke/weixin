@@ -1,6 +1,6 @@
 <!--pages/common/bind/index.wxml-->
 <view class='container'>
-  <view class='tips' wx:if="{{acType == 'reg'}}">注册后的账号可在电脑端上传简历附件</view>
+
   <form class='m-form' bindsubmit='submitForm'>
     <view class="form-wrap">
       <view class='form-group'>

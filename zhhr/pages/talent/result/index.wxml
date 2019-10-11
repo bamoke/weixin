@@ -1,0 +1,27 @@
+<!--pages/talent/result/index.wxml-->
+<view class="container">
+  <view class="m-stage">
+    <view class="item {{zlStageStyle}}">
+      <view class="line"></view>
+      <view class="icon"></view>
+      <view class="title">认证资料填写</view>
+    </view>
+    <view class="item {{ptStageStyle}}">
+      <view class="line"></view>
+      <view class="icon"></view>
+      <view class="title">平台初审</view>
+    </view>
+    <view class="item {{zfStageStyle}}">
+      <view class="line"></view>
+      <view class="icon"></view>
+      <view class="title">政府单位认证</view>
+    </view>
+  </view>
+  <view class="m-result">
+    {{stageDescription}}
+
+  </view>
+  <view wx:if="{{hasError}}">
+    <navigator url="../form/index?id={{id}}" open-type="navigate" class="btn btn-block btn-primary">重新提交</navigator>
+  </view>
+</view>

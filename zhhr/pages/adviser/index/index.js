@@ -1,78 +1,88 @@
 // pages/adviser/index/index.js
+const app = getApp()
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    showPage: false,
+    list: ['','',''],
+    hasTalent: false
   },
 
   /**
    * handle
    */
-  callAdviser(){
-    wx.showModal({
-      content: '模块正在开发中……',
-      showCancel:false
-    })
+  callAdviser(e) {
+    const phone = e.currentTarget.dataset.phone
+    if (!this.data.hasTalent) {
+      wx.showModal({
+        title: "没有人才卡或人才卡已过期",
+        content: "现在就去申请金英人才卡？",
+        success: function (result) {
+          if (result.confirm) {
+            wx.redirectTo({
+              url: '/pages/talent/index/index',
+            })
+          }
+        }
+      })
+      return
+    }
+    if (phone) {
+      wx.makePhoneCall({
+        phoneNumber: phone,
+      })
+    }
   },
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
-    wx.showModal({
-      content: '模块正在开发中……',
-      showCancel: false
-    })
-  },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
+  onLoad: function(options) {
 
   },
+
+
 
   /**
    * 生命周期函数--监听页面显示
    */
-  onShow: function () {
+  onShow: function() {
+    const requestParams = {
+      apiUrl: "/Adviser/index"
+    }
+    app.ajax(requestParams).then(res => {
+      if (!res.data.hasTalent) {
+        wx.showModal({
+          title: "没有人才卡或人才卡已过期",
+          content: "现在就去申请金英人才卡？",
+          success: function(result) {
+            if (result.confirm) {
+              wx.redirectTo({
+                url: '/pages/talent/index/index',
+              })
+            }
+          }
+        })
+      }
+      this.setData({
+        list: res.data.list,
+        hasTalent: res.data.hasTalent
+      })
+    }, reject => {
+      if (reject.code == 13009) {
 
+      }
+    })
   },
 
   /**
    * 生命周期函数--监听页面隐藏
    */
-  onHide: function () {
+  onHide: function() {
 
   },
 
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
 
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
-  }
 })

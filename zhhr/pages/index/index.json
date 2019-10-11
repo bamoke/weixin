@@ -1,4 +1,7 @@
-{"usingComponents":{
-  "bmk-card":"/components/card/index",
-  "bmk-total":"/components/total/index"
-}}
+{
+  "enablePullDownRefresh": true,
+  "backgroundTextStyle": "dark",
+  "usingComponents":{
+    "move-btn":"/components/move-btn/move-btn"
+  }
+}

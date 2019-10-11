@@ -1,0 +1,32 @@
+<!--pages/home/collection/index.wxml-->
+<view class="container" wx:if="{{showPage}}">
+  <view wx:if="{{list.length > 0}}">
+    <view class='m-jobs-list'>
+      <navigator url="/pages/jobs/detail/index?id={{item.jobid}}" class='item' wx:for="{{list}}" wx:key="id">
+        <view>
+          <view class="g-row-bt hd">
+            <view class='title'>{{item.jobname}}</view>
+            <view class="wages">{{wagesArr[item.wages]}}</view>
+          </view>
+          <view class="company-name">{{item.comname}}</view>
+          <view class="requirement text-lightgrey">
+            <text>{{item.work_addr}}</text>
+            <text class='fg'>|</text>
+            <text>{{eduArr[item.edu]}}</text>
+          </view>
+        </view>
+      </navigator>
+      <view class="m-paging-wrap">
+        <view class='row no-more' wx:if="{{!hasMore}}">没有更多了</view>
+        <view wx:else>
+          <view class="row" hidden='{{!isLoading}}'>加载中</view>
+        </view>
+      </view>
+    </view>
+  </view>
+   <!--empty page-->
+  <view class="m-tips-page tips-page-empty" wx:else>
+    <image class="icon" src="/static/images/mt-empty.png"></image>
+    <view class="tips">暂无收藏记录</view>
+  </view>
+</view>

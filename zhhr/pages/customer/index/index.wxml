@@ -1,0 +1,23 @@
+<!--pages/customer/index/index.wxml-->
+<view class="container">
+  <view class="m-top-box">
+    <!-- <image class="kf-icon" src="/static/images/icon-kf.png"></image> -->
+    <view class="title">Hi,有什么可以帮您?</view>
+    <view class="hot-list">
+      <navigator class="item" url="../result/index?id={{item.id}}" open-type="navigate" wx:for="{{hotList}}" wx:key="id">{{item.question}}</navigator>
+    </view>
+    <view class="m-search-input">
+      <image class="icon" src="/static/images/icon-search-black.png"></image>
+      <view class="input" bindtap="goSearch">请输入您想咨询的问题</view>
+    </view>
+  </view>
+
+
+  <view class="voice-box">
+    <view class="line {{recordActive?'line-active':''}}"></view>
+    <view class="tips">请说普通话</view>
+    <view class="icon-wrap {{recordActive?'record-active':''}}">
+      <image src="/static/images/icon-recorder.png" class="icon" bindlongpress="startRecord" bindtouchend="stopRecord"></image>
+    </view>
+  </view>
+</view>

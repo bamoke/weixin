@@ -21,4 +21,5 @@
   <view class='u-nomore' wx:if="{{showEnd}}">
     <view class="tips">没有更多了</view>
   </view>
+  <move-btn></move-btn>
 </view>

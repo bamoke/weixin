@@ -1,5 +1,7 @@
 {
-  "usingComponents": {},
+  "usingComponents": {
+    "move-btn": "/components/move-btn/move-btn"
+  },
   "enablePullDownRefresh": true,
   "backgroundTextStyle": "dark",
   "onReachBottomDistance": 40,

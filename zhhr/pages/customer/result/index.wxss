@@ -1,0 +1,23 @@
+/* pages/customer/result/index.wxss */
+page,.container {
+  height:100%;
+}
+.container {
+  padding:24rpx;
+  background:#f8f8f8;
+}
+.main-wrap {
+  padding:24rpx;
+  background: #fff;
+  border-radius:6px;
+}
+.question {
+  padding-bottom:24rpx;
+  margin-bottom:24rpx;
+  border-bottom:1px solid #f1f1f1;
+  font-size:34rpx;
+}
+.aswer {
+  line-height:1.8;
+  font-size:30rpx;
+}

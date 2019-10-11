@@ -1,2 +1,33 @@
 <!--pages/talent/index/index.wxml-->
-<text>pages/talent/index/index.wxml</text>
+<view class="container" wx:if="{{showPage}}">
+  <view class="m-card-wrap" wx:if="{{info}}">
+    <view class="m-reapply g-box-pad" wx:if="{{info.expired == 1}}">
+      <view class="tips">很抱歉！您的人才卡已于{{info.end_date}}过期。</view>
+      <navigator url="../form/index?id={{info.id}}" mode="navigate" class="btn btn-block btn-primary">重新申请</navigator>
+    </view>
+    <block wx:else>
+      <view class="m-card-box">
+        <image class="bg" src="/static/images/talent-bg.jpg" mode=""></image>
+        <view class="content">
+          <view class="title">金英人才卡</view>
+          <view class="no">NO:{{info.card_no}}</view>
+        </view>
+      </view>
+      <view class="dealine">
+        有效期至：{{info.end_date}}
+      </view>
+    </block>
+  </view>
+
+  <view class="u-ht"></view>
+  <view class="m-tips">
+    <view class="bar">
+      <view class="caption">人才卡权益</view>
+    </view>
+    <view class="content">
+      <view class="p">1.使用人才专属顾问服务</view>
+      <view class="p">2.获得周边福利消费优惠,使用指南：在金英港湾签约商家结算时，出示本人才卡，即可获取对应的消费优惠。</view>
+    </view>
+  </view>
+
+</view>

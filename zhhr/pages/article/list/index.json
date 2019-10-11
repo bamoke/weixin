@@ -1,6 +1,7 @@
 {
   "usingComponents": {
-    "bmk-topnav":"/components/topnav/index"
+    "bmk-topnav":"/components/topnav/index",
+    "move-btn": "/components/move-btn/move-btn"
   },
   "onReachBottomDistance": 60,
   "navigationBarTitleText": "金英播报"

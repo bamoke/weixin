@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "上传简历",
+  "usingComponents": {
+    "upload-progress":"/components/upload-progress/progress"
+  }
+}

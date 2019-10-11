@@ -1,0 +1,23 @@
+<!--pages/article/detail/index.wxml-->
+<import src="../../../wxParse/wxParse.wxml" />
+<view class="container" wx:if="{{showPage}}">
+  <view class="m-top-box">
+      <view class="info">
+        <image mode="widthFix" class="thumb" src="{{detail.thumb}}"></image>
+        <view class="title">
+        <text class="txt">{{detail.title}}</text>
+        </view>
+      </view>
+  </view>
+  <view class='m-detail-wrap'>
+    <view class="m-video-box" wx:if="{{detail.video}}">
+      <video src="{{detail.video}}"></video>
+    </view>
+    <view class="content">
+       <template is="wxParse" data="{{wxParseData:wxparse_content.nodes}}" />
+    </view>
+    <view class="m-end">
+      <view class="tips">END</view>
+    </view>
+  </view>
+</view>

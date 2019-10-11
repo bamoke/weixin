@@ -1,0 +1,8 @@
+/* components/bmk-page/page.wxss */
+.m-page-wrap {
+  padding:40rpx 0;
+  text-align: center;
+}
+.m-page-wrap .no-more {
+  color:#ccc;
+}

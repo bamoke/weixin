@@ -1,0 +1,4 @@
+<!--pages/customer/search/index.wxml-->
+<view class="container">
+  <mp-searchbar focus="{{isFocus}}" placeholder="请输入关键字搜索" bindselectresult="selectResult" search="{{search}}" value="{{keyword}}" bind:on-hide-input="geFirst" resultlist="{{result}}"></mp-searchbar>
+</view>

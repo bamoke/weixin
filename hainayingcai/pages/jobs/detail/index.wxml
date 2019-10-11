@@ -1,0 +1,61 @@
+<!--pages/job/detail/index.wxml-->
+<import src="/wxParse/wxParse.wxml" />
+<view class='container' wx:if="showPage">
+  <view class='g-card'>
+    <view class="m-base-info g-pad-box">
+      <view class="g-row-bt">
+        <view class='title'>{{mainInfo.name}}</view>
+
+      <view class="wage">{{mainInfo.custom_wage||wagesArr[mainInfo.wages]}}</view>
+      </view>
+              <view class="m-attr">
+          <text class='util'>{{mainInfo.work_addr}}</text>
+          <text class="fg">|</text>
+          <text class="util">{{eduArr[mainInfo.edu]}}</text>
+        </view>
+        <view class="tags m-tags" wx:if="{{mainInfo.tags}}">
+          <text wx:for="{{mainInfo.tags}}" wx:key="index">{{item}}</text>
+        </view>
+    </view>
+  </view>
+
+  <view class="g-card border-top">
+    <navigator url="/pages/fairs/company/index?id={{mainInfo.com_id}}" open-type='navigateTo' class='m-company-card g-pad-box'>
+      <view>
+        <view class='company-name'>{{mainInfo.companyname}}</view>
+        <view class="m-attr">
+          <text class='util'>{{mainInfo.comcity}}</text>
+          <text class="fg">|</text>
+          <text class="util">{{comSizeArr[mainInfo.comsize]}}</text>
+        </view>
+      </view>
+      <view class="logo-wrap">
+        <image class="logo" mode="aspectFit" src="{{mainInfo.comlogo ? mainInfo.comlogo : defaultLogo}}"></image>
+      </view>
+    </navigator>
+  </view>
+
+  <view class='g-card border-top content-wrap'>
+    <view class='bar'>
+      <view class='title'>职位描述</view>
+      <view class='line-icon'></view>
+    </view>
+    <view class='g-pad-box content'>
+    <template is="wxParse" data="{{wxParseData:wxparse_content.nodes}}" />
+    </view>
+  </view>
+
+  <view class="m-foot-operation">
+    <view class="btn-small">
+      <button class="shareBtn" open-type='share'></button>
+      <image class="u-myicon" src="/static/images/icon-share.png"></image>
+      <view class='txt'>分享</view>
+    </view>
+    <view class="btn-small{{isCollection?' active':''}}" bindtap='collectionJob'>
+      <image class="icon" src="/static/images/icon-collection{{isCollection?'-active':''}}.png"></image>
+      <view class='txt'>收藏</view>
+    </view>
+    <view class="btn-large disabled" wx:if="{{isDeliver}}">已投递</view>
+    <view class="btn-large" bindtap='deliverResume' wx:else>投递简历</view>
+  </view>
+</view>

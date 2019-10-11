@@ -25,7 +25,7 @@
     "backgroundColor": "#ffcc00",
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#ffcc00",
-    "navigationBarTitleText": "校招汇",
+    "navigationBarTitleText": "海纳英才智慧校招",
     "navigationBarTextStyle": "black"
   },
   "tabBar": {
@@ -54,5 +54,9 @@
         "selectedIconPath": "static/images/icon-my-active.png"
       }
     ]
-  }
+  },
+  "sitemapLocation": "sitemap.json",
+    "navigateToMiniProgramAppIdList": [
+      "wx3033d010a1183484"
+    ]
 }

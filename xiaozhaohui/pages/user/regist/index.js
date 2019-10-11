@@ -1,5 +1,5 @@
 // pages/common/bind/index.js
-import util from '../../../utils/util';
+
 var app = getApp();
 
 Page({
@@ -49,7 +49,7 @@ Page({
       },
       isShowLoad: false
     }
-    var myPromise = util.request(requestParams);
+    var myPromise = app.ajax(requestParams);
     var _that = this;
     var num = 60;
     var timeText = "";
@@ -129,18 +129,17 @@ Page({
       requestData: formData,
       requestMethod: "POST"
     }
-    req = util.request(requestParams);
-    req.then(data => {
+    req = app.ajax(requestParams);
+    req.then(res => {
       wx.showToast({
-        title: data.msg,
+        title: res.data.msg,
       })
       const _that = this
       setTimeout(function() {
+          wx.setStorageSync("accessToken", res.data.token)
+          wx.setStorageSync("user", res.data.user)
         if (actype == 'login') {
-          wx.setStorageSync("accessToken", data.info.token)
-          wx.setStorageSync("user", data.info.user)
           if(_that.data.isNavBack) {
-            
             wx.navigateBack({
               delta: parseInt(_that.data.isNavBack)
             })
@@ -153,12 +152,17 @@ Page({
         } else {
           wx.showModal({
             title: '注册成功',
-            content: "现在返回登录页面",
-            showCancel: false,
-            success: function() {
-              wx.navigateTo({
-                url: '/pages/user/regist/index?type=login',
-              })
+            content: "立即填写简历，求职快人一步",
+            success: function(result) {
+              if(result.confirm) {
+                wx.navigateTo({
+                  url: '/pages/resume/base/index?type=create',
+                })
+              }else {
+                wx.reLaunch({
+                  url: '/pages/home/index/index'
+                })
+              }
             }
           })
         }

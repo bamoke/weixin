@@ -3,7 +3,7 @@
   <view class="m-banner">
     <image class="img" src="/static/images/welfare-banner.jpg"></image>
     <view class="info">
-      <view class="title">周边福利商家273家</view>
+      <view class="title">人才卡用户周边福利</view>
       <view class="addr">我的位置:{{locationInfo.streetInfo}}</view>
     </view>
   </view>
@@ -16,33 +16,60 @@
   <view class="u-ht"></view>
   <view class="m-welfare-list">
     <view class="item" wx:for="{{welfareList}}" wx:key="id">
-      <image src="{{item.thumb}}" mode="aspectFill" class="thumb"></image>
-      <view class="info">
-        <view class="title">{{item.title}}</view>
-        <view class="g-row grade-info">
-                <view class="m-grade-box">
-          <view class="grade" style="width:{{item.gradeRatio}}%;">
-            <image class="icon-star" src="/static/images/icon-star-fill.png"></image>
+      <view class="main-content" bindtap="handleClick" data-index="{{index}}">
+        <image src="{{item.thumb}}" mode="aspectFill" class="thumb"></image>
+        <view class="info">
+          <view class="top">
+          <view class="title">{{item.title}}</view>
+          <view class="distance">{{item.distance}}</view>
           </view>
-          <view class="bg">
-            <image class="icon-star" src="/static/images/icon-star-fill.png"></image>
+          <view class="g-row grade-info">
+            <view class="m-grade-box">
+              <view class="grade" style="width:{{item.gradeRatio}}%;">
+                <image class="icon-star" src="/static/images/icon-star-fill.png"></image>
+              </view>
+              <view class="bg">
+                <image class="icon-star" src="/static/images/icon-star-fill.png"></image>
+              </view>
+            </view>
+            <view class="grade-num">{{item.grade}}</view>
           </view>
-        </view>
-        <view class="grade-num">{{item.grade}}</view>
-        </view>
 
-        <view class="tags-box">
-          <text class="tag" wx:for="{{item.tags}}" wx:for-item="tag" wx:-for-index="j" wx:key="j">{{tag}}</text>
+          <view class="tags-box">
+            <text class="tag" wx:for="{{item.tags}}" wx:for-item="tag" wx:-for-index="j" wx:key="j">{{tag}}</text>
+          </view>
+          <view class="addr-box">
+            <text class="addr">活动时间:即日起至{{item.end_date}}</text>
+          </view>
         </view>
-        <view class="addr-box">
-          <text class="distance">{{item.distance}}</text>
-          <text class="addr">{{item.addr}}</text>
+      </view>
+      <view class="other-box" hidden="{{!item.show}}">
+        <view class="row">
+          <view class="section">优惠详情</view>
+          <view class="content">{{item.description}}</view>
+        </view>
+        <view class="row">
+          <view class="section">营业时间</view>
+          <view class="content">{{item.daily_hours}}</view>
+        </view>
+        <view class="row align-center">
+          <view class="section">详细地址</view>
+          <view class="content">{{item.addr}}</view>
+          <image src="/static/images/icon-navigate.png" class="icon" bindtap="handleNavigate" data-index="{{index}}"></image>
+        </view>
+        <view class="row align-center">
+          <view class="section">联系电话</view>
+          <view class="content">{{item.phone}}</view>
+          <image src="/static/images/icon-tel.png" class="icon" bindtap="handleCall" data-phone="{{item.phone}}"></image>
         </view>
       </view>
     </view>
   </view>
 
-    <view class='u-nomore' hidden="{{pageInfo.hasMore}}" >
+  <view class='u-nomore' hidden="{{pageInfo.hasMore}}">
     <view class="tips">没有更多了</view>
   </view>
+
+  <move-btn></move-btn>
+
 </view>

@@ -1,0 +1,7 @@
+<!--components/upload-progress/progress.wxml-->
+<view class="progress-cover" hidden="{{!isShow}}">
+  <view class="progress-wrap">
+    <view class="title">图片上传中……</view>
+    <progress percent="{{percent}}" active="true" duration="5" backgroundColor="#333" activeColor="#4395FF" stroke-width="12" border-radius="6" bindactiveend="endProgress" />
+  </view>
+</view>

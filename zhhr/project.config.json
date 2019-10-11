@@ -13,7 +13,7 @@
 		"checkInvalidKey": true
 	},
 	"compileType": "miniprogram",
-	"libVersion": "2.4.1",
+	"libVersion": "2.7.4",
 	"appid": "wxaa14c7aa5e3fd67a",
 	"projectname": "%E7%8F%A0%E6%B5%B7HR",
 	"debugOptions": {
@@ -40,7 +40,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 16,
+			"current": 24,
 			"list": [
 				{
 					"id": -1,
@@ -153,6 +153,62 @@
 					"id": -1,
 					"name": "名片发现",
 					"pathName": "pages/card/list/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "人才卡",
+					"pathName": "pages/talent/index/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 18,
+					"name": "人才卡申请",
+					"pathName": "pages/talent/form/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "审核进度",
+					"pathName": "pages/talent/result/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "客服中心",
+					"pathName": "pages/customer/index/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 21,
+					"name": "客服搜索",
+					"pathName": "pages/customer/search/index",
+					"query": "keyword=人才卡",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "客服搜索结果详情",
+					"pathName": "pages/customer/result/index",
+					"query": "id=1",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "客服语音搜索",
+					"pathName": "pages/customer/voicesearch/index",
+					"query": "keyword=人才卡",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "我的名片",
+					"pathName": "pages/mycard/index/index",
 					"scene": null
 				}
 			]

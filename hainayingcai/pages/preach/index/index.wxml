@@ -1,0 +1,26 @@
+<!--pages/preach/index/index.wxml-->
+<import src="/wxParse/wxParse.wxml" />
+<view class="container" wx:if="showPage">
+  <view class="title">{{mainInfo.title}}</view>
+  <view class="video-box" wx:if="{{mainInfo.video}}">
+    <video src="{{mainInfo.video}}" style="width:100%;height:420rpx;" initial-time="1" objectFit="cover"></video>
+  </view>
+  <block wx:if="{{mainInfo.description}}">
+    <view class="u-ht"></view>
+    <view class="description">
+      摘要：{{mainInfo.description}}
+    </view>
+  </block>
+  <view class="m-shareBtn-wrap">
+    <button class="btn btn-primary btn-block shareBtn" open-type='share'>
+      <image class="u-myicon" src="/static/images/icon-share.png"></image>
+      <text class='txt'>分享</text>
+    </button>
+  </view>
+  <view wx:if="{{mainInfo.content_bf}}">
+    <view class="u-ht"></view>
+    <view class='g-pad-box content'>
+      <template is="wxParse" data="{{wxParseData:wxparse_preach_content.nodes}}" />
+    </view>
+  </view>
+</view>

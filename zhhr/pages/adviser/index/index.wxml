@@ -2,10 +2,10 @@
 <view class="container">
   <view class="m-subpage-banner">
     <image class="img" src="/static/images/service-banner.jpg"></image>
-<!--     <view class="info">
+    <view class="info">
       <view class="title">人才服务顾问团</view>
       <view class="desc">为高端人才提供一对一订制服务</view>
-    </view> -->
+    </view>
   </view>
   <view class="service-bar">
     <view class="section">
@@ -16,54 +16,20 @@
     <view class="top-icon">
       <view class="content"></view>
     </view>
-    <view class="item">
-      <image class="pic" src="https://www.bamoke.com/jygw/Uploads/images/thumb/service-pic-cl.jpg"></image>
+    <view class="item" wx:for="{{list}}" wx:key="{{index}}">
+      <image class="pic" src="{{item.thumb}}"></image>
       <view class="info">
-        <view class="title">差旅服务</view>
-        <view class="desc">预定机票预订酒店好麻烦？不用急，有服务顾问团协助您处理这些小事</view>
+        <view class="title">{{item.title}}</view>
+        <view class="desc">{{item.description}}</view>
         <view class="service-content">
-          <text>订酒店</text>
-          <text>订机票</text>
-          <text>订门票</text>
+          {{item.tags}}
         </view>
-        <view class="service-btn" bindtap='callAdviser'>呼叫顾问</view>
+        <view class="service-btn" bindtap='callAdviser' data-phone="{{item.phone}}">呼叫顾问</view>
       </view>
     </view>
-    <view class="item">
-      <image class="pic" src="http://www.bamoke.com/jygw/Uploads/images/thumb/service-pic-cy.jpg"></image>
-      <view class="info">
-        <view class="title">餐饮服务</view>
-        <view class="desc">想尝遍珠海美食,约客户约朋友聚餐，工作下午茶？不好选择，没关系，服务顾问团来帮忙</view>
-        <view class="service-content">
-          <text>推荐预订高口碑餐厅</text>
-          <text>预订下午茶</text>
-        </view>
-        <view class="service-btn" bindtap='callAdviser'>呼叫顾问</view>
-      </view>
-    </view>
-    <view class="item">
-      <image class="pic" src="https://www.bamoke.com/jygw/Uploads/images/thumb/service-pic-js.jpg"></image>
-      <view class="info">
-        <view class="title">健身服务</view>
-        <view class="desc">工作忙完去哪运动一下，不清楚场地情况？没关系，有服务顾问团协助您处理这些小事</view>
-        <view class="service-content">
-          <text>预订运动场地</text>
-          <text>预订健身中心</text>
-        </view>
-        <view class="service-btn" bindtap='callAdviser'>呼叫顾问</view>
-      </view>
-    </view>
-    <view class="item">
-      <image class="pic" src="https://www.bamoke.com/jygw/Uploads/images/thumb/service-pic-zc.jpg"></image>
-      <view class="info">
-        <view class="title">专车服务</view>
-        <view class="desc">出行不方便怎么办？不着急，服务顾问团是您的出行小秘书，找Ta来帮忙</view>
-        <view class="service-content">
-          <text>预约商务/旅途专车服务</text>
-        </view>
-        <view class="service-btn" bindtap='callAdviser'>呼叫顾问</view>
-      </view>
-    </view>
+
+
+
   </view>
 
 </view>

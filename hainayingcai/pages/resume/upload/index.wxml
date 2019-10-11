@@ -1,0 +1,24 @@
+<!--pages/resume/upload/index.wxml-->
+<view class="container">
+  <view class="tips-text">
+    <view class='title'>从相册选择图片或手机拍摄，最多可上传<text class="f-strong">4</text>张图片，单张图片最大不超过3M</view>
+  </view>
+  <view class="u-ht"></view>
+  <view class="img-list-wrap">
+
+    <view class="item" wx:for="{{imgList}}" wx:key="name">
+      <image class="img" src="{{item.url}}" mode="aspectFill" bindtap="showThumb" data-index="{{index}}"></image>
+      <view class="btn delete-btn" bindtap="deleteImg" data-index="{{index}}">删除图片</view>
+    </view>
+    <view class="item" wx:if="{{imgList.length !== 4}}">
+      <view class="add-btn" bindtap="addImg" >
+        <image class="img" src="/static/images/add.png"></image>
+        <view class="tips">还可上传<text class="f-strong">{{4-imgList.length}}</text>张</view>
+      </view>
+    </view>
+
+
+  </view>
+
+  <upload-progress is-show="{{showProgress}}" percent="{{percent}}"></upload-progress>
+</view>

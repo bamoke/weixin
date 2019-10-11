@@ -27,13 +27,14 @@
     "pages/policy/list/index",
     "pages/policy/detail/index",
     "pages/adviser/index/index",
-    "pages/talent/index/index"
+    "pages/talent/index/index",
+    "pages/talent/result/index",
+    "pages/talent/form/index",
+    "pages/customer/index/index",
+    "pages/customer/search/index",
+    "pages/customer/result/index",
+    "pages/customer/voicesearch/index"
   ],
-  "permission": {
-    "scope.userLocation": {
-      "desc": "你的位置信息将用于小程序位置接口的效果展示"
-    }
-  },
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#1b81d3",
@@ -56,10 +57,15 @@
       {
         "pagePath": "pages/article/list/index",
         "text": "金英播报",
+        "iconPath": "static/images/tab-news.png",
+        "selectedIconPath": "static/images/tab-news-active.png"
+      },
+      {
+        "pagePath": "pages/welfare/list/index",
+        "text": "福利",
         "iconPath": "static/images/tab-find.png",
         "selectedIconPath": "static/images/tab-find-active.png"
       },
-
       {
         "pagePath": "pages/home/index",
         "text": "我的",
@@ -67,6 +73,17 @@
         "selectedIconPath": "static/images/tab-sys-active.png"
       }
     ]
+  },
+  "permission": {
+    "scope.userLocation": {
+      "desc": "请确认授权，否则地图功能将无法使用"
+    }
+  },
+  "plugins": {
+    "WechatSI": {
+      "version": "0.3.1",
+      "provider": "wx069ba97219f66d99"
+    }
   },
   "sitemapLocation": "sitemap.json"
 }

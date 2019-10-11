@@ -15,6 +15,8 @@
 	"appid": "wx20e37dd9f2ca7886",
 	"projectname": "xiaozhaohui",
 	"isGameTourist": false,
+	"simulatorType": "wechat",
+	"simulatorPluginLibVersion": {},
 	"condition": {
 		"search": {
 			"current": -1,
@@ -33,14 +35,8 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 5,
+			"current": 7,
 			"list": [
-				{
-					"id": -1,
-					"name": "简历详情",
-					"pathName": "pages/resume/detail/index",
-					"query": "id=1"
-				},
 				{
 					"id": -1,
 					"name": "招聘会详情",
@@ -70,6 +66,27 @@
 					"name": "职位列表",
 					"pathName": "pages/jobs/list/index",
 					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "简历详情",
+					"pathName": "pages/resume/detail/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "简历首页",
+					"pathName": "pages/resume/index/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "简历上传",
+					"pathName": "pages/resume/upload/index",
+					"query": "",
+					"scene": null
 				}
 			]
 		}

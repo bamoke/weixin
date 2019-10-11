@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "高校",
+  "onReachBottomDistance": 60,
+  "enablePullDownRefresh": true,
+  "backgroundTextStyle": "dark"
+}

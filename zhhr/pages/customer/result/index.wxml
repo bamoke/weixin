@@ -1,0 +1,7 @@
+<!--pages/customer/result/index.wxml-->
+<view class="container">
+<view class="main-wrap">
+  <view class="question">{{info.question}}</view>
+  <view class="aswer">{{info.content}}</view>
+</view>
+</view>

@@ -1,0 +1,72 @@
+/* pages/resume/upload/index.wxss */
+
+.container {
+  background: #fff;
+}
+
+.tips-text {
+  padding: 24rpx;
+  background: #fff;
+  line-height: 1.5;
+}
+
+.tips-text .title {
+  font-size: 26rpx;
+  color: #9c9c9c;
+  /* text-align: center; */
+}
+
+.img-list-wrap {
+  width: 100%;
+  padding: 48rpx 24rpx;
+}
+
+.img-list-wrap .img {
+  box-sizing: border-box;
+  width: 240rpx;
+  height: 320rpx;
+  padding: 12rpx;
+  border: 1px solid #f1f1f1;
+}
+
+.img-list-wrap .add-btn {
+  display: inline-block;
+  width: 240rpx;
+  height: 320rpx;
+  padding: 30rpx 12rpx 0;
+  border: 1px solid #f1f1f1;
+  color: #9c9c9c;
+}
+
+.img-list-wrap .add-btn .img {
+  margin: 12rpx 0;
+  width: 128rpx;
+  height: 128rpx;
+  padding: 12rpx;
+  filter: grayscale(100);
+  opacity: 0.3;
+  border: 0;
+}
+
+.img-list {
+  display: flex;
+  width: auto;
+}
+
+.img-list-wrap .item {
+  display: inline-block;
+  margin-bottom:48rpx;
+  width: 50%;
+  text-align: center;
+  vertical-align: top;
+}
+.img-list-wrap .item .delete-btn {
+  width:240rpx;
+  font-size:28rpx;
+  background:#f1f1f1;
+}
+.f-strong {
+  margin:0 6rpx;
+  font-weight: bold;
+  color: #222;
+}

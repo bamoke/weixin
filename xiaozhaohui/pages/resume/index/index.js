@@ -9,7 +9,7 @@ Page({
     showPage:false,
     typeList: ["请选择","在线简历","附件简历"],
     curType: 1,
-    resumeId: null,
+    resumeId:null,
     resumeAttachment: ''
   },
 
@@ -59,22 +59,20 @@ Page({
       isShowLoad:false
     }
     var res = util.request(requestParams)
-    res.then(data => {
-      if (data.info === null) {
+    res.then(res => {
+      if (res.data.info === null) {
         this.setData({ showPage: true })
         return
       }
       var updateData = {
         showPage: true,
-        completion: data.info.completion,
-        curType: parseInt(data.info.default_set)
+        resumeId:res.data.info.id,
+        completion: res.data.info.completion,
+        curType: parseInt(res.data.info.default_set)
       }
-      if (data.info.id) {
-        updateData.resumeId = data.info.id
-        wx.setStorageSync("resumeId", data.info.id)
-      }
-      if (data.info.attachment !== '') {
-        updateData.resumeAttachment = data.info.attachment
+  
+      if (res.data.info.attachment !== '') {
+        updateData.resumeAttachment = res.data.info.attachment
       }
       this.setData({ ...updateData })
     })

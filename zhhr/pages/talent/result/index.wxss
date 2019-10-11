@@ -1,0 +1,92 @@
+/* pages/talent/result/index.wxss */
+page {
+  height: 100%;
+}
+
+.container {
+  height: 100%;
+  padding: 24rpx;
+  background: #f8f8f8;
+}
+.m-stage {
+  display: flex;
+  padding: 64rpx 0;
+  background: #fff;
+}
+
+.m-stage .item {
+  position: relative;
+  flex: 1 1 auto;
+  text-align: center;
+  color: #6c6c6c;
+}
+
+.m-stage .item .title {
+  padding-top: 36rpx;
+  font-size: 26rpx;
+}
+
+.m-stage .item .line {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  width: 100%;
+  height: 8rpx;
+  background: #eee;
+}
+
+.m-stage .item .icon {
+  position: absolute;
+  left: 50%;
+  top: -14rpx;
+  margin-left: -18rpx;
+  z-index: 1;
+  width: 36rpx;
+  height: 36rpx;
+  border-radius: 50%;
+  background: #9c9c9c;
+  border: 2px solid #ddd;
+}
+
+.m-stage .item:last-child {
+}
+
+.m-stage .item:last-child .line {
+  left: -50%;
+}
+
+.m-stage .item:last-child .icon {
+  /* left:0; */
+}
+
+.m-stage .cur {
+  color: #1b81d3;
+}
+
+.m-stage .cur .icon {
+  background: #1b81d3;
+  /* border-color:#1b81d3; */
+}
+
+.m-stage .success {
+  color: #01b882;
+}
+
+.m-stage .success .icon{
+  background: #01b882;
+  /* border-color:#1b81d3; */
+}
+.m-stage .error {
+  color: #f30;
+}
+
+.m-stage .error .icon {
+  background: #f30;
+  /* border-color:#1b81d3; */
+}
+
+.m-result {
+  margin: 24rpx 0 48rpx;
+  padding: 48rpx 24rpx;
+  background: #fff;
+}

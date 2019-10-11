@@ -1,0 +1,10 @@
+<!--pages/article/list/index.wxml-->
+<view class="container">
+  <view class="m-article-list">
+    <navigator open-type='navigate' url="/pages/school/detail/index?id={{item.id}}" class="item" wx:for="{{list}}" wx:key="id">
+
+      <image mode="aspectFit" class="thumb" src="{{item.thumb}}"></image>
+      <view class="title">{{item.title}}</view>
+    </navigator>
+  </view>
+</view>

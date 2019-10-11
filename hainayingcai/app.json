@@ -1,0 +1,65 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/home/index/index",
+    "pages/resume/upload/index",
+    "pages/resume/index/index",
+    "pages/resume/detail/index",
+    "pages/resume/base/index",
+    "pages/resume/introduce/index",
+    "pages/resume/work/index",
+    "pages/resume/edu/index",
+    "pages/user/regist/index",
+    "pages/user/reset/index",
+    "pages/jobs/list/index",
+    "pages/fairs/company/index",
+    "pages/jobs/deliver/index",
+    "pages/jobs/detail/index",
+    "pages/fairs/detail/index",
+    "pages/fairs/list/index",
+    "pages/home/deliver/index",
+    "pages/home/collection/index",
+
+    "pages/school/list/index",
+    "pages/school/detail/index",
+    "pages/preach/index/index"
+  ],
+  "window": {
+    "backgroundColor": "#2d8cf0",
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#2d8cf0",
+    "navigationBarTitleText": "海纳英才智慧校招",
+    "navigationBarTextStyle": "white"
+  },
+  "tabBar": {
+    "position": "bottom",
+    "backgroundColor": "#fff",
+    "borderStyle": "black",
+    "color": "#9c9c9c",
+    "selectedColor": "#2d8cf0",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "招聘会",
+        "iconPath": "static/images/icon-home.png",
+        "selectedIconPath": "static/images/icon-home-active.png"
+      },
+      {
+        "pagePath": "pages/jobs/list/index",
+        "text": "校招职位",
+        "iconPath": "static/images/icon-test.png",
+        "selectedIconPath": "static/images/icon-test-active.png"
+      },
+      {
+        "pagePath": "pages/home/index/index",
+        "text": "我的",
+        "iconPath": "static/images/icon-my.png",
+        "selectedIconPath": "static/images/icon-my-active.png"
+      }
+    ]
+  },
+  "sitemapLocation": "sitemap.json",
+    "navigateToMiniProgramAppIdList": [
+      "wx3033d010a1183484"
+    ]
+}

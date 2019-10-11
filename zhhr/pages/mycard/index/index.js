@@ -4,7 +4,7 @@ const app = getApp()
 
 Page({
   data: {
-    showPage: true,
+    showPage: false,
     cardInfo: {}
   },
   //事件处理函数
@@ -16,7 +16,8 @@ Page({
 
     app.ajax(requestParams).then(res => {
       let updateData = {
-        cardInfo: res.data.cardInfo
+        cardInfo: res.data.cardInfo,
+        showPage : true
       }
       if (res.data.cardInfo.id) {
         updateData.isCollected = res.data.isCollected,

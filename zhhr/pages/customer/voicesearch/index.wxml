@@ -1,0 +1,14 @@
+<!--pages/customer/voicesearch/index.wxml-->
+<view class="container">
+  <view class="ask">
+    <image src="/static/images/icon-recorder.png" class="icon"></image>
+    <view class="text">{{keyword}}</view>
+  </view>
+  <view class="answer-list" wx:if="{{answerList.length > 0}}">
+    <view class="bar">
+      <view class="section">下面的问题是否对您有用呢？</view>
+    </view>
+    <navigator url="../result/index?id={{item.value}}" open-type="navigate" class="item" wx:for="{{answerList}}" wx:key="value">{{item.text}}</navigator>
+  </view>
+  <view wx:else class="no-data">暂无相关信息</view>
+</view>

@@ -2,18 +2,20 @@
 <view class="container">
   <view class=""></view>
   <view class="tips-text">
-    <view class='title'>上传简历附件，请在电脑上进行操作</view>
-    <view class="step">
-      <text class="num">1</text>
-      <text>打开网址：http://www.bamoke.com/xzh/upload.php</text>
+    <view class='title'>直接选择相册图片或手机拍摄，最多上传4张图片</view>
+  </view>
+  <view class="img-list-wrap">
+
+    <view class="item" wx:for="{{imgList}}" wx:key="name" bindtap="showThumb" data-index="{{index}}">
+      <image class="img" src="{{item.url}}"></image>
     </view>
-    <view class="step">
-      <text class="num">2</text>
-      <text>通过注册的手机号登录您的帐户</text>
+    <view class="item" wx:if="{{imgList.length !== 4}}">
+      <view class="add-btn" bindtap="addImg" >
+        <image class="img" src="/static/images/add.png"></image>
+        <view class="tips">还可上传<text class="f-strong">{{4-imgList.length}}</text>张</view>
+      </view>
     </view>
-    <view class="step">
-      <text class="num">3</text>
-      <text>上传文件，建议上传PDF格式,便于HR浏览</text>
-    </view>
+
+
   </view>
 </view>

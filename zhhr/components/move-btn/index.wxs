@@ -1,0 +1,57 @@
+module.exports = {
+  touchmove: function(event, ownerInstance) {
+    var clientX = event.changedTouches[0].clientX
+    var clientY = event.changedTouches[0].clientY
+    var style = {}
+    var windowWidth = event.currentTarget.dataset.windowwidth
+    var windowHeight = event.currentTarget.dataset.windowheight
+    var instance = ownerInstance.selectComponent('#bmk-move-btn')
+    if (clientX < 0) {
+      style.right = 'auto'
+      style.left = '24rpx'
+    }else if (clientX <= windowWidth-48) {
+      style.left = clientX + 'px'
+      style.right = 'auto'
+    } else if (clientX < 0) {
+
+    }
+
+    if (clientY <= windowHeight) {
+      style.top = clientY + 'px'
+      style.bottom = 'auto'
+    } else {
+      style.bottom = '0px'
+      style.top = 'auto'
+    }
+    instance.setStyle(style)
+  },
+  touchend: function(event, ownerInstance) {
+    var clientX = event.changedTouches[0].clientX
+    var clientY = event.changedTouches[0].clientY
+    var style = {
+      top : clientY + "px",
+      bottom : "auto"
+    }
+    var windowWidth = event.currentTarget.dataset.windowwidth
+    var windowHeight = event.currentTarget.dataset.windowheight
+    var instance = ownerInstance.selectComponent('#bmk-move-btn')
+
+    if (clientX < Math.round(windowWidth - 48) / 2) {
+      style.left = "24rpx"
+      style.right = "auto"
+
+    } else if (clientX > Math.round(windowWidth - 48)/2) {
+      style.left = "auto"
+      style.right = "24rpx"
+    }
+    
+    if (clientY < 0 ) {
+      style.top = "24rpx"
+      style.bottom = "auto"
+    } else if (clientY >= windowHeight-48 ) {
+      style.top = "auto"
+      style.bottom = "24rpx"
+    }
+    instance.setStyle(style)
+  }
+}

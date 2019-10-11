@@ -1,0 +1,136 @@
+/* pages/customer/index/index.wxss */
+
+page {
+  height: 100%;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
+  background: #f8f8f8;
+}
+
+.m-top-box {
+  width: 100%;
+  padding: 48rpx 0;
+  text-align: center;
+}
+
+.m-top-box .kf-icon {
+  width: 128rpx;
+  height: 128rpx;
+}
+
+.m-top-box .title {
+  padding: 24rpx;
+  font-size: 36rpx;
+  line-height: 1;
+}
+
+.m-top-box .hot-list .item {
+  font-size: 28rpx;
+  padding: 12rpx 0;
+  line-height: 1;
+}
+
+.m-search-input {
+  display: flex;
+  align-items: center;
+  padding: 0 24rpx;
+  margin: 64rpx auto 0;
+  width: 90%;
+  height: 80rpx;
+  border-radius: 40rpx;
+  background: #fff;
+  border: 1px solid #f1f1f1;
+}
+
+.m-search-input .icon {
+  flex: 0 0 auto;
+  width: 32rpx;
+  height: 32rpx;
+  opacity: 0.6;
+}
+
+.m-search-input .input {
+  text-align: left;
+  flex: 1 1 100%;
+  padding: 0 12rpx;
+  color: #9c9c9c;
+}
+
+.voice-box {
+  padding-bottom:48rpx;
+  width: 100%;
+  background: #fff;
+  text-align: center;
+  color: #6c6c6c;
+}
+.voice-box .line {
+  margin-bottom:48rpx;
+  height:12rpx;
+  border-top:1px solid #1296db;
+  transform: scaleX(0);
+  opacity: 0;
+}
+.voice-box .tips {
+  margin-bottom: 12rpx;
+}
+
+.voice-box .icon-wrap {
+  display: inline-block;
+  transform: scale(1);
+  transition: all .3s;
+}
+.voice-box .line-active {
+  animation: line-animation 1s infinite;
+}
+.voice-box .record-active {
+  /* animation: record-animation 1s infinite; */
+  transform: scale(1.4)
+}
+
+.voice-box .icon {
+  padding: 24rpx;
+  width: 96rpx;
+  height: 96rpx;
+  background: #1296db;
+  border-radius: 50%;
+}
+
+@keyframes record-animation {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+
+  50% {
+    transform: scale(1.4);
+    opacity: .6;
+  }
+
+  100% {
+    transform: scale(1);
+    opacity: 1;
+
+  }
+}
+@keyframes line-animation {
+  0% {
+    transform: scaleX(0);
+    opacity: 1;
+  }
+
+  25% {
+    /* transform: scaleX(.5); */
+    opacity: 1;
+  }
+  100% {
+    transform: scaleX(1);
+    opacity: 0;
+
+  }
+}

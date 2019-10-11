@@ -113,6 +113,8 @@ App({
               })
 
 
+            } else if(res.data.code == 13009){
+
             } else {
               wx.showToast({
                 title: res.data.msg,

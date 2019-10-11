@@ -5,13 +5,35 @@
       <block wx:for="{{banner}}" wx:key="{{item.id}}">
         <swiper-item>
           <navigator url='{{item.url}}' open-type='reLaunch' wx:if="{{item.url}}">
-            <image lazy-load='true' mode='aspectFill' class='img' src="{{imgSourceUri + item.img}}"></image>
+            <image lazy-load='true' mode='aspectFill' class='img' src="{{item.img}}"></image>
           </navigator>
-          <image lazy-load='true' mode='aspectFill' class='img' wx:else src="{{imgSourceUri+item.img}}"></image>
+          <image lazy-load='true' mode='aspectFill' class='img' wx:else src="{{item.img}}"></image>
         </swiper-item>
       </block>
     </swiper>
   </view>
+  <view class="subnav-wrap">
+    <view class="m-index-subnav">
+
+      <button class="item" bindtap='jumpMiniProgram'>
+        <image class="icon" src="/static/images/index-icon-02.png " alt=" " mode='widthFix' />
+        <view class="txt ">人才政策</view>
+      </button>
+      <navigator open-type='navigate' url="/pages/article/list/index?cid=2" class="item">
+        <image class="icon" src="/static/images/index-icon-process.png " alt=" " mode='widthFix' />
+        <view class="txt ">宣讲会</view>
+      </navigator>
+      <navigator open-type='navigate' url="/pages/test/list/index" class="item">
+        <image class="icon" src="/static/images/index-icon-01.png " alt=" " mode='widthFix' />
+        <view class="txt ">高校联盟</view>
+      </navigator>
+      <view open-type='navigate' url="/pages/other/index/index" class="item">
+        <image class="icon" src="/static/images/index-icon-04.png " alt=" " mode='widthFix' />
+        <view class="txt ">其他</view>
+      </view>
+    </view>
+  </view>
+  <view class="u-ht"></view>
   <view class="g-card border-top">
     <view class='header'>
       <view class="title">
@@ -19,8 +41,8 @@
       </view>
     </view>
     <view class="body m-fairs-list">
-      <navigator url="/pages/fairs/detail/index?id={{item.id}}" class='item' wx:for="{{fairs.list}}" wx:key="id">
-        <image class="thumb" lazy-load='true' src='{{imgSourceUri + item.thumb}}'></image>
+      <navigator url="/pages/fairs/detail/index?id={{item.id}}" class='item' wx:for="{{fairs}}" wx:key="id">
+        <image class="thumb" lazy-load='true' src='{{item.thumb}}'></image>
         <view class="text-box">
           <view class='title'>{{item.name}}</view>
           <view class='bd'>

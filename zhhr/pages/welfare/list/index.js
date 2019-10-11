@@ -22,6 +22,30 @@ Page({
   /**
    * handle
    */
+  handleNavigate(e){
+    const index = e.currentTarget.dataset.index
+    let curItem = this.data.welfareList[index]
+    wx.openLocation({
+      latitude: parseFloat(curItem.latitude),
+      longitude: parseFloat(curItem.longitude),
+      address:curItem.addr,
+      name: curItem.title
+    })
+  },
+  handleCall(e){
+    const phone = e.currentTarget.dataset.phone
+    wx.makePhoneCall({
+      phoneNumber: phone,
+    })
+  },
+  handleClick(e){
+    const index = e.currentTarget.dataset.index
+    let newList = this.data.welfareList
+    newList[index].show = typeof newList[index].show == 'undefined' ? true : !newList[index].show
+    this.setData({
+      welfareList:newList
+    })
+  },
   handleChangeType(e) {
     var type = e.target.dataset.type
     if (typeof e.target.dataset.type === 'undefined') return false;
@@ -29,8 +53,8 @@ Page({
     var requestParams = {
       apiUrl: "/welfare/vlist",
       requestData: {
-        lat: locationInfo.latitude,
-        lng: locationInfo.longitude,
+        lat: locationInfo.latitude || '',
+        lng: locationInfo.longitude || '',
         page: 1,
         type
       },
@@ -46,21 +70,17 @@ Page({
 
   },
 
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onShow: function(options) {
+  _fetchData() {
     var _that = this;
     var myAmapFun = new amapFile.AMapWX({
       key: '8d2304d0927601db4c4d5020bcd1f625'
     });
     var locationInfo;
     myAmapFun.getRegeo({
-      success: data => {
+      success: mapdata => {
         //成功回调
-        const result = data[0];
+        const result = mapdata[0];
         const addressInfo = result.regeocodeData.addressComponent
-        console.log(result)
         locationInfo = {
           city: addressInfo.city,
           district: addressInfo.district,
@@ -68,7 +88,9 @@ Page({
           latitude: result.latitude,
           longitude: result.longitude
         }
-
+        _that.setData({
+          locationInfo
+        })
         let requestParams = {
           apiUrl: "/welfare/vlist",
           requestData: {
@@ -78,35 +100,77 @@ Page({
             lng: locationInfo.longitude
           }
         }
-        _that.setData({
-          locationInfo
+        app.ajax(requestParams).then(res => {
+          // console.log(res)
+          _that.setData({
+            pageInfo: res.data.pageInfo,
+            welfareList: res.data.list
+          })
         })
+      },
+      fail: function(info) {
+        //失败回调
+
+        wx.showToast({
+          title: '位置信息获取失败',
+          icon:"none"
+        })
+        let requestParams = {
+          apiUrl: "/welfare/vlist",
+          requestData: {
+            page: 1,
+            type: 1
+          }
+        }
         app.ajax(requestParams).then(res => {
           _that.setData({
             pageInfo: res.data.pageInfo,
             welfareList: res.data.list
           })
         })
-
-      },
-      fail: function(info) {
-        //失败回调
-        console.log(info)
-        wx.showModal({
-          title: '位置信息获取失败',
-          content: info,
-          showCancel: false,
-          success(res) {
-            if (res.confirm) {
-              wx.navigateBack({
-                delta: 1
-              })
-            }
-          }
-
-        })
       }
     })
+
+  },
+  onLoad: function() {
+
+  },
+  /**
+   * 生命周期函数--监听页面加载
+   */
+  onShow: function() {
+    const _that =this
+    wx.getSetting({
+      success(res) {
+        
+        if (res.authSetting['scope.userLocation'] != undefined && res.authSetting['scope.userLocation'] != true) {
+          wx.showModal({
+            title: '是否授权当前位置',
+            content: '需要获取您的地理位置，请确认授权，否则地图功能将无法使用',
+            success: function (result) {
+              if (result.confirm) {
+                wx.openSetting({
+                  success: function (data) {
+                    if (data.authSetting['scope.userLocation']) {
+                      _that._fetchData()
+                    }
+                  }
+                })
+              }
+            }
+          })
+        }
+      }
+    })
+
+    this._fetchData()
+
+
+
+  },
+  onReady:function(){
+    // console.log("ready")
+    const _that = this
 
   },
 
@@ -119,8 +183,8 @@ Page({
     var requestParams = {
       apiUrl: "/welfare/vlist",
       requestData: {
-        lat: locationInfo.latitude,
-        lng: locationInfo.longitude,
+        lat: locationInfo.latitude || '',
+        lng: locationInfo.longitude || '',
         page: 1,
         type
       },
@@ -139,14 +203,14 @@ Page({
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function() {
-    if(!this.data.pageInfo.hasMore) return;
+    if (!this.data.pageInfo.hasMore) return;
     var locationInfo = this.data.locationInfo
     var type = this.data.type
     var requestParams = {
       apiUrl: "/welfare/vlist",
       requestData: {
-        lat: locationInfo.latitude,
-        lng: locationInfo.longitude,
+        lat: locationInfo.latitude || '',
+        lng: locationInfo.longitude || '',
         page: this.data.pageInfo.page + 1,
         type
       },
@@ -155,7 +219,7 @@ Page({
     app.ajax(requestParams).then(res => {
       this.setData({
         pageInfo: res.data.pageInfo,
-        welfareList: res.data.list
+        welfareList: this.data.welfareList.concat(res.data.list)
       })
     })
   }
