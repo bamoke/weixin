@@ -1,0 +1,47 @@
+/**app.wxss**/
+.container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 200rpx 0;
+  box-sizing: border-box;
+  font-size:26rpx;
+} 
+
+/**/
+.g-wrap {
+  font-size:28rpx;
+  line-height: 1.8;
+}
+.g-pad-box {
+  padding:24rpx;
+}
+.m-column-bar {
+  margin-top:24rpx;
+  text-align: center;
+}
+.m-column-bar .en-title {
+  font-size:32rpx;
+  color:#6c6c6c;
+  line-height: 1;
+}
+.m-column-bar .cn-title {
+  font-size:42rpx;
+  line-height: 1;
+}
+.m-column-bar .small-txt {
+  margin:24rpx;
+  color:#9c9c9c;
+}
+.m-column-bar .divider {
+  margin:24rpx auto;
+  width:96rpx;
+  height:4rpx;
+  background:#ccc;
+}
+.u-sub-banner {
+  width:100%;
+  height: 320rpx;
+}

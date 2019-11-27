@@ -1,5 +1,5 @@
 // pages/resume/base/index.js
-import util from "../../../utils/util"
+const app = getApp()
 import {
   expArr,
   eduArr,
@@ -94,8 +94,7 @@ Page({
     this.setData({
       isSubmiting: true
     })
-    const request = util.request(requestParams)
-    request.then(data => {
+    app.ajax(requestParams).then(data => {
       wx.showToast({
         title: '保存成功',
       })
@@ -156,8 +155,7 @@ Page({
         requestData: {type:"base"},
         requestMethod: 'get'
       }
-      const request = util.request(requestParams)
-      request.then(res=>{
+      app.ajax(requestParams).then(res=>{
         this.setData({...res.data})
       })
     }

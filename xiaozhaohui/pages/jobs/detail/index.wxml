@@ -30,7 +30,7 @@
         </view>
       </view>
       <view class="logo-wrap">
-        <image class="logo" src="{{mainInfo.comlogo ? imgSourceUri+mainInfo.comlogo : defaultLogo}}"></image>
+        <image class="logo" src="{{mainInfo.comlogo || defaultLogo}}"></image>
       </view>
     </navigator>
   </view>

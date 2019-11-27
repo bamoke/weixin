@@ -32,7 +32,7 @@ Page({
       jobid:this.data.jobId,
       resumeid: this.data.resumeId
     }
-    console.log(data)
+
     const requestParams = {
       apiUrl:"/Deliver/doit",
       requestData: data,
@@ -74,9 +74,9 @@ Page({
     var ajaxRequest = util.request(requestParams)
     ajaxRequest.then(res=>{
       this.setData({
-        resumeId: parseInt(res.info.id),
-        resumeAttachment: res.info.attachment,
-        curSelected: parseInt(res.info.default_set)       
+        resumeId: parseInt(res.data.info.id),
+        resumeAttachment: res.data.info.attachment,
+        curSelected: parseInt(res.data.info.default_set)       
       })
     })
   },

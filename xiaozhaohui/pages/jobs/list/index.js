@@ -28,18 +28,16 @@ Page({
     imgSourceUri: app.globalData.sourceBaseUri,
     curOpenType: '', //当前展开的过滤选项类别
     showOpt: false, //是否展开过滤选项
-    showPage:false,
-    hasMore:false,
-    curPage:1,
-    isLoading:false,
-    list:[],
-    keywords:''
+    showPage: false,
+    isLoading: false,
+    list: [],
+    keywords: ''
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function(options) {
+  onLoad: function (options) {
     const requestParams = {
       apiUrl: "/Jobs/vlist",
       requestMethod: "GET"
@@ -48,40 +46,40 @@ Page({
     ajaxRequest.then(res => {
       this.setData({
         showPage: true,
-        hasMore: res.info.hasMore,
-        list: res.info.list
+        pageInfo: res.data.pageInfo,
+        list: res.data.list
       })
     })
   },
   /**
    * Action
    */
-  setkeywords: function (event){
+  setkeywords: function (event) {
     var keywords = event.detail.value
     this.setData({
       keywords
     })
   },
-  gosearch: function (event){
+  gosearch: function (event) {
     var keywords = event.detail.value || this.data.keywords;
     const requestParams = {
       apiUrl: "/Jobs/vlist",
       requestMethod: "GET",
       requestData: {}
     }
-    if (keywords.trim()){
+    if (keywords.trim()) {
       requestParams.requestData.keywords = keywords
     }
 
     const ajaxRequest = util.request(requestParams)
     ajaxRequest.then(res => {
       this.setData({
-        hasMore: res.info.hasMore,
-        list: res.info.list
+        pageInfo: res.data.pageInfo,
+        list: res.data.list
       })
     })
   },
-  showFilterOpt: function(e) {
+  showFilterOpt: function (e) {
     // return;
     const type = e.currentTarget.dataset.type;
     const oldOpenType = this.data.curOpenType
@@ -100,12 +98,13 @@ Page({
     })
   },
   // selected filter option
-  selectFilter: function(e) {
+  selectFilter: function (e) {
     const index = e.currentTarget.dataset.optindex
     const curOpenType = this.data.curOpenType
     let postData = {}
     const newFilter = this.data.filter.map(item => {
-      let res = { ...item
+      let res = {
+        ...item
       }
       if (item.catKey === curOpenType) {
         res.selected = parseInt(index)
@@ -125,7 +124,7 @@ Page({
     console.log(postData)
   },
   // close filter option
-  closeDynamic: function() {
+  closeDynamic: function () {
     this.setData({
       showOpt: false
     })
@@ -133,72 +132,82 @@ Page({
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
-  onReady: function() {
+  onReady: function () {
 
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
-  onShow: function() {
+  onShow: function () {
 
   },
 
   /**
    * 生命周期函数--监听页面隐藏
    */
-  onHide: function() {
+  onHide: function () {
 
   },
 
   /**
    * 生命周期函数--监听页面卸载
    */
-  onUnload: function() {
+  onUnload: function () {
 
   },
 
   /**
    * 页面相关事件处理函数--监听用户下拉动作
    */
-  onPullDownRefresh: function() {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function() {
-    if (!this.data.hasMore) return;
-    const filter = this.data.filter
-    let postData = {
-      p: this.data.curPage + 1
-    }
-    filter.forEach(item => {
-      if (item.selected > 0) {
-        postData[item.catKey] = item.list[item.selected]
-      }
-    })
-    console.log(postData)
+  onPullDownRefresh: function () {
     const requestParams = {
       apiUrl: "/Jobs/vlist",
-      requestMethod: "GET",
-      requestData:postData
+      isShowLoad: false
     }
-    const ajaxRequest = util.request(requestParams)
-    ajaxRequest.then(res => {
+    app.ajax(requestParams).then((res) => {
+      wx.stopPullDownRefresh();
       this.setData({
-        hasMore: res.info.hasMore,
-        list: this.data.list.concat(res.info.list),
-        curPage:res.info.page
+        list: res.data.list,
+        pageInfo: res.data.pageInfo
       })
     })
   },
 
   /**
+   * 页面上拉触底事件的处理函数
+   */
+  onReachBottom: function () {
+    var oldList = this.data.list
+    var pageInfo = this.data.pageInfo
+    if (pageInfo.total <= (pageInfo.pageSize * pageInfo.page)) {
+      return
+    }
+    var requestData = {
+      page: parseInt(pageInfo.page) + 1
+    }
+    if (this.data.keywords) {
+      requestData.keywords = this.data.keywords
+    }
+    const requestParams = {
+      apiUrl: "/Jobs/vlist",
+      requestData
+    }
+    app.ajax(requestParams).then((res) => {
+      this.setData({
+        list: oldList.concat(res.data.list),
+        pageInfo: res.data.pageInfo
+      })
+    })
+
+
+
+  },
+
+  /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function() {
+  onShareAppMessage: function () {
 
   }
 })

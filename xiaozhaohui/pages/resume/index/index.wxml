@@ -15,22 +15,7 @@
         <text>%</text> -->
       </view>
     </navigator>
-    <navigator url="/pages/resume/upload/index" open-type='navigateTo' class="row">
-      <view class="title">附件简历
-        <view class="small">(纸质简历拍照上传)</view>
-      </view>
-      <view class='right-info'>{{resumeAttachment?'已上传':'未上传'}}</view>
-    </navigator>
-    <view class="row">
-      <view class="title">设置默认简历</view>
-      <view class='right-info'>
-        <picker bindchange="bindTypeChange" value="{{curType}}" range="{{typeList}}">
-          <view class="right-info current-type">
-            <text class="icon"></text>
-            <text class="txt">{{typeList[curType]}}</text>
-          </view>
-        </picker>
-      </view>
-    </view>
+
+
   </view>
 </view>

@@ -4,7 +4,7 @@
 <view class="container" wx:if="showPage">
   <view class='m-top'>
     <view class='logo-box'>
-      <image class='logo' src="{{comInfo.logo? _sourceUri+comInfo.logo : defaultLogo}}" mode='aspectFill'></image>
+      <image class='logo' src="{{comInfo.logo || defaultLogo}}" mode='aspectFill'></image>
     </view>
     <view class="m-base-info">
       <view class='title'>{{comInfo.name}}</view>

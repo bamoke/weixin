@@ -16,14 +16,14 @@
 
       </view>
 
-      <view class="row" bindtap='selecteResume' data-index="2" data-state="{{}}">
+      <!-- <view class="row" bindtap='selecteResume' data-index="2" data-state="{{}}">
         <view class="select-icon{{curSelected===2?' selected':''}}"></view>
         <view>
           <text class="name">附件简历</text>
           <text class="tips" wx:if="{{resumeAttachment == ''}}">(未上传)</text>
         </view>
 
-      </view>
+      </view> -->
       <view class="btn-wrap">
         <view class="btn btn-block btn-primary" bindtap='goDeliver'>投递</view>
       </view>

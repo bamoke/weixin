@@ -34,7 +34,7 @@
       <!--company-->
     <view class='company-list' hidden='{{currentTab !== 0}}'>
       <navigator url="/pages/fairs/company/index?id={{item.id}}" class="item" wx:for="{{comInfo.list}}" wx:key="id">
-        <image class="logo" src="{{item.logo? _sourceUri+item.logo:defaultLogo}}"></image>
+        <image class="logo" src="{{item.logo || defaultLogo}}"></image>
         <view class="bd">
           <view class="name">{{item.name}}</view>
           <view class="other">

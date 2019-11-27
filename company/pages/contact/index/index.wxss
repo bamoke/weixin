@@ -1,0 +1,40 @@
+/* pages/contact/index/index.wxss */
+.contact-lists .item {
+  display: flex;
+  align-items: center;
+  box-sizing: border-box;
+  padding:24rpx;
+  border-bottom:1px solid #f1f1f1;
+}
+.contact-lists .item .name {
+  font-weight: bold;
+}
+.contact-lists .item .avatar {
+  flex:0 0 168rpx;
+  margin-right: 24rpx;
+  border-radius: 50%;
+  width:168rpx;
+  height:168rpx;
+}
+.comname {
+  font-size:32rpx;
+  font-weight: bold;
+}
+.addr-box {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  padding:24rpx;
+  border-bottom:1px solid #f1f1f1;
+  line-height: 1.2;
+}
+.addr-box .icon {
+  flex: 0 0 48rpx;
+  margin-right:12rpx;
+  width:48rpx;
+  height: 48rpx;
+}
+.comname {
+  padding:0 24rpx;
+  border-bottom: 1px solid #f1f1f1;
+}

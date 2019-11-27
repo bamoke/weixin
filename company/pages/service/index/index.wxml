@@ -1,0 +1,19 @@
+<!--pages/service/index/index.wxml-->
+<view class="g-wrap">
+  <image class="u-sub-banner" src="/static/images/service-banner" mode="widthFix"></image>
+  <view class="m-column-bar">
+    <view class="en-title">SERVICE ITEMS</view>
+    <view class="divider"></view>
+    <view class="cn-title">服务项目</view>
+    <view class="small-txt">帮助更多执着追求的创业者；服务更多重视财税的企业</view>
+  </view>
+  <view class="service-list">
+    <view class="item" wx:for="{{list}}" wx:key="id">
+      <view class="info">
+        <view class="title">{{item.title}}</view>
+        <view class="desc">{{item.desc}}</view>
+      </view>
+      <image class="thumb" src="{{item.thumb}}" mode="aspectFill"></image>
+    </view>
+  </view>
+</view>

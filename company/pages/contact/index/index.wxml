@@ -1,0 +1,39 @@
+<!--pages/contact/index/index.wxml-->
+<view class="g-wrap">
+  <image class="u-sub-banner" src="/static/images/service-banner" mode="widthFix"></image>
+  <view class="m-column-bar">
+    <view class="en-title">CONTACT US</view>
+    <view class="divider"></view>
+    <view class="cn-title">联系我们</view>
+    <view class="small-txt">帮助更多执着追求的创业者；服务更多重视财税的企业</view>
+  </view>
+
+  <view>
+    <view class="comname">珠海蓝思企业管理顾问有限公司</view>
+    <view class="addr-box" bindtap="handleNavigate">
+      <image src="/static/images/icon-addr.png" mode="aspectFill" class="icon"></image>
+      <view>珠海市南湾北路32号.V12文化产业园.五栋B座五层5515-5519</view>
+      <!-- <image src="/static/images/icon-arrow.png" mode="aspectFill" class="icon"></image> -->
+    </view>
+    <view class="contact-lists">
+      <view class="item">
+        <image mode="aspectFill" src="/static/images/person-01.jpg" class="avatar"></image>
+        <view>
+          <view class="name">方小姐(会计师)</view>
+          <view>手机：13926904579 </view>
+          <view>电话：0756-2281155 </view>
+          <view>Email：zh55668@126.com </view>
+        </view>
+      </view>
+            <view class="item">
+        <image mode="aspectFill" src="/static/images/person-02.jpg" class="avatar"></image>
+        <view>
+          <view class="name">刘先生(ERP顾问)</view>
+          <view>手机：13631214588 </view>
+          <view>电话：0756-6133713 </view>
+          <view>Email：LansiService@163.com </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

@@ -53,7 +53,7 @@ const request = function ({ apiUrl, requestData = {}, requestMethod="GET", isSho
 
   // send
   var myPromise = new Promise(function (resolve, reject) {
-    const baseApiUrl = "https://www.bamoke.com/hnyc/api.php";
+    const baseApiUrl = "https://www.bamoke.com/xzh/api.php";
     wx.request({
       url: baseApiUrl + apiUrl,
       data: requestData,

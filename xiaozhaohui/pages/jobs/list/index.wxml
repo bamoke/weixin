@@ -40,7 +40,7 @@
     <view class="" wx:if="{{list.length > 0}}">
       <view class='m-jobs-list'>
         <navigator url="/pages/jobs/detail/index?id={{item.id}}" class='item' wx:for="{{list}}" wx:key="id">
-          <image mode='scaleToFill' src="{{item.logo ? imgSourceUri+item.logo : '/static/images/default-logo.jpg'}}" class="logo" mode='aspectFill'></image>
+          <image mode='scaleToFill' src="{{item.logo || '/static/images/default-logo.jpg'}}" class="logo" mode='aspectFill'></image>
           <view>
             <view class="g-row-bt hd">
               <view class='title'>{{item.name}}</view>

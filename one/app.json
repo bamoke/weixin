@@ -49,7 +49,8 @@
     "pages/resume/work/index",
     "pages/resume/edu/index",
     "pages/contract/index/index",
-    "pages/contract/detail/index"
+    "pages/contract/detail/index",
+    "pages/comment/index/index"
   ],
   "window": {
     "backgroundTextStyle": "light",

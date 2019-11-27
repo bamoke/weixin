@@ -1,4 +1,6 @@
 {
   "navigationBarTitleText": "校招职位",
-  "onReachBottomDistance":60
+  "onReachBottomDistance": 60,
+  "enablePullDownRefresh": true,
+  "backgroundTextStyle": "light"
 }

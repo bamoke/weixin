@@ -1,0 +1,21 @@
+/* pages/service/index/index.wxss */
+.service-list {
+  width:100%;
+}
+.service-list .item {
+  display: flex;
+  justify-content: space-between;
+  padding:24rpx;
+  border-bottom:1px solid #eee;
+}
+.service-list .item .thumb {
+  flex:0 0 160rpx;
+  width:160rpx;
+  height:90rpx;
+}
+.service-list .item .title {
+  font-size:30rpx;
+}
+.service-list .item .desc {
+  color:#9c9c9c;
+}
