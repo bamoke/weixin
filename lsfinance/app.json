@@ -58,7 +58,9 @@
     "pages/shenpi/detail/index",
 
     "pages/ysyf/index/index",
-    "pages/ysyf/detail/index"
+    "pages/ysyf/detail/index",
+
+    "pages/report/index/index"
   ],
   "window": {
     "backgroundTextStyle": "light",

@@ -34,7 +34,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 39,
+			"current": 41,
 			"list": [
 				{
 					"id": 0,
@@ -303,6 +303,21 @@
 					"id": -1,
 					"name": "企业切换",
 					"pathName": "pages/home/mycompany/list/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "报表",
+					"pathName": "pages/report/index/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 41,
+					"name": "应收应付详情",
+					"pathName": "pages/ysyf/detail/index",
+					"query": "target=刘利剑&month=2019-03&type=2",
 					"scene": null
 				}
 			]

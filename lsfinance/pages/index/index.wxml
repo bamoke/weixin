@@ -31,10 +31,10 @@
           <image class="icon" src="/static/images/icon-gsjd.png"></image>
           <view class="">应收应付</view>
         </navigator>
-        <view class="item last">
+        <navigator open-type='navigate' url="/pages/report/index/index" class="item last">
           <image class="icon" src="/static/images/icon-csfw.png"></image>
-          <view class="s-text-gray">报表与分析</view>
-        </view>
+          <view class="">报表与分析</view>
+        </navigator>
       </view>
     </view>
   </view>

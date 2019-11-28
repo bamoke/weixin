@@ -1,2 +1,19 @@
 <!--pages/ysyf/detail/index.wxml-->
-<text>pages/ysyf/detail/index.wxml</text>
+<view class="container" wx:if="{{showPage}}">
+  <view class='m-list' wx:if="{{list.length > 0}}">
+    <view class='item' wx:for="{{list}}" wx:key="id" bindtap='selectItem' data-index="{{index}}">
+      <view class="g-row-bt">
+        <view class='amount'>{{item.amount}}</view>
+        <view class="u-status {{item.status_style}}">{{item.status_text}}</view>
+      </view>
+      <view class='description'>{{item.description}}</view>
+      <view class='item-bt'>
+        <view>付款对象：{{item.target}}</view>
+      </view>
+      <view class='g-row-bt item-bt'>
+        <view>业务日期：{{item.ywTime}}</view>
+        <view>创建时间:{{item.createTime}}</view>
+      </view>
+    </view>
+  </view>
+</view>
