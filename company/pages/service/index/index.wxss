@@ -18,4 +18,5 @@
 }
 .service-list .item .desc {
   color:#9c9c9c;
+  font-size:26rpx;
 }

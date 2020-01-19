@@ -1,0 +1,63 @@
+/* pages/contact/index/index.wxss */
+.contact-lists .item {
+  display: flex;
+  align-items: center;
+  box-sizing: border-box;
+  padding:24rpx;
+  line-height: 1.8;
+  border-bottom:1px solid #f1f1f1;
+  color:#6c6c6c;
+}
+.contact-lists .item .name {
+  font-weight: bold;
+  color:#232323;
+}
+.contact-lists .item .avatar {
+  flex:0 0 168rpx;
+  margin-right: 24rpx;
+  border-radius: 50%;
+  width:168rpx;
+  height:168rpx;
+}
+.comname {
+  line-height: 1;
+  font-size:32rpx;
+  font-weight: bold;
+}
+.addr-box {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding:24rpx;
+  border-bottom:1px solid #f1f1f1;
+  line-height: 1.5;
+  color:#6c6c6c;
+}
+.addr-box .icon {
+  flex: 0 0 48rpx;
+  margin-left:24rpx;
+  width:48rpx;
+  height: 48rpx;
+}
+.comname {
+  padding:24rpx;
+  border-bottom: 1px solid #f1f1f1;
+}
+.call-btn {
+  display: flex;
+  justify-content: center;
+  align-items:center;
+  box-sizing: border-box;
+  padding: 16rpx 0;
+  width:260rpx;
+  line-height: 1;
+  /* font-size:24rpx; */
+  background:#371601;
+  color:#fff;
+  /* border-radius:8rpx; */
+}
+.call-btn .icon {
+  margin-right:12rpx;
+  width:36rpx;
+  height:36rpx;
+}

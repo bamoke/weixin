@@ -32,7 +32,8 @@ Page({
     }],
     showBottomSeletor: false, //是否显示底部选择器
     curDetailListIndex: 0, //当前操作的明细索引
-    subject: []
+    subject: [],
+    departmentList:[]
   },
   switchDeatil: function(opt) {
     var index = opt.currentTarget.dataset.index;
@@ -55,12 +56,6 @@ Page({
     var value = e.detail.value;
     var baseData = this.data.base;
 
-    /*     var userName = "王祥印";
-        var date = new Date(value);
-        var year = date.getFullYear();
-        var month = date.getMonth() + 1;
-        var day = date.getDate();
-        var fyExplain = userName + "_" + year + "年" + month + '月' + day + '日报销'; */
     baseData.date = value;
     this.setData({
       base: baseData
@@ -116,6 +111,20 @@ Page({
       url: '/pages/common/subject/index',
     })
   },
+
+  /**
+   * 选择部门
+   */
+
+  selectedDepartment(e){
+    const index = e.detail.value
+    var curDepartment = this.data.departmentList[index]
+    var baseInfo = this.data.base
+    baseInfo.department = curDepartment.name
+    this.setData({
+      base:baseInfo
+    })
+  },
   /**
    * 选择科目
    */
@@ -152,6 +161,26 @@ Page({
     this._computeTotalAmount()
   },
 
+
+  /**
+   * 小数转正整数
+   */
+  _accMul: function (arg1) {
+    var m = 0, s1 = arg1.toString();
+    var ratio;
+    var b = s1.split(".")
+    if (b[1]) {
+      if (b[1].length == 1) {
+        ratio = 10
+      } else if (b[1].length == 2) {
+        ratio = 1
+      }
+    } else {
+      ratio = 100
+    }
+    return Number(s1.replace(".", "")) * ratio
+
+  }, 
   /**
    * 计算报销总额
    */
@@ -160,7 +189,7 @@ Page({
     var detailList = this.data.detailList;
     for (var i = 0; i < detailList.length; i++) {
       var curMount = detailList[i].amount
-      totalAmount += parseInt(curMount * 100)
+      totalAmount += this._accMul(curMount)
     }
     const base = this.data.base
     base.total_amount = totalAmount / 100
@@ -360,69 +389,21 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
-
-    if (options.actype == 2) {
-
-      // 编辑
-      const id = options.id
-      const requestParams = {
-        apiUrl: "/Expenses/edit",
-        requestData: {
-          id
-        }
-      }
-      app.ajax(requestParams).then((res) => {
-        this.setData({
-          showPage: true,
-          id,
-          actype: options.actype,
-          base: res.base,
-          detailList: res.detail
-        })
-      }, reject => {
-        if (reject.code == 13009) {
-          app.errorBack({tips:reject.msg})
-        }
+    app.ajax({
+      apiUrl: '/Expenses/get_department_info',
+      requestMethod: 'get'
+    }).then(res=>{
+      this.setData({
+        departmentList: res.department
       })
-    } else if (options.actype == 3) {
+    })
+    this.setData({
+      actype: options.actype || 1,
+      id: options.id || null,
+      draftId: options.draftid || null
+    })
 
-      // 通过草稿新建
-      const draftId = options.draftid
-      const requestParams = {
-        apiUrl: "/StaffDraft/detail",
-        requestData: {
-          draftid: draftId
-        }
-      }
-      app.ajax(requestParams).then((res) => {
-        this.setData({
-          showPage: true,
-          actype: options.actype,
-          draftId,
-          base: JSON.parse(res.base),
-          detailList: JSON.parse(res.detail)
-        })
-      })
-
-    } else {
-      var baseInfo = this.data.base
-      let requestParams = {
-        apiUrl: "/Expenses/newitem"
-      }
-      app.ajax(requestParams).then(res => {
-        baseInfo.orgid = res.comInfo.ztId
-        baseInfo.com_name = res.comInfo.fullName
-
-        baseInfo.person = res.staffInfo.name
-        baseInfo.work_nu = res.staffInfo.workNu
-        baseInfo.department = res.staffInfo.department
-        this.setData({
-          base: baseInfo,
-          actype: 1
-        })
-      })
-
-    }
+ 
 
   },
 
@@ -430,7 +411,63 @@ Page({
    * onShow
    */
   onShow: function() {
-    if (!wx.getStorageSync("curSelectedSubject")) return
+    const acType = this.data.actype
+    if (!wx.getStorageSync("curSelectedSubject")) {
+      if (acType == 2) {
+        // 编辑
+        const requestParams = {
+          apiUrl: "/Expenses/edit",
+          requestData: {
+            id: this.data.id
+          }
+        }
+        app.ajax(requestParams).then((res) => {
+          this.setData({
+            showPage: true,
+            base: res.base,
+            detailList: res.detail
+          })
+        }, reject => {
+          if (reject.code == 13009) {
+            app.errorBack({ tips: reject.msg })
+          }
+        })
+      } else if (acType == 3) {
+
+        // 通过草稿新建
+        const requestParams = {
+          apiUrl: "/StaffDraft/detail",
+          requestData: {
+            draftid: this.data.draftId
+          }
+        }
+        app.ajax(requestParams).then((res) => {
+          this.setData({
+            showPage: true,
+            base: JSON.parse(res.base),
+            detailList: JSON.parse(res.detail)
+          })
+        })
+
+      } else {
+        var baseInfo = this.data.base
+        let requestParams = {
+          apiUrl: "/Expenses/newitem"
+        }
+        app.ajax(requestParams).then(res => {
+          baseInfo.orgid = res.comInfo.ztId
+          baseInfo.com_name = res.comInfo.fullName
+
+          baseInfo.person = res.staffInfo.name
+          baseInfo.work_nu = res.staffInfo.workNu
+          baseInfo.department = res.staffInfo.department
+          this.setData({
+            base: baseInfo
+          })
+        })
+
+      }
+    }
     const curSelectedSubject = Object.assign({}, wx.getStorageSync("curSelectedSubject"))
 
     const curDetailIndex = this.data.curDetailListIndex;

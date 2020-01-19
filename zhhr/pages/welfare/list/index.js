@@ -100,8 +100,9 @@ Page({
             lng: locationInfo.longitude
           }
         }
+        console.log(requestParams)
         app.ajax(requestParams).then(res => {
-          // console.log(res)
+          console.log(res)
           _that.setData({
             pageInfo: res.data.pageInfo,
             welfareList: res.data.list
@@ -142,8 +143,8 @@ Page({
     const _that =this
     wx.getSetting({
       success(res) {
-        
-        if (res.authSetting['scope.userLocation'] != undefined && res.authSetting['scope.userLocation'] != true) {
+        console.log(res)
+        if (res.authSetting['scope.userLocation'] == 'undefined' || (res.authSetting['scope.userLocation'] != 'undefined' && res.authSetting['scope.userLocation'] != true)) {
           wx.showModal({
             title: '是否授权当前位置',
             content: '需要获取您的地理位置，请确认授权，否则地图功能将无法使用',
@@ -156,6 +157,8 @@ Page({
                     }
                   }
                 })
+              }else {
+                _that._fetchData()
               }
             }
           })
@@ -163,7 +166,6 @@ Page({
       }
     })
 
-    this._fetchData()
 
 
 

@@ -1,0 +1,72 @@
+/* pages/service/index/index.wxss */
+
+.m-index-banner {
+  width: 100%;
+}
+
+.service-list {
+  box-sizing: border-box;
+  padding: 24rpx;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.service-list .item {
+  box-sizing: border-box;
+  width: 50%;
+  height: 300rpx;
+  text-align: center;
+  background: #000;
+  color:#fff;
+  border-right: 1px solid #fff;
+  border-bottom: 1px solid #fff;
+}
+.service-list .item .item-content {
+  position: relative;
+  width:100%;
+  height:100%;
+}
+.service-list .item:nth-child(2n) {
+  border-right: none;
+}
+.service-list .placeholder {
+  background:#ccc;
+}
+
+.service-list .item .thumb {
+  width: 100%;
+  height: 100%;
+  opacity: .4;
+  filter: grayscale(50%);
+}
+.service-list .item:nth-child(2) .thumb {opacity: .8;}
+.service-list .item:nth-child(3) .thumb {opacity: .9;}
+.service-list .item:nth-child(6) .thumb {opacity: .8;}
+.service-list .item:nth-child(7) .thumb {opacity: .6;}
+.service-list .item:nth-child(10) .thumb {opacity: .8;}
+.service-list .item:nth-child(11) .thumb {opacity: .8;}
+.service-list .item:nth-child(14) .thumb {opacity: .8;}
+.service-list .item:nth-child(15) .thumb {opacity: .8;}
+.service-list .item .info {
+  position: absolute;
+  left:0;
+  top:30%;
+  z-index:1;
+  margin-top:-12rpx;
+  box-sizing: border-box;
+  padding:24rpx;
+  width:100%;
+  color:#fff;
+  text-align: center;
+}
+.service-list .item .title {
+  font-size: 30rpx;
+  text-shadow: 0 0 4rpx rgba(0,0,0,.8);
+}
+
+.service-list .item .desc {
+  opacity: .7;
+  font-size:24rpx;
+  /* text-align: left; */
+}

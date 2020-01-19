@@ -34,6 +34,10 @@
 			"currentL": -1,
 			"list": []
 		},
+		"gamePlugin": {
+			"current": -1,
+			"list": []
+		},
 		"miniprogram": {
 			"current": 18,
 			"list": [
@@ -168,6 +172,12 @@
 					"name": "外包",
 					"pathName": "pages/contract/index/index",
 					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "猎头推荐",
+					"pathName": "pages/headhunter/recommend/index",
+					"scene": null
 				}
 			]
 		}

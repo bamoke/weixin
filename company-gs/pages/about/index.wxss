@@ -1,0 +1,5 @@
+/**index.wxss**/
+.m-index-banner {
+  width:100%;
+  margin-bottom:24rpx;
+}

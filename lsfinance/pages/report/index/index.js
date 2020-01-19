@@ -12,20 +12,19 @@ function initChart(canvas, width, height) {
 
   var option = {
     title: {
-      text: ''
+      text: 'bsssa',
+      subtext:"尼玛",
+      textAlign:"left"
     },
     tooltip: {},
-    legend: {
-      data: ['销量']
-    },
     xAxis: {
-      data: ["2019-01", "2019-02", "2019-03", "2019-04", "2019-05", "2019-06", "2019-07", "2019-08", "2019-09", "2019-10", "2019-11", "2019-12"]
+      data: ["2018-01", "2019-02", "2019-03", "2019-04", "2019-05", "2019-06", "2019-07", "2019-08", "2019-09", "2019-10", "2019-11", "2019-12"]
     },
     yAxis: {},
     series: [{
-      name: '',
+      name: 'dd',
       type: 'line',
-      data: [5, 20, 36, 10, 10, 20, 5, 20, 36, 10, 10, 20]
+      data: [15, 20, 36, 10, 10, 20, 5, 20, 36, 10, 10, 20]
     }]
   };
 
@@ -40,6 +39,17 @@ Page({
    * 页面的初始数据
    */
   data: {
+    carTab: 0,
+    reportType: [
+      {
+        name: "单据量",
+        action: "bill"
+      },
+      {
+        name: "员工数",
+        action: "staff"
+      }
+    ],
     ec: {
       onInit: initChart
     }
@@ -48,8 +58,12 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
-
+  onShow: function (options) {
+    app.ajax({
+      apiUrl:"/Report/index"
+    }).then(res=>{
+      console.log(res)
+    })
   }
 
 })

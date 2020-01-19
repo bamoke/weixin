@@ -38,3 +38,13 @@
   border:1px solid #ddd;
   border-radius:50%;
 }
+.item-haschild .parent {
+  padding:24rpx;
+  border-bottom:1px solid #f1f1f1;
+}
+.item-haschild .parent .caption {
+  font-weight: bold;
+}
+.item-haschild .child .item{
+  padding-left:56rpx;
+}

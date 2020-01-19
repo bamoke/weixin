@@ -1,0 +1,34 @@
+<!--pages/contact/index/index.wxml-->
+<view class="g-wrap">
+  <view class="m-column-bar column-bar-bg">
+    <view class="en-title">CONTACT US</view>
+    <view class="divider"></view>
+    <view class="cn-title">联系我们</view>
+    <view class="small-txt">帮助更多执着追求的创业者；服务更多重视财税的企业</view>
+  </view>
+
+  <view>
+    <view class="comname">珠海蓝思企业管理顾问有限公司</view>
+    <view class="addr-box" bindtap="handleNavigate">
+      <!-- <image src="/static/images/icon-addr.png" mode="aspectFill" class="icon"></image> -->
+      <view>珠海市南湾北路32号.V12文化产业园.五栋B座五层5515-5519</view>
+      <image src="/static/images/icon-navigator.png" mode="aspectFill" class="icon"></image>
+    </view>
+    <view class="contact-lists">
+      <view class="item" wx:for="{{list}}" wx:key="id">
+        <image mode="aspectFill" src="{{item.avatar}}" class="avatar"></image>
+        <view>
+          <view class="name">{{item.name}}</view>
+          <view>手机：{{item.phone}} </view>
+          <view>电话：{{item.tel}} </view>
+          <view class="call-btn" data-index="{{index}}" bindtap="handleCallPhone">
+            <image src="/static/images/icon-tel.png" class="icon" mode="aspectFill"></image>
+            <view>拨打电话</view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <mp-actionsheet bindactiontap="handleDoCall" show="{{showActionsheet}}" actions="{{actionsGroups}}" title="请选择拨打电话或手机">
+</mp-actionsheet>
+</view>

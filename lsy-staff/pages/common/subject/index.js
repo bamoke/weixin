@@ -22,13 +22,20 @@ Page({
       curSubjectList: this.data.subjectInfo[index].child
     })
   },
-  selectSubject:function(e){
-    const index= e.currentTarget.dataset.index
+  selectSubject: function (e) {
+    var item, i;
+    const index = e.currentTarget.dataset.index
     const parentIndex = this.data.curTabIndex
-    const item = this.data.subjectInfo[parentIndex].child[index]
+    item = this.data.subjectInfo[parentIndex].child[index]
+    if (typeof e.currentTarget.dataset.i !== 'undefined') {
+      i = e.currentTarget.dataset.i
+      item = item.child[i]
+    }
+    console.log(item)
+
     wx.setStorageSync('curSelectedSubject', item)
     wx.navigateBack({
-      delta:1
+      delta: 1
     })
   },
   /**
@@ -61,11 +68,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function() {
-    const subjectInfo = wx.getStorageSync('subjectData')
-    this.setData({
-      subjectInfo,
-      curSubjectList: subjectInfo[0].child
-    })
+
   }
 
 

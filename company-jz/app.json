@@ -1,0 +1,44 @@
+{
+  "pages": [
+    "pages/service/index/index",
+    "pages/about/index",
+    "pages/contact/index/index",
+    "pages/contact/map/index",
+    "pages/service/detail/index"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#000",
+    "navigationBarTitleText": "珠海蓝思代理记账",
+    "navigationBarTextStyle": "white"
+  },
+  "tabBar": {
+    "position": "bottom",
+    "backgroundColor": "#fff",
+    "borderStyle": "black",
+    "color": "#000",
+    "selectedColor": "#1b81d3",
+    "list": [
+      {
+        "pagePath": "pages/service/index/index",
+        "text": "服务项目",
+        "iconPath": "static/images/tab-service.png",
+        "selectedIconPath": "static/images/tab-service-active.png"
+      },
+      {
+        "pagePath": "pages/about/index",
+        "text": "关于我们",
+        "iconPath": "static/images/tab-home.png",
+        "selectedIconPath": "static/images/tab-home-active.png"
+      },
+      {
+        "pagePath": "pages/contact/index/index",
+        "text": "联系我们",
+        "iconPath": "static/images/tab-contact.png",
+        "selectedIconPath": "static/images/tab-contact-active.png"
+      }
+    ]
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json"
+}

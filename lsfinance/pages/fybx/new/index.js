@@ -168,6 +168,25 @@ Page({
   },
 
   /**
+   * 小数转正整数
+   */
+  _accMul: function (arg1){
+    var m = 0, s1=arg1.toString();
+    var ratio;
+    var b =s1.split(".")
+    if(b[1]) {
+      if(b[1].length == 1) {
+        ratio = 10
+      }else if(b[1].length == 2) {
+        ratio = 1
+      }
+    }else {
+      ratio =100
+    }
+    return Number(s1.replace(".","")) * ratio
+
+  }, 
+  /**
    * 计算报销总额
    */
   _computeTotalAmount: function() {
@@ -175,8 +194,10 @@ Page({
     var detailList = this.data.detailList;
     for (var i = 0; i < detailList.length; i++) {
       var curMount = detailList[i].amount
-      totalAmount += parseInt(curMount * 100)
+      console.log(curMount)
+      totalAmount += this._accMul(curMount)
     }
+    console.log(totalAmount)
     const base = this.data.base
     base.total_amount = totalAmount / 100
     this.setData({

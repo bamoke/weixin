@@ -7,7 +7,8 @@ Page({
   data: {
     curTabIndex: 0,
     subjectInfo: [],
-    curSubjectList: []
+    curSubjectList: [],
+    parentCode: ''//上级科目ID
   },
 
   /**
@@ -22,13 +23,20 @@ Page({
     })
   },
   selectSubject:function(e){
+    var item,i;
     const index= e.currentTarget.dataset.index
     const parentIndex = this.data.curTabIndex
-    const item = this.data.subjectInfo[parentIndex].child[index]
-    wx.setStorageSync('curSelectedSubject', item)
-    wx.navigateBack({
-      delta:1
-    })
+    item = this.data.subjectInfo[parentIndex].child[index]
+    if(typeof e.currentTarget.dataset.i !== 'undefined') {
+      i = e.currentTarget.dataset.i
+      item = item.child[i]
+    }
+      console.log(item)
+
+      wx.setStorageSync('curSelectedSubject', item)
+      wx.navigateBack({
+        delta:1
+      })
   },
   /**
    * 生命周期函数--监听页面加载

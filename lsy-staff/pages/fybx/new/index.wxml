@@ -9,6 +9,13 @@
     </view>
 
     <view class="g-row-bt item">
+      <view class="section-title">所属部门</view>
+      <picker class="value-box" value='' range="{{departmentList}}" range-key="name" bindchange="selectedDepartment">
+        <view class="picker">{{base.department || '请选择'}}</view>
+      </picker>
+    </view>
+
+    <view class="g-row-bt item">
       <view class="section-title">费用说明</view>
       <input class="value-box" bindblur='enterBaseDescription' bindconfirm="enterBaseDescription" maxlength='50'  type='text' placeholder='50字符以内' value='{{base.description}}'></input>
     </view>

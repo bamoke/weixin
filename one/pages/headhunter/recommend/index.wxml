@@ -1,4 +1,5 @@
 <!--pages/headhunter/recommend/index.wxml-->
+<import src="../../../wxParse/wxParse.wxml" />
 <view class="container">
   <view class="g-pad-box">
     <view class="progress-bar">推荐流程</view>
@@ -13,13 +14,13 @@
   <view class="ht-c"></view>
   <view class="m-column-bar"><view class="title">推荐说明</view></view>
   <view class="g-pad-box">
-    请将简历发送jobs@onehre.com,内容附注职位ID以及您的联系电话。稍后我们的工作人员会对简历进行审核，审核通过后我们会和您取得联系商谈后续事宜。感谢您的支持！
+    <template is="wxParse" data="{{wxParseData:wxparse_content.nodes}}" />
   </view>
   <view class="ht-c"></view>
   <view class="m-column-bar"><view class="title">联系方式</view></view>
   <view class="g-pad-box">
-    <view class="p">电话：0756-8699888 8699886</view>
-    <view class="p">邮箱：jobs@onehre.com</view>
-    <view class="p">联系人：陈小姐</view>
+    <view class="p">电话：{{tel}}</view>
+    <view class="p">邮箱：{{email}}</view>
+    <view class="p">联系人：{{contacts}}</view>
   </view>
 </view>

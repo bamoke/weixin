@@ -90,9 +90,9 @@ App({
   }) {
     const _that = this
     // before send
-    if (!isLoaded) {
-      return
-    }
+    // if (!isLoaded) {
+    //   return
+    // }
     if (isShowLoad) {
       wx.showLoading({
         title: '加载中',

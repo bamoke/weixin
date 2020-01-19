@@ -68,6 +68,7 @@ const request = function ({ apiUrl, requestData = {}, requestMethod="GET", isSho
       dataType: "json",
       header: requestHeader,
       success: function (res) {
+        const routePage = getCurrentPages();
         isLoaded = true;
         if(isShowLoad) {
           wx.hideLoading();
@@ -82,12 +83,23 @@ const request = function ({ apiUrl, requestData = {}, requestMethod="GET", isSho
             const realPage = buildUrl(curRoute.route, curRoute.options) */
             wx.showModal({
               content: res.data.msg,
-              showCancel: false,
+              showCancel: true,
               success: function(res){
                 if (res.confirm) {
                   wx.navigateTo({
                     url: '/pages/account/login/index',
                   })
+                }else {
+                  if (routePage.length > 1) {
+                    wx.navigateBack({
+                      delta: 1
+                    })
+                  }else {
+                    wx.reLaunch({
+                      url: '/pages/index/index/index',
+                    })
+                  }
+     
                 } 
               }
             })

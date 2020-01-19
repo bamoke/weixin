@@ -24,6 +24,7 @@
     "pages/work/result/index",
     "pages/exam/index/index",
     "pages/exam/detail/index",
+    "pages/discuss/index/index",
     "pages/discuss/detail/index",
     "pages/discuss/node/index/index",
     "pages/discuss/node/add/index",

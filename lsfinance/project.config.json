@@ -33,6 +33,10 @@
 			"currentL": -1,
 			"list": []
 		},
+		"gamePlugin": {
+			"current": -1,
+			"list": []
+		},
 		"miniprogram": {
 			"current": 41,
 			"list": [
@@ -318,6 +322,13 @@
 					"name": "应收应付详情",
 					"pathName": "pages/ysyf/detail/index",
 					"query": "target=刘利剑&month=2019-03&type=2",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "new 费用报销",
+					"pathName": "pages/fybx/new/index",
+					"query": "",
 					"scene": null
 				}
 			]

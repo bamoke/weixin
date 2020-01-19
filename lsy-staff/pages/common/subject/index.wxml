@@ -1,15 +1,28 @@
 <!--pages/fiscal/subject/index.wxml-->
 <view class="container">
-  <view class="m-top-search"></view>
-  <view class="u-ht"></view>
   <scroll-view scroll-x="true" class="m-tab" bindtap='changeTab'>
-    <view class="scroll-view-item">科目类别：</view>
-    <view id="{{item.code}}" data-index="{{index}}" class="scroll-view-item{{index==curTabIndex?' active':''}}" wx:for="{{subjectInfo}}" wx:key="code">{{item.title}}</view>
+    <view class="scroll-view-item">主科目：</view>
+    <view id="{{item.code}}" data-index="{{index}}" class="scroll-view-item{{index==curTabIndex?' active':''}}" wx:for="{{subjectInfo}}" wx:key="item.subject_code">{{item.subject_name}}</view>
   </scroll-view>
+   <view class="u-ht"></view>
   <view class="m-subject-list">
-    <view class="item" wx:for="{{curSubjectList}}" wx:key="item.subject_code" data-index="{{index}}" bindtap='selectSubject'>
-      <view class="icon"></view>
-      <view class="caption">{{item.subject_name}}</view>
+    <view wx:for="{{curSubjectList}}" wx:key="item.subject_code">
+      <view class="item" wx:if="{{item.subject_level=='末级科目'}}" data-index="{{index}}" bindtap='selectSubject'>
+        <view class="icon"></view>
+        <view class="caption">{{item.subject_name}}</view>
+      </view>
+      <view class="item-haschild" wx:else>
+        <view class="parent">
+          <view class="icon-dropdown"></view>
+          <view class="caption">{{item.subject_name}}</view>
+        </view>
+        <view class="child">
+          <view class="item" wx:for="{{item.child}}" wx:for-index="i" wx:for-item="child" wx:key="child.subject_code" data-index="{{index}}" data-i="{{i}}" bindtap='selectSubject'>
+            <view class="icon"></view>
+            <view class="caption">{{child.subject_name}}</view>
+          </view>
+        </view>
+      </view>
     </view>
   </view>
 

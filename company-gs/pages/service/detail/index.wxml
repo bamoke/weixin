@@ -1,0 +1,44 @@
+<!--pages/service/detail/index.wxml-->
+<import src="/wxParse/wxParse.wxml" />
+<view class="g-wrap" wx:if="{{showPage}}">
+
+  <view class="m-detail-wrap">
+    <view class="title">{{info.title}}</view>
+    <view class="">
+      <template is="wxParse" data="{{wxParseData:wxparse_info_content.nodes}}" />
+    </view>
+    <view class="u-end-divider">
+      <view class="txt">END</view>
+    </view>
+  </view>
+
+  <view class="m-card-box">
+    <view class="bar">
+      <view class="caption">注册公司 | 财税管理找她们</view>
+      <view class="divider">
+        <view class="icon"></view>
+      </view>
+    </view>
+    <view class="item">
+      <view class="name">
+        <text class="big-txt">方宗兰</text>
+        <text class="small-txt">会计师 | 创业顾问 | 工商咨询</text>
+      </view>
+      <view class="position">创办企业 / 注册公司 / 工商办理 / 特殊审批</view>
+      <view>
+        <image src="https://lscms.oss-cn-shenzhen.aliyuncs.com/images/15754539173.jpg" mode="widthFix"></image>
+      </view>
+    </view>
+    <view class="item">
+      <view class="name">
+        <text class="big-txt">刘媛</text>
+        <text class="small-txt">会计师 | 创始人 | 财税咨询</text>
+      </view>
+      <view class="position">企业财税 / 内控管理 / 工商注册 / 创办企业</view>
+      <view>
+        <image src="https://lscms.oss-cn-shenzhen.aliyuncs.com/images/15754539053.jpg" mode="widthFix"></image>
+      </view>
+    </view>
+  </view>
+
+</view>

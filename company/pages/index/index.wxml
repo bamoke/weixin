@@ -1,35 +1,55 @@
 <!--index.wxml-->
-<view class="g-wrap">
-  <image class="m-index-banner" src="/static/images/index-banner.jpg" mode="widthFix"></image>
+<import src="/wxParse/wxParse.wxml" />
+<view class="g-wrap" wx:if="{{showPage}}">
+  <image class="m-index-banner" src="{{banner}}" mode="widthFix"></image>
   <view class="m-column-bar">
     <view class="en-title">COMPANY INTRODUCTION</view>
     <view class="divider"></view>
     <view class="cn-title">关于蓝思服务</view>
     <view class="small-txt">树立服务标杆，专业服务助力众多企业和创业者</view>
   </view>
+
   <view class="g-pad-box">
-    <view>珠海蓝思企业管理顾问有限公司（简称：蓝思服务·LansiService)--总部位于珠海市南湾区.V12文化产业园内，公司成立于2006年3月。蓝思服务专业提供创办企业咨询、公司注册、工商服务、港澳公司注册、外资企业设立、海外公司注册和财税代理服务为主要经营项目，同时，为企业提供行业ERP系统上线指导和行业管理软件研发、实施及服务。</view>
-    <view>
-      <image src="/static/images/about-pic-01.jpg" style="width:100%"  mode="widthFix"></image>
-    </view>
-    <view>
-      一直以来，蓝思团队以高度的专业功底和贴切的服务理念，赢得了众多中小型企业、政府部门、创业者和业内人士的好评与认可，在行业内树立服务标杆，为众多企业和创业者在发展经营过程中提供有效的创业思路、管理咨询、系统化应用、财税核算规则和解析现行国家行业新政策新制度法规，为促进实体经济发展提供高效服务。
-    </view>
-    <view>
-      <image src="/static/images/about-pic-02.jpg" mode="widthFix" style="width:100%;"></image>
-    </view>
-    <view>
-      
-    </view>
+    <template is="wxParse" data="{{wxParseData:wxparse_company_content.nodes}}" />
   </view>
 
-    <view class="m-column-bar">
+  <view class="m-column-bar">
     <view class="en-title">TEAMS INTRODUCTION</view>
     <view class="divider"></view>
     <view class="cn-title">团队介绍</view>
     <view class="small-txt">我们是一群专业、充满朝气的财务工作者</view>
   </view>
   <view class="g-pad-box">
-    <image style="width:100%" src="/static/images/team-pic-01.jpg"></image>
+    <template is="wxParse" data="{{wxParseData:wxparse_team_content.nodes}}" />
+  </view>
+
+
+  <view class="m-card-box">
+    <view class="bar">
+      <view class="caption">注册公司 | 财税管理找她们</view>
+      <view class="divider">
+        <view class="icon"></view>
+      </view>
+    </view>
+    <view class="item">
+      <view class="name">
+        <text class="big-txt">方宗兰</text>
+        <text class="small-txt">会计师 | 创业顾问 | 工商咨询</text>
+      </view>
+      <view class="position">创办企业 / 注册公司 / 工商办理 / 特殊审批</view>
+      <view>
+        <image src="https://lscms.oss-cn-shenzhen.aliyuncs.com/images/15754539173.jpg" mode="widthFix"></image>
+      </view>
+    </view>
+    <view class="item">
+      <view class="name">
+        <text class="big-txt">刘媛</text>
+        <text class="small-txt">会计师 | 创始人 | 财税咨询</text>
+      </view>
+      <view class="position">企业财税 / 内控管理 / 工商注册 / 创办企业</view>
+      <view>
+        <image src="https://lscms.oss-cn-shenzhen.aliyuncs.com/images/15754539053.jpg" mode="widthFix"></image>
+      </view>
+    </view>
   </view>
 </view>

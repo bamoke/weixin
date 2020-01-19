@@ -1,0 +1,53 @@
+<!--index.wxml-->
+<import src="/wxParse/wxParse.wxml" />
+<view class="g-wrap" wx:if="{{showPage}}">
+  <!-- <image class="m-index-banner" src="{{banner}}" mode="widthFix"></image> -->
+  <view class="m-column-bar column-bar-bg">
+    <view class="en-title">COMPANY INTRODUCTION</view>
+    <view class="divider"></view>
+    <view class="cn-title">关于蓝思服务</view>
+    <view class="small-txt">树立服务标杆，专业服务助力众多企业和创业者</view>
+  </view>
+
+  <view class="g-pad-box">
+    <template is="wxParse" data="{{wxParseData:wxparse_company_content.nodes}}" />
+  </view>
+
+  <view class="m-column-bar column-bar-bg">
+    <view class="en-title">TEAMS INTRODUCTION</view>
+    <view class="divider"></view>
+    <view class="cn-title">团队介绍</view>
+    <view class="small-txt">我们是一群专业、充满朝气的财务工作者</view>
+  </view>
+  <view class="g-pad-box">
+    <template is="wxParse" data="{{wxParseData:wxparse_team_content.nodes}}" />
+  </view>
+  <view class="m-card-box">
+    <view class="bar">
+      <view class="caption">注册公司 | 财税管理找她们</view>
+      <view class="divider">
+        <view class="icon"></view>
+      </view>
+    </view>
+    <view class="item">
+      <view class="name">
+        <text class="big-txt">方宗兰</text>
+        <text class="small-txt">会计师 | 创业顾问 | 工商咨询</text>
+      </view>
+      <view class="position">创办企业 / 注册公司 / 工商办理 / 特殊审批</view>
+      <view>
+        <image src="https://lscms.oss-cn-shenzhen.aliyuncs.com/images/15754539173.jpg" mode="widthFix"></image>
+      </view>
+    </view>
+    <view class="item">
+      <view class="name">
+        <text class="big-txt">刘媛</text>
+        <text class="small-txt">会计师 | 创始人 | 财税咨询</text>
+      </view>
+      <view class="position">企业财税 / 内控管理 / 工商注册 / 创办企业</view>
+      <view>
+        <image src="https://lscms.oss-cn-shenzhen.aliyuncs.com/images/15754539053.jpg" mode="widthFix"></image>
+      </view>
+    </view>
+  </view>
+</view>
