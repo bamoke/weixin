@@ -1,0 +1,15 @@
+<!--index.wxml-->
+<view class="container">
+  <view class="m-unbind">
+    <image class="icon" src="/static/images/guide-banner.png"></image>
+    <view class="title">欢迎来到一课云企业内训平台</view>
+    <view class="desc">
+      <view class="item">名师授课</view>
+      <view class="item">丰富课程</view>
+      <view class="item">科学定制</view>
+    </view>
+    <view class="btn-wrap">
+      <navigator open-type="navigate" url="/pages/bind/bind/index" class="btn btn-block btn-bind">前去报到</navigator>
+    </view>
+  </view>
+</view>

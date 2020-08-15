@@ -1,0 +1,8 @@
+<template name="footer">
+<view class="m-footer">
+  <navigator url="../index/index" hover-class="navigator-hover" class="item"><span class="home"></span>首页</navigator>
+  <navigator url="find" class="item"><span class="fx" open-type="switchTab"></span>特惠</navigator>
+  <navigator url="find" class="item"><span class="fx" open-type="switchTab"></span>兑换</navigator>
+  <navigator url="../home/home" class="item {{ishome}}" open-type="switchTab"><span class="user-home"></span>我的</navigator>
+</view>
+</template>

@@ -1,5 +1,7 @@
 /* pages/welfare/list/index.wxss */
-
+.container {
+  background:#f8f8f8;
+}
 .m-banner {
   position: relative;
   width: 100%;
@@ -42,6 +44,7 @@
   display: flex;
   align-items: center;
   padding: 24rpx 0;
+  background: #fff;
 }
 
 .m-type-list .item {
@@ -50,21 +53,64 @@
   line-height: 1;
   border-right: 1px solid #f1f1f1;
 }
-
+.m-welfare-list .item {
+  display: flex;
+  margin-bottom:24rpx;
+  background: #fff;
+}
 .m-welfare-list .item .main-content{
   display: flex;
+  flex:0 width;
   padding:24rpx;
-  border-bottom:1px solid #f1f1f1;
+  width:75%;
 }
 .m-welfare-list .item .info {
-  flex-shrink: 1;
-  width:100%;
+  display: flex;
+  flex-direction:column;
+  justify-content: space-between;
+  flex-shrink: 0 width;
+  padding:0 24rpx;
+  width:60%;
 }
 .m-welfare-list .item .thumb {
   flex: 0 width;
-  margin-right:24rpx;
-  width:200rpx;
-  height:160rpx;
+  /* box-sizing: border-box; */
+  width:40%;
+  height:192rpx;
+}
+.m-welfare-list .item .coupon-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex: 0 width;
+  padding:24rpx;
+  width:25%;
+  border-left:1px dashed #eee;
+  text-align: center;
+}
+.coupon-has-text {display: none;}
+.m-welfare-list .item .coupon-has .coupon-has-text {
+    display: block;
+    color:#999;
+}
+.m-welfare-list .item .coupon-has .coupon-btn {
+  display: none;
+}
+.m-welfare-list .item .coupon-info .coupon-title {
+  color:#fa4b4b;
+  font-weight: 500;
+}
+.m-welfare-list .item .coupon-has .coupon-title {color:#999;}
+.m-welfare-list .item .coupon-info .amount {
+  font-size:56rpx;
+}
+.coupon-btn {
+  width:100%;
+  height:64rpx;
+  line-height: 64rpx;
+  color:#fff;
+  background:#fa4b4b;
+  border-radius: 8rpx;
 }
 .m-welfare-list .item .info .top {
   display: flex;
@@ -80,14 +126,10 @@
   color:#6c6c6c;
 }
 .m-welfare-list .item .info .title {
-  flex-shrink: 1;
-  flex-grow: 1;
+  flex: 0 width;
   width: 100%;
   font-size:30rpx;
-  line-height: 1;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+  line-height: 1.5;
 }
 .m-welfare-list .item .addr-box {
   font-size:22rpx;
@@ -106,37 +148,7 @@
   color:#4b8dfa;
 }
 
-.m-grade-box {
-  position: relative;
-  margin-right: 12rpx;
-  width:136rpx;
-  height:26rpx;
-  /* overflow: hidden; */
-}
-.m-grade-box .grade {
-  position: absolute;
-  left: 0;
-  top:0;
-  z-index: 1;
-  height:32rpx;
-  overflow: hidden;
-}
-.m-grade-box .icon-star {
-  width: 136rpx;
-  height: 24rpx;
-}
-.m-grade-box .bg {height:24rpx;}
-.m-grade-box .bg .icon-star {
-  filter: grayscale(100%);
-  opacity:.3;
-}
-.grade-info {
-  margin-bottom:8rpx;
-}
-.grade-num {
-  font-size:22rpx;
-  color:#9c9c9c;
-}
+
 
 .other-box {
   padding: 24rpx;

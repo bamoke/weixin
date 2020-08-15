@@ -57,11 +57,6 @@ Page({
           hasError = true
           break;
         case 3:
-          zlStageStyle = "success"
-          ptStageStyle = "error"
-          stageDescription = '平台审核未通过，未通过原因：' + res.data.info.reason,
-          hasError = true
-          break;
         case 4:
           zlStageStyle = "success"
           ptStageStyle = "success"

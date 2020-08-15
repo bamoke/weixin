@@ -1,5 +1,5 @@
 {
-  "navigationBarTitleText": "人才卡申请",
+  "navigationBarTitleText": "人才卡领用",
   "usingComponents": {
     "upload-progress": "/components/upload-progress/progress"
   }

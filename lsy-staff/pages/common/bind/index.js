@@ -30,7 +30,7 @@ Page({
    * 获取验证码
    */
   fetchCode: function() {
-    var phoneRe = /^[1][3578]{1}([0-9]{9})$/;
+    var phoneRe = /^[1][3456789]{1}([0-9]{9})$/;
     var phone = this.data.phone;
     if (!phone) {
       return this._setError("请输入手机号码")
@@ -87,7 +87,7 @@ Page({
    */
   submitForm: function(data) {
     var formData = data.detail.value;
-    var phoneRe = /^[1][3578]{1}([0-9]{9})$/;
+    var phoneRe = /^[1][3456789]{1}([0-9]{9})$/;
     var codeRe = /[0-9]{6}/
     var apiUrl = "/Account/bindaccount";
     var req;
@@ -148,7 +148,6 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
-    console.log(options)
     if (typeof options.code === 'undefined') {
       this.setData({
         showPage: true,

@@ -6,9 +6,11 @@ Page({
    * 页面的初始数据
    */
   data: {
-    talentId: null,
+    applyId: '',
     papersTypeIndex: 0,
     papersTypeArr: ["请选择", "身份证", "护照", "通行证(港澳台)"],
+    talentTypeIndex: 1,
+    talentTypeArr: ["请选择","产业类","农技类","党政类","社工类","教育类","卫生类"],
     imgList: [],
     formData: {},
     showProgress: false
@@ -23,6 +25,12 @@ Page({
       papersTypeIndex: index
     })
   },
+  handleTalentTypeChange(e) {
+    var index = e.detail.value
+    this.setData({
+      talentTypeIndex: index
+    })
+  },
   formSubmit(e) {
     var phoneRe = /^[1][3578]{1}([0-9]{9})$/;
     var requestParams
@@ -35,6 +43,7 @@ Page({
     }
     formData.papers_img = papersImg.join(",")
     formData.papers_type = this.data.papersTypeIndex
+    formData.talent_type = this.data.talentTypeIndex
     requestParams = {
       apiUrl: "/Talent/apply",
       requestMethod: "POST",
@@ -42,6 +51,10 @@ Page({
     }
 
     //validate
+    if (formData.talent_type == 0) {
+      this._showError("请选择人才类型")
+      return
+    }
     if (formData.realname == '') {
       this._showError("请填写真实姓名")
       return
@@ -89,7 +102,7 @@ Page({
     const _that = this
     var imgList = this.data.imgList
     var curItem = imgList[index]
-    console.log(curItem)
+    var applyId = this.data.applyId
     wx.showModal({
       content: '确定删除此图片？',
       success: function(result) {
@@ -97,7 +110,8 @@ Page({
           let requestParams = {
             apiUrl: "/Uploads/img_delete",
             requestData: {
-              img: curItem.name
+              img: curItem.name,
+              applyid: applyId
             }
           }
           app.ajax(requestParams).then(res => {
@@ -182,13 +196,13 @@ Page({
    */
 
   onLoad: function (options) {
-    var imgList, requestParams,talentId,requestData = {}
+    var imgList=[], requestParams,talentId,requestData = {}
       if(typeof options.id !== 'undefined') {
         requestData.id = options.id
         talentId = options.id
       }
       requestParams = {
-        apiUrl: "/Talent/detail",
+        apiUrl: "/Talent/apply_detail",
         requestData
       }
     app.ajax(requestParams).then(res => {
@@ -197,24 +211,21 @@ Page({
       if (info) {
         newFormData.realname = info.realname
         newFormData.phone = info.phone
-      }
-      if (talentId) {
         newFormData.papers_no = info.papers_no
-        imgList = info.papers_img.split(",").map(item=>{
-          return {
-            name:item,
-            url:res.data.imgbaseurl + "/" + item
-          }
-        })
+        if (info.papers_img) {
+          imgList = info.papers_img.split(",").map(item => {
+            return {
+              name: item,
+              url: res.data.imgbaseurl + "/" + item
+            }
+          })
+        }
         this.setData({
+          applyId: info.id,
           formData: newFormData,
-          papersTypeIndex : info.papers_type,
-          talentId, 
+          papersTypeIndex: info.papers_type,
+          talentTypeIndex:info.type,
           imgList
-        })
-      }else {
-        this.setData({
-          formData:newFormData
         })
       }
     })

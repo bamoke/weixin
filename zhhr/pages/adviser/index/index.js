@@ -39,7 +39,7 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function(options) {
+  onShow: function(options) {
 
   },
 
@@ -48,7 +48,7 @@ Page({
   /**
    * 生命周期函数--监听页面显示
    */
-  onShow: function() {
+  onLoad: function() {
     const requestParams = {
       apiUrl: "/Adviser/index"
     }
@@ -61,6 +61,10 @@ Page({
             if (result.confirm) {
               wx.redirectTo({
                 url: '/pages/talent/index/index',
+              })
+            }else {
+              wx.navigateBack({
+                delta: 1,
               })
             }
           }

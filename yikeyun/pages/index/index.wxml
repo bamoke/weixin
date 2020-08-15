@@ -1,0 +1,13 @@
+<!--index.wxml-->
+<view class="container">
+  <view class="m-class-list">
+    <navigator class="item" open-type="navigate" url="/pages/class/course/index?id={{item.id}}" wx:for="{{classList}}" wx:key="id">
+      <view class="title">{{item.name}}</view>
+      <view class="desc">{{item.description}}</view>
+      <view class="total">
+        <view>课程数:<text class="num">{{item.course_total}}</text></view>
+        <view>学员数:<text class="num">{{item.student_total}}</text></view>
+      </view>
+    </navigator>
+  </view>
+</view>

@@ -18,8 +18,8 @@ Page({
     wx.navigateToMiniProgram({
       appId: 'wxe0ad4459e84ec05b',
       path: '/pages/common/bind/index?code='+this.data.info.code,
-      // envVersion: 'trial',
-      envVersion: 'release',
+      envVersion: 'trial',
+      // envVersion: 'release',
       success(res) {
         // 打开成功
       },
@@ -46,6 +46,7 @@ Page({
       requestData:{code:inviteCode}
     }
     app.ajax(requestParams).then(res=>{
+      console.log(res.info)
       this.setData({
         showPage:true,
         info:res.info

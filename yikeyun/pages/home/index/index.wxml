@@ -1,0 +1,68 @@
+<!--pages/home/index/index.wxml-->
+<view class='container' wx:if="{{showPage}}">
+  <view class="home-userinfo border-bottom">
+    <view class="g-row top-wrap">
+      <view class="avatar-wrap">
+        <button class="avatar-btn" open-type="getUserInfo" bindgetuserinfo="getUserInfo"></button>
+        <image class="avatar" src="{{userInfo.avatar||'/static/images/default-avatar.png'}}"></image>
+      </view>
+      <view class="other-info">
+        <view class="user-name">{{userInfo.realname||'用户昵称'}}</view>
+        <view class="">累计学习时长:
+          <text class="time-total">{{userInfo.total_time}}</text>分钟</view>
+      </view>
+    </view>
+  </view>
+
+  <view class="m-record">
+    <navigator class='header'>
+      <view class="title">
+        <text>最近观看</text>
+      </view>
+      <!-- <image class="icon" src="/static/images/arrow-black-right.png"></image> -->
+    </navigator>
+    <scroll-view scroll-x="true" wx:if="{{recordList.length}}" class="list-wrap">
+      <view class="list">
+        <navigator open-type="navigate" url="/pages/course/{{item.type==1?'detail':'detail-single'}}/index?id={{item.course_id}}&sid={{item.section_id}}" class='item' wx:for="{{recordList}}" wx:key="id">
+          <image class="thumb" lazy-load='true' src='{{item.thumb}}'></image>
+          <view class="text-box">
+            <view class="title-box">
+              <view class='title f-ellipsis' wx:if="{{item.type==1}}">{{item.section_title}}</view>
+              <view class="{{item.type==1?'small-title':'title'}} f-ellipsis">{{item.course_title}}</view>
+            </view>
+            <view class='record-time text-lightgray'>观看至:{{item.record_time}}</view>
+          </view>
+        </navigator>
+      </view>
+    </scroll-view>
+  </view>
+
+  <view class="u-ht"></view>
+  <view class="m-nav-list f-has-border">
+    <navigator open-type='navigate' url="/pages/home/mycourse/index" class="item">
+      <view class="title">
+        <image class="left-icon u-myicon myicon-big" src="/static/images/icon-video-white-fill.png"></image>
+        <text class="txt">我的课程</text>
+      </view>
+      <view class="icon-arrow"></view>
+    </navigator>
+  </view>
+  <view class="u-ht"></view>
+  <view class="m-nav-list f-has-border">
+    <!-- <navigator open-type='navigate' url="/pages/home/about/index" class="item">
+      <view class="title">
+        <image class="left-icon u-myicon myicon-big" src="/static/images/icon-edit-black.png"></image>
+        <text class="txt">关于我们</text>
+      </view>
+      <view class="icon-arrow"></view>
+    </navigator> -->
+    <navigator open-type='navigate' url="/pages/home/feedback/index" class="item">
+      <view class="title">
+        <image class="left-icon u-myicon myicon-big" src="/static/images/icon-edit-black.png"></image>
+        <text class="txt">建议反馈</text>
+      </view>
+      <view class="icon-arrow"></view>
+    </navigator>
+  </view>
+
+</view>

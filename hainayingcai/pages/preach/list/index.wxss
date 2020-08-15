@@ -1,0 +1,29 @@
+/* pages/preach/list/index.wxss */
+.list-item {
+  padding:24rpx;
+  border-bottom:1px solid #f1f1f1;
+}
+.list-item .thumb {
+  width:100%;
+  height:420rpx;
+}
+.list-item .title {
+  padding:12rpx 0;
+  width:100%;
+  overflow: hidden;
+  line-height: 1;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color:#232323;
+  font-size:34rpx;
+}
+.list-item .foot {
+  width:100%;
+  display: flex;
+  justify-content:space-between;
+  color:#9c9c9c;
+  font-size:24rpx;
+}
+.list-item .foot .time {
+  text-align: right;
+}

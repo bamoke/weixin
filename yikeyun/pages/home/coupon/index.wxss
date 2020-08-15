@@ -1,0 +1,44 @@
+/* pages/home/coupon/index.wxss */
+.container {
+  background:#f4f4f4;
+}
+.m-coupon-list {
+  width:100%;
+  padding:24rpx;
+}
+.m-coupon-list .item {
+  position: relative;
+  display: flex;
+  align-items: center;
+  margin-bottom:48rpx;
+  padding:24rpx;
+  background:#fff;
+  box-shadow:0 0 4px rgba(0,0,0,.1);
+  overflow: hidden;
+}
+.m-coupon-list .item .value-box {
+  flex-grow:0;
+  flex-shrink:0;
+  width:160rpx;
+  color:#f00;
+}
+.m-coupon-list .item .value-box .value {
+  font-size:48rpx;
+}
+.m-coupon-list .overdue-bar {
+  position:absolute;
+  right:-40rpx;
+  top:40rpx;
+  z-index:1;
+  width:300rpx;
+  height:60rpx;
+  line-height:60rpx;
+  background:#666;
+  color:#fff;
+  text-align: center;
+  transform-origin:center center;
+  transform:rotate(45deg);
+}
+.m-coupon-list .desc {color:#121212;line-height: 1.8;}
+.m-coupon-list .overdue-item .value-box {color:#999;}
+.m-coupon-list .overdue-item .desc {color:#999;}

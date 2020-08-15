@@ -1,0 +1,11 @@
+/* pages/video/detail/index.wxss */
+.container {
+  background:#121212;
+  color:#fff;
+}
+.m-related .item {
+  border-bottom-color:#000;
+}
+.m-related .item .title {
+  font-size:28rpx;
+}

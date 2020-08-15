@@ -1,0 +1,54 @@
+/* pages/common/bind/index.wxss */
+
+page {
+  height:100%;
+  /* background-color: #fff; */
+  background:#2fc4b2;
+
+}
+.container {
+  background:#2fc4b2;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.weui-label {
+  width: 80px;
+}
+.banner {
+  position: relative;
+  padding-top:96rpx;
+  height:300rpx;
+}
+.banner .title {
+  position: absolute;
+  left:64rpx;
+  right: 64rpx;
+  top:0;
+  z-index: 1;
+  color:#fff;
+  font-size: 36rpx;
+  line-height: 1.8;
+  text-align: center;
+}
+.banner .title .big {
+  font-size:48rpx;
+  font-weight: 500;
+}
+.banner .img {
+  width:100%;
+  opacity: .5;
+}
+.m-form-wrap {
+  position: relative;
+  margin:0 64rpx 128px;
+  padding:48rpx 24rpx 0;
+  background:#fff;
+  box-shadow: 0 0 5px rgba(0, 0, 0, .1);
+  /* border-top-left-radius: 20px;
+  border-top-right-radius: 20px; */
+}
+.weui-btn-area {
+  margin:64rpx 0;
+}

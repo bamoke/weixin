@@ -1,0 +1,6 @@
+/* pages/home/mycourse/index.wxss */
+.progress {
+  flex-grow: 0;
+  flex-shrink: 0;
+  width:70%;
+}

@@ -1,0 +1,59 @@
+<!--pages/course/detail/index.wxml-->
+<import src="../../../wxParse/wxParse.wxml" />
+<import src="../../template/comment/comment.wxml" />
+<view class="container" wx:if="{{showPage}}">
+  <view class="g-page-top">
+    <video id="mainVideo" class='u-video' objectFit="cover" initial-time="{{initialTime}}" src='{{introduce.source}}' autoplay="{{false}}" bindtimeupdate="videoPlaying" show-progress="{{false}}"></video>
+  </view>
+
+  <scroll-view scroll-y="true" class="g-scroll-wrap">
+    <view class="m-course-introduce">
+      <view class='g-row-bt'>
+        <view class="base-info">
+          <view class="title">{{introduce.title}}</view>
+          <view class="desc">{{introduce.description}}</view>
+          <view class="g-row-bt progress-wrap">
+            <view class="txt">学习进度</view>
+            <view class="progress">
+              <progress percent="{{introduce.progress}}" stroke-width="10" color="#2fc4b2" show-info />
+            </view>
+          </view>
+
+        </view>
+      </view>
+
+      <view class="u-ht"></view>
+      <view class="record m-teacher-info" wx:if="{{introduce.record_time}}">
+        <view class="time">上次观看至:{{introduce.record_time}}</view>
+        <view class="continue-btn btn btn-success" catchtap="studyContinue">继续观看</view>
+      </view>
+
+      <block wx:if="{{teacherInfo}}">
+        <view class="u-ht"></view>
+        <view class="m-teacher-info">
+          <view class="bd">
+            <image mode="aspectFill" src="{{teacherInfo.avatar}}" class="avatar"></image>
+            <view class="introduce">
+              <view class="name">{{teacherInfo.name}}</view>
+              <view class="desc">{{teacherInfo.position}}</view>
+            </view>
+          </view>
+        </view>
+      </block>
+
+      <view class="u-ht"></view>
+      <view class="g-card">
+        <view class="header">
+          <view class="title">
+            <text>课程详情</text>
+          </view>
+        </view>
+        <view class="body m-detail-content wxParse" style="padding-bottom:160rpx;">
+          <template is="wxParse" data="{{wxParseData:wxparse_content.nodes}}" />
+        </view>
+      </view>
+
+    </view>
+  </scroll-view>
+
+</view>

@@ -5,7 +5,7 @@
       <view class="info">
         <view class="s-text-info"></view>
         <view>邀请您加入</view>
-        <view class="comname s-text-info">{{comInfo.comName}}</view>
+        <view class="comname s-text-info">{{info.comname}}</view>
         <view>云财务企业员工专属小程序</view>
       </view>
       <button class="btn btn-block btn-large btn-success" bindtap='jumpMiniProgram'>同意加入</button>

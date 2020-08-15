@@ -1,0 +1,12 @@
+<!--pages/mplogin/index.wxml-->
+<view class="container">
+  <view class="main-wrap">
+    <image class="icon" src="/static/images/icon-tips.png"></image>
+    <view class="tips">
+      <view>微信未登录或登录状态已过期</view>
+      <view class="">请点击下方微信登录重试</view>
+    </view>
+    <view class="btn btn-large btn-success" style="width:100%" bindtap='handleMpLogin'>微信登录</view>
+    <view class="btn btn-large btn-default" style="width:100%" bindtap='handleCancel'>取消</view>
+  </view>
+</view>

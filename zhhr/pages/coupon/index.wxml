@@ -1,0 +1,27 @@
+<!--pages/home/coupon/index.wxml-->
+<view class="container" wx:if="{{showPage}}">
+  <bmk-topnav items="{{cateArr}}" cur-tab="{{curNavIndex}}" bind:switch="changeCate"></bmk-topnav>
+  <view class="m-coupon-list" wx:if="{{list.length}}">
+    <view class="item {{item.coupon_status !=1?'unusable-item':''}}" wx:for="{{list}}" wx:key="id">
+    <view class="icon icon-left"></view>
+    <view class="icon icon-right"></view>
+      <view class="value-box">
+        <text>￥</text><text class="value">{{item.title}}</text>
+      </view>
+      <view class="desc">
+        <view class="title">{{item.description}}</view>
+        <view class="addr">使用场地：{{item.business_name}}</view>
+        <view class="deadline">截至日期：{{item.end_date}}</view>
+      </view>
+      <view class="right-box">
+        <view class="use-btn" wx:if="{{item.coupon_status==1}}" bindtap="handleUse" data-index="{{index}}">立即使用</view>
+        <view class="unusable" wx:elif="{{item.coupon_status==2}}"><view class="txt">已使用</view></view>
+        <view class="unusable" wx:else><view class="txt">已过期</view></view>
+      </view>
+    </view>
+  </view>
+  <view class="m-tips-page tips-page-empty" wx:else>
+    <image class="icon" src="/static/images/mt-empty.png"></image>
+    <view class="tips">暂无记录</view>
+  </view>
+</view>

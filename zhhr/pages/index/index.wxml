@@ -1,7 +1,7 @@
 <view class="container" wx:if="{{showPage}}">
   <view class="m-index-banner-box">
     <swiper class="index-banner" indicator-dots="true" autoplay="true" interval='3000'>
-      <block wx:for="{{bannerList}}" wx:key="{{item.id}}">
+      <block wx:for="{{bannerList}}" wx:key="index">
         <swiper-item>
           <navigator url='{{item.url}}' open-type='navigate' wx:if="{{item.url}}">
             <image lazy-load='true' mode='aspectFill' class='img' src="{{item.img}}"></image>

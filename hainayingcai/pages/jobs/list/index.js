@@ -38,11 +38,23 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
-    const requestParams = {
+    var requestParams = {
+      apiUrl: "/Index/fetch_hr_weburl",
+      requestMethod: "GET"
+    }
+    var ajaxRequest = util.request(requestParams)
+    ajaxRequest.then(res => {
+      wx.redirectTo({
+        url: '/pages/web/index?weburl=' + res.data.weburl,
+      })
+    })
+
+    return;
+     requestParams = {
       apiUrl: "/Jobs/vlist",
       requestMethod: "GET"
     }
-    const ajaxRequest = util.request(requestParams)
+    var ajaxRequest = util.request(requestParams)
     ajaxRequest.then(res => {
       this.setData({
         showPage: true,

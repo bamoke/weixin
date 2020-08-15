@@ -1,0 +1,131 @@
+{
+	"description": "项目配置文件",
+	"packOptions": {
+		"ignore": []
+	},
+	"setting": {
+		"urlCheck": false,
+		"es6": true,
+		"postcss": true,
+		"minified": true,
+		"newFeature": true,
+		"coverView": true,
+		"autoAudits": false,
+		"showShadowRootInWxmlPanel": true,
+		"scopeDataCheck": false,
+		"checkInvalidKey": true,
+		"checkSiteMap": true,
+		"uploadWithSourceMap": true,
+		"babelSetting": {
+			"ignore": [],
+			"disablePlugins": [],
+			"outputPath": ""
+		},
+		"useIsolateContext": true,
+		"useCompilerModule": false,
+		"userConfirmedUseCompilerModuleSwitch": false
+	},
+	"compileType": "miniprogram",
+	"libVersion": "2.4.0",
+	"appid": "wx56d28924ba8a08ac",
+	"projectname": "%E4%B8%80%E8%AF%BE%E4%BA%91",
+	"debugOptions": {
+		"hidedInDevtools": []
+	},
+	"isGameTourist": false,
+	"simulatorType": "wechat",
+	"simulatorPluginLibVersion": {},
+	"condition": {
+		"search": {
+			"current": -1,
+			"list": []
+		},
+		"conversation": {
+			"current": -1,
+			"list": []
+		},
+		"plugin": {
+			"current": -1,
+			"list": []
+		},
+		"game": {
+			"currentL": -1,
+			"list": []
+		},
+		"gamePlugin": {
+			"current": -1,
+			"list": []
+		},
+		"miniprogram": {
+			"current": -1,
+			"list": [
+				{
+					"id": -1,
+					"name": "课程详情",
+					"pathName": "pages/course/detail/index",
+					"query": "id=1"
+				},
+				{
+					"id": -1,
+					"name": "课程列表",
+					"pathName": "pages/course/list/index",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "个人中心",
+					"pathName": "pages/home/index/index",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "收藏夹",
+					"pathName": "pages/home/collection/index",
+					"query": ""
+				},
+				{
+					"id": 4,
+					"name": "绑定",
+					"pathName": "pages/bind/guide/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 5,
+					"name": "班级课程",
+					"pathName": "pages/class/course/index",
+					"query": "id=3",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "我的课程",
+					"pathName": "pages/home/mycourse/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "微信登录",
+					"pathName": "pages/mplogin/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "学员报到",
+					"pathName": "pages/bind/bind/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 9,
+					"name": "单节课程详情",
+					"pathName": "pages/course/detail-single/index",
+					"query": "id=9",
+					"scene": null
+				}
+			]
+		}
+	}
+}

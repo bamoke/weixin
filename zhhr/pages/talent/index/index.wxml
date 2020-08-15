@@ -1,16 +1,28 @@
 <!--pages/talent/index/index.wxml-->
 <view class="container" wx:if="{{showPage}}">
-  <view class="m-card-wrap" wx:if="{{info}}">
+  <block wx:if="{{info}}">
+  <view class="m-card-wrap">
     <view class="m-reapply g-box-pad" wx:if="{{info.expired == 1}}">
       <view class="tips">很抱歉！您的人才卡已于{{info.end_date}}过期。</view>
       <navigator url="../form/index?id={{info.id}}" mode="navigate" class="btn btn-block btn-primary">重新申请</navigator>
     </view>
     <block wx:else>
       <view class="m-card-box">
-        <image class="bg" src="/static/images/talent-bg.jpg" mode=""></image>
+        <image class="bg" src="/static/images/talentcard-bg.jpg" mode="aspectFill"></image>
+        <view class="card-level" wx:if="{{info.level}}">{{info.level}}</view>
         <view class="content">
-          <view class="title">金英人才卡</view>
-          <view class="no">NO:{{info.card_no}}</view>
+        <view class="bd">
+          <image class="logo" src="/static/images/talentcard-logo.png"></image>
+          <view class="info">
+            <view class="title">金英人才卡</view>
+            <view class="type">{{info.type_txt}}</view>
+            <view class="no">NO:{{info.card_no}}</view>
+          </view>
+        </view>
+        <view class="ft">
+          <view>有效期至{{info.end_date}}</view>
+          <view>金湾区人才工作领导小组办公室</view>
+        </view>
         </view>
       </view>
       <view class="dealine">
@@ -29,5 +41,14 @@
       <view class="p">2.获得周边福利消费优惠,使用指南：在金英港湾签约商家结算时，出示本人才卡，即可获取对应的消费优惠。</view>
     </view>
   </view>
-
+  </block>
+  <block wx:else>
+    <view class="m-noexist" wx:if="{{industrialTalentTips}}">
+      <image class="icon" src="/static/images/mt-empty.png"></image>
+      <view class="tips-title">暂无相关信息</view>
+      <view class="tips-desc">您未属于产业人才或者产业人才资格还在评审中</view>
+      <navigator open-type="navigate" url="/pages/talent/form/index" class="btn btn-primary" style="margin-bottom:48rpx;">重新申请</navigator>
+      <navigator open-type="reLaunch" url="/pages/index/index" class="btn btn-default">返回首页</navigator>
+    </view>
+  </block>
 </view>

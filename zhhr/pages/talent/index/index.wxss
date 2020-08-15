@@ -19,24 +19,74 @@
   top:0;
   z-index:0;
   width:100%;
+  height: 400rpx;
 }
 .m-card-box .content {
   position:absolute;
   left:0;
-  top:0;
-  width:100%;
+  top:96rpx;
   z-index:2;
-  padding:48rpx 24rpx;
+  width:100%;
+}
+.m-card-box .content .info {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  margin-left:24rpx;
+  padding-left:24rpx;
+  line-height: 1;
+  border-left:1px solid rgba(255,255,255,.4);
+  height: 144rpx;
+  text-align: center;
+}
+.m-card-box .content .bd {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.m-card-box .content .ft {
+  display: flex;
+  justify-content:space-between;
+  align-items: center;
+  margin-top:96rpx;
+  width:100%;
+  line-height: 1;
+  padding:0 24rpx;
+  font-size:24rpx;
+  opacity: .7;
+}
+.m-card-box .logo {
+  width:144rpx;
+  height:144rpx;
 }
 .m-card-box .title {
-  margin-top:128rpx;
   font-size:48rpx;
   text-align: center;
   line-height: 1;
 }
 .m-card-box .no {
-  margin-top:96rpx;
   font-size:32rpx;
+}
+.m-card-box .type {
+  width:120rpx;
+  height:32rpx;
+  border-top-left-radius: 16rpx;
+  border-bottom-right-radius: 16rpx;
+  background-color:#ec6941;
+  overflow: hidden;
+  line-height: 32rpx;
+  
+}
+.card-level {
+  position: absolute;
+  right: 12rpx;
+  top:12rpx;
+  z-index: 1;
+  color:#fff;
+  font-size:144rpx;
+  line-height: 1;
+  opacity: .3;
 }
 .dealine {text-align: center;color:#9c9c9c;}
 .m-tips {
@@ -73,4 +123,21 @@
   margin-bottom:24rpx;
   text-align: center;
   font-size:32rpx;
+}
+
+.m-noexist {
+  padding:48rpx;
+  text-align: center;
+}
+.m-noexist .icon {
+  margin:48rpx 0 24rpx;
+  width: 168rpx;
+  height: 168rpx;
+  opacity: .2;
+}
+.m-noexist .tips-title {
+  font-size:34rpx;
+}
+.m-noexist .tips-desc {
+  margin:24rpx 0 48rpx;
 }

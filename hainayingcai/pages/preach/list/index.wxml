@@ -1,0 +1,11 @@
+<!--pages/preach/list/index.wxml-->
+<view class="container" wx:if="{{showPage}}">
+<navigator open-type="navigate" url="../index/index?id={{item.id}}" wx:for="{{list}}" wx:key="id" class="list-item">
+  <image src="{{item.thumb}}" mode="aspectFill" class="thumb"></image>
+  <view class="title">{{item.title}}</view>
+  <view class="foot">
+    <view>观看:{{item.click}}</view>
+    <view class="time">发布日期:{{item.date}}</view>
+  </view>
+</navigator>
+</view> 

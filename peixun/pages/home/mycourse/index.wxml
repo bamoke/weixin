@@ -1,0 +1,21 @@
+<!--pages/mycourse/list/index.wxml-->
+<view class="container" wx:if="{{showPage}}">
+    <view class="m-imgtext-default" wx:if="{{list.length}}">
+      <navigator url="/pages/course/detail/index?id={{item.id}}" class='item' wx:for="{{list}}" wx:key="id">
+        <image class="thumb" lazy-load='true' src='{{item.thumb}}'></image>
+        <view class="text-box">
+          <view class='title'>{{item.title}}</view>
+          <view class='ft'>
+            <view>
+              <image class="u-myicon" src="/static/images/icon-user-black-line.png"></image>
+              <text>学习人数:{{item.study_num}}</text>
+            </view>
+          </view>
+        </view>
+      </navigator>
+    </view>
+  <view class="m-tips-page tips-page-empty" wx:else>
+    <image class="icon" src="/static/images/mt-empty.png"></image>
+    <view class="tips">暂无记录</view>
+  </view>
+</view>

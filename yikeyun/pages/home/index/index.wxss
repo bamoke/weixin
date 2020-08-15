@@ -1,0 +1,237 @@
+/* pages/home/index/index.wxss */
+
+.f-has-border {
+  border-top: 1px solid #f1f1f1;
+  border-bottom: 1px solid #f1f1f1;
+}
+
+.container {
+  font-size: 30rpx;
+}
+
+.get-user-info-btn {
+  display: inline-block;
+  margin: 0;
+  margin-bottom: 24rpx;
+  padding: 16rpx 24rpx;
+  background: #fff;
+  line-height: 1;
+  border: none;
+  font-size: 30rpx;
+  outline: none;
+  color: #6c6c6c;
+}
+.top-wrap {
+  align-items: center;
+}
+.home-userinfo {
+  padding: 24rpx 24rpx 48rpx;
+  background: #2fc4b2;
+  color: #fff;
+}
+
+.m-total-box {
+  position: relative;
+  padding: 0 24rpx;
+  height: 100rpx;
+}
+
+.m-total-box .content {
+  position: absolute;
+  left: 0;
+  bottom: -60rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center; 
+  height: 120rpx;
+  background: #2fc4b2;
+  box-shadow: 0 4px 6px rgba(0,0,0,.5);
+  border-top:1px solid rgba(255, 255, 255, 0.2);
+}
+
+.m-total-box .item {
+  width:100%;
+  text-align: center;
+  border-right: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.m-total-box .content .item:last-child {
+  border: none;
+}
+
+.m-total-box .content .caption {
+  margin-top: 12rpx;
+  font-size:24rpx;
+}
+
+.m-total-box .content .nu {
+  color: #fff;
+  font-size: 36rpx;
+}
+
+.avatar-wrap {
+  position: relative;
+  flex-grow: 0;
+  flex-shrink: 0;
+  margin-right: 48rpx;
+  width: auto;
+}
+
+.avatar-wrap .avatar-btn {
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 1;
+  opacity: 0;
+  width: 128rpx;
+  height: 128rpx;
+}
+
+.home-userinfo .avatar {
+  width: 128rpx;
+  height: 128rpx;
+  border-radius: 50%;
+}
+
+.home-userinfo .user-name {
+  margin-bottom: 12rpx;
+  font-size: 36rpx;
+  color: #fff;
+}
+.home-userinfo .other-info {
+  font-size:26rpx;
+}
+.edit-btn {
+  margin-left: 24rpx;
+  padding: 0 12rpx;
+  display: inline-block;
+  font-size: 24rpx;
+  border: 1px solid #fff;
+}
+
+.home-userinfo .tips {
+  font-size: 26rpx;
+}
+
+.m-nav-list {
+  box-sizing: border-box;
+  padding: 0 24rpx;
+  width: 100%;
+  background-color: #fff;
+}
+
+.m-nav-list .item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 110rpx;
+  border-bottom: 1px solid #f1f1f1;
+  color: #232323;
+}
+
+.m-nav-list .item:last-child {
+  border: none;
+}
+
+.m-nav-list .item .left-icon {
+  display: inline-block;
+  margin-right: 24rpx;
+  vertical-align: middle;
+  opacity: 0.2 !important;
+}
+
+.m-nav-list .left text {
+  vertical-align: middle;
+  font-size: 30rpx;
+  color: #333;
+}
+
+.m-nav-list .right .arrow {
+  display: inline-block;
+  width: 36rpx;
+  height: 36rpx;
+  background: url(http://ojpuy4nsw.bkt.clouddn.com/i-arrow-right.png) no-repeat right center;
+  background-size: contain;
+  vertical-align: middle;
+  opacity: 0.8;
+}
+
+.m-nav-list .right .tips {
+  color: #999;
+  vertical-align: middle;
+}
+
+.icon-arrow {
+  width: 24rpx;
+  height: 24rpx;
+}
+
+.other-info .u-myicon {
+  width: 24rpx;
+  height: 24rpx;
+  opacity: 0.3;
+}
+
+.reg-link {
+  display: inline-block;
+}
+
+.m-record  {
+  background:#fff;
+}
+.m-record .header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding:24rpx;
+}
+.m-record .header .title {
+  color:#010101;
+  font-size:32rpx;
+  font-weight: 500;
+}
+.m-record .header .icon {
+  width:32rpx;
+  height: 32rpx;
+}
+.m-record .list {
+  display: flex;
+  padding:12rpx 0 48rpx;
+  box-sizing: border-box;
+}
+
+.m-record .list .item {
+  margin-left:24rpx;
+  width:240rpx;
+}
+.m-record .list .item .thumb {
+  margin-bottom:12rpx;
+  width: 240rpx;
+  height:160rpx;
+  border-radius:3px;
+}
+.title-box {
+  height:76rpx;
+}
+.m-record .list .item .title {
+  line-height: 1.2;
+}
+.m-record .list .item .small-title {
+  padding:6rpx 0 12rpx;
+  font-size:24rpx;
+  line-height: 1;
+  color:#696969;
+}
+.m-record .list .item .record-time {
+  font-size:24rpx;
+}
+.f-ellipsis {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  width:100%;
+  overflow: hidden;
+}
+.time-total {
+  font-weight: 500;
+  margin:0 12rpx;
+}

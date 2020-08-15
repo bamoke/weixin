@@ -1,0 +1,28 @@
+<!--pages/class/course/index.wxml-->
+<view class="container" wx:if="{{showPage}}">
+  <view class="g-card">
+    <view class='header'>
+      <view class="title">
+        <text>班级课程</text>
+      </view>
+    </view>
+    <view class="body m-imgtext-default">
+      <navigator url="/pages/course/{{item.type==1?'detail':'detail-single'}}/index?id={{item.id}}" class='item' wx:for="{{courseList}}" wx:key="item.id">
+        <image class="thumb" lazy-load='true' src='{{item.thumb}}'></image>
+        <view class="text-box">
+        <view>
+          <view class='title'>{{item.title}}</view>
+          <view class="desc">{{item.description}}</view>
+        </view>
+          <view class='ft'>
+            <view>学习进度</view>
+            <view class="progress">
+              <progress percent="{{item.progress}}" color="#2fc4b2" show-info />
+            </view>
+          </view>
+        </view>
+      </navigator>
+    </view>
+  </view>
+
+</view>

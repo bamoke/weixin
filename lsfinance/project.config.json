@@ -7,7 +7,17 @@
 		"minified": true,
 		"newFeature": true,
 		"autoAudits": false,
-		"checkInvalidKey": true
+		"checkInvalidKey": true,
+		"checkSiteMap": true,
+		"uploadWithSourceMap": true,
+		"babelSetting": {
+			"ignore": [],
+			"disablePlugins": [],
+			"outputPath": ""
+		},
+		"useIsolateContext": true,
+		"useCompilerModule": false,
+		"userConfirmedUseCompilerModuleSwitch": false
 	},
 	"compileType": "miniprogram",
 	"libVersion": "2.4.4",
@@ -272,7 +282,7 @@
 					"id": 34,
 					"name": "邀请落地",
 					"pathName": "pages/common/landing/index",
-					"query": "code=7ad6d9efe895956d28185ec9c85d20e7",
+					"query": "code=540ef17bfe200e1b1e6ebcbc9327a1e5",
 					"scene": null
 				},
 				{

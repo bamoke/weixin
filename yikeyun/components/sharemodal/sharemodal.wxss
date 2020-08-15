@@ -1,0 +1,35 @@
+/* component/sharemodal/sharemodal.wxss */
+.m-share-box {
+  font-size:28rpx;
+}
+.m-share-box .masker {
+  position:fixed;
+  top:0;
+  left:0;
+  right:0;
+  bottom:0;
+  z-index:98;
+  width:100%;
+  height:100%;
+  background-color:rgba(0,0,0,.7);
+}
+.m-share-box .content {
+  position:fixed;
+  top:50%;
+  left:0;
+  right:0;
+  z-index:99;
+  margin:24rpx;
+  margin-top:-200rpx;
+  padding:100rpx 24rpx;
+  border-radius:12rpx;
+  background: #fff;
+}
+.m-share-box .tips {
+  margin-bottom:24rpx;
+  text-align: center;
+}
+.m-share-box .btn-minor {
+  color: #fff;
+  background-color: #28c0c6;
+}

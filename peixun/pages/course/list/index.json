@@ -1,0 +1,8 @@
+{
+  "usingComponents": {
+    "bmk-topnav": "/components/topnav/index"
+  },
+  "enablePullDownRefresh": true,
+  "onReachBottomDistance": 60,
+  "navigationBarTitleText": "课程列表"
+}

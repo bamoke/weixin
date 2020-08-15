@@ -1,0 +1,35 @@
+<!--pages/common/bind/index.wxml-->
+<view class='container'>
+  <mp-toptips msg="{{errorMsg}}" type="error" show="{{errorMsg}}"></mp-toptips>
+
+  <view class="banner">
+    <view class="title">
+      <view class="big">学员报到</view>
+      <view>请填写您的姓名和手机号，</view>
+      <view>就可以找到您自己的班级啦！</view>
+    </view>
+    <image src="/static/images/bind-bg.png" class="img" mode="widthFix"></image>
+  </view>
+  <view class="m-form-wrap">
+    <mp-form id="form" rules="{{rules}}" models="{{formData}}">
+      <mp-cells footer="">
+        <mp-cell prop="realname" title="姓名" ext-class="input-label">
+          <input bindinput="formInputChange" show-error data-field="realname" class="weui-input" placeholder="请输入真实姓名" />
+        </mp-cell>
+        <mp-cell prop="mobile" title="手机号" ext-class="">
+          <input bindinput="formInputChange" data-field="mobile" class="weui-input" type="number" placeholder="请输入手机号" />
+
+        </mp-cell>
+        <mp-cell prop="vcode" title="验证码" ext-class=" weui-cell_vcode">
+          <input bindinput="formInputChange" data-field="vcode" class="weui-input" type="number" placeholder="请输入验证码" />
+          <view slot="footer" class="weui-vcode-btn" bindtap="fetchCode">{{btnText}}</view>
+        </mp-cell>
+      </mp-cells>
+      <view class="weui-btn-area">
+        <button class="weui-btn btn-success" bindtap="submitForm">提交</button>
+        <navigator url="/pages/bind/guide/index" open-type="navigate" class="weui-btn btn btn-block btn-default">取消</navigator>
+      </view>
+    </mp-form>
+
+  </view>
+</view>

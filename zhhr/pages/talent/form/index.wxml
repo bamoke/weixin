@@ -3,6 +3,14 @@
 
   <view class="form-wrap">
     <form class="m-form-default" bindsubmit="formSubmit">
+          <view class="form-group">
+        <view class="label">人才类型</view>
+        <picker class="value-box" bindchange="handleTalentTypeChange" value="{{talentTypeIndex}}" range="{{talentTypeArr}}">
+          <view class="">
+            {{talentTypeArr[talentTypeIndex]}}
+          </view>
+        </picker>
+      </view>
       <view class="form-group">
         <view class="label">姓名</view>
         <input class="value-box" name="realname" maxlength="32" value="{{formData.realname}}" placeholder="请输入真实姓名" />

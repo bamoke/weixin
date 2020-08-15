@@ -1,0 +1,8 @@
+/* pages/home/about/index.wxss */
+.container {background:#fff;}
+.content-p {
+  padding:24rpx 0;
+  line-height:1.8;
+  font-size:28rpx;
+  text-indent: 2em;
+}

@@ -16,29 +16,32 @@
       <navigator class="reg-link" url="/pages/mycard/bind/index" open-type='navigate'>您尚未创建名片,【点击创建】</navigator>
     </view>
   </view>
+  <view class="m-nav-list f-has-border">
+      <navigator open-type='navigate' url="/pages/coupon/index" class="item">
+      <view class="title">
+        <image class="left-icon u-myicon myicon-big" src="/static/images/icon-collection-black.png"></image>
+        <text class="txt">优惠券</text>
+      </view>
+      <view class="icon-arrow"></view>
+    </navigator>
+  </view>
   <view class="u-ht"></view>
   <view class="m-nav-list f-has-border">
     <navigator open-type='navigate' url="/pages/mycard/index/index" class="item">
       <view class="title">
-        <image class="left-icon u-myicon myicon-big" src="/static/images/icon-card-black.png"></image>
+        <image class="left-icon u-myicon myicon-big" src="/static/images/icon-exchange-grey.png"></image>
         <text class="txt">金英名片</text>
       </view>
       <view class="icon-arrow"></view>
     </navigator>
-    <navigator open-type='navigate' url="/pages/exchange/list/index" class="item">
+    <navigator open-type='navigate' url="/pages/talent/index/index" class="item">
       <view class="title">
-        <image class="left-icon u-myicon myicon-big" src="/static/images/icon-exchange-grey.png"></image>
-        <text class="txt">交换申请</text>
+        <image class="left-icon u-myicon myicon-big" src="/static/images/icon-card-black.png"></image>
+        <text class="txt">金英人才卡</text>
       </view>
       <view class="icon-arrow"></view>
     </navigator>
-    <navigator open-type='navigate' url="/pages/home/collection/index" class="item">
-      <view class="title">
-        <image class="left-icon u-myicon myicon-big" src="/static/images/icon-collection-black.png"></image>
-        <text class="txt">名片收藏</text>
-      </view>
-      <view class="icon-arrow"></view>
-    </navigator>
+
   </view>
   <view class="u-ht"></view>
   <view class="m-nav-list f-has-border">

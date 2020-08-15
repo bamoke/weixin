@@ -15,9 +15,10 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    const jobId = this.data.id
+    const curId = options.id
     const params = {
-      apiUrl: "/Preach/index",
+      apiUrl: "/Preach/detail",
+      requestData:{id:curId},
       requestMethod: "GET"
     }
     const ajaxRequest = app.ajax(params)

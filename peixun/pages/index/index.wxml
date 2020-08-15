@@ -1,0 +1,41 @@
+<!--index.wxml-->
+<view class="container" wx:if="{{showPage}}">
+  <view class="index-banner-wrap">
+    <swiper class="index-banner" indicator-dots="true" autoplay="true" interval='3000'>
+      <block wx:for="{{banner}}" wx:key="{{item.id}}">
+        <swiper-item>
+          <navigator url='{{item.url}}' open-type='reLaunch' wx:if="{{item.url}}">
+            <image lazy-load='true' mode='aspectFill' class='img' src="{{item.img}}"></image>
+          </navigator>
+          <image lazy-load='true' mode='aspectFill' class='img' wx:else src="{{item.img}}"></image>
+        </swiper-item>
+      </block>
+    </swiper>
+  </view>
+
+  <view class="u-ht"></view>
+  <view class="g-card border-top">
+    <view class='header'>
+      <view class="title">
+        <text>热门课程</text>
+      </view>
+    </view>
+    <view class="body m-imgtext-default">
+      <navigator url="/pages/course/detail/index?id={{item.id}}" class='item' wx:for="{{course}}" wx:key="item.id">
+        <image class="thumb" lazy-load='true' src='{{item.thumb}}'></image>
+        <view class="text-box">
+          <view class='title'>{{item.title}}</view>
+          <view class="desc">{{item.description}}</view>
+          <view class='ft'>
+            <view>
+              <image class="u-myicon" src="/static/images/icon-user-black-line.png"></image>
+              <text>学习人数:{{item.study_num}}</text>
+            </view>
+
+          </view>
+        </view>
+      </navigator>
+    </view>
+  </view>
+
+</view>

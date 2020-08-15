@@ -2,9 +2,12 @@
 <view class="container" wx:if="{{showPage}}">
   <view class="index-banner-wrap">
     <swiper class="index-banner" indicator-dots="true" autoplay="true" interval='3000'>
-      <block wx:for="{{banner}}" wx:key="{{item.id}}">
+      <block wx:for="{{banner}}" wx:key="id">
         <swiper-item>
           <navigator url='{{item.url}}' open-type='reLaunch' wx:if="{{item.url}}">
+            <image lazy-load='true' mode='aspectFill' class='img' src="{{item.img}}"></image>
+          </navigator>
+          <navigator url='/pages/web/index?weburl={{item.weburl}}' open-type='navigate' wx:elif="{{item.weburl}}">
             <image lazy-load='true' mode='aspectFill' class='img' src="{{item.img}}"></image>
           </navigator>
           <image lazy-load='true' mode='aspectFill' class='img' wx:else src="{{item.img}}"></image>
@@ -20,18 +23,18 @@
         <image class="icon" src="/static/images/index-icon-policy.png " alt=" " mode='widthFix' />
         <view class="txt ">政策</view>
       </button>
-      <navigator open-type='navigate' url="/pages/preach/index/index" class="item">
+      <navigator open-type='navigate' url="/pages/preach/list/index" class="item">
         <image class="icon" src="/static/images/index-icon-video.png " alt=" " mode='widthFix' />
-        <view class="txt ">宣讲会</view>
+        <view class="txt ">就业指导</view>
       </navigator>
       <navigator open-type='navigate' url="/pages/school/list/index" class="item">
         <image class="icon" src="/static/images/index-icon-school.png " alt=" " mode='widthFix' />
         <view class="txt ">高校</view>
       </navigator>
-      <view class="item" bindtap="noContent">
+      <navigator open-type='navigate' url="/pages/web/index?weburl=https://www.zh-hr.com" class="item">
         <image class="icon" src="/static/images/index-icon-other.png " alt=" " mode='widthFix' />
         <view class="txt ">其他</view>
-      </view>
+      </navigator>
     </view>
   </view>
   <view class="u-ht"></view>
@@ -42,6 +45,24 @@
       </view>
     </view>
     <view class="body m-fairs-list">
+        <!--hr-->
+        <navigator url="/pages/web/index?weburl={{zhhrzph.weburl}}" class='item' wx:if="{{zhhrzph}}">
+        <image class="thumb" lazy-load='true' src='{{zhhrzph.thumb}}'></image>
+        <view class="text-box">
+          <view class='title'>{{zhhrzph.name}}</view>
+          <view class='bd'>
+            <view class='addr'>
+              <image class="icon u-myicon" src="/static/images/icon-addr.png"></image>
+              <text class="text">{{zhhrzph.addr}}</text>
+            </view>
+            <view class="time">
+              <image class="u-myicon" src="/static/images/icon-time.png"></image>
+              <text>{{zhhrzph.times}}</text>
+            </view>
+          </view>
+        </view>
+      </navigator>
+
       <navigator url="/pages/fairs/detail/index?id={{item.id}}" class='item' wx:for="{{fairs}}" wx:key="id">
         <image class="thumb" lazy-load='true' src='{{item.thumb}}'></image>
         <view class="text-box">

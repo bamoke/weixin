@@ -1,0 +1,15 @@
+<!--pages/home/about/index.wxml-->
+<view class="container">
+  <view class="g-pad-box">
+  <view>
+    <image mode='widthFix' style="width:100%;" src="/static/images/about.jpg"></image>
+  </view>
+  <view class="content-p">
+    资料更新中……
+  </view>
+
+
+
+</view>
+  
+</view>

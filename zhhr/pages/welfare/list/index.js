@@ -22,28 +22,13 @@ Page({
   /**
    * handle
    */
-  handleNavigate(e){
-    const index = e.currentTarget.dataset.index
-    let curItem = this.data.welfareList[index]
-    wx.openLocation({
-      latitude: parseFloat(curItem.latitude),
-      longitude: parseFloat(curItem.longitude),
-      address:curItem.addr,
-      name: curItem.title
-    })
-  },
-  handleCall(e){
-    const phone = e.currentTarget.dataset.phone
-    wx.makePhoneCall({
-      phoneNumber: phone,
-    })
-  },
-  handleClick(e){
+  
+  handleClick(e) {
     const index = e.currentTarget.dataset.index
     let newList = this.data.welfareList
     newList[index].show = typeof newList[index].show == 'undefined' ? true : !newList[index].show
     this.setData({
-      welfareList:newList
+      welfareList: newList
     })
   },
   handleChangeType(e) {
@@ -70,6 +55,31 @@ Page({
 
   },
 
+  /**
+   * 
+   */
+  reciveCoupon(e) {
+    let index = e.currentTarget.dataset.index
+    let curItem = {
+      ...this.data.welfareList[index]
+    }
+    if (curItem.hascoupon) return false
+    app.ajax({
+      apiUrl: '/Coupon/receive',
+      requestData: {couponid: curItem.coupon_id},
+      showLoading: false
+    }).then(res=>{
+
+      curItem.hascoupon = true
+      let newList = this.data.welfareList
+      newList[index] = curItem
+      console.log(newList)
+      this.setData({
+        welfareList: newList
+      })
+    })
+
+  },
   _fetchData() {
     var _that = this;
     var myAmapFun = new amapFile.AMapWX({
@@ -92,7 +102,7 @@ Page({
           locationInfo
         })
         let requestParams = {
-          apiUrl: "/welfare/vlist",
+          apiUrl: "/Welfare/vlist",
           requestData: {
             page: 1,
             type: 1,
@@ -100,51 +110,44 @@ Page({
             lng: locationInfo.longitude
           }
         }
-        console.log(requestParams)
         app.ajax(requestParams).then(res => {
-          console.log(res)
           _that.setData({
             pageInfo: res.data.pageInfo,
             welfareList: res.data.list
           })
         })
       },
-      fail: function(info) {
+      fail: function (info) {
         //失败回调
 
-        wx.showToast({
-          title: '位置信息获取失败',
-          icon:"none"
-        })
-        let requestParams = {
-          apiUrl: "/welfare/vlist",
-          requestData: {
-            page: 1,
-            type: 1
-          }
-        }
-        app.ajax(requestParams).then(res => {
-          _that.setData({
-            pageInfo: res.data.pageInfo,
-            welfareList: res.data.list
-          })
-        })
+
       }
     })
 
   },
-  onLoad: function() {
+  onShow: function () {
 
   },
   /**
    * 生命周期函数--监听页面加载
    */
-  onShow: function() {
-    const _that =this
+  onLoad: function () {
+    const _that = this
     wx.getSetting({
       success(res) {
-        console.log(res)
-        if (res.authSetting['scope.userLocation'] == 'undefined' || (res.authSetting['scope.userLocation'] != 'undefined' && res.authSetting['scope.userLocation'] != true)) {
+        if (typeof res.authSetting['scope.userLocation'] === 'undefined') {
+          wx.authorize({
+            scope: 'scope.userLocation',
+            success() {
+              _that._fetchData()
+            },
+            fail() {
+              wx.reLaunch({
+                url: '/pages/index/index',
+              })
+            }
+          })
+        } else if (res.authSetting['scope.userLocation'] !== true) {
           wx.showModal({
             title: '是否授权当前位置',
             content: '需要获取您的地理位置，请确认授权，否则地图功能将无法使用',
@@ -152,16 +155,22 @@ Page({
               if (result.confirm) {
                 wx.openSetting({
                   success: function (data) {
+                    console.log(data.authSetting)
                     if (data.authSetting['scope.userLocation']) {
                       _that._fetchData()
                     }
                   }
                 })
-              }else {
-                _that._fetchData()
+              } else {
+                wx.reLaunch({
+                  url: '/pages/index/index',
+                })
+                // _that._fetchData()
               }
             }
           })
+        } else {
+          _that._fetchData()
         }
       }
     })
@@ -170,7 +179,7 @@ Page({
 
 
   },
-  onReady:function(){
+  onReady: function () {
     // console.log("ready")
     const _that = this
 
@@ -179,7 +188,7 @@ Page({
   /**
    * 页面相关事件处理函数--监听用户下拉动作
    */
-  onPullDownRefresh: function() {
+  onPullDownRefresh: function () {
     var locationInfo = this.data.locationInfo
     var type = this.data.type
     var requestParams = {
@@ -204,7 +213,7 @@ Page({
   /**
    * 页面上拉触底事件的处理函数
    */
-  onReachBottom: function() {
+  onReachBottom: function () {
     if (!this.data.pageInfo.hasMore) return;
     var locationInfo = this.data.locationInfo
     var type = this.data.type

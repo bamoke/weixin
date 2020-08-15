@@ -7,7 +7,8 @@ Page({
     showPage: false,
     pageInfo:{},
     fairs:[],
-    banner:[]
+    banner:[],
+    zhhrzph:null
   },
   noContent(){
     wx.showToast({
@@ -45,7 +46,8 @@ Page({
         showPage:true,
         banner:res.data.banner,
         fairs: res.data.fairs,
-        pageInfo: res.data.pageInfo
+        pageInfo: res.data.pageInfo,
+        zhhrzph:res.data.zhhrzph
       })
 
     })
@@ -61,6 +63,7 @@ Page({
     app.ajax(requestParams).then((res) => {
       wx.stopPullDownRefresh();
       this.setData({
+        zhhrzph:res.data.zhhrzph,
         banner: res.data.banner,
         fairs: res.data.fairs,
         pageInfo: res.data.pageInfo

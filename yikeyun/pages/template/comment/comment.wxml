@@ -1,0 +1,28 @@
+<template name="commentList">
+  <view class="m-commnet-list">
+    <view wx:if="{{commentList.length > 0}}">
+      <view class="item" wx:for="{{commentList}}" wx:key="id">
+        <image mode="aspectFill" src="{{item.avatar||'/static/images/default-avatar.png'}}" class="avatar"></image>
+        <view class="bd">
+          <view class="top">
+            <text class="nickname">{{item.nickname||'用户'}}</text>
+            <text class="time">{{item.create_time}}</text>
+          </view>
+          <view class="content">{{item.content}}</view>
+          <view class='reply' wx:if="{{item.reply}}">
+          <view class="g-row-bt heading">
+            <text>管理员回复：</text>
+            <text class='time'>{{item.reply_time}}</text>
+          </view>
+          <view>{{item.reply}}</view>
+          
+          </view>
+        </view>
+      </view>
+    </view>
+  <view class="m-tips-page tips-page-empty" wx:else>
+    <image class="icon" src="/static/images/mt-empty.png"></image>
+    <view class="tips">还没有评论</view>
+  </view>
+  </view>
+</template>

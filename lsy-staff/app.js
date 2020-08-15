@@ -50,7 +50,6 @@ App({
           },
           success: function (result) {
             if (result.data.code == 200) {
-              console.log(result)
               wx.setStorageSync("accessToken", result.data.data.accessToken)
             } else {
               wx.showToast({

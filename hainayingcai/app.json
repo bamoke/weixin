@@ -1,6 +1,7 @@
 {
   "pages": [
     "pages/index/index",
+
     "pages/home/index/index",
     "pages/resume/upload/index",
     "pages/resume/index/index",
@@ -22,7 +23,7 @@
 
     "pages/school/list/index",
     "pages/school/detail/index",
-    "pages/preach/index/index"
+    "pages/preach/list/index"
   ],
   "window": {
     "backgroundColor": "#2d8cf0",

@@ -8,6 +8,7 @@ Page({
   data: {
     showPage:false,
     info:null,
+    industrialTalentTips: false,
   },
 
 
@@ -35,17 +36,22 @@ Page({
      }
      app.ajax(requestParams).then(res=>{
        if(res.data.info) {
-         if(res.data.info.verify_status != 6) {
+         if (res.data.info.card_no){
+           this.setData({ info: res.data.info, showPage: true })
+         }else {
            wx.redirectTo({
              url: '../result/index',
            })
-         }else {
-          this.setData({ info :res.data.info,showPage:true})
          }
        }else {
          wx.redirectTo({
            url: '../form/index',
          })
+       }
+     },reject=>{
+       if(reject.code === 13009) {
+         // 产业人才查询结果为不存在
+         this.setData({ industrialTalentTips: true, showPage: true })
        }
      })
      

@@ -1,0 +1,89 @@
+<!--pages/course/detail/index.wxml-->
+<import src="../../../wxParse/wxParse.wxml" />
+<import src="../../template/comment/comment.wxml" />
+<view class="container" wx:if="{{showPage}}">
+  <view class="g-page-top">
+    <video id="mainVideo" class='u-video' objectFit="cover" initial-time="{{initalTime}}" hidden="{{!openVideo}}" src='{{videoSource}}' autoplay="true" bindtimeupdate="videoPlaying" show-progress="{{false}}"></video>
+    <image class="u-cover" hidden="{{openVideo}}" mode="aspectFill" src="{{introduce.thumb}}"></image>
+
+    <view class="m-nav">
+      <text class="btn {{currentTab === 0 ? 'active':''}}" data-index="0" bindtap="swichNav">介绍</text>
+      <text class="btn {{currentTab === 1 ? 'active':''}}" data-index="1" bindtap="swichNav">目录</text>
+    </view>
+  </view>
+
+  <swiper current="{{currentTab}}" duration="300" class="g-content-swiper">
+    <swiper-item>
+      <scroll-view scroll-y="true" class="g-scroll-wrap">
+        <view class="m-course-introduce">
+          <view class='g-row-bt'>
+            <view class="base-info">
+              <view class="title">{{introduce.title}}</view>
+              <view class="desc">{{introduce.description}}</view>
+              <view class="g-row-bt progress-wrap">
+                <view class="txt">学习进度</view>
+                <view class="progress">
+                  <progress percent="{{introduce.progress}}" stroke-width="10" color="#2fc4b2" show-info />
+                </view>
+              </view>
+
+            </view>
+          </view>
+ 
+
+
+          <block wx:if="{{teacherInfo}}">
+          <view class="u-ht"></view>
+          <view class="m-teacher-info">
+            <view class="bd">
+              <image mode="aspectFill" src="{{teacherInfo.avatar}}" class="avatar"></image>
+              <view class="introduce">
+                <view class="name">{{teacherInfo.name}}</view>
+                <view class="desc">{{teacherInfo.position}}</view>
+              </view>
+            </view>
+          </view>
+          </block>
+  
+          <view class="u-ht"></view>
+          <view class="g-card">
+            <view class="header">
+              <view class="title">
+                <text>课程详情</text>
+              </view>
+            </view>
+            <view class="body m-detail-content wxParse" style="padding-bottom:160rpx;">
+              <template is="wxParse" data="{{wxParseData:wxparse_content.nodes}}" />
+            </view>
+          </view>
+
+        </view>
+      </scroll-view>
+    </swiper-item>
+
+    <!--  章节  -->
+    <swiper-item>
+      <scroll-view scroll-y="true" class="g-scroll-wrap">
+        <view class="m-section-list">
+          <view class="list {{index==curPlayIndex?'active':''}}" wx:for="{{sectionList}}" wx:key="id" bindtap='studyStart' data-index='{{index}}'>
+            <view class="g-row-bt top">
+              <image class="u-myicon icon" src="/static/images/icon-video-white-fill.png"></image>
+              <view class="title">{{item.title}}</view>
+              <text class="duration">时长：{{item.duration}}</text>
+            </view>
+            <view class="section-progress">
+              <view class="">学习进度</view>
+              <view class="val text-lightgray" wx:if="{{item.complete == 0}}">未开始</view>
+              <view class="val text-info" wx:elif="{{item.complete < 100}}">{{item.complete}}%</view>
+              <view class="val text-success" wx:else>已学完</view>
+            </view>
+            <view class="record" wx:if="{{item.record_time}}">
+              <view class="time">上次观看至:{{item.record_time}}</view>
+              <view class="continue-btn btn-success" catchtap="studyContinue" data-index="{{index}}">继续观看</view>
+            </view>
+          </view>
+        </view>
+      </scroll-view>
+    </swiper-item>
+  </swiper>
+</view>

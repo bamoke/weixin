@@ -1,0 +1,6 @@
+<!--components/tab/index.wxml-->
+  <view class="m-tab">
+    <view class="tab-item {{curTab === index ? 'active':''}}" bindtap="switch" data-index="{{index}}" wx:for="{{items}}" wx:key="index">
+      <text class="title">{{item.name}}</text>
+    </view>
+  </view>

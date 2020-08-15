@@ -58,7 +58,7 @@ App({
   errorBack: function ({ tips, deltaNu = 1, delay = 1000 }) {
     wx.showToast({
       title: tips,
-      image: "/static/images/error.png?v=4",
+      image: "/static/images/icon-error.png?v=4",
     })
     setTimeout(function () {
       wx.navigateBack({

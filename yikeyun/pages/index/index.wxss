@@ -1,0 +1,28 @@
+/**index.wxss**/
+.container {
+  height:100%;
+  background:#fff;
+}
+.m-class-list .item {
+  padding:24rpx;
+  border-bottom:1px solid #f1f1f1;
+  color:#9c9c9c;
+}
+.m-class-list .title {
+  font-size:36rpx;
+  color:#121212;
+}
+.m-class-list .desc {
+  padding:12rpx 0 24rpx;
+}
+.m-class-list .total {
+  display: flex;
+  justify-content: flex-start;
+}
+.m-class-list .total view:first-child {
+  margin-right:24rpx;
+}
+.m-class-list .total .num {
+  margin:0 12rpx;
+  /* font-weight: bold; */
+}
