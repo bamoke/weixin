@@ -1,0 +1,5 @@
+<!--components/emptybox/emptybox.wxml-->
+<view class="m-empty">
+    <image src="{{icon}}" class="icon" mode="aspectFill"></image>
+    <view class="title">{{title}}</view>
+  </view>

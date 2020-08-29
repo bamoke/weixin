@@ -1,0 +1,40 @@
+/* pages/car/index.wxss */
+page {
+  height:100%;
+}
+.container {
+  display: block;
+  padding-bottom:128rpx;
+  box-sizing: border-box;
+}
+.m-confirm-box {
+  position: fixed;
+  bottom:0;
+  z-index:9;
+  padding:24rpx;
+  display: flex;
+  width:100%;
+  background-color:rgba(255,255,255,.7);
+}
+.m-confirm-box .amount {
+  flex:0 0 auto;
+  width:60%;
+  height: 80rpx;
+  line-height: 80rpx;
+}
+.m-confirm-box .amount .num {
+  margin-left:12rpx;
+  color:#ff3c02;
+  font-size:32rpx;
+  font-weight: 500;
+}
+.m-confirm-box .submit-btn {
+  width:40%;
+  height: 80rpx;
+  line-height: 80rpx;
+  text-align: center;
+  background: #131313;
+  color:#fff;
+  font-size:32rpx;
+  border-radius:40rpx;
+}

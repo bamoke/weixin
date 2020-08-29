@@ -1,0 +1,38 @@
+<!--miniprogram/pages/index/index.wxml-->
+<view class="container" wx:if="{{showPage}}">
+  <view class="m-index-banner-box">
+    <swiper class="index-banner" indicator-dots="true" autoplay="true" interval='3000'>
+      <block wx:for="{{bannerList}}" wx:key="id">
+        <swiper-item>
+          <navigator url='{{item.url}}' open-type='navigate' wx:if="{{item.url}}">
+            <image lazy-load='true' mode='aspectFill' class='img' src="{{item.img}}"></image>
+          </navigator>
+          <image lazy-load='true' mode='aspectFill' class='img' wx:else src="{{item.img}}"></image>
+        </swiper-item>
+      </block>
+    </swiper>
+  </view>
+
+  <view class="m-index-cate-list">
+    <navigator url="../product/list/list?cid={{item.id}}" class="item" wx:for="{{cateList}}" wx:key="id">
+      <image src="{{item.thumb}}" mode="aspectFill" class="icon"></image>
+      <view class="name">{{item.name}}</view>
+    </navigator>
+  </view>
+  <view class="m-pro-list">
+    <view class="item" wx:for="{{proList}}" wx:key="id">
+      <image src="{{item.thumb}}" mode="aspectFill" class="thumb"></image>
+      <view class="content">
+        <view class="top-content">
+          <view class="title">{{item.title}}</view>
+          <view class="desc">{{item.desc}}</view>
+          <view class="desc">库存:{{item.surplus}}</view>
+        </view>
+        <view class="ft">
+          <view class="price">￥<text class="amount">{{item.price}}</text></view>
+          <bmk-caroperator item="{{item}}" index="{{index}}" bind:update="updateList"></bmk-caroperator>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,46 @@
+/* miniprogram/pages/product/list/list.wxss */
+.m-search-bar {
+  position: fixed;
+  top:0;
+  z-index: 999;
+  width:100%;
+  padding:24rpx;
+  background-color:#fff;
+  box-shadow: 0 4px 4px rgba(0,0,0,.1);
+}
+page,.container,.main-content {
+  height: 100%;
+  box-sizing: border-box;
+}
+.main-content {
+  display: flex;
+  min-height:100%;
+  position: relative;
+  padding-top:64rpx;
+}
+
+.m-cate-wrap {
+  flex:0 0 auto;
+  width:156rpx;
+  height: 100%;
+  background:#fff;
+  font-size:26rpx;
+}
+.cate-pro-list .thumb {
+  width:128rpx;
+  height:128rpx;
+}
+.cate-pro-list .title {
+  font-size:28rpx;
+}
+.cate-pro-list .ft .amoun {
+  font-size:26rpx;
+}
+.m-cate-list .item {
+  box-sizing: border-box;
+  padding:0 12rpx;
+  height:120rpx;
+  line-height: 120rpx;
+  width:100%;
+  overflow: hidden;
+}

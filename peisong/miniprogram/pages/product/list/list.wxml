@@ -1,0 +1,40 @@
+<!--miniprogram/pages/product/list/list.wxml-->
+
+<view class="container" wx:if="{{showPage}}">
+  <view class="m-search-bar">
+
+  </view>
+
+  <view class="main-content">
+    <scroll-view scroll-y="true" showScrollbar="{{1==0}}" enhanced="true" class="m-cate-wrap" style="height:100%;">
+      <view class="m-cate-list">
+        <navigator url="../product/list/list?cid=0" class="item">
+          全部
+        </navigator>
+        <navigator url="../product/list/list?cid={{item.id}}" class="item" wx:for="{{cateList}}" wx:key="id">
+          <view class="name">{{item.name}}</view>
+        </navigator>
+      </view>
+    </scroll-view>
+
+    <scroll-view scroll-y="true" style="height:100%;">
+      <view class="m-pro-list cate-pro-list" wx:if="{{proList.length}}">
+        <view class="item" wx:for="{{proList}}" wx:key="id">
+          <image src="{{item.thumb}}" mode="aspectFill" class="thumb"></image>
+          <view class="content">
+            <view class="top-content">
+              <view class="title">{{item.title}}</view>
+              <!-- <view class="desc">{{item.desc}}</view> -->
+              <view class="desc">库存:{{item.surplus}}</view>
+            </view>
+            <view class="ft">
+              <view class="price">￥<text class="amount">{{item.price}}</text></view>
+              <bmk-caroperator item="{{item}}" index="{{index}}" bind:update="updateList"></bmk-caroperator>
+            </view>
+          </view>
+        </view>
+      </view>
+      <bmk-emptybox wx:else></bmk-emptybox>
+    </scroll-view>
+  </view>
+</view>

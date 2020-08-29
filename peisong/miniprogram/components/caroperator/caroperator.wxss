@@ -1,0 +1,38 @@
+/* components/car-operator/car-operator.wxss */
+.operator-box {
+  display:flex;
+  align-items: center;
+}
+.operator-box .o-btn {
+  flex-grow: 0;
+  flex-shrink: 0;
+  display: inline-block;
+  width:48rpx;
+  height:48rpx;
+  border-radius: 50%;
+  vertical-align: middle;
+}
+.operator-box .minus {
+  background-color:#fff;
+  border:1px solid #999;
+}
+.operator-box .add {
+  background-color:#ff3c02;
+}
+.operator-box .num {
+  flex-shrink: 0;
+  min-width:80rpx;
+  line-height:1;
+  overflow: hidden;
+  text-align: center;
+}
+.buy-btn {
+  width:168rpx;
+  height:48rpx;
+  line-height: 48rpx;
+  font-size:26rpx;
+  text-align: center;
+  background:#ff3c02;
+  color:#fff;
+  border-radius: 24rpx;
+}

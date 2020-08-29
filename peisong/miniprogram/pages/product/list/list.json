@@ -1,0 +1,9 @@
+{
+  "enablePullDownRefresh": true,
+  "backgroundTextStyle": "dark",
+  "onReachBottomDistance": 60,
+  "usingComponents": {
+    "bmk-emptybox":"/components/emptybox/emptybox",
+    "bmk-caroperator":"/components/caroperator/caroperator"
+  }
+}

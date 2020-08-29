@@ -1,0 +1,9 @@
+<!--components/car-operator/car-operator.wxml-->
+<view>
+  <view class="operator-box" hidden="{{item.buynum == 0}}">
+    <view class="o-btn minus" bindtap="handleMinusNum"></view>
+    <view class="num">{{item.buynum}}</view>
+    <view class="o-btn add" bindtap="handleAddNum"></view>
+  </view>
+  <view class="buy-btn" hidden="{{item.buynum > 0}}" bindtap="handleAddCar" >加入购物车</view>
+</view>

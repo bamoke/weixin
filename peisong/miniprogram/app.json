@@ -1,0 +1,44 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/product/list/list",
+    "pages/car/index",
+    "pages/home/index/index"
+  ],
+  "window": {
+    "backgroundColor": "#ff3c02",
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#ff3c02",
+    "navigationBarTitleText": "湘外湘配送",
+    "navigationBarTextStyle": "white"
+  },
+  "tabBar": {
+    "position": "bottom",
+    "backgroundColor": "#fff",
+    "borderStyle": "black",
+    "color": "#000",
+    "selectedColor": "#1b81d3",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "images/tab-index.png",
+        "selectedIconPath": "images/tab-index-active.png"
+      },
+      {
+        "pagePath": "pages/car/index",
+        "text": "购物车",
+        "iconPath": "images/tab-find.png",
+        "selectedIconPath": "images/tab-find-active.png"
+      },
+      {
+        "pagePath": "pages/home/index/index",
+        "text": "个人中心",
+        "iconPath": "images/tab-sys.png",
+        "selectedIconPath": "images/tab-sys-active.png"
+      }
+    ]
+  },
+  "sitemapLocation": "sitemap.json",
+  "style": "v2"
+}

@@ -1,0 +1,19 @@
+/* components/emptybox/emptybox.wxss */
+.m-empty {
+  width:100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-top:128rpx;
+  text-align: center;
+}
+.m-empty .icon {
+  display: block;
+  margin-bottom:12rpx;
+  width:200rpx;
+  height:200rpx;
+}
+.m-empty .title {
+  opacity: .5;
+}

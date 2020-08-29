@@ -1,0 +1,29 @@
+<!--pages/car/index.wxml-->
+<view class="container">
+  <block wx:if="{{proList.length}}">
+
+    <view class="m-pro-list">
+      <view class="item" wx:for="{{proList}}" wx:key="id">
+        <image src="{{item.thumb}}" mode="aspectFill" class="thumb"></image>
+        <view class="content">
+          <view class="top-content">
+            <view class="title">{{item.title}}</view>
+            <view class="desc">{{item.desc}}</view>
+            <view class="desc">库存:{{item.surplus}}</view>
+          </view>
+          <view class="ft">
+            <view class="price">￥<text class="amount">{{item.price}}</text></view>
+            <bmk-caroperator item="{{item}}" index="{{index}}" bind:update="updateList"></bmk-caroperator>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class="m-confirm-box">
+      <view class="amount">
+        订单总额:<text class="num">{{amount}}</text>
+      </view>
+      <view class="submit-btn">提交订单</view>
+    </view>
+  </block>
+  <bmk-emptybox title="你还没有选购任何商品" wx:else></bmk-emptybox>
+</view>

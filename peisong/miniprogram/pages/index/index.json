@@ -1,0 +1,5 @@
+{
+  "usingComponents": {
+    "bmk-caroperator":"/components/caroperator/caroperator"
+  }
+}
