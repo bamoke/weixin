@@ -1,0 +1,27 @@
+<!--pages/adviser/myquestion/index.wxml-->
+<view class="container" wx:if="{{showPage}}">
+  <bmk-topnav items="{{cateArr}}" cur-tab="{{curNavIndex}}" bind:switch="changeCate"></bmk-topnav>
+  <view wx:if="{{list.length}}" class="m-question-list">
+    <navigator open-type="navigate" url="../questiondetail/index?id={{item.id}}" class="item" wx:for="{{list}}" wx:key="id">
+      <view class="title">{{item.title}}</view>
+      <view class="g-row m-stage-box">
+        <view class="unit stage {{item.stage==1?'stage-success':'stage-error'}}">{{item.stage==1?'已解决':'未解决'}}</view>
+        <view class="unit stage {{item.isopen==1?'stage-info':'stage-default'}}">{{item.isopen==1?'公开':'非公开'}}</view>
+      </view>
+      <view class="ft">
+        <view class="unit">回答数:{{item.answer_num}}</view>
+        <view class="unit">
+          <mp-icon icon="eyes-on" size="{{12}}" color="#9c9c9c"></mp-icon>:{{item.view}}
+        </view>
+        
+        <view class="unit">
+        <mp-icon icon="time" size="{{12}}" color="#9c9c9c"></mp-icon>{{item.create_time}}
+        </view>
+      </view>
+    </navigator>
+  </view>
+  <view class="m-empty-box" wx:else>
+    <image class="icon" src="/static/images/mt-empty.png"></image>
+    <view class="tips">暂无数据</view>
+  </view>
+</view>

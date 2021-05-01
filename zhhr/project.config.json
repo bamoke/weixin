@@ -1,246 +1,326 @@
 {
-	"description": "项目配置文件",
-	"packOptions": {
-		"ignore": []
-	},
-	"setting": {
-		"urlCheck": false,
-		"es6": true,
-		"postcss": true,
-		"minified": true,
-		"newFeature": true,
-		"autoAudits": false,
-		"checkInvalidKey": true,
-		"checkSiteMap": true,
-		"uploadWithSourceMap": true,
-		"babelSetting": {
-			"ignore": [],
-			"disablePlugins": [],
-			"outputPath": ""
-		},
-		"useIsolateContext": true,
-		"useCompilerModule": false,
-		"userConfirmedUseCompilerModuleSwitch": false
-	},
-	"compileType": "miniprogram",
-	"libVersion": "2.7.4",
-	"appid": "wxaa14c7aa5e3fd67a",
-	"projectname": "%E7%8F%A0%E6%B5%B7HR",
-	"debugOptions": {
-		"hidedInDevtools": []
-	},
-	"isGameTourist": false,
-	"simulatorType": "wechat",
-	"simulatorPluginLibVersion": {},
-	"condition": {
-		"search": {
-			"current": -1,
-			"list": []
-		},
-		"conversation": {
-			"current": -1,
-			"list": []
-		},
-		"plugin": {
-			"current": -1,
-			"list": []
-		},
-		"game": {
-			"currentL": -1,
-			"list": []
-		},
-		"gamePlugin": {
-			"current": -1,
-			"list": []
-		},
-		"miniprogram": {
-			"current": 24,
-			"list": [
-				{
-					"id": -1,
-					"name": "创建名片",
-					"pathName": "pages/mycard/create/index",
-					"query": ""
-				},
-				{
-					"id": -1,
-					"name": "home",
-					"pathName": "pages/home/index",
-					"query": ""
-				},
-				{
-					"id": -1,
-					"name": "我的名片夹详情",
-					"pathName": "pages/mycard/detail/index",
-					"query": "id=2"
-				},
-				{
-					"id": -1,
-					"name": "建议与反馈",
-					"pathName": "pages/home/feedback/index",
-					"query": ""
-				},
-				{
-					"id": -1,
-					"name": "绑定",
-					"pathName": "pages/mycard/bind/index",
-					"query": ""
-				},
-				{
-					"id": -1,
-					"name": "微信登录",
-					"pathName": "pages/mplogin/index",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "福利列表",
-					"pathName": "pages/welfare/list/index",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "活动列表",
-					"pathName": "pages/event/list/index",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "金英播报",
-					"pathName": "pages/article/list/index",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "政策通",
-					"pathName": "pages/policy/index/index",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "活动详情",
-					"pathName": "pages/event/detail/index",
-					"query": "id=1",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "名片首页",
-					"pathName": "pages/mycard/index/index",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "政策通首页",
-					"pathName": "pages/policy/index/index",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "政策通列表",
-					"pathName": "pages/policy/list/index",
-					"query": "cate=1",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "政策通详情",
-					"pathName": "pages/policy/detail/index",
-					"query": "id=9",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "顾问团",
-					"pathName": "pages/adviser/index/index",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "名片发现",
-					"pathName": "pages/card/list/index",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "人才卡",
-					"pathName": "pages/talent/index/index",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": 18,
-					"name": "人才卡申请",
-					"pathName": "pages/talent/form/index",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "审核进度",
-					"pathName": "pages/talent/result/index",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "客服中心",
-					"pathName": "pages/customer/index/index",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": 21,
-					"name": "客服搜索",
-					"pathName": "pages/customer/search/index",
-					"query": "keyword=人才卡",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "客服搜索结果详情",
-					"pathName": "pages/customer/result/index",
-					"query": "id=1",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "客服语音搜索",
-					"pathName": "pages/customer/voicesearch/index",
-					"query": "keyword=人才卡",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "我的名片",
-					"pathName": "pages/mycard/index/index",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": 25,
-					"name": "优惠券",
-					"pathName": "pages/coupon/index",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "商家详情",
-					"pathName": "pages/welfare/detail/index",
-					"query": "id=1",
-					"scene": null
-				}
-			]
-		}
-	}
+  "description": "项目配置文件",
+  "packOptions": {
+    "ignore": []
+  },
+  "setting": {
+    "urlCheck": false,
+    "es6": true,
+    "postcss": true,
+    "minified": true,
+    "newFeature": true,
+    "autoAudits": false,
+    "scopeDataCheck": false,
+    "checkInvalidKey": true,
+    "checkSiteMap": true,
+    "uploadWithSourceMap": true,
+    "compileHotReLoad": false,
+    "useMultiFrameRuntime": true,
+    "useApiHook": true,
+    "babelSetting": {
+      "ignore": [],
+      "disablePlugins": [],
+      "outputPath": ""
+    },
+    "useIsolateContext": true,
+    "useCompilerModule": true,
+    "userConfirmedUseCompilerModuleSwitch": false,
+    "userConfirmedBundleSwitch": false,
+    "packNpmManually": false,
+    "packNpmRelationList": [],
+    "minifyWXSS": true,
+    "bundle": false,
+    "useApiHostProcess": true
+  },
+  "compileType": "miniprogram",
+  "libVersion": "2.7.4",
+  "appid": "wxaa14c7aa5e3fd67a",
+  "projectname": "%E7%8F%A0%E6%B5%B7HR",
+  "debugOptions": {
+    "hidedInDevtools": []
+  },
+  "isGameTourist": false,
+  "simulatorType": "wechat",
+  "simulatorPluginLibVersion": {},
+  "condition": {
+    "plugin": {
+      "list": []
+    },
+    "game": {
+      "list": []
+    },
+    "gamePlugin": {
+      "list": []
+    },
+    "miniprogram": {
+      "list": [
+        {
+          "id": -1,
+          "name": "创建名片",
+          "pathName": "pages/mycard/create/index",
+          "query": ""
+        },
+        {
+          "id": -1,
+          "name": "home",
+          "pathName": "pages/home/index",
+          "query": ""
+        },
+        {
+          "id": -1,
+          "name": "我的名片夹详情",
+          "pathName": "pages/mycard/detail/index",
+          "query": "id=2"
+        },
+        {
+          "id": -1,
+          "name": "建议与反馈",
+          "pathName": "pages/home/feedback/index",
+          "query": ""
+        },
+        {
+          "id": -1,
+          "name": "绑定",
+          "pathName": "pages/mycard/bind/index",
+          "query": ""
+        },
+        {
+          "id": -1,
+          "name": "微信登录",
+          "pathName": "pages/mplogin/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "福利列表",
+          "pathName": "pages/welfare/list/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "活动列表",
+          "pathName": "pages/event/list/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "政策通",
+          "pathName": "pages/policy/index/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "活动详情",
+          "pathName": "pages/event/detail/index",
+          "query": "id=1",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "名片首页",
+          "pathName": "pages/mycard/index/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "政策通首页",
+          "pathName": "pages/policy/index/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "政策通列表",
+          "pathName": "pages/policy/list/index",
+          "query": "cate=1",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "政策通详情",
+          "pathName": "pages/policy/detail/index",
+          "query": "id=9",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "顾问团",
+          "pathName": "pages/adviser/index/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "名片发现",
+          "pathName": "pages/card/list/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "人才卡",
+          "pathName": "pages/talent/index/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": 18,
+          "name": "人才卡申请",
+          "pathName": "pages/talent/form/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "审核进度",
+          "pathName": "pages/talent/result/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "客服中心",
+          "pathName": "pages/customer/index/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": 21,
+          "name": "客服搜索",
+          "pathName": "pages/customer/search/index",
+          "query": "keyword=人才卡",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "客服搜索结果详情",
+          "pathName": "pages/customer/result/index",
+          "query": "id=1",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "客服语音搜索",
+          "pathName": "pages/customer/voicesearch/index",
+          "query": "keyword=人才卡",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "我的名片",
+          "pathName": "pages/mycard/index/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": 25,
+          "name": "优惠券",
+          "pathName": "pages/coupon/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "商家详情",
+          "pathName": "pages/welfare/detail/index",
+          "query": "id=1",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "顾问团成员",
+          "pathName": "pages/adviser/user/index",
+          "query": "cateid=2",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "发布提问题",
+          "pathName": "pages/adviser/ask/index",
+          "query": "cateid=2&to=1",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "我的提问",
+          "pathName": "pages/adviser/myquestion/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "问题详情",
+          "pathName": "pages/adviser/questiondetail/index",
+          "query": "id=1",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "问题列表",
+          "pathName": "pages/adviser/questionlist/index",
+          "query": "cateid=2",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "金英助学列表",
+          "pathName": "pages/grants/list/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "助学详情",
+          "pathName": "pages/grants/detail/index",
+          "query": "id=1",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "助学报名",
+          "pathName": "pages/grants/apply/index",
+          "query": "grantid=1",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "抽奖",
+          "pathName": "pages/choujiang/index",
+          "query": "id=1",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "英文首页",
+          "pathName": "pages/english/index/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "en-list",
+          "pathName": "pages/english/list/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "en-detail",
+          "pathName": "pages/english/detail/index",
+          "query": "id=121",
+          "scene": null
+        },
+        {
+          "name": "咨询",
+          "pathName": "pages/customer/index/index",
+          "scene": null
+        }
+      ]
+    }
+  }
 }

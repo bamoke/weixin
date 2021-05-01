@@ -13,16 +13,15 @@
           </view>
           <view class="ft">
             <view class="price">￥<text class="amount">{{item.price}}</text></view>
-            <bmk-caroperator item="{{item}}" index="{{index}}" bind:update="updateList"></bmk-caroperator>
+            <view class="operation-box">
+              <bmk-caroperator item="{{item}}" index="{{index}}" bind:update="updateList"></bmk-caroperator>
+            </view>
           </view>
         </view>
       </view>
     </view>
     <view class="m-confirm-box">
-      <view class="amount">
-        订单总额:<text class="num">{{amount}}</text>
-      </view>
-      <view class="submit-btn">提交订单</view>
+      <view class="submit-btn" bindtap="handleSubmit">提交订单</view>
     </view>
   </block>
   <bmk-emptybox title="你还没有选购任何商品" wx:else></bmk-emptybox>

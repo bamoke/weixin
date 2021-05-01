@@ -1,144 +1,144 @@
 {
-	"description": "项目配置文件",
-	"packOptions": {
-		"ignore": []
-	},
-	"setting": {
-		"urlCheck": true,
-		"es6": true,
-		"postcss": true,
-		"preloadBackgroundData": false,
-		"minified": true,
-		"newFeature": true,
-		"coverView": true,
-		"autoAudits": false,
-		"showShadowRootInWxmlPanel": true,
-		"scopeDataCheck": false,
-		"checkInvalidKey": true,
-		"checkSiteMap": true,
-		"uploadWithSourceMap": true,
-		"babelSetting": {
-			"ignore": [],
-			"disablePlugins": [],
-			"outputPath": ""
-		},
-		"useIsolateContext": true,
-		"useCompilerModule": false,
-		"userConfirmedUseCompilerModuleSwitch": false,
-		"compileHotReLoad": false
-	},
-	"compileType": "miniprogram",
-	"libVersion": "2.7.1",
-	"appid": "wxe0ad4459e84ec05b",
-	"projectname": "%E8%93%9D%E6%80%9D%E4%BA%91-%E5%91%98%E5%B7%A5",
-	"debugOptions": {
-		"hidedInDevtools": []
-	},
-	"isGameTourist": false,
-	"simulatorType": "wechat",
-	"simulatorPluginLibVersion": {},
-	"condition": {
-		"search": {
-			"current": -1,
-			"list": []
-		},
-		"conversation": {
-			"current": -1,
-			"list": []
-		},
-		"plugin": {
-			"current": -1,
-			"list": []
-		},
-		"game": {
-			"currentL": -1,
-			"list": []
-		},
-		"gamePlugin": {
-			"current": -1,
-			"list": []
-		},
-		"miniprogram": {
-			"current": 0,
-			"list": [
-				{
-					"id": 0,
-					"name": "bind",
-					"pathName": "pages/common/bind/index",
-					"query": "code=7ad6d9efe895956d28185ec9c85d20e7",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "报销",
-					"pathName": "pages/fybx/index/index",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "新建报销",
-					"pathName": "pages/fybx/new/index",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "报销详情",
-					"pathName": "pages/fybx/detail/index",
-					"query": "id=1",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "草稿箱",
-					"pathName": "pages/draft/index",
-					"query": "type=1",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "通讯录",
-					"pathName": "pages/addressbook/index/index",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "home",
-					"pathName": "pages/home/index/index",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "个人信息",
-					"pathName": "pages/home/profile/index",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "工资单",
-					"pathName": "pages/gongzi/index/index",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "社保查询",
-					"pathName": "pages/shebao/index/index",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "科目选择",
-					"pathName": "pages/common/subject/index",
-					"query": "",
-					"scene": null
-				}
-			]
-		}
-	}
+  "description": "项目配置文件",
+  "packOptions": {
+    "ignore": []
+  },
+  "setting": {
+    "urlCheck": true,
+    "es6": true,
+    "postcss": true,
+    "preloadBackgroundData": false,
+    "minified": true,
+    "newFeature": true,
+    "coverView": true,
+    "autoAudits": false,
+    "showShadowRootInWxmlPanel": true,
+    "scopeDataCheck": false,
+    "checkInvalidKey": true,
+    "checkSiteMap": true,
+    "uploadWithSourceMap": true,
+    "compileHotReLoad": false,
+    "babelSetting": {
+      "ignore": [],
+      "disablePlugins": [],
+      "outputPath": ""
+    },
+    "useIsolateContext": true,
+    "useCompilerModule": false,
+    "userConfirmedUseCompilerModuleSwitch": false,
+    "packNpmManually": false,
+    "packNpmRelationList": [],
+    "minifyWXSS": true,
+    "useMultiFrameRuntime": false,
+    "useApiHook": true
+  },
+  "compileType": "miniprogram",
+  "libVersion": "2.7.1",
+  "appid": "wxe0ad4459e84ec05b",
+  "projectname": "%E8%93%9D%E6%80%9D%E4%BA%91-%E5%91%98%E5%B7%A5",
+  "debugOptions": {
+    "hidedInDevtools": []
+  },
+  "isGameTourist": false,
+  "simulatorType": "wechat",
+  "simulatorPluginLibVersion": {},
+  "condition": {
+    "search": {
+      "list": []
+    },
+    "conversation": {
+      "list": []
+    },
+    "plugin": {
+      "list": []
+    },
+    "game": {
+      "currentL": -1,
+      "list": []
+    },
+    "gamePlugin": {
+      "list": []
+    },
+    "miniprogram": {
+      "list": [
+        {
+          "id": 0,
+          "name": "bind",
+          "pathName": "pages/common/bind/index",
+          "query": "code=7ad6d9efe895956d28185ec9c85d20e7",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "报销",
+          "pathName": "pages/fybx/index/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "新建报销",
+          "pathName": "pages/fybx/new/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "报销详情",
+          "pathName": "pages/fybx/detail/index",
+          "query": "id=1",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "草稿箱",
+          "pathName": "pages/draft/index",
+          "query": "type=1",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "通讯录",
+          "pathName": "pages/addressbook/index/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "home",
+          "pathName": "pages/home/index/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "个人信息",
+          "pathName": "pages/home/profile/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "工资单",
+          "pathName": "pages/gongzi/index/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "社保查询",
+          "pathName": "pages/shebao/index/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "科目选择",
+          "pathName": "pages/common/subject/index",
+          "query": "",
+          "scene": null
+        }
+      ]
+    }
+  }
 }

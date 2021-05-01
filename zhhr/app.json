@@ -1,6 +1,9 @@
 {
   "pages": [
     "pages/index/index",
+    "pages/english/index/index",
+    "pages/english/list/index",
+    "pages/english/detail/index",
     "pages/home/index",
     "pages/home/collection/index",
     "pages/home/feedback/index",
@@ -33,7 +36,17 @@
     "pages/customer/index/index",
     "pages/customer/search/index",
     "pages/customer/result/index",
-    "pages/customer/voicesearch/index"
+    "pages/customer/voicesearch/index",
+    "pages/adviser/user/index",
+    "pages/adviser/ask/index",
+    "pages/adviser/myquestion/index",
+    "pages/adviser/questiondetail/index",
+    "pages/adviser/questionlist/index",
+    "pages/grants/detail/index",
+    "pages/grants/list/index",
+    "pages/grants/apply/index",
+    "pages/choujiang/index",
+    "pages/article/web/web"
   ],
   "window": {
     "backgroundTextStyle": "light",

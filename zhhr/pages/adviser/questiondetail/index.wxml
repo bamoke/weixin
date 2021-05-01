@@ -1,0 +1,43 @@
+<!--pages/adviser/questiondetail/index.wxml-->
+<view class="container" wx:if="{{showPage}}">
+	<view class="m-question-info">
+		<view class="title">{{questionInfo.title}}</view>
+		<view class="desc">{{questionInfo.content}}</view>
+		<view class="ft">
+			<view class="unit stage {{questionInfo.stage==1?'stage-success':'stage-error'}}">{{questionInfo.stage==1?'已解决':'未解决'}}</view>
+			<view class="unit">浏览:{{questionInfo.view}}</view>
+			<view class="unit">发布时间:{{questionInfo.create_time}}</view>
+		</view>
+	</view>
+	<view class="u-ht"></view>
+	<view class="m-answer-wrap">
+		<view class="m-answer-list" wx:if="{{answerList.length}}">
+			<view class="item" wx:for="{{answerList}}" wx:key="id">
+				<view class="adviser-info">
+					<image src="{{item.adviser_avatar}}" class="avatar"></image>
+					<view class="info">
+						<view class="name">{{item.adviser_name}}</view>
+						<view class="desc">{{item.adviser_description}}</view>
+					</view>
+				</view>
+				<view class="bd">
+					<view class="content">{{item.content}}</view>
+				</view>
+				<view class="ft">
+					<view class="btn {{item.l_satisfaction==1?'btn-primary':''}}" bindtap="handleOperation" data-index="{{index}}" data-type="satisfaction" hidden="{{item.l_dissatisfaction==1}}">
+						满意<text class="num">({{item.satisfaction_num}})</text>
+					</view>
+					<view class="btn {{item.l_think==1?'btn-primary':''}}" bindtap="handleOperation" data-index="{{index}}" data-type="think">
+						感谢<text class="num">({{item.think_num}})</text>
+					</view>
+					<view class="btn {{item.l_dissatisfaction==1?'btn-primary':''}}" bindtap="handleOperation" data-index="{{index}}" data-type="dissatisfaction" hidden="{{item.l_satisfaction==1}}">
+						没用<text class="num">({{item.dissatisfaction_num}})</text>
+					</view>
+				</view>
+			</view>
+		</view>
+		<view class="m-empty-box" wx:else>
+			<view class="tips">暂无顾问回答</view>
+		</view>
+	</view>
+</view>

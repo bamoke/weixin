@@ -1,0 +1,7 @@
+{
+  "navigationBarBackgroundColor": "#1b4dc0",
+  "usingComponents": {
+    "mp-icon": "/components/icon/icon"
+  },
+  "navigationBarTitleText": "Detail "
+}

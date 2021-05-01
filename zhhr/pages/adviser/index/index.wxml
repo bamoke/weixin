@@ -1,35 +1,38 @@
 <!--pages/adviser/index/index.wxml-->
 <view class="container">
-  <view class="m-subpage-banner">
-    <image class="img" src="/static/images/service-banner.jpg"></image>
-    <view class="info">
-      <view class="title">人才服务顾问团</view>
-      <view class="desc">为高端人才提供一对一订制服务</view>
-    </view>
-  </view>
-  <view class="service-bar">
-    <view class="section">
-      服务内容
-    </view>
-  </view>
-  <view class="m-service-list">
-    <view class="top-icon">
-      <view class="content"></view>
-    </view>
-    <view class="item" wx:for="{{list}}" wx:key="{{index}}">
-      <image class="pic" src="{{item.thumb}}"></image>
-      <view class="info">
-        <view class="title">{{item.title}}</view>
-        <view class="desc">{{item.description}}</view>
-        <view class="service-content">
-          {{item.tags}}
-        </view>
-        <view class="service-btn" bindtap='callAdviser' data-phone="{{item.phone}}">呼叫顾问</view>
-      </view>
-    </view>
+	<view class="service-bar">
+		<view class="section">
+			服务内容
+		</view>
+		<navigator class="btn btn-primary" open-type="navigate" url="../myquestion/index">
+		<mp-icon icon="help" size="{{16}}" color="#fff"></mp-icon>我的提问
+		</navigator>
+	</view>
+	<view class="m-service-list">
+		<view class="top-icon">
+			<view class="content"></view>
+		</view>
+		<view class="item" wx:for="{{list}}" wx:key="{{index}}">
+			<view class="bd">
+				<image class="pic" src="{{item.thumb}}"></image>
+				<view class="info">
+					<view class="title">{{item.title}}</view>
+					<view class="desc">{{item.description}}</view>
+					<!-- <view class="service-content">{{item.tags}}</view> -->
+				</view>
+			</view>
+			<view class="operation">
+				<navigator open-type="navigate" url="../questionlist/index?cateid={{item.id}}" class="service-btn">
+					<mp-icon icon="help" size="{{16}}"></mp-icon>相关问题
+				</navigator>
+				<navigator open-type="navigate" url="../user/index?cateid={{item.id}}" class="service-btn">
+					<mp-icon icon="group-detail" size="{{16}}"></mp-icon>顾问团成员
+				</navigator>
+			</view>
+		</view>
 
 
 
-  </view>
+	</view>
 
 </view>

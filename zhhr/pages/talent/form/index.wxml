@@ -5,9 +5,9 @@
     <form class="m-form-default" bindsubmit="formSubmit">
           <view class="form-group">
         <view class="label">人才类型</view>
-        <picker class="value-box" bindchange="handleTalentTypeChange" value="{{talentTypeIndex}}" range="{{talentTypeArr}}">
+        <picker class="value-box" bindchange="handleTalentTypeChange" value="{{talentTypeIndex}}" range="{{talentTypeArr}}" range-key="name">
           <view class="">
-            {{talentTypeArr[talentTypeIndex]}}
+            {{talentTypeArr[talentTypeIndex]['name']}}
           </view>
         </picker>
       </view>
@@ -44,6 +44,15 @@
             </view>
           </view>
 
+        </view>
+      </view>
+      <view class="form-group">
+        <view class="policy-box">
+          <label data-checked="{{agreePrivacy}}" bindtap="handlePrivacyChange">
+            <checkbox checked="{{agreePrivacy}}"  />
+            <text>我已阅读并同意</text>
+          </label>
+          <navigator class="link" open-type='navigate' url="/pages/article/web/web?weburl=https://www.bamoke.com/jygw/Public/Html/policy-jygw.html">《隐私政策》</navigator>
         </view>
       </view>
       <view class="form-group">

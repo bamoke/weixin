@@ -39,6 +39,18 @@ Page({
     })
   },
 
+  handleGoPage(e){
+    const index = e.currentTarget.dataset.index
+    const curItem = this.data.list[index]
+    var url = "/pages/article/";
+    if(curItem.web_url == '') {
+      url += `detail/index?id=${curItem.id}`
+    }else {
+      url += 'web/web?weburl=' + encodeURIComponent(curItem.web_url)
+    }
+    wx.navigateTo({url})
+  },
+
   /**
    * 生命周期函数--监听页面加载
    */

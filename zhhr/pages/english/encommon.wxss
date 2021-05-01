@@ -1,0 +1,14 @@
+.m-top-search-primary {
+  padding:24rpx;
+  background-color:#1b4dc0;
+}
+.m-top-search-primary .search-bg {
+  padding:0 24rpx;
+  background-color:#fff;
+  color:#999;
+  border-radius: 32rpx;
+}
+.m-top-search-primary .input-box {
+  flex-shrink: 1;
+  width:100%;
+}

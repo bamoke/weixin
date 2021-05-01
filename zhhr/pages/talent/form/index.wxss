@@ -14,6 +14,7 @@ page {
 .m-form-default {
   display: block;
   margin-top: 24rpx;
+  padding-bottom:48rpx;
   background: #fff;
 }
 
@@ -71,4 +72,12 @@ page {
 
 .no-flex {
   display: block !important;
+}
+.policy-box {
+  font-size:24rpx;
+  color:#969696;
+}
+.policy-box .link {
+  display: inline-block;
+  color:#696969;
 }

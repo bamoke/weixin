@@ -1,0 +1,71 @@
+/* pages/mycard/bind/index.wxss */
+page {
+  background-color: #fff;
+}
+.m-form {
+  width: 100%;
+}
+
+.m-form .form-group {
+  display: flex;
+  justify-content: space-between;
+  padding: 12px;
+  box-sizing: border-box;
+  width: 100%;
+  background-color: #fff;
+}
+
+.form-border-bt .form-group {
+  border-bottom: 1px solid #f1f1f1;
+}
+
+.m-form .input-box {
+  padding: 12rpx;
+  width: 100%;
+  background-color: #eee;
+}
+
+.m-form .error-box {
+  padding: 24rpx;
+  background-color: #fff;
+  color: #ff5b57;
+}
+.tips {
+  padding: 24rpx 0;
+  color:#999;
+}
+
+
+
+.m-form .form-group .code-btn {
+  flex-shrink: 0;
+  margin-left: 5%;
+  width: 30%;
+  text-align: center;
+  border-radius: 10rpx;
+  padding:12rpx 24rpx;
+}
+
+.m-form .form-group .btn-active {
+  background-color: #28c0c6;
+  color: #fff;
+}
+.m-form .form-group .btn-disebled {
+  background-color: #bbb;
+  color: #fff;
+}
+
+
+.btn {
+  flex: 1 0 auto;
+  width: 100%;
+}
+.submit-btn {
+  margin:0;
+  padding:0;
+  height: 84rpx;
+  line-height: 84rpx;
+  /* line-height: 184rpx; */
+  background: #ff3c02;
+  color:#fff;
+}

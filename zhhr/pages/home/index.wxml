@@ -59,6 +59,13 @@
       </view>
       <view class="icon-arrow"></view>
     </navigator>
+    <navigator open-type='navigate' url="/pages/article/web/web?weburl=https://www.bamoke.com/jygw/Public/Html/policy-jygw.html" class="item">
+      <view class="title">
+        <image class="left-icon u-myicon myicon-big" src="/static/images/icon-edit-black.png"></image>
+        <text class="txt">隐私政策</text>
+      </view>
+      <view class="icon-arrow"></view>
+    </navigator>
   </view>
 
 </view>

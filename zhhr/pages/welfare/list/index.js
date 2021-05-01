@@ -16,13 +16,15 @@ Page({
       hasMore: false
     },
     locationInfo: {},
-    welfareList: []
+    welfareList: [],
+    hideCouponList: true,
+    curWelfareId: null
   },
 
   /**
    * handle
    */
-  
+
   handleClick(e) {
     const index = e.currentTarget.dataset.index
     let newList = this.data.welfareList
@@ -36,7 +38,7 @@ Page({
     if (typeof e.target.dataset.type === 'undefined') return false;
     var locationInfo = this.data.locationInfo
     var requestParams = {
-      apiUrl: "/welfare/vlist",
+      apiUrl: "/Welfare/vlist",
       requestData: {
         lat: locationInfo.latitude || '',
         lng: locationInfo.longitude || '',
@@ -54,32 +56,21 @@ Page({
     })
 
   },
+  /**
+   * 显示优惠券列表
+   */
+  handleShowCoupon(e) {
+    const id = e.currentTarget.dataset.id
+    this.setData({
+      hideCouponList: false,
+      curWelfareId: parseInt(id)
+    })
+  },
 
   /**
    * 
    */
-  reciveCoupon(e) {
-    let index = e.currentTarget.dataset.index
-    let curItem = {
-      ...this.data.welfareList[index]
-    }
-    if (curItem.hascoupon) return false
-    app.ajax({
-      apiUrl: '/Coupon/receive',
-      requestData: {couponid: curItem.coupon_id},
-      showLoading: false
-    }).then(res=>{
-
-      curItem.hascoupon = true
-      let newList = this.data.welfareList
-      newList[index] = curItem
-      console.log(newList)
-      this.setData({
-        welfareList: newList
-      })
-    })
-
-  },
+  
   _fetchData() {
     var _that = this;
     var myAmapFun = new amapFile.AMapWX({

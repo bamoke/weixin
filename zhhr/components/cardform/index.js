@@ -40,6 +40,10 @@ Component({
       const formInfo = this.data.formInfo
       app.globalData.userInfo = mpUserInfo
       if (this.data.avatar == mpUserInfo.avatarUrl) return;
+      app.ajax({
+        apiUrl:"/Mycard/update_avatar",
+        requestData:{id:this.data.formInfo.id,img:mpUserInfo.avatarUrl}
+      })
       this.setData({
         avatar: mpUserInfo.avatarUrl
       })

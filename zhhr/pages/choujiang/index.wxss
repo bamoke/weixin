@@ -1,0 +1,198 @@
+/* pages/choujiang/index.wxss */
+page {
+  height:100%;
+}
+.container {
+  width:100%;
+  height:100%;
+
+  background-color:#cc0000;
+  background-size:cover;
+  background-repeat: no-repeat;
+  background-position:center top;
+  box-sizing: border-box;
+  /* background-attachment: fixed */
+}
+.scroll-box {
+  padding:24rpx;
+  height:100%;
+  box-sizing: border-box;
+}
+.zhuanpan-wrap {
+  padding-top:360rpx;
+}
+.log-wrap {
+  width:100%;
+  display:flex;
+  justify-content: space-between;
+}
+.log-wrap .side {
+  background:#c80404;
+  width:10%;
+}
+.log-wrap .left-side {
+  transform-origin: left center;
+  transform:skewx(-30deg);
+}
+.log-wrap .right-side {
+  transform-origin: right center;
+  transform:skewx(30deg);
+}
+.m-log-box {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom:48rpx;
+  padding:24rpx;
+  height:96rpx;
+  box-sizing: border-box;
+  overflow: hidden;
+  background-color:#fe0605;
+  background-image:-webkit-linear-gradient(225deg,#c80404,#fe0605,#ff3300,#c80404);
+  color:#fff;
+  border-radius: 48rpx;
+  box-shadow: 0 2px 4px rgba(0,0,0,.4);
+}
+.m-log-box .num {
+  margin-left:12rpx;
+  font-size:48rpx;
+  font-weight: 500;
+  line-height: 1;
+}
+.log-btn {
+  padding:0 24rpx;
+  height:64rpx;
+  line-height: 64rpx;
+  border-radius: 30rpx;
+  border:1px solid #c80404;
+  background-color: #ff6600;
+  /* box-shadow: inset 0 0 4px rgba(0,0,0,.5); */
+}
+.win-user-box .item {
+  line-height: 2;
+}
+
+.m-card {
+  margin-bottom: 48rpx;
+  background-color:rgba(200,5,5,.6);
+  color:#ffefbf;
+  box-sizing: border-box;
+  /* border:12rpx solid rgba(255,255,255,.5); */
+  /* background-color:rgba(255,255,255,.3); */
+}
+.m-card .bar {
+  padding:36rpx 0 0;
+  text-align: center;
+}
+.m-card .bar .title{
+  display: inline-block;
+  width:220rpx;
+  height:64rpx;
+  line-height: 64rpx;
+  text-align: center;
+  font-weight: 500;
+  font-size:32rpx;
+  /* background-color: #ffefbf; */
+  background-color: #ffefbf;
+  border:1px solid #c80404;
+  color:#c80404;
+  border-radius: 32rpx;
+}
+
+.m-card .content {
+  padding:24rpx 24rpx 48rpx;
+  box-sizing: border-box;
+  font-size:26rpx;
+}
+.m-modal-box {
+  position: absolute;
+  top:50%;
+  left:10%;
+  margin-top:-300rpx;
+  z-index:999;
+  padding:48rpx 24rpx;
+  box-sizing: border-box;
+  width:80%;
+  background-color:#fff;
+  border-radius:4px;
+  box-shadow: 0 0 5px rgba(0,0,0,.5);
+}
+.m-modal-box .close-btn {
+  position: absolute;
+  right:-32rpx;
+  top:-32rpx;
+  padding:12rpx;
+  background:#fff;
+  border-radius: 50%;
+}
+.m-mask {
+  position:fixed;
+  top:0;
+  left:0;
+  bottom:0;
+  z-index: 998;
+  width:100%;
+  background-color:rgba(0,0,0,.5);
+}
+.m-modal-box .title,.m-modal-box .desc {
+  font-size:44rpx;
+  font-weight: 500;
+  text-align: center;
+}
+.m-modal-box .desc {
+  font-size:34rpx;
+}
+.win-result .title,.win-result .desc {
+  color:#c80404;
+}
+.lose-result {
+  color:#1b81d3;
+}
+
+/***/
+.weui-cells {
+  font-size:28rpx;
+}
+.weui-label {
+  width:100px;
+}
+.weui-btn-area {
+  margin-top:48rpx;
+}
+.weui-btn {
+  height:84rpx;
+  line-height: 84rpx;
+  font-weight: 32rpx;
+  background:#c80404;
+  color:#fff;
+  border-radius:42rpx;
+}
+/***/
+.my-logs-list {
+  height:320rpx;
+}
+.my-logs-list .item {
+  display: flex;
+  justify-content: space-between;
+  padding:12rpx 0;
+  align-items: center;
+  font-size:28rpx;
+  color:#696969;
+  line-height: 1;
+}
+.u-logs-bar {
+  padding:12rpx 0 24rpx;
+  font-size:34rpx;
+  font-weight: 500;
+  color:#c80404;
+  text-align: center;
+}
+.fail-tips {
+  height:300rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  font-size: 32rpx;
+  color:#969696;
+}

@@ -1,11 +1,11 @@
 /* miniprogram/pages/index/index.wxss */
 .m-index-banner-box {
   width: 100%;
-  height: 280rpx;
+  height: 360rpx;
 }
 
 .index-banner {
-  height: 280rpx;
+  height: 360rpx;
 }
 
 .index-banner .img {
@@ -16,8 +16,8 @@
 .m-index-cate-list {
   display: flex;
   flex-wrap: wrap;
-  margin: 24rpx;
-  padding: 24rpx 0;
+  margin: 24rpx 0;
+  padding: 24rpx;
   background: #fff;
 }
 

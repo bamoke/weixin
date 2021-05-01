@@ -1,66 +1,79 @@
 <view class="container" wx:if="{{showPage}}">
-  <view class="m-index-banner-box">
-    <swiper class="index-banner" indicator-dots="true" autoplay="true" interval='3000'>
-      <block wx:for="{{bannerList}}" wx:key="index">
-        <swiper-item>
-          <navigator url='{{item.url}}' open-type='navigate' wx:if="{{item.url}}">
-            <image lazy-load='true' mode='aspectFill' class='img' src="{{item.img}}"></image>
-          </navigator>
-          <image lazy-load='true' mode='aspectFill' class='img' wx:else src="{{item.img}}"></image>
-        </swiper-item>
-      </block>
-    </swiper>
-  </view>
-  <view class="m-index-nav-wrap">
-    <view class="m-index-subnav">
-      <navigator open-type='navigate' url="/pages/policy/index/index" class="item">
-        <view class="icon-wrap s-bg-1">
-          <image class="icon" src="/static/images/index-nav-icon-bb.png"></image>
-        </view>
-        <view>政策通</view>
-      </navigator>
-      <navigator open-type='navigate' url="/pages/event/list/index" class="item">
-        <view class="icon-wrap s-bg-6">
-          <image class="icon" src="/static/images/index-nav-icon-hd.png"></image>
-        </view>
-        <view>金英活动</view>
-      </navigator>
-      <navigator open-type='navigate' url="/pages/talent/index/index" class="item">
-        <view class="icon-wrap s-bg-3">
-          <image class="icon" mode='aspectFill' src="/static/images/index-nav-icon-mp.png"></image>
-        </view>
-        <view>金英人才卡</view>
-      </navigator>
-      <navigator open-type='navigate' url="/pages/adviser/index/index" class="item">
-        <view class="icon-wrap s-bg-5">
-          <image class="icon" src="/static/images/index-nav-icon-gw.png"></image>
-        </view>
-        <view>金英顾问</view>
-      </navigator>
-    </view>
-  </view>
+	<navigator open-type="redirect" url="../english/index/index" class="languge-btn">English</navigator>
+	<view class="m-index-banner-box">
+		<swiper class="index-banner" indicator-dots="true" autoplay="true" interval='3000'>
+			<block wx:for="{{bannerList}}" wx:key="index">
+				<swiper-item>
+					<navigator url='{{item.url}}' open-type='navigate' wx:if="{{item.url}}">
+						<image lazy-load='true' mode='aspectFill' class='img' src="{{item.img}}"></image>
+					</navigator>
+					<image lazy-load='true' mode='aspectFill' class='img' wx:else src="{{item.img}}"></image>
+				</swiper-item>
+			</block>
+		</swiper>
+	</view>
+	<view class="m-index-nav-wrap">
+		<view class="m-index-subnav">
+			<navigator open-type='navigate' url="/pages/policy/index/index" class="item">
+				<view class="icon-wrap s-bg-1">
+					<image class="icon" src="/static/images/index-nav-icon-bb.png"></image>
+				</view>
+				<view>政策通</view>
+			</navigator>
+			<navigator open-type='navigate' url="/pages/event/list/index" class="item">
+				<view class="icon-wrap s-bg-6">
+					<image class="icon" src="/static/images/index-nav-icon-hd.png"></image>
+				</view>
+				<view>金英活动</view>
+			</navigator>
+			<navigator open-type='navigate' url="/pages/talent/index/index" class="item">
+				<view class="icon-wrap s-bg-3">
+					<image class="icon" mode='aspectFill' src="/static/images/index-nav-icon-mp.png"></image>
+				</view>
+				<view>金英人才卡</view>
+			</navigator>
+			<navigator open-type='navigate' url="/pages/adviser/index/index" class="item">
+				<view class="icon-wrap s-bg-5">
+					<image class="icon" src="/static/images/index-nav-icon-gw.png"></image>
+				</view>
+				<view>金英顾问</view>
+			</navigator>
+		</view>
+	</view>
 
+	<block wx:if="{{grantsInfo.isShow}}">
+		<navigator open-type="navigate" url="../grants/list/index" class="index-grants-info">
+			<image mode="aspectFill" src="{{grantsInfo.thumb}}" class="thumb"></image>
+		</navigator>
+    <view class="u-ht"></view>
+	</block>
 
+	<block wx:if="{{choujiangInfo.isShow}}">
+		<navigator open-type="navigate" url="../choujiang/index?id={{choujiangInfo.id}}" class="index-grants-info">
+			<image mode="aspectFill" src="{{choujiangInfo.thumb}}" class="thumb"></image>
+		</navigator>
+    <view class="u-ht"></view>
+	</block>
 
-  <view class="g-card border-top">
-    <view class='header'>
-      <view class="title">
-        <text>最新播报</text>
-      </view>
-    </view>
-    <view class="body m-article-list-big">
-      <navigator url="/pages/article/detail/index?id={{item.id}}" class='item' wx:for="{{articleList}}" wx:key="id">
-        <view class="title">{{item.title}}</view>
-        <image class="thumb" mode='aspectFill' lazy-load='true' src='{{item.thumb}}'></image>
-        <view class="other">
-          <view class="cate">{{item.catename}}</view>
-          <view class="time">
-            <image class="u-myicon icon" src="/static/images/icon-time.png"></image>
-            <text class="txt">{{item.date}}</text>
-          </view>
-        </view>
-      </navigator>
-    </view>
-  </view>
-  <move-btn></move-btn>
+	<view class="g-card border-top">
+		<view class='header'>
+			<view class="title">  
+				<text>最新播报</text>
+			</view>
+		</view>
+		<view class="body m-article-list-big">
+			<view bindtap="handleGoPage" data-index="{{index}}" class='item' wx:for="{{articleList}}" wx:key="id">
+				<view class="title">{{item.title}}</view>
+				<image class="thumb" mode='aspectFill' lazy-load='true' src='{{item.thumb}}'></image>
+				<view class="other">
+					<view class="cate">{{item.catename}}</view>
+					<view class="time">
+						<image class="u-myicon icon" src="/static/images/icon-time.png"></image>
+						<text class="txt">{{item.date}}</text>
+					</view>
+				</view>
+			</view>
+		</view>
+	</view>
+	<move-btn></move-btn>
 </view>

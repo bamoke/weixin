@@ -1,0 +1,28 @@
+<!--pages/grants/detail/index.wxml-->
+<import src="../../../wxParse/wxParse.wxml" />
+<view class="container" wx:if="{{showPage}}">
+  <view class="event-banner-box">
+    <image class="banner" src="{{detail.thumb}}" mode='aspectFill'></image>
+  </view>
+  <view class="g-box-pad base-info">
+    <view class="title">{{detail.title}}</view>
+    <view class="row">{{detail.description}}</view>
+  </view>
+  <view class="u-ht"></view>
+  <view class="g-wrap main-content-wrap">
+    <view class='bar'>
+      <view class='title'>项目介绍</view>
+      <view class='line-icon'></view>
+    </view>
+    <view class="content">
+      <template is="wxParse" data="{{wxParseData:wxparse_content.nodes}}" />
+    </view>
+  </view>
+  <view class="m-foot-operation" >
+    <view class="ft-btn-large disabled" wx:if="{{detail.isEnd}}">活动已截至</view>
+    <block wx:else>
+      <view class="ft-btn-large disabled" wx:if="{{applyInfo.id}}">已报名</view>
+      <view class="btn btn-block btn-primary" bindtap='handleEnroll' wx:else>我要报名献出爱心</view>
+    </block>
+  </view>
+</view>

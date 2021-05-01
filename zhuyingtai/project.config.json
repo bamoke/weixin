@@ -1,94 +1,108 @@
 {
-	"description": "项目配置文件",
-	"packOptions": {
-		"ignore": []
-	},
-	"setting": {
-		"urlCheck": true,
-		"es6": true,
-		"postcss": true,
-		"preloadBackgroundData": false,
-		"minified": true,
-		"newFeature": true,
-		"autoAudits": false,
-		"coverView": true,
-		"showShadowRootInWxmlPanel": true,
-		"scopeDataCheck": false,
-		"useCompilerModule": false
-	},
-	"compileType": "miniprogram",
-	"libVersion": "2.5.2",
-	"appid": "wx3033d010a1183484",
-	"projectname": "zhuyingtai",
-	"debugOptions": {
-		"hidedInDevtools": []
-	},
-	"isGameTourist": false,
-	"simulatorType": "wechat",
-	"simulatorPluginLibVersion": {},
-	"condition": {
-		"search": {
-			"current": -1,
-			"list": []
-		},
-		"conversation": {
-			"current": -1,
-			"list": []
-		},
-		"plugin": {
-			"current": -1,
-			"list": []
-		},
-		"game": {
-			"currentL": -1,
-			"list": []
-		},
-		"miniprogram": {
-			"current": 6,
-			"list": [
-				{
-					"id": 0,
-					"name": "入场券",
-					"pathName": "pages/ticket/index/index",
-					"query": "type=1"
-				},
-				{
-					"id": -1,
-					"name": "简历",
-					"pathName": "pages/resume/index/index",
-					"query": ""
-				},
-				{
-					"id": -1,
-					"name": "简历",
-					"pathName": "pages/resume/base/index",
-					"query": "type=create"
-				},
-				{
-					"id": -1,
-					"name": "测试",
-					"pathName": "pages/test/detail/index",
-					"query": "id=1"
-				},
-				{
-					"id": -1,
-					"name": "测试列表",
-					"pathName": "pages/test/list/index",
-					"query": "id=1"
-				},
-				{
-					"id": -1,
-					"name": "文章列表",
-					"pathName": "pages/article/list/index",
-					"query": "cid=1"
-				},
-				{
-					"id": -1,
-					"name": "文章详情",
-					"pathName": "pages/article/detail/index",
-					"query": "id=2"
-				}
-			]
-		}
-	}
+  "description": "项目配置文件",
+  "packOptions": {
+    "ignore": []
+  },
+  "setting": {
+    "urlCheck": true,
+    "es6": true,
+    "postcss": true,
+    "preloadBackgroundData": false,
+    "minified": true,
+    "newFeature": true,
+    "coverView": true,
+    "autoAudits": false,
+    "showShadowRootInWxmlPanel": true,
+    "scopeDataCheck": false,
+    "checkInvalidKey": true,
+    "checkSiteMap": true,
+    "uploadWithSourceMap": true,
+    "useMultiFrameRuntime": true,
+    "babelSetting": {
+      "ignore": [],
+      "disablePlugins": [],
+      "outputPath": ""
+    },
+    "useIsolateContext": true,
+    "useCompilerModule": false,
+    "userConfirmedUseCompilerModuleSwitch": false,
+    "userConfirmedBundleSwitch": false,
+    "packNpmManually": false,
+    "packNpmRelationList": [],
+    "minifyWXSS": true,
+    "bundle": false,
+    "useApiHook": true,
+    "useApiHostProcess": false
+  },
+  "compileType": "miniprogram",
+  "libVersion": "2.5.2",
+  "appid": "wx3033d010a1183484",
+  "projectname": "zhuyingtai",
+  "debugOptions": {
+    "hidedInDevtools": []
+  },
+  "isGameTourist": false,
+  "simulatorType": "wechat",
+  "simulatorPluginLibVersion": {},
+  "condition": {
+    "search": {
+      "list": []
+    },
+    "conversation": {
+      "list": []
+    },
+    "plugin": {
+      "list": []
+    },
+    "game": {
+      "currentL": -1,
+      "list": []
+    },
+    "miniprogram": {
+      "list": [
+        {
+          "id": 0,
+          "name": "入场券",
+          "pathName": "pages/ticket/index/index",
+          "query": "type=1"
+        },
+        {
+          "id": -1,
+          "name": "简历",
+          "pathName": "pages/resume/index/index",
+          "query": ""
+        },
+        {
+          "id": -1,
+          "name": "简历",
+          "pathName": "pages/resume/base/index",
+          "query": "type=create"
+        },
+        {
+          "id": -1,
+          "name": "测试",
+          "pathName": "pages/test/detail/index",
+          "query": "id=1"
+        },
+        {
+          "id": -1,
+          "name": "测试列表",
+          "pathName": "pages/test/list/index",
+          "query": "id=1"
+        },
+        {
+          "id": -1,
+          "name": "文章列表",
+          "pathName": "pages/article/list/index",
+          "query": "cid=1"
+        },
+        {
+          "id": -1,
+          "name": "文章详情",
+          "pathName": "pages/article/detail/index",
+          "query": "id=2"
+        }
+      ]
+    }
+  }
 }

@@ -34,33 +34,10 @@
           </view>
         </view>
       </navigator>
-      <view class="coupon-info {{item.hascoupon?'coupon-has':''}}" bindtap="reciveCoupon" data-index="{{index}}">
-        <view class="coupon-title">
-          <text>￥</text><text class="amount">{{item.coupon_title}}</text>
-        </view>
-        <view class="coupon-btn">立即领取</view>
-        <view class="coupon-has-text">已领取</view>
+      <view class="coupon-info">
+        <view class="coupon-btn" bindtap="handleShowCoupon" data-id="{{item.id}}">立即领券</view>
       </view>
-      <!-- <view class="other-box" hidden="{{!item.show}}">
-        <view class="row">
-          <view class="section">优惠详情</view>
-          <view class="content">{{item.description}}</view>
-        </view>
-        <view class="row">
-          <view class="section">营业时间</view>
-          <view class="content">{{item.daily_hours}}</view>
-        </view>
-        <view class="row align-center">
-          <view class="section">详细地址</view>
-          <view class="content">{{item.addr}}</view>
-          <image src="/static/images/icon-navigate.png" class="icon" bindtap="handleNavigate" data-index="{{index}}"></image>
-        </view>
-        <view class="row align-center">
-          <view class="section">联系电话</view>
-          <view class="content">{{item.phone}}</view>
-          <image src="/static/images/icon-tel.png" class="icon" bindtap="handleCall" data-phone="{{item.phone}}"></image>
-        </view>
-      </view> -->
+
     </view>
   </view>
 
@@ -69,5 +46,5 @@
   </view>
 
   <move-btn></move-btn>
-
+  <bmk-coupon welfare-id="{{curWelfareId}}" hide="{{hideCouponList}}"></bmk-coupon>
 </view>

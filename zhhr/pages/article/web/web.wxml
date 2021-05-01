@@ -1,0 +1,4 @@
+<!--pages/article/web/web.wxml-->
+<view class="container">
+  <web-view src="{{curUrl}}" bindload="onWebloaded"></web-view>
+</view>

@@ -1,0 +1,48 @@
+<!--pages/adviser/ask/index.wxml-->
+<mp-toptips msg="{{error}}" type="error" show="{{error}}"></mp-toptips>
+<view class="page" xmlns:wx="http://www.w3.org/1999/xhtml">
+
+	<view class="page__bd" wx:if="{{!isCompleted}}">
+		<mp-form id="form" rules="{{rules}}" models="{{formData}}">
+			<view class="weui-cells weui-cells_after-title">
+				<view class="weui-cell" prop="title">
+					<view class="weui-cell__bd">
+						<input class="weui-input" bindinput="handleInput" data-name="title" maxlength="128" placeholder="请输入问题标题" />
+					</view>
+				</view>
+				<view class="weui-cell" prop="content">
+					<view class="weui-cell__bd">
+						<textarea class="weui-textarea" bindinput="handleInput" data-name="content" maxlength="200" placeholder="请输入问题描述" style="height: 3.3em" />
+						<view class="weui-textarea-counter">{{curContentLength}}/200</view>
+            </view>
+        </view>
+			</view>
+        <mp-cells title="隐私设置">
+          <mp-checkbox-group prop="isopen" multi="{{false}}" bindchange="radioChange">
+              <mp-checkbox wx:for="{{radioItems}}" wx:key="value" label="{{item.name}}" value="{{item.value}}" checked="{{item.checked}}"></mp-checkbox>
+          </mp-checkbox-group>
+        </mp-cells>
+
+
+			<view class="weui-btn-area">
+				<button class="weui-btn btn-primary" bindtap="submitForm">确定</button>
+			</view>
+
+		</mp-form>
+
+
+
+
+	</view>
+      <mp-msg type="success" title="操作成功" wx:else>
+        <view slot="desc">您的问题已经提交，正等待顾问的解答，您可以在【我的提问】中进行查收顾问回复</view>
+        <view slot="handle">
+            <navigator open-type="navigate" url="../myquestion/index" >
+            <button class="weui-btn btn-primary">我的提问</button>
+            </navigator>
+            <navigator open-type="navigateBack" class="weui-btn" type="default" style="margin-top:14px;">
+            <button class="weui-btn" type="default">返回</button>
+            </navigator>
+        </view>
+    </mp-msg>
+</view>

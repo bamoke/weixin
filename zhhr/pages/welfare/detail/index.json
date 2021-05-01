@@ -1,4 +1,6 @@
 {
-  "usingComponents": {},
+  "usingComponents": {
+    "bmk-coupon":"/components/bmk-coupon/bmk-coupon"
+  },
   "navigationBarTitleText": "商家介绍"
 }

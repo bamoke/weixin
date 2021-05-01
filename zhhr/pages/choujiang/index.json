@@ -1,0 +1,10 @@
+{
+  "usingComponents": {
+    "bmk-zhuanpan":"/components/zhuanpan/zhuanpan",
+    "mp-toptips": "/components/toptips/toptips",
+    "mp-form": "/components/form/form",
+    "mp-icon": "/components/icon/icon"
+  },
+  "navigationBarTitleText": "幸运抽奖",
+  "navigationBarBackgroundColor": "#c80404"
+}

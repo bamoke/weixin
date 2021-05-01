@@ -1,0 +1,25 @@
+<!--components/bmk-coupon/bamk-coupon.wxml-->
+<view class="wrap" hidden="{{hide}}">
+	<view class="m-mask" bindtap="handleClose"></view>
+	<view class="main-content {{hide?'':'content-show'}}">
+		<view class="title">优惠券领取</view>
+		<view class="m-coupon-list">
+			<view class="item {{item.ishas==1 || item.surplus_num==0 ?'disrecive':''}}" wx:for="{{list}}" wx:key="id">
+				<view class="value-box">
+					<text>￥</text><text class="value">{{item.coupon_title}}</text>
+				</view>
+				<view class="info">
+					<view class="desc">{{item.description}}</view>
+				</view>
+				<view class="operation">
+					<view class="coupon-btn" wx:if="{{item.ishas ==0}}" bindtap="reciveCoupon" data-index="{{index}}">立即领取</view>
+					<block wx:else>
+						<view class="disrecive-text" wx:if="{{item.surplus_num==0}}">被抢光了</view>
+						<view class="disrecive-text" wx:else>已领取</view>
+					</block>
+				</view>
+			</view>
+		</view>
+		<view class="close-btn" bindtap="handleClose">关闭</view>
+	</view>
+</view>

@@ -1,0 +1,9 @@
+{
+  "usingComponents": {
+    "mp-icon":"/components/icon/icon"
+  },
+  "navigationBarTitleText": "顾问团成员",
+  "enablePullDownRefresh": true,
+  "backgroundTextStyle": "dark",
+  "onReachBottomDistance": 40
+}

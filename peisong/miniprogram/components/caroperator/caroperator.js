@@ -4,11 +4,11 @@ Component({
    * 组件的属性列表
    */
   properties: {
-    item:{
-      type:Object
+    item: {
+      type: Object
     },
-    index:{
-      type:Number
+    index: {
+      type: Number
     }
   },
 
@@ -25,7 +25,10 @@ Component({
   methods: {
     handleAddCar(e) {
       const index = this.data.index
-      this._computeNum({index,type:"add"})
+      this._computeNum({
+        index,
+        type: "add"
+      })
     },
     handleMinusNum(e) {
       const index = this.data.index
@@ -41,11 +44,42 @@ Component({
         type: 'add'
       })
     },
+    handleInput (e) {
+     
+      let num = e.detail.value
+      const index = this.data.index
+      let newItem = Object.assign({}, this.data.item)
+
+      if(num == '')  return
+
+      num = parseInt(num)
+
+      console.log(num)
+      if(isNaN(num) || num < 1) {
+        num = 1
+      }
+      newItem.buynum = num
+      this._storageCar(newItem)
+      this.triggerEvent("update", {
+        newItem,
+        index
+      })
+    },
+    handleCheckInput(e){
+      let num = e.detail.value
+      const index = this.data.index
+      if(num == '') {
+        wx.showToast({
+          title: "购买数量不能为空",
+          image: "/images/icon-error.png"
+        })
+      }
+    },
     _computeNum({
       index,
       type
     }) {
-      let newItem = Object.assign({},this.data.item)
+      let newItem = Object.assign({}, this.data.item)
 
       if (type === 'add') {
         newItem.buynum = newItem.buynum + 1
@@ -54,31 +88,36 @@ Component({
         newItem.buynum = newItem.buynum - 1
       }
       this._storageCar(newItem)
-      this.triggerEvent("update",{newItem,index})
+      this.triggerEvent("update", {
+        newItem,
+        index
+      })
 
     },
     // 设置购物车缓存
     _storageCar(newItem) {
       let car = wx.getStorageSync('car') || []
       let newCar = car.slice()
+      const carNum = newCar.length
       if (newCar.length === 0) {
         newCar.push(newItem)
       } else {
-        newCar.forEach(function (item, index, arr) {
-          if (item.id === newItem.id) {
+        for (var i = 0; i < newCar.length; i++) {
+          if (newCar[i].id == newItem.id) {
             if (newItem.buynum > 0) {
-              arr[index] = newItem
+              newCar[i] = newItem
             } else {
-              arr.splice(index, 1)
+              newCar.splice(i, 1)
             }
-          } else {
-            if (index === arr.length - 1) {
-              arr.push(newItem)
-            }
+            break
           }
-        })
+          // 如果没有相同的物品，在最后一次加入物品
+          if(i == newCar.length-1) {
+            newCar.push(newItem)
+            break
+          }
+        }
       }
-
       try {
         wx.setStorageSync('car', newCar)
       } catch (e) {

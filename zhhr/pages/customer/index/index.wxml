@@ -10,6 +10,17 @@
       <image class="icon" src="/static/images/icon-search-black.png"></image>
       <view class="input" bindtap="goSearch">请输入您想咨询的问题</view>
     </view>
+
+    <view class="m-kf-box">
+      <view>
+        <text>金英港湾人才服务专员:</text>
+        <text class="phone">18926946095</text>
+        <text class="tips">(微信同号)</text>
+      </view>
+      <view class="call-btn" bindtap="handleCall" data-phone="18926946095">
+        <image src="/static/images/icon-tel.png" class="icon" ></image>
+      </view>
+    </view>
   </view>
 
 

@@ -7,7 +7,7 @@
     </view>
   </view>
   <view wx:else>
-    <view class="card-top-nav">
+    <view class="card-top-nav" wx:if="{{cardInfo.shownav == 1}}">
       <navigator type="navigate" url="/pages/card/list/index" class="item">
         <image class="icon" src="/static/images/tab-find-active.png"></image>
         <view class="title">发现</view>

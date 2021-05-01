@@ -9,7 +9,9 @@ Page({
    */
   data: {
     pageShow: false,
-    detail: {}
+    detail: {},
+    curId: null,
+    hideCouponList: true
   },
   handleNavigate(e) {
     let curItem = this.data.detail
@@ -18,6 +20,11 @@ Page({
       longitude: parseFloat(curItem.longitude),
       address: curItem.addr,
       name: curItem.title
+    })
+  },
+  handleShowCoupon(){
+    this.setData({
+      hideCouponList:false
     })
   },
   handleCall(e) {
@@ -42,11 +49,11 @@ Page({
       },1000)
       return false
     }
-    const newsId = options.id
+    const curId = options.id
     let requestParams = {
       apiUrl: "/Welfare/detail",
       requestMethod: "GET",
-      requestData:{id:newsId}
+      requestData:{id:curId}
     }
     const ajaxRequest = app.ajax(requestParams)
     ajaxRequest.then(res => {
@@ -55,7 +62,8 @@ Page({
       }
       this.setData({
         showPage: true,
-        detail: res.data.info
+        detail: res.data.info,
+        curId
       })
     })
 

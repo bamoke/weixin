@@ -1,0 +1,21 @@
+<!--components/zhuanpan/zhuanpan.wxml-->
+<view class="warp">
+  <view class="zhuanpan-box" >
+    <view class="btn" bindtap="handleStart">
+      <view class="icon"></view>
+      <text wx:if="{{runStage==0}}">开始</text>
+      <text wx:elif="{{runStage==1}}"></text>
+      <text wx:elif="{{runStage==2}}">重置</text>
+    </view>
+    <view style='width:{{size}}rpx;height:{{size}}rpx;overflow:hidden;border-radius:50%;border:1px solid #cc0000;box-sizing:border-box;'>
+      <view class="zhuanpan-container" style='width:{{size}}rpx;height:{{size}}rpx;' animation="{{animationData}}">
+        <view wx:for="{{awardArr}}" wx:key="id" class="item-wrap {{runStage==2?'is-end':''}} {{myawaedIndex==index?'seleted-item':''}}">
+          <view class="award-item" style="transform: rotate({{item.rotate}}deg) skewY({{item.skew}}deg);background-color:{{item.bg}};width:{{size/2}}rpx;height:{{size/2}}rpx;">
+          </view>
+          <view class="award-text" style="transform: rotate({{item.fontRotate}}deg);height:{{size/2}}rpx;top:0;">{{item.name}}
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

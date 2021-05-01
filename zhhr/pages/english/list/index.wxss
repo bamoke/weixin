@@ -1,0 +1,9 @@
+/* pages/article/list/index.wxss */
+@import "../encommon.wxss";
+.m-top-search-primary {
+  padding-top:0;
+  padding-bottom: 48rpx;
+}
+.body {
+  padding:24rpx;
+}

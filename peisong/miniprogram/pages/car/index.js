@@ -1,4 +1,5 @@
 // pages/car/index.js
+const App = getApp();
 Page({
 
   /**
@@ -33,19 +34,32 @@ Page({
   },
 
   /**
+   * 提交订单
+   */
+  handleSubmit(){
+    var goods = JSON.stringify(this.data.proList)
+    App.ajax({
+      apiUrl: '/Car/doorder',
+      requestData:{goods},
+      requestMethod: "post"
+    }).then(res => {
+      wx.showToast({
+        title: '提交成功',
+      })
+      this.setData({
+        proList:[]
+      })
+      wx.setStorageSync('car', [])
+    })
+  },
+
+  /**
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
     let carData = wx.getStorageSync('car') || []
-    let amount = 0
-    if(carData.length) {
-      carData.forEach(function(item){
-        amount += item.price * 100 * item.buynum
-      })
-    }
     this.setData({
-      proList:carData,
-      amount: amount / 100
+      proList:carData
     })
   },
 

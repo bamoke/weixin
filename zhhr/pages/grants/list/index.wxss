@@ -1,0 +1,34 @@
+/* pages/grants/list/index.wxss */
+page {
+  background:#f8f8f8;
+}
+.m-grants-list {
+  padding:24rpx;
+}
+.m-grants-list .item {
+  display: flex;
+  margin-bottom:24rpx;
+  background: #fff;
+  padding:24rpx;
+  border-radius: 3px;
+}
+.m-grants-list .item .title {
+  margin-bottom:12rpx;
+  font-size:34rpx;
+  font-weight: 500;
+}
+.m-grants-list .item .desc {
+  color:#9c9c9c;
+  font-size:24rpx;
+}
+.m-grants-list .item .info {
+  flex:1 1 auto;
+  padding:0 24rpx;
+  width:60%;
+}
+.m-grants-list .item .thumb {
+  flex: 0 0 auto;
+  /* box-sizing: border-box; */
+  width:40%;
+  height:192rpx;
+}

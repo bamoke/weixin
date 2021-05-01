@@ -1,6 +1,6 @@
 //app.js
 App({
-  onLaunch: function() {
+  onLaunch: function () {
     // 登录
     wx.login({
       success: res => {
@@ -11,7 +11,7 @@ App({
           data: {
             code: res.code
           },
-          success: function(result) {
+          success: function (result) {
             if (result.data.code == 200) {
               console.log("login ok")
               wx.setStorageSync("accessToken", result.data.data.token)
@@ -55,7 +55,7 @@ App({
     }
   },
   ajaxLoaded: true,
-  ajax: function({
+  ajax: function ({
     apiUrl,
     requestData = {},
     requestMethod = "GET",
@@ -74,7 +74,7 @@ App({
     this.ajaxLoaded = false;
 
     // send
-    var myPromise = new Promise(function(resolve, reject) {
+    var myPromise = new Promise(function (resolve, reject) {
       const baseApiUrl = "https://www.bamoke.com/jygw_api.php";
       wx.request({
         url: baseApiUrl + apiUrl,
@@ -85,7 +85,7 @@ App({
           'content-type': 'application/x-www-form-urlencoded',
           'x-access-token': wx.getStorageSync('accessToken')
         },
-        success: function(res) {
+        success: function (res) {
           _that.ajaxLoaded = true;
           if (showLoading) {
             wx.hideLoading();
@@ -113,7 +113,7 @@ App({
               })
 
 
-            } else if(res.data.code == 13009){
+            } else if (res.data.code == 13009) {
 
             } else {
               wx.showToast({
@@ -124,7 +124,7 @@ App({
             reject(res.data)
           }
         },
-        fail: function() {
+        fail: function () {
           wx.showToast({
             title: "网络连接错误",
             image: "/static/images/icon-error.png"
@@ -134,5 +134,20 @@ App({
       })
     })
     return myPromise;
+  },
+  errorBack: function ({
+    tips,
+    deltaNu = 1,
+    delay = 1000
+  }) {
+    wx.showToast({
+      title: tips,
+      image: "/static/images/error.png?v=4",
+    })
+    setTimeout(function () {
+      wx.navigateBack({
+        delta: deltaNu
+      })
+    }, delay)
   }
 })

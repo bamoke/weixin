@@ -88,10 +88,37 @@
   line-height: 1;
   opacity: .3;
 }
-.dealine {text-align: center;color:#9c9c9c;}
+.dealine {
+  text-align: center;color:#9c9c9c;
+}
+.other-info {
+  display: flex;
+  margin-bottom:24rpx;
+  color:#545454;
+  font-size:24rpx;
+}
+.other-info .unit {
+  flex:1 0 auto;
+  width: 30%;
+  text-align: center;
+}
+.other-info .unit .val {
+  padding-top:12rpx;
+  font-weight: 500;
+}
+.other-info .unit:not(:last-child) {
+  border-right:1px solid #e1e1e1;
+}
+.card-ft {
+  padding-top:24rpx;
+  border-top:1px solid #e1e1e1;
+  color:#545454;
+  font-size:24rpx;
+}
 .m-tips {
   padding:48rpx;
   color:#9c9c9c;
+  font-size:24rpx;
 }
 .m-tips .bar {
   display: flex;

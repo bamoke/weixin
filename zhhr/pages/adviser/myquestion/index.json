@@ -1,0 +1,10 @@
+{
+  "usingComponents": {
+    "mp-icon":"/components/icon/icon",
+    "bmk-topnav":"/components/tab/index"
+  },
+  "enablePullDownRefresh": true,
+  "backgroundTextStyle": "dark",
+  "onReachBottomDistance": 40,
+  "navigationBarTitleText": "我的提问"
+}

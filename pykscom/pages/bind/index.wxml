@@ -9,7 +9,7 @@
       <input type='number' name="phone" placeholder='请输入手机号码' class="input-box" bindinput="updatePhone"></input>
     </view>
     <view class='form-group'>
-      <input type='text' name="code" placeholder='请输入验证码' class="input-box"></input>
+      <input type='number' name="code" placeholder='请输入验证码' class="input-box"></input>
       <view class='code-btn {{btnStyle}}' bindtap='fetchCode'>{{btnText}}</view>
     </view>
     <view class="error-box" hidden='{{!errorStatus}}'>{{errorMsg}}</view>

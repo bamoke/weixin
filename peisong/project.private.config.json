@@ -1,0 +1,61 @@
+{
+  "condition": {
+    "plugin": {
+      "list": []
+    },
+    "game": {
+      "list": []
+    },
+    "gamePlugin": {
+      "list": []
+    },
+    "miniprogram": {
+      "list": [
+        {
+          "id": -1,
+          "name": "db guide",
+          "pathName": "pages/databaseGuide/databaseGuide",
+          "query": ""
+        },
+        {
+          "id": -1,
+          "name": "购物车",
+          "pathName": "pages/car/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "分类",
+          "pathName": "pages/product/list/list",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "绑定",
+          "pathName": "pages/bind/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "微信登录",
+          "pathName": "pages/mplogin/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "home",
+          "pathName": "pages/home/index/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "订单详情",
+          "pathName": "pages/home/orders/detail",
+          "query": "id=3564",
+          "scene": null
+        }
+      ]
+    }
+  }
+}

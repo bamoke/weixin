@@ -18,7 +18,8 @@ App({
     this.globalData = {}
   },
   config: {
-    apiBase: 'https://www.fastmock.site/mock/77a0672b6327571cdcdc79752f2ccbc9/peisong'
+    apiBase_mock: 'https://www.fastmock.site/mock/77a0672b6327571cdcdc79752f2ccbc9/peisong',
+    apiBase: 'https://www.bamoke.com/peisong/index.php'
   },
   ajaxLoaded: true,
   ajax:function({apiUrl,requestMethod,requestData,showLoading=true}){
@@ -53,32 +54,38 @@ App({
              if (res && res.data.code == 200) {
                resolve(res.data)
              } else {
+              const routes = getCurrentPages();
+              const curPage = routes[routes.length - 1]
+              const routeOpt = curPage.options
+              var fullPath = "/" + curPage.route
+              let routeOptKeys = Object.keys(routeOpt);
+              var paramsArr = [];
+              var pageParams = ""
+              if (routeOptKeys.length) {
+                paramsArr = routeOptKeys.map(item => {
+                  return item + "=" + routeOpt[item]
+                })
+                pageParams = "?" + paramsArr.join("&")
+              }
+              fullPath += pageParams
+
                if (res.data.code == 11002 || res.data.code == 11001) {
-                 const routes = getCurrentPages();
-                 const curPage = routes[routes.length - 1]
-                 const routeOpt = curPage.options
-                 var fullPath = "/" + curPage.route
-                 let routeOptKeys = Object.keys(routeOpt);
-                 var paramsArr = [];
-                 var pageParams = ""
-                 if (routeOptKeys.length) {
-                   paramsArr = routeOptKeys.map(item => {
-                     return item + "=" + routeOpt[item]
-                   })
-                   pageParams = "?" + paramsArr.join("&")
-                 }
-                 fullPath += pageParams
+ 
                  wx.navigateTo({
                    url: '/pages/mplogin/index?back=' + encodeURIComponent(fullPath),
                  })
    
    
+               }else if(res.data.code == 11003){
+                 wx.navigateTo({
+                   url: '/pages/bind/index?back=' + encodeURIComponent(fullPath),
+                 })
                } else if(res.data.code == 13009){
    
                } else {
                  wx.showToast({
                    title: res.data.msg,
-                   image: "/static/images/icon-error.png"
+                   image: "/images/icon-error.png"
                  })
                }
                reject(res.data)
@@ -86,8 +93,8 @@ App({
            },
            fail: function() {
              wx.showToast({
-               title: "8网络连接错误",
-               image: "/static/images/icon-error.png"
+               title: "网络连接错误",
+               image: "/images/icon-error.png"
              })
              
              reject("连接错误")
@@ -98,5 +105,38 @@ App({
          })
        })
        return myPromise;
+  },
+  /**
+   * 比较产品是否存在于购物车
+   */
+  compare:function(proList){
+    const carData = wx.getStorageSync('car')
+    if(proList.length === 0) return []
+    if(carData.length === 0 ) return proList
+    proList.forEach((el,index) => {
+      for(let i=0;i<carData.length;i++) {
+        if(el.id == carData[i].id) {
+          proList[index].buynum = carData[i].buynum
+          break
+        }
+      }
+    });
+    return proList
+
+  },
+  errorBack: function ({
+    tips,
+    deltaNu = 1,
+    delay = 1000
+  }) {
+    wx.showToast({
+      title: tips,
+      image: "/images/error.png?v=4",
+    })
+    setTimeout(function () {
+      wx.navigateBack({
+        delta: deltaNu
+      })
+    }, delay)
   }
 })

@@ -134,3 +134,32 @@ page {
 
   }
 }
+
+.m-kf-box {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin:0 auto;
+  padding:24rpx 0;
+  width:90%;
+  box-sizing: border-box;
+  font-size:24rpx;
+  color:#9c9c9c;
+}
+.m-kf-box  .call-btn {
+  flex:0 auto;
+  width:56rpx;
+  height: 56rpx;
+  padding:12rpx;
+  border-radius: 50%;
+  border:1px solid #9c9c9c;
+}
+.m-kf-box .phone {
+  margin:0 12rpx;
+  font-weight: 500;
+}
+.m-kf-box .icon {
+  width:32rpx;
+  height:32rpx;
+  filter: grayscale(1);
+}

@@ -1,0 +1,20 @@
+<!--pages/grants/list/index.wxml-->
+<view class="container" wx:if="{{showPage}}">
+	<view class="m-grants-list">
+			<navigator url="../detail/index?id={{item.id}}" open-type="navigate" wx:for="{{list}}" wx:key="id" class="item">
+				<image src="{{item.thumb}}" mode="aspectFill" class="thumb"></image>
+				<view class="info">
+					<view class="title">{{item.title}}</view>
+
+
+					<view class="desc">{{item.description}}	</view>
+
+				</view>
+			</navigator>
+	</view>
+
+	<view class='u-nomore' hidden="{{pageInfo.total > pageInfo.pageSize*pageInfo.page}}">
+		<view class="tips">没有更多了</view>
+	</view>
+
+</view>

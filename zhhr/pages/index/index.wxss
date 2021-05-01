@@ -64,6 +64,31 @@ page {
   height: 56rpx;
 }
 
+.index-grants-info {
+  width: 100%;
+  padding:24rpx;
+  box-sizing: border-box;
+}
+.index-grants-info .thumb {
+  width:100%;
+  height:160rpx;
+}
+
+.languge-btn {
+  position: fixed;
+  top:64rpx;
+  right: 0;
+  z-index: 999;
+  padding: 0 24rpx;
+  /* width:120rpx; */
+  height:48rpx;
+  line-height: 48rpx;
+  border-top-left-radius: 24rpx;
+  border-bottom-left-radius: 24rpx;
+  color:#fff;
+  background-color:rgba(25,130,210,.8);
+  text-align: right;
+}
 
 
 

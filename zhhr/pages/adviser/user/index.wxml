@@ -1,0 +1,38 @@
+<!--pages/adviser/user/index.wxml-->
+<view class="container" wx:if="{{showPage}}">
+	<view class="m-list m-member-list">
+		<view class="item" wx:for="{{list}}" wx:key="id">
+			<view class="bd">
+				<image class="avatar" src="{{item.avatar}}"></image>
+				<view class="info">
+					<view class="content">
+						<text class="name">{{item.realname}}</text>
+
+					</view>
+					<view class="section">{{item.description}}</view>
+					<view class="ft">
+						<view class="unit">
+							<text>回答数：</text>
+							<text class="val">{{item.answer_num}}</text>
+						</view>
+						<view class="unit">
+							<text>满意数：</text>
+							<text class="val">{{item.satisfaction_num}}</text>
+						</view>
+						<view class="unit">
+							<text>感谢数：</text>
+							<text class="val">{{item.think_num}}</text>
+						</view>
+					</view>
+					<navigator open-type="navigate" url="../ask/index?cateid={{curCateId}}&to={{item.id}}" class="operation-btn">
+						<mp-icon icon="at" size="{{14}}" color="#fff"></mp-icon>向Ta提问
+					</navigator>
+				</view>
+
+			</view>
+
+		</view>
+
+
+	</view>
+</view>

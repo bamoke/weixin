@@ -1,0 +1,13 @@
+/* pages/grants/detail/index.wxss */
+@import "../../event/detail/index.wxss";
+.base-info .title {
+  font-size:36rpx;
+  font-weight: 500;
+}
+.m-foot-operation .ft-btn-large {
+  width: 100%;
+}
+.main-content-wrap .bar .title {
+  font-size: 34rpx;
+  font-weight: 500;
+}

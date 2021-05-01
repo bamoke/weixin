@@ -1,3 +1,7 @@
 {
-  "usingComponents": {}
+  "onReachBottomDistance": 60,
+  "usingComponents": {
+    "mp-icon": "/components/icon/icon",
+    "bmk-emptybox":"/components/emptybox/emptybox"
+  }
 }

@@ -1,0 +1,38 @@
+<!--pages/article/list/index.wxml-->
+<view class="container" wx:if="{{showPage}}">
+  <view class="m-top-search-primary">
+			<view class="search-bg">
+				<mp-icon icon="search"></mp-icon>
+				<input type="text" class="input-box" confirm-type="search" bindconfirm="search" bindinput='setKeywords' value="{{keywords}}" placeholder="Search"></input>
+			</view>
+		</view>
+  <bmk-topnav items="{{cateArr}}" cur-tab="{{curNavIndex}}" bind:switch="changeCate"></bmk-topnav>
+  <view class="u-ht"></view>
+  <view class="body">
+    <view class="m-article-list-sm" wx:if="{{list.length}}">
+      <navigator url="../detail/index?id={{item.id}}" class='item' wx:for="{{list}}" wx:key="id">
+        <view class="info">
+            <view class="title">{{item.title}}</view>
+            <view class="other">
+              <view class="time">
+                <mp-icon icon="time" size="12" color="#9c9c9c"></mp-icon>
+                <text class="txt">{{item.date}}</text>
+              </view>
+              <view>
+                <mp-icon icon="like" size="12" color="#9c9c9c"></mp-icon><text class="txt">{{item.click}}</text>
+              </view>
+            </view>
+          </view>
+          <image class="thumb" mode='aspectFill' lazy-load='true' src='{{item.thumb}}'></image>
+      </navigator>
+    </view>
+    <view class="m-tips-page tips-page-empty" wx:else>
+    <image class="icon" src="/static/images/mt-empty.png"></image>
+    <view class="tips" wx:if="{{keywords}}">We couldn’t find any code matching '{{keywords}}'</view>
+    <view class="tips" wx:else>No data</view>
+  </view>
+  </view>
+  <view class='u-nomore' wx:if="{{showEnd}}">
+    <view class="tips">There is no more</view>
+  </view>
+</view>

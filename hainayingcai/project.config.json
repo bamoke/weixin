@@ -1,140 +1,144 @@
 {
-	"description": "项目配置文件。",
-	"packOptions": {
-		"ignore": []
-	},
-	"setting": {
-		"urlCheck": true,
-		"es6": true,
-		"postcss": true,
-		"minified": true,
-		"newFeature": true,
-		"coverView": true,
-		"autoAudits": false,
-		"showShadowRootInWxmlPanel": true,
-		"scopeDataCheck": false,
-		"checkInvalidKey": true,
-		"checkSiteMap": true,
-		"uploadWithSourceMap": true,
-		"babelSetting": {
-			"ignore": [],
-			"disablePlugins": [],
-			"outputPath": ""
-		},
-		"useCompilerModule": false,
-		"userConfirmedUseCompilerModuleSwitch": false
-	},
-	"compileType": "miniprogram",
-	"libVersion": "2.6.5",
-	"appid": "wx6420d6debf176c17",
-	"projectname": "%E6%B5%B7%E7%BA%B3%E8%8B%B1%E6%89%8D",
-	"isGameTourist": false,
-	"simulatorType": "wechat",
-	"simulatorPluginLibVersion": {},
-	"condition": {
-		"search": {
-			"current": -1,
-			"list": []
-		},
-		"conversation": {
-			"current": -1,
-			"list": []
-		},
-		"plugin": {
-			"current": -1,
-			"list": []
-		},
-		"game": {
-			"currentL": -1,
-			"list": []
-		},
-		"gamePlugin": {
-			"current": -1,
-			"list": []
-		},
-		"miniprogram": {
-			"current": 11,
-			"list": [
-				{
-					"id": -1,
-					"name": "招聘会详情",
-					"pathName": "pages/fairs/detail/index",
-					"query": "id=1"
-				},
-				{
-					"id": -1,
-					"name": "职位详情",
-					"pathName": "pages/jobs/detail/index",
-					"query": "id=1"
-				},
-				{
-					"id": -1,
-					"name": "投递记录",
-					"pathName": "pages/home/deliver/index",
-					"query": ""
-				},
-				{
-					"id": -1,
-					"name": "职位收藏",
-					"pathName": "pages/home/collection/index",
-					"query": ""
-				},
-				{
-					"id": -1,
-					"name": "职位列表",
-					"pathName": "pages/jobs/list/index",
-					"query": ""
-				},
-				{
-					"id": -1,
-					"name": "简历详情",
-					"pathName": "pages/resume/detail/index",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "简历首页",
-					"pathName": "pages/resume/index/index",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "简历上传",
-					"pathName": "pages/resume/upload/index",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": 8,
-					"name": "宣讲会",
-					"pathName": "pages/preach/list/index",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "高校联盟",
-					"pathName": "pages/school/list/index",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "学校详情",
-					"pathName": "pages/school/detail/index",
-					"query": "id=2",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "登录",
-					"pathName": "pages/user/regist/index",
-					"query": "",
-					"scene": null
-				}
-			]
-		}
-	}
+  "description": "项目配置文件。",
+  "packOptions": {
+    "ignore": []
+  },
+  "setting": {
+    "urlCheck": true,
+    "es6": true,
+    "postcss": true,
+    "minified": true,
+    "newFeature": true,
+    "coverView": true,
+    "autoAudits": false,
+    "showShadowRootInWxmlPanel": true,
+    "scopeDataCheck": false,
+    "checkInvalidKey": true,
+    "checkSiteMap": true,
+    "uploadWithSourceMap": true,
+    "useMultiFrameRuntime": true,
+    "babelSetting": {
+      "ignore": [],
+      "disablePlugins": [],
+      "outputPath": ""
+    },
+    "useIsolateContext": true,
+    "useCompilerModule": false,
+    "userConfirmedUseCompilerModuleSwitch": false,
+    "userConfirmedBundleSwitch": false,
+    "packNpmManually": false,
+    "packNpmRelationList": [],
+    "minifyWXSS": true,
+    "bundle": false,
+    "useApiHook": true,
+    "useApiHostProcess": false
+  },
+  "compileType": "miniprogram",
+  "libVersion": "2.6.5",
+  "appid": "wx6420d6debf176c17",
+  "projectname": "%E6%B5%B7%E7%BA%B3%E8%8B%B1%E6%89%8D",
+  "isGameTourist": false,
+  "simulatorType": "wechat",
+  "simulatorPluginLibVersion": {},
+  "condition": {
+    "search": {
+      "list": []
+    },
+    "conversation": {
+      "list": []
+    },
+    "plugin": {
+      "list": []
+    },
+    "game": {
+      "currentL": -1,
+      "list": []
+    },
+    "gamePlugin": {
+      "list": []
+    },
+    "miniprogram": {
+      "list": [
+        {
+          "id": -1,
+          "name": "招聘会详情",
+          "pathName": "pages/fairs/detail/index",
+          "query": "id=1"
+        },
+        {
+          "id": -1,
+          "name": "职位详情",
+          "pathName": "pages/jobs/detail/index",
+          "query": "id=1"
+        },
+        {
+          "id": -1,
+          "name": "投递记录",
+          "pathName": "pages/home/deliver/index",
+          "query": ""
+        },
+        {
+          "id": -1,
+          "name": "职位收藏",
+          "pathName": "pages/home/collection/index",
+          "query": ""
+        },
+        {
+          "id": -1,
+          "name": "职位列表",
+          "pathName": "pages/jobs/list/index",
+          "query": ""
+        },
+        {
+          "id": -1,
+          "name": "简历详情",
+          "pathName": "pages/resume/detail/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "简历首页",
+          "pathName": "pages/resume/index/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "简历上传",
+          "pathName": "pages/resume/upload/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": 8,
+          "name": "宣讲会",
+          "pathName": "pages/preach/list/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "高校联盟",
+          "pathName": "pages/school/list/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "学校详情",
+          "pathName": "pages/school/detail/index",
+          "query": "id=2",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "登录",
+          "pathName": "pages/user/regist/index",
+          "query": "",
+          "scene": null
+        }
+      ]
+    }
+  }
 }

@@ -1,0 +1,9 @@
+{
+  "usingComponents": {
+    "bmk-topnav":"/components/topnav/index",
+    "mp-icon": "/components/icon/icon"
+  },
+  "navigationBarBackgroundColor": "#1b4dc0",
+  "onReachBottomDistance": 60,
+  "navigationBarTitleText": "Jinwan Talent News"
+}

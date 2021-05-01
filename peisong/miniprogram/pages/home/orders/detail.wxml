@@ -1,0 +1,31 @@
+<!--pages/home/orders/detail.wxml-->
+<view wx:if="{{showPage}}">
+  <view class="m-baseinfo">
+    <view class="row">
+      <view class="order-no">订单号：{{baseInfo.order_no}}</view>
+      <view class="status">{{baseInfo.status_name}}</view>
+    </view>
+    <view class="amount">{{baseInfo.amount}}</view>
+    <view class="row">
+      <view>申购日期：{{baseInfo.create_date}}</view>
+      <view>配送日期：{{baseInfo.ps_date}}</view>
+    </view>
+    <view class="row">
+      <view>订单总额：<text class="total">￥<text class="num">{{baseInfo.total}}</text></text></view>
+    </view>
+    <view class="desc" wx:if="{{baseInfo.description}}">备注：{{baseInfo.description}}</view>
+  </view>
+  <view class="goods-wrap">
+    <view class="goods-item" wx:for="{{goods}}" wx:key="index">
+      <view class="title">{{item.title}}</view>
+      <view class="row">
+        <view>申购数量：{{item.sg_num}}</view>
+        <view>配送数量：{{item.ps_num || '未配送'}}</view>
+      </view>
+      <view class="row">
+        <view>单价：￥<text class="price">{{item.price}}</text></view>
+        <view>总额：￥<text class="price">{{item.amount_total}}</text></view>
+      </view>
+    </view>
+  </view>
+</view>

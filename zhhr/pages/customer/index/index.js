@@ -20,6 +20,12 @@ Page({
   /**
    * Methods
    */
+  handleCall(e) {
+    const phone = e.currentTarget.dataset.phone
+    wx.makePhoneCall({
+      phoneNumber: phone,
+    })
+  },
   goSearch() {
     wx.navigateTo({
       url: '../search/index'

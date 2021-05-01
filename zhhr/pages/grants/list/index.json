@@ -1,0 +1,10 @@
+{
+  "usingComponents": {
+    "move-btn": "/components/move-btn/move-btn",
+    "bmk-coupon":"/components/bmk-coupon/bmk-coupon"
+  },
+  "enablePullDownRefresh": true,
+  "backgroundTextStyle": "dark",
+  "onReachBottomDistance": 40,
+  "navigationBarTitleText": "金英助学"
+}

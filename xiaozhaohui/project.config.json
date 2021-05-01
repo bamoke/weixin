@@ -1,94 +1,116 @@
 {
-	"description": "项目配置文件。",
-	"packOptions": {
-		"ignore": []
-	},
-	"setting": {
-		"urlCheck": true,
-		"es6": true,
-		"postcss": true,
-		"minified": true,
-		"newFeature": true
-	},
-	"compileType": "miniprogram",
-	"libVersion": "1.9.97",
-	"appid": "wx38a33a2b0418d099",
-	"projectname": "%E6%A0%A1%E6%8B%9B%E8%8D%9F",
-	"isGameTourist": false,
-	"simulatorType": "wechat",
-	"simulatorPluginLibVersion": {},
-	"condition": {
-		"search": {
-			"current": -1,
-			"list": []
-		},
-		"conversation": {
-			"current": -1,
-			"list": []
-		},
-		"plugin": {
-			"current": -1,
-			"list": []
-		},
-		"game": {
-			"currentL": -1,
-			"list": []
-		},
-		"miniprogram": {
-			"current": 7,
-			"list": [
-				{
-					"id": -1,
-					"name": "招聘会详情",
-					"pathName": "pages/fairs/detail/index",
-					"query": "id=1"
-				},
-				{
-					"id": -1,
-					"name": "职位详情",
-					"pathName": "pages/jobs/detail/index",
-					"query": "id=1"
-				},
-				{
-					"id": -1,
-					"name": "投递记录",
-					"pathName": "pages/home/deliver/index",
-					"query": ""
-				},
-				{
-					"id": -1,
-					"name": "职位收藏",
-					"pathName": "pages/home/collection/index",
-					"query": ""
-				},
-				{
-					"id": -1,
-					"name": "职位列表",
-					"pathName": "pages/jobs/list/index",
-					"query": ""
-				},
-				{
-					"id": -1,
-					"name": "简历详情",
-					"pathName": "pages/resume/detail/index",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "简历首页",
-					"pathName": "pages/resume/index/index",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "简历上传",
-					"pathName": "pages/resume/upload/index",
-					"query": "",
-					"scene": null
-				}
-			]
-		}
-	}
+  "description": "项目配置文件。",
+  "packOptions": {
+    "ignore": []
+  },
+  "setting": {
+    "urlCheck": true,
+    "es6": true,
+    "enhance": false,
+    "postcss": true,
+    "preloadBackgroundData": false,
+    "minified": true,
+    "newFeature": true,
+    "coverView": true,
+    "nodeModules": false,
+    "autoAudits": false,
+    "showShadowRootInWxmlPanel": true,
+    "scopeDataCheck": false,
+    "uglifyFileName": false,
+    "checkInvalidKey": true,
+    "checkSiteMap": true,
+    "uploadWithSourceMap": true,
+    "compileHotReLoad": false,
+    "useMultiFrameRuntime": false,
+    "useApiHook": true,
+    "babelSetting": {
+      "ignore": [],
+      "disablePlugins": [],
+      "outputPath": ""
+    },
+    "enableEngineNative": false,
+    "useIsolateContext": true,
+    "useCompilerModule": true,
+    "userConfirmedUseCompilerModuleSwitch": false,
+    "packNpmManually": false,
+    "packNpmRelationList": [],
+    "minifyWXSS": true
+  },
+  "compileType": "miniprogram",
+  "libVersion": "1.9.97",
+  "appid": "wx38a33a2b0418d099",
+  "projectname": "%E6%A0%A1%E6%8B%9B%E8%8D%9F",
+  "isGameTourist": false,
+  "simulatorType": "wechat",
+  "simulatorPluginLibVersion": {},
+  "condition": {
+    "search": {
+      "list": []
+    },
+    "conversation": {
+      "list": []
+    },
+    "plugin": {
+      "list": []
+    },
+    "game": {
+      "currentL": -1,
+      "list": []
+    },
+    "miniprogram": {
+      "list": [
+        {
+          "id": -1,
+          "name": "招聘会详情",
+          "pathName": "pages/fairs/detail/index",
+          "query": "id=1"
+        },
+        {
+          "id": -1,
+          "name": "职位详情",
+          "pathName": "pages/jobs/detail/index",
+          "query": "id=1"
+        },
+        {
+          "id": -1,
+          "name": "投递记录",
+          "pathName": "pages/home/deliver/index",
+          "query": ""
+        },
+        {
+          "id": -1,
+          "name": "职位收藏",
+          "pathName": "pages/home/collection/index",
+          "query": ""
+        },
+        {
+          "id": -1,
+          "name": "职位列表",
+          "pathName": "pages/jobs/list/index",
+          "query": ""
+        },
+        {
+          "id": -1,
+          "name": "简历详情",
+          "pathName": "pages/resume/detail/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "简历首页",
+          "pathName": "pages/resume/index/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "简历上传",
+          "pathName": "pages/resume/upload/index",
+          "query": "",
+          "scene": null
+        }
+      ]
+    }
+  }
 }

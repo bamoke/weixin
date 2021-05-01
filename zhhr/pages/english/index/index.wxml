@@ -1,0 +1,74 @@
+<view class="container" wx:if="{{showPage}}">
+	<view class="g-top-wrap">
+		<view class="g-row row-bt m-top-bar">
+			<view>Welcome</view>
+			<navigator open-type="switchTab" url="/pages/index/index"  class="language-btn">中文</navigator>
+		</view>
+		<view class="m-top-search-primary">
+			<view class="search-bg">
+				<mp-icon icon="search"></mp-icon>
+				<input type="text" class="input-box" confirm-type="search" bindconfirm="search" bindinput='setKeywords' placeholder="Search"></input>
+			</view>
+		</view>
+
+	</view>
+	<view class="m-banner-wrap">
+		<view class="banner-bg"></view>
+		<swiper class="index-banner" indicator-dots="true" autoplay="true" interval='3000'>
+			<block wx:for="{{bannerList}}" wx:key="index">
+				<swiper-item>
+					<navigator url='{{item.url}}' open-type='navigate' wx:if="{{item.url}}">
+						<image lazy-load='true' mode='aspectFill' class='img' src="{{item.img}}"></image>
+					</navigator>
+					<image lazy-load='true' mode='aspectFill' class='img' wx:else src="{{item.img}}"></image>
+				</swiper-item>
+			</block>
+		</swiper>
+	</view>
+	<view class="m-nav-wrap">
+		<view class="m-index-subnav-en">
+			<navigator open-type='navigate' url="../list/index" class="item">
+				<view class="thumb">
+					<image class="img" src="{{policiesInfo.thumb}}"></image>
+				</view>
+				<view class="name">Jinwan Talent News</view>
+			</navigator>
+			<block wx:for="{{cateList}}" wx:key="id">
+				<navigator open-type='navigate' url="../list/index?cid={{item.id}}" class="item">
+					<view class="thumb">
+						<image class="img" src="{{item.thumb}}"></image>
+					</view>
+					<view class="name">{{item.en_name}}</view>
+				</navigator>
+			</block>
+
+		</view>
+	</view>
+
+
+	<view class="g-card border-top">
+		<view class='header no-border'>
+			<view class="title-en">
+				<text>TOP NEWS</text>
+			</view>
+		</view>
+		<view class="body .m-article-list-sm">
+			<navigator url="../detail/index?id={{item.id}}" class='item' wx:for="{{articleList}}" wx:key="id">
+				<view class="info">
+					<view class="title">{{item.title}}</view>
+					<view class="other">
+						<view class="time">
+							<mp-icon icon="time" size="12" color="#9c9c9c"></mp-icon>
+							<text class="txt">{{item.date}}</text>
+						</view>
+						<view>
+							<mp-icon icon="like" size="12" color="#9c9c9c"></mp-icon><text class="txt">{{item.click}}</text>
+						</view>
+					</view>
+				</view>
+				<image class="thumb" mode='aspectFill' lazy-load='true' src='{{item.thumb}}'></image>
+
+			</navigator>
+		</view>
+	</view>
+</view>

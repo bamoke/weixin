@@ -1,0 +1,28 @@
+<!--pages/article/detail/index.wxml-->
+<import src="../../../wxParse/wxParse.wxml" />
+<view class="container" wx:if="{{showPage}}">
+  <view class='m-detail-wrap'>
+    <view class='title'>{{detail.title}}</view>
+    <view class='total'>
+      <view class='time'><mp-icon icon="time" size="14" color="#9c9c9c"></mp-icon>
+        <text class="txt">{{detail.date}}</text>
+      </view>
+      <view class='view'><mp-icon icon="like" size="14" color="#9c9c9c"></mp-icon>
+        <text class="txt">{{detail.click}}</text>
+      </view>
+    </view>
+
+    <view class="m-video-box" wx:if="{{detail.video}}">
+      <video src="{{detail.video}}"></video>
+    </view>
+    <view class="thumb-box" wx:if="{{detail.thumb && detail.thumb_show_in_content==2}}">
+      <image mode='aspectFill' class="detail-thumb" src="{{detail.thumb}}" style="width:100%;"></image>
+    </view>
+    <view class="content">
+       <template is="wxParse" data="{{wxParseData:wxparse_content.nodes}}" />
+    </view>
+    <view class="m-end">
+      <view class="tips">END</view>
+    </view>
+  </view>
+</view>

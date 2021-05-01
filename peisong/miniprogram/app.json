@@ -3,7 +3,9 @@
     "pages/index/index",
     "pages/product/list/list",
     "pages/car/index",
-    "pages/home/index/index"
+    "pages/bind/index",
+    "pages/home/index/index",
+    "pages/home/orders/detail"
   ],
   "window": {
     "backgroundColor": "#ff3c02",
@@ -17,13 +19,19 @@
     "backgroundColor": "#fff",
     "borderStyle": "black",
     "color": "#000",
-    "selectedColor": "#1b81d3",
+    "selectedColor": "#ff3c02",
     "list": [
       {
         "pagePath": "pages/index/index",
         "text": "首页",
         "iconPath": "images/tab-index.png",
         "selectedIconPath": "images/tab-index-active.png"
+      },
+      {
+        "pagePath": "pages/product/list/list",
+        "text": "类别",
+        "iconPath": "images/tab-cate.png",
+        "selectedIconPath": "images/tab-cate-active.png"
       },
       {
         "pagePath": "pages/car/index",
@@ -34,8 +42,8 @@
       {
         "pagePath": "pages/home/index/index",
         "text": "个人中心",
-        "iconPath": "images/tab-sys.png",
-        "selectedIconPath": "images/tab-sys-active.png"
+        "iconPath": "images/tab-user.png",
+        "selectedIconPath": "images/tab-user-active.png"
       }
     ]
   },
