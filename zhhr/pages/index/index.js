@@ -31,6 +31,7 @@ Page({
 
   //事件处理函数
   onShow: function() {
+  
     let requestParams = {
       apiUrl: '/Index/index',
       requestData: {},

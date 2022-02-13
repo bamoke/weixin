@@ -23,5 +23,6 @@
   </view>
   <view wx:if="{{hasError}}">
     <navigator url="../form/index?id={{id}}" open-type="navigate" class="btn btn-block btn-primary">重新提交</navigator>
+    <navigator url="/pages/index/index" open-type="switchTab" class="btn btn-block btn-default" style="margin-top:48rpx;background-color:#e8e8e8;">返回首页</navigator>
   </view>
 </view>

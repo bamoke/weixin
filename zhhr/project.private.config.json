@@ -1,48 +1,4 @@
 {
-  "description": "项目配置文件",
-  "packOptions": {
-    "ignore": []
-  },
-  "setting": {
-    "urlCheck": false,
-    "es6": true,
-    "postcss": true,
-    "minified": true,
-    "newFeature": true,
-    "autoAudits": false,
-    "scopeDataCheck": false,
-    "checkInvalidKey": true,
-    "checkSiteMap": true,
-    "uploadWithSourceMap": true,
-    "compileHotReLoad": false,
-    "useMultiFrameRuntime": true,
-    "useApiHook": true,
-    "useApiHostProcess": true,
-    "babelSetting": {
-      "ignore": [],
-      "disablePlugins": [],
-      "outputPath": ""
-    },
-    "useIsolateContext": false,
-    "userConfirmedBundleSwitch": false,
-    "packNpmManually": false,
-    "packNpmRelationList": [],
-    "minifyWXSS": true,
-    "disableUseStrict": false,
-    "showES6CompileOption": false,
-    "useCompilerPlugins": false,
-    "minifyWXML": true
-  },
-  "compileType": "miniprogram",
-  "libVersion": "2.7.4",
-  "appid": "wxaa14c7aa5e3fd67a",
-  "projectname": "%E7%8F%A0%E6%B5%B7HR",
-  "debugOptions": {
-    "hidedInDevtools": []
-  },
-  "isGameTourist": false,
-  "simulatorType": "wechat",
-  "simulatorPluginLibVersion": {},
   "condition": {
     "plugin": {
       "list": []
@@ -289,10 +245,9 @@
           "scene": null
         },
         {
-          "id": -1,
           "name": "抽奖",
           "pathName": "pages/choujiang/index",
-          "query": "id=1",
+          "query": "id=2",
           "scene": null
         },
         {
@@ -319,6 +274,7 @@
         {
           "name": "咨询",
           "pathName": "pages/customer/index/index",
+          "query": "",
           "scene": null
         }
       ]

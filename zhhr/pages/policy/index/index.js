@@ -7,9 +7,16 @@ Page({
    */
   data: {
     showPage:false,
+    curTab:"jinwan",
     list:[]
   },
 
+  switchTab(e){
+    const name = e.currentTarget.dataset.name
+    this.setData({
+      curTab:name
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */
