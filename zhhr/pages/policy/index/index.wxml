@@ -1,18 +1,38 @@
 <!--pages/policy/index/index.wxml-->
-<view class="container">
-  <view class="m-nav-list-icon">
-    <navigator open-type='navigate' url="/pages/policy/list/index?cate={{item.id}}" class="item" wx:for="{{list}}" wx:key="id">
-      <view class="icon-wrap {{item.bgstyle}}">
-        <image class="icon" src="{{item.icon}}"></image>
-      </view>
-      <view class="title">
-        <view class="">{{item.name}}</view>
-        <view class="desc">{{item.description}}</view>
-      </view>
-      <image class="arrow-right" src="/static/images/arrow-black-right.png"></image>
-    </navigator>
+<view class="container" wx:if="{{showPage}}">
+  <view class="top-tab">
+    <view class="item {{curTab =='jinwan'?'active':''}}" bindtap="switchTab" data-name="jinwan">金湾区</view>
+    <view class="item {{curTab =='zhuhai'?'active':''}}" bindtap="switchTab" data-name="zhuhai">珠海市</view>
+  </view>
+  <view class="u-ht"></view>
+  <view class="list-wrap">
 
+    <view class="m-nav-list-icon" hidden="{{curTab !='jinwan'}}">
+      <navigator open-type='navigate' url="/pages/policy/list/index?cate={{item.id}}" class="item" wx:for="{{list.jinwan}}"
+        wx:key="id">
+        <view class="icon-wrap {{item.bgstyle}}">
+          <image class="icon" src="{{item.icon}}"></image>
+        </view>
+        <view class="title">
+          <view class="">{{item.name}}</view>
+          <view class="desc">{{item.description}}</view>
+        </view>
+        <image class="arrow-right" src="/static/images/arrow-black-right.png"></image>
+      </navigator>
+    </view>
 
-
+    <view class="m-nav-list-icon" hidden="{{curTab !='zhuhai'}}">
+      <navigator open-type='navigate' url="/pages/policy/list/index?cate={{item.id}}" class="item" wx:for="{{list.zhuhai}}"
+        wx:key="id">
+        <view class="icon-wrap {{item.bgstyle}}">
+          <image class="icon" src="{{item.icon}}"></image>
+        </view>
+        <view class="title">
+          <view class="">{{item.name}}</view>
+          <view class="desc">{{item.description}}</view>
+        </view>
+        <image class="arrow-right" src="/static/images/arrow-black-right.png"></image>
+      </navigator>
+    </view>
   </view>
 </view>

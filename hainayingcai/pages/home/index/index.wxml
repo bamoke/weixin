@@ -1,5 +1,5 @@
 <!--pages/home/index/index.wxml-->
-<view class='container' wx:if="{{false}}">
+<view class='container'>
   <view class="home-userinfo border-bottom">
     <image src="{{userInfo.avatarUrl || '/static/images/default-avatar.png'}}" class="avatar"></image>
     <view>

@@ -76,6 +76,7 @@ App({
     // send
     var myPromise = new Promise(function (resolve, reject) {
       const baseApiUrl = "https://www.bamoke.com/jygw_api.php";
+      // const baseApiUrl = "http://localhost:802/jygw/jygw_api.php";
       wx.request({
         url: baseApiUrl + apiUrl,
         data: requestData,

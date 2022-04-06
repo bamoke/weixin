@@ -1,0 +1,22 @@
+{
+    "pages": [
+        "pages/index/index",
+        "pages/article/list/index",
+        "pages/article/detail/index",
+        "pages/product/list/index",
+        "pages/product/detail/index",
+        "pages/user/bind/index",
+        "pages/user/mplogin/index",
+        "pages/survey/detail/index",
+        "pages/survey/result/index",
+        "pages/home/index"
+    ],
+    "window": {
+        "backgroundTextStyle": "light",
+        "navigationBarBackgroundColor": "#fff",
+        "navigationBarTitleText": "手麻助手",
+        "navigationBarTextStyle": "black"
+    },
+    "style": "v2",
+    "sitemapLocation": "sitemap.json"
+}

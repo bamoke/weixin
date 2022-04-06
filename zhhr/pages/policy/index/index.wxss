@@ -1,4 +1,20 @@
 /* pages/policy/index/index.wxss */
+.top-tab {
+  display: flex;
+  align-items: center;
+}
+.top-tab .item {
+  width:50%;
+  text-align: center;
+  height: 64rpx;
+  line-height: 64rpx;
+  border-bottom: 2px solid #e8e8e8;
+  font-weight: bold;
+}
+.top-tab .active {
+  color:#1b81d3;
+  border-color:#1b81d3;
+}
 .m-nav-list-icon {
   width: 100%;
 }

@@ -34,10 +34,9 @@ Page({
   onLoad: function (options) {
 
     //临时跳转到珠海人力资源网个人中心
-    wx.redirectTo({
-      url: '/pages/web/index?weburl=https://www.zh-hr.com/m/person/login',
-    })
-    return 
+    // wx.redirectTo({
+    //   url: '/pages/web/index?weburl=https://www.zh-hr.com/m/person/login',
+    // })
     // User info
     if (app.globalData.userInfo) {
       this.setData({

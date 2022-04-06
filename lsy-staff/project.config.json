@@ -25,11 +25,11 @@
       "outputPath": ""
     },
     "useIsolateContext": true,
-    "useCompilerModule": false,
-    "userConfirmedUseCompilerModuleSwitch": false,
+    "userConfirmedBundleSwitch": false,
     "packNpmManually": false,
     "packNpmRelationList": [],
     "minifyWXSS": true,
+<<<<<<< HEAD
     "useMultiFrameRuntime": false,
     "useApiHook": true,
     "minifyWXML": true,
@@ -37,6 +37,16 @@
     "useStaticServer": true,
     "showES6CompileOption": false,
     "useCompilerPlugins": false
+=======
+    "disableUseStrict": false,
+    "minifyWXML": true,
+    "showES6CompileOption": false,
+    "useCompilerPlugins": false,
+    "ignoreUploadUnusedFiles": true,
+    "useMultiFrameRuntime": true,
+    "useApiHook": true,
+    "useApiHostProcess": true
+>>>>>>> 1e3ac740da6347b0c193d7b98758fbd16231fbb9
   },
   "compileType": "miniprogram",
   "libVersion": "2.7.1",

@@ -17,21 +17,20 @@
     "checkSiteMap": true,
     "uploadWithSourceMap": true,
     "useMultiFrameRuntime": true,
+    "useApiHook": true,
+    "useApiHostProcess": true,
     "babelSetting": {
       "ignore": [],
       "disablePlugins": [],
       "outputPath": ""
     },
     "useIsolateContext": true,
-    "useCompilerModule": false,
-    "userConfirmedUseCompilerModuleSwitch": false,
     "userConfirmedBundleSwitch": false,
     "packNpmManually": false,
     "packNpmRelationList": [],
     "minifyWXSS": true,
-    "bundle": false,
-    "useApiHook": true,
-    "useApiHostProcess": false
+    "showES6CompileOption": false,
+    "minifyWXML": true
   },
   "compileType": "miniprogram",
   "libVersion": "2.6.5",
