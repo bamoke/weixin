@@ -22,6 +22,9 @@
         <view>申购数量：{{item.sg_num}}</view>
         <view>配送数量：{{item.ps_num || '未配送'}}</view>
       </view>
+      <view class="row" wx:if="{{item.remarks}}">
+        <view>备注：{{item.remarks}}</view>
+      </view>
       <view class="row">
         <view>单价：￥<text class="price">{{item.price}}</text></view>
         <view>总额：￥<text class="price">{{item.amount_total}}</text></view>

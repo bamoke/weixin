@@ -38,3 +38,84 @@ page {
   font-size:32rpx;
   border-radius:40rpx;
 }
+
+.m-pro-list .content {
+  position: relative;
+}
+
+.m-pro-list .content .remarks-btn {
+  position:absolute;
+  top:0;
+  right: 0;
+  z-index: 9;
+  display: inline-block;
+  padding: 12rpx 24rpx;
+  line-height: 1;
+  font-size:26rpx;
+  border-radius: 4px;
+  border:1px solid #eee;
+}
+
+.m-modal-box {
+  position: absolute;
+  top:50%;
+  left:10%;
+  margin-top:-300rpx;
+  z-index:999;
+  padding:48rpx 24rpx;
+  box-sizing: border-box;
+  width:80%;
+  background-color:#fff;
+  border-radius:4px;
+  box-shadow: 0 0 5px rgba(0,0,0,.5);
+}
+.m-modal-box .close-btn {
+  position: absolute;
+  right:-32rpx;
+  top:-32rpx;
+  padding:12rpx;
+  background:#fff;
+  border-radius: 50%;
+}
+.m-mask {
+  position:fixed;
+  top:0;
+  left:0;
+  bottom:0;
+  z-index: 998;
+  width:100%;
+  background-color:rgba(0,0,0,.5);
+}
+.m-modal-box .title,.m-modal-box .desc {
+  font-size:44rpx;
+  font-weight: 500;
+  text-align: center;
+}
+.m-modal-box .desc {
+  font-size:34rpx;
+}
+
+.remarks-input {
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+  min-height: 64px;
+  padding:12rpx;
+  border:1px solid #eee;
+  font-size:26rpx;
+  color:#3c3c3c;
+}
+.remarks-submit-btn {
+  margin-top: 24rpx;
+  height: 64rpx;
+  line-height: 64rpx;
+  color:#fff;
+  background-color: #d30202;
+  text-align: center;
+  border-radius:4px;
+}
+.remarks-cont {
+  padding-top:12rpx;
+  font-size:26rpx;
+  color: #969696;
+}

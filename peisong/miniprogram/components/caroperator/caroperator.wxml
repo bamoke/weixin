@@ -4,7 +4,7 @@
     <view class="o-btn minus" bindtap="handleMinusNum">
       <image src="/images/icon-minus.png" class="m-icon icon-minus"></image>
     </view>
-    <input class="u-input" type="number" bindinput="handleInput" bindblur="handleCheckInput" maxlength="4" value="{{item.buynum}}"/>
+    <input class="u-input" type="digit" bindinput="handleInput" bindblur="handleCheckInput" maxlength="4" value="{{item.buynum}}"/>
     <!-- <view class="num">{{item.buynum}}</view> -->
     <view class="o-btn add" bindtap="handleAddNum">
       <image src="/images/icon-add.png" class="m-icon icon-minus"></image>

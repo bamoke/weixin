@@ -11,6 +11,28 @@ Page({
     orderList:[],
     pageInfo:{}
   },
+  handleUnbind(){
+    wx.showModal({
+      title: '解除绑定',
+      content: '确认解除用户账号绑定？',
+      success (res) {
+        if (res.confirm) {
+          App.ajax({
+            apiUrl: '/Unbind/index',
+            requestMethod: "get"
+          }).then(res => {
+            wx.switchTab({
+              url: '/pages/index/index',
+            })
+          }, reject => {
+      
+          })
+        } else if (res.cancel) {
+          console.log('用户点击取消')
+        }
+      }
+    })
+  },
   /**
    * 
    * @param {*} e 

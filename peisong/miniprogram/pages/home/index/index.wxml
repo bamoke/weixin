@@ -1,18 +1,25 @@
 <!--pages/home/index/index.wxml-->
 <view class='container'>
   <view class="home-userinfo border-bottom">
-    <view class="g-row top-wrap">
-      <view class="avatar-wrap">
+    <view class="top-wrap">
+      <!-- <view class="avatar-wrap">
         <button class="avatar-btn" open-type="getUserInfo" bindgetuserinfo="handleGetUserInfo"></button>
         <image class="avatar" src="{{userInfo.avatar||'/images/default-avatar.png'}}"></image>
-      </view>
+      </view> -->
       <view class="other-info">
         <view class="user-name">
-          <view wx:if="{{userInfo.name}}">{{userInfo.name}}</view>
-          <navigator url="/pages/bind/index" type="navigate" wx:elif="{{userInfo.id}}">绑定手机号</navigator>
+          <view wx:if="{{userInfo.name}}">您好！{{userInfo.name}}</view>
+          <navigator url="/pages/bind/index" type="navigate" wx:elif="{{userInfo.id}}">
+          <view>还没有绑定用户</view>
+          <view class="sub-txt">请先通过手机号绑定用户</view>
+          </navigator>
           <navigator url="/pages/mplogin/index" type="navigate" wx:else>微信登录</navigator>
         </view>
         <view class="">{{userInfo.comname}}</view>
+      </view>
+      <view class="operation-box" wx:if="{{userInfo.object_id}}">
+        <!-- <view class="btn">退出登录</view> -->
+        <view class="btn" bindtap="handleUnbind">解除绑定</view>
       </view>
     </view>
   </view>

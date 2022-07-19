@@ -30,7 +30,7 @@
 				<view class="icon-wrap s-bg-3">
 					<image class="icon" mode='aspectFill' src="/static/images/index-nav-icon-mp.png"></image>
 				</view>
-				<view>金英人才卡</view>
+				<view>产业人才卡</view>
 			</navigator>
 			<navigator open-type='navigate' url="/pages/adviser/index/index" class="item">
 				<view class="icon-wrap s-bg-5">

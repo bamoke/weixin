@@ -12,12 +12,12 @@
 .operator-box .o-btn {
   flex-grow: 0;
   flex-shrink: 0;
-  display: inline-block;
+  display: flex;
   width:48rpx;
   height:48rpx;
   border-radius: 50%;
-  vertical-align: middle;
-  text-align: center;
+  align-items: center;
+  justify-content: center;
 }
 .operator-box .minus {
   background-color:#fff;

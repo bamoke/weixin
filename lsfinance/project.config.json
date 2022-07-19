@@ -1,5 +1,5 @@
 {
-  "description": "项目配置文件。",
+  "description": "项目配置文件，详见文档：https://developers.weixin.qq.com/miniprogram/dev/devtools/projectconfig.html",
   "setting": {
     "urlCheck": true,
     "es6": true,
@@ -26,320 +26,264 @@
     "packNpmManually": false,
     "packNpmRelationList": [],
     "minifyWXSS": true,
-    "minifyWXML": true
+    "minifyWXML": true,
+    "disableUseStrict": false,
+    "showES6CompileOption": false,
+    "useCompilerPlugins": false,
+    "useStaticServer": true
   },
   "compileType": "miniprogram",
   "libVersion": "2.4.4",
   "appid": "wx389c6f0e8b058566",
   "projectname": "%E8%93%9D%E6%80%9D%E4%BA%91%E8%B4%A2%E5%8A%A1",
-  "isGameTourist": false,
   "simulatorType": "wechat",
   "simulatorPluginLibVersion": {},
   "condition": {
-    "search": {
-      "list": []
-    },
-    "conversation": {
-      "list": []
-    },
-    "plugin": {
-      "list": []
-    },
-    "game": {
-      "currentL": -1,
-      "list": []
-    },
-    "gamePlugin": {
-      "list": []
-    },
     "miniprogram": {
       "list": [
         {
-          "id": 0,
           "name": "带serverid",
           "pathName": "pages/index/index",
           "query": "serverid=18005"
         },
         {
-          "id": 1,
           "name": "费用报销详情",
           "pathName": "pages/fybx/detail/index",
           "query": "id=932"
         },
         {
-          "id": -1,
           "name": "服务模块",
           "pathName": "pages/service/index/index",
           "query": ""
         },
         {
-          "id": -1,
           "name": "帐号绑定",
           "pathName": "pages/bind/index",
           "query": ""
         },
         {
-          "id": -1,
           "name": "home",
           "pathName": "pages/home/index/index",
           "query": ""
         },
         {
-          "id": 5,
           "name": "子账号",
           "pathName": "pages/home/childaccount/list/index",
           "query": ""
         },
         {
-          "id": 6,
           "name": "预付预存",
           "pathName": "pages/prepay/index/index",
           "query": ""
         },
         {
-          "id": 7,
           "name": "费用报销列表",
           "pathName": "pages/fybx/index/index",
           "query": ""
         },
         {
-          "id": -1,
           "name": "科目选择",
           "pathName": "pages/fiscal/subject/index",
           "query": ""
         },
         {
-          "id": -1,
           "name": "我的企业",
           "pathName": "pages/home/mycompany/list/index",
           "query": ""
         },
         {
-          "id": -1,
           "name": "报销单详情",
           "pathName": "pages/fybx/detail/index",
           "query": "id=2579",
           "scene": null
         },
         {
-          "id": 16,
           "name": "工商进度",
           "pathName": "pages/gsjd/list/index",
           "query": "",
           "scene": null
         },
         {
-          "id": 17,
           "name": "工商进度详情",
           "pathName": "pages/gsjd/detail/index",
           "query": "id=1112",
           "scene": null
         },
         {
-          "id": -1,
           "name": "服务工作",
           "pathName": "pages/query/work/index",
           "query": "",
           "scene": null
         },
         {
-          "id": -1,
           "name": "联络卡",
           "pathName": "pages/handover/contact/index",
           "query": "",
           "scene": null
         },
         {
-          "id": 15,
           "name": "社保确认",
           "pathName": "pages/handover/shebao/index",
           "query": "",
           "scene": null
         },
         {
-          "id": 16,
           "name": "税费详情",
           "pathName": "pages/handover/shuifei/detail/index",
           "query": "",
           "scene": null
         },
         {
-          "id": -1,
           "name": "交接单列表",
           "pathName": "pages/handover/jjd/index/index",
           "query": "",
           "scene": null
         },
         {
-          "id": -1,
           "name": "新建交接单",
           "pathName": "pages/handover/jjd/new/index",
           "query": "",
           "scene": null
         },
         {
-          "id": -1,
           "name": "新建交接单类别",
           "pathName": "pages/handover/jjd/cate/index",
           "query": "",
           "scene": null
         },
         {
-          "id": 20,
           "name": "fuwu结算",
           "pathName": "pages/service/fwjs/index",
           "query": "id=1&page=2&t=3",
           "scene": null
         },
         {
-          "id": -1,
           "name": "微信登录",
           "pathName": "pages/mplogin/index",
           "query": "back=%2Fpages%2Fservice%2Ffwjs%2Findex%3Fid%3D1%26page%3D2%26t%3D3",
           "scene": null
         },
         {
-          "id": -1,
           "name": "交接联络卡",
           "pathName": "pages/handover/contact/index",
           "query": "",
           "scene": null
         },
         {
-          "id": -1,
           "name": "交接单主页",
           "pathName": "pages/handover/index/index",
           "query": "",
           "scene": null
         },
         {
-          "id": -1,
           "name": "账户收支主页",
           "pathName": "pages/fiscal/index/index",
           "query": "",
           "scene": null
         },
         {
-          "id": -1,
           "name": "服务查询主页",
           "pathName": "pages/query/index/index",
           "query": "",
           "scene": null
         },
         {
-          "id": -1,
           "name": "企业资料",
           "pathName": "pages/home/mycompany/detail/index",
           "query": "id=507",
           "scene": null
         },
         {
-          "id": -1,
           "name": "关于",
           "pathName": "pages/home/about/index",
           "query": "",
           "scene": null
         },
         {
-          "id": -1,
           "name": "反馈",
           "pathName": "pages/home/feedback/index",
           "query": "",
           "scene": null
         },
         {
-          "id": 29,
           "name": "员工管理",
           "pathName": "pages/home/staff/index/index",
           "query": "",
           "scene": null
         },
         {
-          "id": -1,
           "name": "员工管理新建",
           "pathName": "pages/home/staff/add/index",
           "query": "",
           "scene": null
         },
         {
-          "id": -1,
           "name": "员工管理编辑",
           "pathName": "pages/home/staff/edit/index",
           "query": "id=1202",
           "scene": null
         },
         {
-          "id": -1,
           "name": "服务内容",
           "pathName": "pages/query/work/index",
           "query": "",
           "scene": null
         },
         {
-          "id": 33,
           "name": "员工邀请",
           "pathName": "pages/common/invite/index",
           "query": "",
           "scene": null
         },
         {
-          "id": 34,
           "name": "邀请落地",
           "pathName": "pages/common/landing/index",
           "query": "code=540ef17bfe200e1b1e6ebcbc9327a1e5",
           "scene": null
         },
         {
-          "id": -1,
           "name": "费用审批",
           "pathName": "pages/shenpi/index/index",
           "query": "",
           "scene": null
         },
         {
-          "id": -1,
           "name": "审批详情",
           "pathName": "pages/shenpi/detail/index",
           "query": "id=1",
           "scene": null
         },
         {
-          "id": -1,
           "name": "单据交接",
           "pathName": "pages/handover/jjd/index/index",
           "query": "",
           "scene": null
         },
         {
-          "id": -1,
           "name": "应收应付",
           "pathName": "pages/ysyf/index/index",
           "query": "",
           "scene": null
         },
         {
-          "id": -1,
           "name": "企业切换",
           "pathName": "pages/home/mycompany/list/index",
           "query": "",
           "scene": null
         },
         {
-          "id": -1,
           "name": "报表",
           "pathName": "pages/report/index/index",
           "query": "",
           "scene": null
         },
         {
-          "id": 41,
           "name": "应收应付详情",
           "pathName": "pages/ysyf/detail/index",
           "query": "target=刘利剑&month=2019-03&type=2",
           "scene": null
         },
         {
-          "id": -1,
           "name": "new 费用报销",
           "pathName": "pages/fybx/new/index",
           "query": "",
@@ -347,5 +291,13 @@
         }
       ]
     }
+  },
+  "packOptions": {
+    "ignore": [],
+    "include": []
+  },
+  "editorSetting": {
+    "tabIndent": "insertSpaces",
+    "tabSize": 2
   }
 }

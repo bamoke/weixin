@@ -23,7 +23,21 @@
 }
 .top-wrap {
   display: flex;
-  align-items: center;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+.top-wrap .sub-txt {
+  font-size:28rpx;
+}
+.top-wrap .operation-box .btn{
+  /* display: inline-block; */
+  margin-bottom:24rpx;
+  padding:0 24rpx;
+  height:64rpx;
+  line-height: 64rpx;
+  text-align: center;
+  font-size:26rpx;
+  background-color: rgba(255, 255, 255, 0.3);
 }
 .home-userinfo {
   box-sizing: border-box;

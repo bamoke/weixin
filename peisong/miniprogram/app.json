@@ -4,6 +4,7 @@
     "pages/product/list/list",
     "pages/car/index",
     "pages/bind/index",
+    "pages/mplogin/index",
     "pages/home/index/index",
     "pages/home/orders/detail"
   ],
@@ -48,5 +49,8 @@
     ]
   },
   "sitemapLocation": "sitemap.json",
+  "useExtendedLib": {
+    "weui": true
+},
   "style": "v2"
 }

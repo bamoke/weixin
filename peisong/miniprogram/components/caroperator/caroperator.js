@@ -52,41 +52,73 @@ Component({
 
       if(num == '')  return
 
-      num = parseInt(num)
+      // num = parseFloat(num)
 
       console.log(num)
-      if(isNaN(num) || num < 1) {
-        num = 1
+      if(isNaN(num) || num <= 0) {
+        // num = 1
       }
-      newItem.buynum = num
+
+    },
+    handleCheckInput(e){
+      let num = e.detail.value
+      const index = this.data.index
+      let newItem = Object.assign({}, this.data.item)
+      if(num == '') {
+        wx.showToast({
+          title: "数量不能为空",
+          image: "/images/icon-error.png"
+        })
+      }
+
+      if(isNaN(parseFloat(num))) {
+        wx.showToast({
+          title: "数量必须为数字",
+          image: "/images/icon-error.png"
+        })
+        return
+      }
+
+      if(parseFloat(num) === parseInt(num)) {
+
+        newItem.buynum = parseInt(num)
+      }else {
+
+        newItem.buynum = parseFloat(num).toFixed(1)
+      }
       this._storageCar(newItem)
       this.triggerEvent("update", {
         newItem,
         index
       })
-    },
-    handleCheckInput(e){
-      let num = e.detail.value
-      const index = this.data.index
-      if(num == '') {
-        wx.showToast({
-          title: "购买数量不能为空",
-          image: "/images/icon-error.png"
-        })
-      }
+
     },
     _computeNum({
       index,
       type
     }) {
       let newItem = Object.assign({}, this.data.item)
-
+      let num = Number(newItem.buynum)
       if (type === 'add') {
-        newItem.buynum = newItem.buynum + 1
+        num = num + 1
 
       } else {
-        newItem.buynum = newItem.buynum - 1
+        if(num >= 1 ) {
+          num = num - 1
+        }else {
+          num = 0
+        }
       }
+
+
+      if(parseFloat(num) === parseInt(num)) {
+
+        newItem.buynum = parseInt(num)
+      }else {
+
+        newItem.buynum = parseFloat(num).toFixed(1)
+      }
+
       this._storageCar(newItem)
       this.triggerEvent("update", {
         newItem,

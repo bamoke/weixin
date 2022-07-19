@@ -6,6 +6,7 @@
       <view class="item" wx:for="{{proList}}" wx:key="id">
         <image src="{{item.thumb}}" mode="aspectFill" class="thumb"></image>
         <view class="content">
+          <view class="remarks-btn" bindtap="handleShowRemarks" data-index="{{index}}">备注</view>
           <view class="top-content">
             <view class="title">{{item.title}}</view>
             <view class="desc">{{item.desc}}</view>
@@ -17,6 +18,7 @@
               <bmk-caroperator item="{{item}}" index="{{index}}" bind:update="updateList"></bmk-caroperator>
             </view>
           </view>
+          <view class="remarks-cont">备注：{{item.remarks}}</view>
         </view>
       </view>
     </view>
@@ -25,4 +27,29 @@
     </view>
   </block>
   <bmk-emptybox title="你还没有选购任何商品" wx:else></bmk-emptybox>
+</view>
+
+<view hidden="{{showRemarksBox===false}}">
+  <view class="m-mask"></view>
+  <view class="m-modal-box">
+    <view class="close-btn" bindtap="closeRemarksBox">
+      <mp-icon icon="close" size="{{32}}" color="#9c9c9c"></mp-icon>
+    </view>
+    <view class="m-modal-content">
+      <view class="result-warap">
+        <view class="win-result">
+          <view>
+            <view class="desc">请您输入备注信息</view>
+            <view class="section">
+              <textarea class="remarks-input"  auto-height placeholder="" model:value="{{curRemarks}}" bindinput="handleInputRemarks" bindconfirm="confirmRemarks" />
+            </view>
+            <view class="remarks-submit-btn" bindtap="confirmRemarks">确认</view>
+          </view>
+
+        </view>
+      </view>
+
+    </view>
+
+  </view>
 </view>
